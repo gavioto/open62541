@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>open62541: an open source implementation of OPC UA</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+		/* Space out content a bit */
+		body {
+		  padding-top: 20px;
+		  padding-bottom: 20px;
+		}
+
+		/* Everything but the jumbotron gets side spacing for mobile first views */
+		.header,
+		.marketing,
+		.footer {
+		  padding-right: 15px;
+		  padding-left: 15px;
+		}
+
+		/* Custom page header */
+		.header {
+		  border-bottom: 1px solid #e5e5e5;
+          padding-bottom: 20px;
+          margin-bottom: 25px;
+		}
+        
+		/* Make the masthead heading the same height as the navigation */
+		.header h3 {
+		  padding-bottom: 19px;
+		  margin-top: 0;
+		  margin-bottom: 0;
+		  line-height: 40px;
+		}
+
+		.btn{
+            margin: 10px 10px 0 0;
+}
+        .header .nav{
+            margin-top: 20px;
+        }
+        
+        /* Custom page footer */
+		.footer {
+		  padding-top: 19px;
+		  color: #777;
+		  border-top: 1px solid #e5e5e5;
+		}
+
+        /* Customize container */
+		@media only screen and (min-width: 768px){
+            
+
+		  .container {
+			max-width: 730px;
+		  }
+
+        }
+        
+        /* Supporting marketing content */
+		.marketing {
+		  margin: 40px 0;
+		}
+        
+        
+		.marketing p + h4 {
+		  margin-top: 28px;
+		}
+
+        .logos{
+            margin: 0 auto;
+            width: 80%;
+        }
+        
+        .logos img{
+            margin: 0 auto;
+        }
+
+        .ribbon{
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 0;
+        }
+        
+        		/* Responsive: Portrait tablets and up */
+		@media screen and (min-width: 768px) {
+		  /* Remove the padding we set earlier */
+		  .header,
+		  .marketing,
+		  .footer {
+			padding-right: 0;
+			padding-left: 0;
+		  }
+		  /* Space out the masthead */
+		  .header {
+			margin-bottom: 30px;
+		  }
+		  /* Remove the bottom border on the jumbotron for visual effect */
+		  .jumbotron {
+			border-bottom: 0;
+		  }
+		}
+
+
+        @media only screen and (min-width: 320px)  and (max-width: 850px) {
+            
+            
+            .container{
+            
+                margin-top: 100px;
+            }
+        }
+
+        
+        .container-narrow > hr {
+		  margin: 30px 0;
+		}
+
+		/* Main marketing message and sign up button */
+		.jumbotron {
+		  text-align: center;
+		  border-bottom: 1px solid #e5e5e5;
+		  padding: 20px;
+		  padding-left: 40px !important;
+		  padding-right: 40px !important;
+		}
+
+
+	</style>
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  
+<a href="https://github.com/acplt/open62541"><img class="ribbon" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+
+    <div class="container">
+      <div class="header">
+          <img alt="open62541 logo" src="open62541.png" style="width: 190px; margin: 20px 100px 0px 0;"/>
+          
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="https://github.com/acplt/open62541/wiki">Documenattion</a></li>
+          <li><a href="https://github.com/acplt/open62541/issues">Bugtracker</a></li>
+          <li><a href="http://webchat.freenode.net/?channels=%23open62541">IRC channel</a></li>
+        </ul>
+        
+          <div class="clearfix"></div>
+      </div>
+        
+        <div class="clearfix"></div>
+
+      <div class="jumbotron">
+        <p class="lead">An open source C99 implementation of <acronym title="OPC Unified Architecture">OPC UA</acronym> communication stack licensed under LGPL + static linking exception</p>
+
+        <p>
+            <a class="btn btn-lg btn-primary" id="more" href="#info" type="button">Learn more</a>
+            <a class="btn btn-lg btn-info" href="https://github.com/acplt/open62541/" type="button">Contribute on GitHub</a>
+            <a class="btn btn-lg btn-info" href="https://github.com/acplt/open62541/releases/tag/v0.1-automation14" type="button">Download</a>
+        </p>
+      </div>
+
+      <div class="row marketing" id="info" name="info">
+        <div class="col-lg-6">
+          <h4>Open</h4>
+          <p>
+          <ul>
+          	<li>stack design based solely on <a href="http://webstore.iec.ch/webstore/webstore.nsf/mysearchajax?Openform&key=62541" target="_blank">IEC 62541</a></li>
+			<li>licensed under open source (LGPL & static linking exception)</li>
+			<li>royalty free, available on <a href="https://github.com/acplt/open62541/">GitHub</a></li>
+          </ul>
+          </p>
+
+          <h4>Scalable</h4>
+          <p>
+          <ul>
+          	<li>single or multi-threaded architecture</li>
+          	<li>one thread per connection/session</li>
+          </ul>
+          </p>
+
+          <h4>Maintainable</h4>
+          <p>
+          <ul><li>85% of code generated from <a href="https://github.com/acplt/open62541/tree/master/schema">XML specification files</a></li></ul>
+          </p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4>Portable</h4>
+          <p>
+          <ul>
+          	<li>written in C99 with POSIX support</li>
+          	<li>runs on Windows (x86, x64), Linux (x86, x64, ARM e.g. Raspberry Pi, SPARCstation) and Android</li>
+          </ul>
+          </p>
+
+          <h4>Extensible</h4>
+          <p>
+          <ul><li>dynamically loadable and reconfigurable user models</li></ul>
+          </p>
+
+          <h4>More info?</h4>
+          <p>Dig into the documentation <a href="https://github.com/acplt/open62541/wiki">wiki</a>, check the <a href="https://github.com/acplt/open62541/issues">bugtracker</a> or read the whitepaper (coming soon)</p>
+        </div>
+      </div>
+      
+      <hr/>
+      <div class="row marketing">
+        <div class="col-lg-12">
+        <p>Initiated by:</p>
+            <div class="logos">
+
+        <a href="http://www.plt.rwth-aachen.de" target="_blank">
+        <img src="rwth.png" class="img-responsive"> 
+        </a>
+
+        <a href="http://www.iosb.fraunhofer.de" target="_blank">
+        <img src="iosb.png" class="img-responsive"> 
+        </a>
+
+
+        <a href="http://www.et.tu-dresden.de/ifa/index.php?id=prozessleittechnik" target="_blank">
+        <img src="tud_plt.png" class="img-responsive"> 
+
+        </a>
+
+                </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>&copy; 2014 by <a href="http://www.et.tu-dresden.de/typo3-2009/ifa/index.php?id=prozessleittechnik">TU Dresden PLT</a>, <a href="http://www.iosb.fraunhofer.de">Fraunhofer IOSB</a>, <a href="https://github.com/acplt">RWTH-PLT</a></p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+  </body>
+</html>
+
