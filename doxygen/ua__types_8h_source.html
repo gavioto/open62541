@@ -490,26 +490,14 @@
 <a name="l00514"></a>00514 <span class="preprocessor">    UA_TYPE_COPY_AS(TYPE, TYPE_AS)</span>
 <a name="l00515"></a>00515 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
 <a name="l00516"></a>00516 <span class="preprocessor"></span>
-<a name="l00517"></a>00517 <span class="comment">/***********************************/</span>
-<a name="l00518"></a>00518 <span class="comment">/* Internal node-data              */</span>
-<a name="l00519"></a>00519 <span class="comment">/***********************************/</span>
-<a name="l00520"></a>00520 
-<a name="l00522"></a><a class="code" href="structUA__Open62541Data.html">00522</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structUA__Open62541Data.html" title="Struct to hold internal data that is not seen on the wire.">UA_Open62541Data</a> {
-<a name="l00523"></a>00523     <span class="comment">//enum or union to come</span>
-<a name="l00524"></a><a class="code" href="structUA__Open62541Data.html#a917df1d1a2dafa39885616fcd0837e19">00524</a>     <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a>(*<a class="code" href="structUA__Open62541Data.html#a917df1d1a2dafa39885616fcd0837e19">readCallback</a>)(<span class="keyword">const</span> <a class="code" href="structUA__NodeId.html" title="An identifier for a node in the address space of an OPC UA Server.">UA_NodeId</a>* nodeid, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> typeId, <span class="keyword">const</span> <a class="code" href="group__types.html#structUA__Variant" title="A union of all of the types specified above.">UA_Variant</a>* value);
-<a name="l00525"></a><a class="code" href="structUA__Open62541Data.html#aa6c29f9a57789dd792327f544ff01060">00525</a>     <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a>(*<a class="code" href="structUA__Open62541Data.html#aa6c29f9a57789dd792327f544ff01060">writeCallback</a>)(<span class="keyword">const</span> <a class="code" href="structUA__NodeId.html" title="An identifier for a node in the address space of an OPC UA Server.">UA_NodeId</a>* nodeid, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> typeId, <span class="keyword">const</span> <a class="code" href="group__types.html#structUA__Variant" title="A union of all of the types specified above.">UA_Variant</a>* value);
-<a name="l00526"></a>00526 } <a class="code" href="structUA__Open62541Data.html" title="Struct to hold internal data that is not seen on the wire.">UA_Open62541Data</a>;
-<a name="l00527"></a>00527 
-<a name="l00528"></a>00528 <span class="keywordtype">void</span> <a class="code" href="group__types.html#gaef492c7a7a13fba907bfcfacea3a08fc">UA_Open62541Data_init</a>(<a class="code" href="structUA__Open62541Data.html" title="Struct to hold internal data that is not seen on the wire.">UA_Open62541Data</a> *p);
-<a name="l00529"></a>00529 
-<a name="l00531"></a>00531 
-<a name="l00532"></a>00532 <span class="preprocessor">#endif </span><span class="comment">/* UA_TYPES_H_ */</span>
+<a name="l00518"></a>00518 
+<a name="l00519"></a>00519 <span class="preprocessor">#endif </span><span class="comment">/* UA_TYPES_H_ */</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Wed Sep 3 2014 08:41:43 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 4 2014 14:36:58 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

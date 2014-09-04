@@ -71,8 +71,6 @@ Data Structures</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUA__Encoding.html">UA_Encoding</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#structUA__VTable">UA_VTable</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUA__Open62541Data.html">UA_Open62541Data</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct to hold internal data that is not seen on the wire.  <a href="structUA__Open62541Data.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="groups"></a>
 Modules</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__encoding.html">Datatype Encoding</a></td></tr>
@@ -342,7 +340,6 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga9168f1f1e627c1c79ac9ca2d3187908b">UA_Array_init</a> (void *p, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> noElements, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gafa61bfe771b68487cba91ec30fdbffb4">UA_Array_delete</a> (void *p, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> noElements, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gae2918166cbf64c94e6c6e0d79d41199c">UA_Array_copy</a> (const void *src, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> noElements, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, void **dst)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gaef492c7a7a13fba907bfcfacea3a08fc">UA_Open62541Data_init</a> (<a class="el" href="structUA__Open62541Data.html">UA_Open62541Data</a> *p)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <p>This module describes the datatypes used in OPC UA. There is a division into built-in datatypes (integers, strings, etc.) and more complex datatypes that are comprise of built-in datatypes (structs defined in the OPC UA standard). </p>
@@ -4016,23 +4013,6 @@ types</td>
 
 </div>
 </div>
-<a class="anchor" id="gaef492c7a7a13fba907bfcfacea3a08fc"></a><!-- doxytag: member="ua_types.h::UA_Open62541Data_init" ref="gaef492c7a7a13fba907bfcfacea3a08fc" args="(UA_Open62541Data *p)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="group__types.html#gaef492c7a7a13fba907bfcfacea3a08fc">UA_Open62541Data_init</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structUA__Open62541Data.html">UA_Open62541Data</a> *&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="gad0fac3f9d6dc76ecb99c8fe18a8dc662"></a><!-- doxytag: member="ua_types.h::UA_QualifiedName_copy" ref="gad0fac3f9d6dc76ecb99c8fe18a8dc662" args="(const UA_QualifiedName *src, UA_QualifiedName *dst)" -->
 <div class="memitem">
 <div class="memproto">
@@ -5126,7 +5106,7 @@ types</td>
 
 
 <address class="footer"><small>
-Generated on Wed Sep 3 2014 08:41:43 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 4 2014 14:36:59 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
