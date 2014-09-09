@@ -42,24 +42,24 @@
 <a href="ua__log_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef UA_LOG_H_</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define UA_LOG_H_</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00017"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">00017</a> <span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> {
-<a name="l00018"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa3a26abbe0ccf3aaf2b53982b7d8f9f7c">00018</a>     <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa3a26abbe0ccf3aaf2b53982b7d8f9f7c">UA_LOGGERCATEGORY_CONNECTION</a>,
-<a name="l00019"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa6fbc4fe7947d66f5a7d7255d19666ea1">00019</a>     <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa6fbc4fe7947d66f5a7d7255d19666ea1">UA_LOGGERCATEGORY_SESSION</a>,
-<a name="l00020"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aaa5bb8dea8a9adabaaa0370ea1923228f">00020</a>     <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aaa5bb8dea8a9adabaaa0370ea1923228f">UA_LOGGERCATEGORY_SUBSCRIPTION</a>,
-<a name="l00021"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aadf9fc59ec3ccc194857bdb781fc94bcc">00021</a>     <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aadf9fc59ec3ccc194857bdb781fc94bcc">UA_LOGGERCATEGORY_MAINTENANCE</a>,
-<a name="l00022"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aae60dd58323f095ee067ba614df186d27">00022</a>     <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aae60dd58323f095ee067ba614df186d27">UA_LOGGERCATEGORY_LOAD</a>,
-<a name="l00023"></a>00023 } <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a>;
+<a name="l00017"></a><a class="code" href="ua__log_8h.html#afadcac5aa76e604c120014ad79a55c9f">00017</a> <span class="keyword">enum</span> UA_LoggerCategory {
+<a name="l00018"></a><a class="code" href="ua__log_8h.html#afadcac5aa76e604c120014ad79a55c9fa3a26abbe0ccf3aaf2b53982b7d8f9f7c">00018</a>     <a class="code" href="ua__log_8h.html#afadcac5aa76e604c120014ad79a55c9fa3a26abbe0ccf3aaf2b53982b7d8f9f7c">UA_LOGGERCATEGORY_CONNECTION</a>,
+<a name="l00019"></a><a class="code" href="ua__log_8h.html#afadcac5aa76e604c120014ad79a55c9fa6fbc4fe7947d66f5a7d7255d19666ea1">00019</a>     <a class="code" href="ua__log_8h.html#afadcac5aa76e604c120014ad79a55c9fa6fbc4fe7947d66f5a7d7255d19666ea1">UA_LOGGERCATEGORY_SESSION</a>,
+<a name="l00020"></a><a class="code" href="ua__log_8h.html#afadcac5aa76e604c120014ad79a55c9faa5bb8dea8a9adabaaa0370ea1923228f">00020</a>     <a class="code" href="ua__log_8h.html#afadcac5aa76e604c120014ad79a55c9faa5bb8dea8a9adabaaa0370ea1923228f">UA_LOGGERCATEGORY_SUBSCRIPTION</a>,
+<a name="l00021"></a><a class="code" href="ua__log_8h.html#afadcac5aa76e604c120014ad79a55c9fadf9fc59ec3ccc194857bdb781fc94bcc">00021</a>     <a class="code" href="ua__log_8h.html#afadcac5aa76e604c120014ad79a55c9fadf9fc59ec3ccc194857bdb781fc94bcc">UA_LOGGERCATEGORY_MAINTENANCE</a>,
+<a name="l00022"></a><a class="code" href="ua__log_8h.html#afadcac5aa76e604c120014ad79a55c9fae60dd58323f095ee067ba614df186d27">00022</a>     <a class="code" href="ua__log_8h.html#afadcac5aa76e604c120014ad79a55c9fae60dd58323f095ee067ba614df186d27">UA_LOGGERCATEGORY_LOAD</a>,
+<a name="l00023"></a>00023 }
 <a name="l00024"></a>00024 
-<a name="l00025"></a><a class="code" href="structUA__Logger.html">00025</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structUA__Logger.html">UA_Logger</a> {
-<a name="l00026"></a><a class="code" href="structUA__Logger.html#a4d3f3918f756040d2644e55569b4cb51">00026</a>     void (*<a class="code" href="structUA__Logger.html#a4d3f3918f756040d2644e55569b4cb51">log_trace</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
-<a name="l00027"></a><a class="code" href="structUA__Logger.html#a151fbf67f9f1690d83edcce3b70d7fc1">00027</a>     void (*<a class="code" href="structUA__Logger.html#a151fbf67f9f1690d83edcce3b70d7fc1">log_debug</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
-<a name="l00028"></a><a class="code" href="structUA__Logger.html#ac5bf65e8613056acc8d1fa5aa903af11">00028</a>     void (*<a class="code" href="structUA__Logger.html#ac5bf65e8613056acc8d1fa5aa903af11">log_info</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
-<a name="l00029"></a><a class="code" href="structUA__Logger.html#ad43ea973a31a5f27f23a4627696096ac">00029</a>     void (*<a class="code" href="structUA__Logger.html#ad43ea973a31a5f27f23a4627696096ac">log_warning</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
-<a name="l00030"></a><a class="code" href="structUA__Logger.html#a126880a8b0de74692640d925652c5e35">00030</a>     void (*<a class="code" href="structUA__Logger.html#a126880a8b0de74692640d925652c5e35">log_error</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
-<a name="l00031"></a><a class="code" href="structUA__Logger.html#aa98e868de774a27f3454906f0a08450f">00031</a>     void (*<a class="code" href="structUA__Logger.html#aa98e868de774a27f3454906f0a08450f">log_fatal</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
-<a name="l00032"></a>00032 } <a class="code" href="structUA__Logger.html">UA_Logger</a>;
+<a name="l00025"></a>00025 <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="ua__log_8h.html#a61bca2e4e32fdca8a3b7052989696e89">UA_Logger</a> {
+<a name="l00026"></a>00026     log_trace(UA_LoggerCategory category, <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="ua__log_8h.html#a5dd9c7bcd7bd8c1661f33f060cc2ae65">msg</a>, ...);
+<a name="l00027"></a>00027     <a class="code" href="ua__log_8h.html#a86e9463669085ea0da8091ac157c46e9">log_debug</a>(UA_LoggerCategory category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
+<a name="l00028"></a>00028     <a class="code" href="ua__log_8h.html#a11c2bf9b15cb339e718366706572b8d4">log_info</a>(UA_LoggerCategory category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
+<a name="l00029"></a>00029     <a class="code" href="ua__log_8h.html#a2f5eadfae9fdbcd6d0ce257dcfbc7e68">log_warning</a>(UA_LoggerCategory category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
+<a name="l00030"></a>00030     <a class="code" href="ua__log_8h.html#a74675d5c3870df303ede1ae9b3a4dab7">log_error</a>(UA_LoggerCategory category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
+<a name="l00031"></a>00031     <a class="code" href="ua__log_8h.html#a85f95cf2896505b8a4b684feae61f5b0">log_fatal</a>(UA_LoggerCategory category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
+<a name="l00032"></a><a class="code" href="ua__log_8h.html#a61bca2e4e32fdca8a3b7052989696e89">00032</a> } <a class="code" href="ua__log_8h.html#a61bca2e4e32fdca8a3b7052989696e89">UA_Logger</a>;
 <a name="l00033"></a>00033 
-<a name="l00036"></a>00036 <span class="keyword">static</span> <a class="code" href="structUA__Logger.html">UA_Logger</a> logger;
+<a name="l00036"></a>00036 <span class="keyword">static</span> <a class="code" href="ua__log_8h.html#a61bca2e4e32fdca8a3b7052989696e89">UA_Logger</a> logger;
 <a name="l00037"></a>00037 
 <a name="l00038"></a>00038 <span class="preprocessor">#if UA_LOGLEVEL &lt;= 100</span>
 <a name="l00039"></a><a class="code" href="ua__log_8h.html#afca7ee0b6b4adff559c778b053afa130">00039</a> <span class="preprocessor"></span><span class="preprocessor">#define LOG_TRACE(CATEGORY, MSG, ...) do{ logger.log_trace(CATEGORY, MSG, __VA_ARGS__); } while</span>
@@ -103,7 +103,7 @@
 
 
 <address class="footer"><small>
-Generated on Tue Sep 9 2014 08:09:28 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 9 2014 09:12:23 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
