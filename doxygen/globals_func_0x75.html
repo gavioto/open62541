@@ -1108,6 +1108,9 @@
 <li>UA_QualifiedName_copy()
 : <a class="el" href="group__types.html#gad0fac3f9d6dc76ecb99c8fe18a8dc662">ua_types.h</a>
 </li>
+<li>UA_QualifiedName_copycstring()
+: <a class="el" href="group__types.html#ga3a1cd30af3cded8f6f4eb6395f625dbf">ua_types.h</a>
+</li>
 <li>UA_QualifiedName_decodeBinary()
 : <a class="el" href="group__encoding__binary.html#gad36e42e160bcf983130411a83672fc0d">ua_types_encoding_binary.h</a>
 </li>
@@ -1394,23 +1397,21 @@
 : <a class="el" href="ua__xml_8h.html#a7899db88c3951c35f43d27d17d737bc4">ua_xml.h</a>
 </li>
 <li>UA_TYPE_PROTOTYPES()
-: <a class="el" href="ua__types__generated_8h.html#a8546c1ee21cf32015c6e8150db5d1f12">ua_types_generated.h</a>
-, <a class="el" href="ua__transport__generated_8h.html#a4e407336b9d3dfbb5b477b5fdf3ec7ea">ua_transport_generated.h</a>
-, <a class="el" href="ua__types__generated_8h.html#a6350259e00213f7ee8589a835c4350f4">ua_types_generated.h</a>
-, <a class="el" href="ua__transport__generated_8h.html#a7649917ac979f242d9564bc25b4d73ba">ua_transport_generated.h</a>
-, <a class="el" href="ua__types__generated_8h.html#aaea3953434a99d6613eefab0cffb3a16">ua_types_generated.h</a>
-, <a class="el" href="ua__transport__generated_8h.html#a5cd0cc212eda3f4f2da276a59cd3ffdc">ua_transport_generated.h</a>
-, <a class="el" href="ua__types__generated_8h.html#a18672cf3b7877db49c8cb553f576c586">ua_types_generated.h</a>
-, <a class="el" href="ua__transport__generated_8h.html#a40b8633e0dfa3f55adeb362b5b7f23e8">ua_transport_generated.h</a>
-, <a class="el" href="ua__types__generated_8h.html#a5d223c796507ef49357498bf1d578186">ua_types_generated.h</a>
-, <a class="el" href="ua__transport__generated_8h.html#ab3373b5914ce87ac14c39ba25597c512">ua_transport_generated.h</a>
-, <a class="el" href="ua__types__generated_8h.html#a03efc8b8975e10bcd4f7fdfd85e19584">ua_types_generated.h</a>
-, <a class="el" href="ua__transport__generated_8h.html#a2e72239b18d7527b9db75fc180c564cd">ua_transport_generated.h</a>
-, <a class="el" href="ua__types__generated_8h.html#a9d6e529d87b110880a19ab4f68b20c9a">ua_types_generated.h</a>
+: <a class="el" href="ua__types__generated_8h.html#af119d7941f671e42657530217ce1f3b0">ua_types_generated.h</a>
 , <a class="el" href="ua__transport__generated_8h.html#afce5e02a8c0b527d9e781e0c30e48893">ua_transport_generated.h</a>
-, <a class="el" href="ua__types__generated_8h.html#aa9fdc2948f3f7c9e9f578daa26b3e50a">ua_types_generated.h</a>
+, <a class="el" href="ua__types__generated_8h.html#a76c592fd5a0668b0a51613f6c9a341be">ua_types_generated.h</a>
+, <a class="el" href="ua__transport__generated_8h.html#a5cd0cc212eda3f4f2da276a59cd3ffdc">ua_transport_generated.h</a>
+, <a class="el" href="ua__types__generated_8h.html#a92d1318a307b2d2deece548227061873">ua_types_generated.h</a>
+, <a class="el" href="ua__transport__generated_8h.html#a2e72239b18d7527b9db75fc180c564cd">ua_transport_generated.h</a>
+, <a class="el" href="ua__types__generated_8h.html#ab2ac11b51c82e0e4e93845401d4e66f5">ua_types_generated.h</a>
+, <a class="el" href="ua__transport__generated_8h.html#a7649917ac979f242d9564bc25b4d73ba">ua_transport_generated.h</a>
+, <a class="el" href="ua__types__generated_8h.html#a7729b9431087c011ae7a7c138e0b172f">ua_types_generated.h</a>
+, <a class="el" href="ua__transport__generated_8h.html#ab3373b5914ce87ac14c39ba25597c512">ua_transport_generated.h</a>
+, <a class="el" href="ua__types__generated_8h.html#a405d670fa6dff7660b79b2650f1870de">ua_types_generated.h</a>
+, <a class="el" href="ua__transport__generated_8h.html#a40b8633e0dfa3f55adeb362b5b7f23e8">ua_transport_generated.h</a>
+, <a class="el" href="ua__types__generated_8h.html#aaf743c0324a4b644098d4be0b1f90371">ua_types_generated.h</a>
 , <a class="el" href="ua__transport__generated_8h.html#a933dc1941f2364e2f08e110775f9e6e5">ua_transport_generated.h</a>
-, <a class="el" href="ua__types__generated_8h.html#a5213131bf91e5fcd26893dd3399ae691">ua_types_generated.h</a>
+, <a class="el" href="ua__types__generated_8h.html#a55f657d86330468802a3cecfe92d0da0">ua_types_generated.h</a>
 </li>
 <li>UA_TypedArray_decodeXmlFromStack()
 : <a class="el" href="ua__xml_8h.html#afc5bbcf08e427b881f5f8a8ed719a4f8">ua_xml.h</a>
@@ -1571,9 +1572,6 @@
 <li>UA_UInt64_new()
 : <a class="el" href="group__types.html#gae1216336a8e416672764c3a026b42b66">ua_types.h</a>
 </li>
-<li>UA_Variant_borrowSetArray()
-: <a class="el" href="group__types.html#ga32160f713befdb4db172c81ceb6d71d5">ua_types.h</a>
-</li>
 <li>UA_Variant_borrowSetValue()
 : <a class="el" href="group__types.html#ga3c9fd969338bc4732c7c866b2dc49324">ua_types.h</a>
 </li>
@@ -1688,7 +1686,7 @@
 
 
 <address class="footer"><small>
-Generated on Fri Sep 12 2014 13:15:58 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 12 2014 15:35:31 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

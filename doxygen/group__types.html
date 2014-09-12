@@ -330,12 +330,12 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga5d5eb7e9d541654965cdd0e43efadb73">UA_NodeId_isNull</a> (const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gaf61d51537a354f389b4f6092428ac110">UA_NodeId_isBasicType</a> (<a class="el" href="structUA__NodeId.html">UA_NodeId</a> const *id)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga9f72c8cb30be5d7e5d99b28c68ae2a47">UA_ExpandedNodeId_isNull</a> (const <a class="el" href="group__types.html#structUA__ExpandedNodeId">UA_ExpandedNodeId</a> *p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga3a1cd30af3cded8f6f4eb6395f625dbf">UA_QualifiedName_copycstring</a> (char const *src, <a class="el" href="group__types.html#structUA__QualifiedName">UA_QualifiedName</a> *dst)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga0aeccd6c27840a8822188e4dade728fd">UA_LocalizedText_copycstring</a> (char const *src, <a class="el" href="group__types.html#structUA__LocalizedText">UA_LocalizedText</a> *dst)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga9c241bced31b77f51e5caa5e083afa4d">UA_Variant_copySetValue</a> (<a class="el" href="group__types.html#structUA__Variant">UA_Variant</a> *v, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, const void *value)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gad6c80edff6e1a5662f67a36aa9c4bca1">UA_Variant_copySetArray</a> (<a class="el" href="group__types.html#structUA__Variant">UA_Variant</a> *v, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> arrayLength, const void *array)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga3c9fd969338bc4732c7c866b2dc49324">UA_Variant_borrowSetValue</a> (<a class="el" href="group__types.html#structUA__Variant">UA_Variant</a> *v, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, const void *value)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Functions UA_Variant_borrowSetValue and ..Array allow to define variants whose payload will not be deleted. This is achieved by a second vtable. The functionality can be used e.g. when UA_VariableNodes point into a "father" structured object that is stored in an UA_VariableNode itself.  <a href="#ga3c9fd969338bc4732c7c866b2dc49324"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga32160f713befdb4db172c81ceb6d71d5">UA_Variant_borrowSetArray</a> (<a class="el" href="group__types.html#structUA__Variant">UA_Variant</a> *v, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> arrayLength, const void *array)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to define variants whose payload will not be deleted. This is achieved by a second vtable. The functionality can be used e.g. when UA_VariableNodes point into a "father" structured object that is stored in an UA_VariableNode itself. This is not possible for arrays so far.  <a href="#ga3c9fd969338bc4732c7c866b2dc49324"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga6d5b3a567b13618fd6a4caea30e5d077">UA_Array_new</a> (void **p, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> noElements, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga9168f1f1e627c1c79ac9ca2d3187908b">UA_Array_init</a> (void *p, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> noElements, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gafa61bfe771b68487cba91ec30fdbffb4">UA_Array_delete</a> (void *p, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> noElements, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt)</td></tr>
@@ -4042,6 +4042,33 @@ types</td>
 
 </div>
 </div>
+<a class="anchor" id="ga3a1cd30af3cded8f6f4eb6395f625dbf"></a><!-- doxytag: member="ua_types.h::UA_QualifiedName_copycstring" ref="ga3a1cd30af3cded8f6f4eb6395f625dbf" args="(char const *src, UA_QualifiedName *dst)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="group__types.html#ga3a1cd30af3cded8f6f4eb6395f625dbf">UA_QualifiedName_copycstring</a> </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__types.html#structUA__QualifiedName">UA_QualifiedName</a> *&#160;</td>
+          <td class="paramname"><em>dst</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ga9e89d3e771c6ca49e9604db5a12c5182"></a><!-- doxytag: member="ua_types.h::UA_QualifiedName_delete" ref="ga9e89d3e771c6ca49e9604db5a12c5182" args="(UA_QualifiedName *p)" -->
 <div class="memitem">
 <div class="memproto">
@@ -4767,45 +4794,6 @@ types</td>
 
 </div>
 </div>
-<a class="anchor" id="ga32160f713befdb4db172c81ceb6d71d5"></a><!-- doxytag: member="ua_types.h::UA_Variant_borrowSetArray" ref="ga32160f713befdb4db172c81ceb6d71d5" args="(UA_Variant *v, UA_VTable_Entry *vt, UA_Int32 arrayLength, const void *array)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="group__types.html#ga32160f713befdb4db172c81ceb6d71d5">UA_Variant_borrowSetArray</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="group__types.html#structUA__Variant">UA_Variant</a> *&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *&#160;</td>
-          <td class="paramname"><em>vt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td>
-          <td class="paramname"><em>arrayLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const void *&#160;</td>
-          <td class="paramname"><em>array</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="ga3c9fd969338bc4732c7c866b2dc49324"></a><!-- doxytag: member="ua_types.h::UA_Variant_borrowSetValue" ref="ga3c9fd969338bc4732c7c866b2dc49324" args="(UA_Variant *v, UA_VTable_Entry *vt, const void *value)" -->
 <div class="memitem">
 <div class="memproto">
@@ -4837,7 +4825,7 @@ types</td>
 </div>
 <div class="memdoc">
 
-<p>Functions UA_Variant_borrowSetValue and ..Array allow to define variants whose payload will not be deleted. This is achieved by a second vtable. The functionality can be used e.g. when UA_VariableNodes point into a "father" structured object that is stored in an UA_VariableNode itself. </p>
+<p>Allows to define variants whose payload will not be deleted. This is achieved by a second vtable. The functionality can be used e.g. when UA_VariableNodes point into a "father" structured object that is stored in an UA_VariableNode itself. This is not possible for arrays so far. </p>
 
 </div>
 </div>
@@ -5108,7 +5096,7 @@ types</td>
 
 
 <address class="footer"><small>
-Generated on Fri Sep 12 2014 13:15:58 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 12 2014 15:35:31 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
