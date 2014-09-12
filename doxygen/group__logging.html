@@ -34,15 +34,15 @@
 </div><!--header-->
 <div class="contents">
 
-<p>Logging functionality is externally provided to the open62541 libary. That is, every thread that wants logging to take place fills a global variable "logger" with the appropriate callback functions. The UA_LOGLEVEL preprocessor definition indicates which severity of events (trance, debug, info, warning, error, fatal) shall be reported. Enabling logs at a certain level enables all logs at the higher levels also. Furthermore, every log-message has a category that can be used for filtering or to select the output medium (file, stdout, ..).  
+<p>Logging functionality is externally provided to the open62541 libary. The server contains a logger-struct with function callbacks.  
 <a href="#details">More...</a></p>
-<p>Logging functionality is externally provided to the open62541 libary. That is, every thread that wants logging to take place fills a global variable "logger" with the appropriate callback functions. The UA_LOGLEVEL preprocessor definition indicates which severity of events (trance, debug, info, warning, error, fatal) shall be reported. Enabling logs at a certain level enables all logs at the higher levels also. Furthermore, every log-message has a category that can be used for filtering or to select the output medium (file, stdout, ..). </p>
+<p>Logging functionality is externally provided to the open62541 libary. The server contains a logger-struct with function callbacks. </p>
 </div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Wed Sep 10 2014 10:01:00 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 12 2014 13:15:29 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

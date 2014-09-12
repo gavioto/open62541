@@ -42,92 +42,94 @@
 <a href="ua__types__encoding__binary_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef UA_TYPES_ENCODING_BINARY_H_</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define UA_TYPES_ENCODING_BINARY_H_</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="ua__util_8h.html">util/ua_util.h</a>&quot;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="ua__types_8h.html">ua_types.h</a>&quot;</span>
-<a name="l00006"></a>00006 
-<a name="l00035"></a>00035 <span class="comment">/* Stop decoding at the first failure. Free members that were already allocated.</span>
-<a name="l00036"></a>00036 <span class="comment">   It is assumed that retval is already defined. */</span>
-<a name="l00037"></a><a class="code" href="group__encoding__binary.html#ga3e32c1e90da256a0d13845c618a44350">00037</a> <span class="preprocessor">#define CHECKED_DECODE(DECODE, CLEAN_UP) do { \</span>
-<a name="l00038"></a>00038 <span class="preprocessor">        retval |= DECODE;                     \</span>
-<a name="l00039"></a>00039 <span class="preprocessor">        if(retval != UA_SUCCESS) {            \</span>
-<a name="l00040"></a>00040 <span class="preprocessor">            CLEAN_UP;                         \</span>
-<a name="l00041"></a>00041 <span class="preprocessor">            return retval;                    \</span>
-<a name="l00042"></a>00042 <span class="preprocessor">        } } while(0)</span>
-<a name="l00043"></a>00043 <span class="preprocessor"></span>
-<a name="l00044"></a><a class="code" href="group__encoding__binary.html#ga51a02293e59b38880ac9a9f26d14ff60">00044</a> <span class="preprocessor">#define UA_TYPE_CALCSIZEBINARY_AS(TYPE, TYPE_AS)       \</span>
-<a name="l00045"></a>00045 <span class="preprocessor">    UA_Int32 TYPE##_calcSizeBinary(TYPE const *p) {    \</span>
-<a name="l00046"></a>00046 <span class="preprocessor">        return TYPE_AS##_calcSizeBinary((TYPE_AS *)p); \</span>
-<a name="l00047"></a>00047 <span class="preprocessor">    }</span>
-<a name="l00048"></a>00048 <span class="preprocessor"></span>
-<a name="l00049"></a><a class="code" href="group__encoding__binary.html#ga538e9e4883582662e992298762c02480">00049</a> <span class="preprocessor">#define UA_TYPE_ENCODEBINARY_AS(TYPE, TYPE_AS)                                             \</span>
-<a name="l00050"></a>00050 <span class="preprocessor">    UA_Int32 TYPE##_encodeBinary(TYPE const *src, UA_ByteString *dst, UA_UInt32 *offset) { \</span>
-<a name="l00051"></a>00051 <span class="preprocessor">        return TYPE_AS##_encodeBinary((TYPE_AS *)src, dst, offset);                        \</span>
-<a name="l00052"></a>00052 <span class="preprocessor">    }</span>
-<a name="l00053"></a>00053 <span class="preprocessor"></span>
-<a name="l00054"></a><a class="code" href="group__encoding__binary.html#ga758e36ae4932a22e98aa7ba309f1d882">00054</a> <span class="preprocessor">#define UA_TYPE_DECODEBINARY_AS(TYPE, TYPE_AS)                                             \</span>
-<a name="l00055"></a>00055 <span class="preprocessor">    UA_Int32 TYPE##_decodeBinary(UA_ByteString const *src, UA_UInt32 *offset, TYPE *dst) { \</span>
-<a name="l00056"></a>00056 <span class="preprocessor">        return TYPE_AS##_decodeBinary(src, offset, (TYPE_AS *)dst);                        \</span>
-<a name="l00057"></a>00057 <span class="preprocessor">    }</span>
-<a name="l00058"></a><a class="code" href="group__encoding__binary.html#ga50acb1dd324719337812a0f05efa95f6">00058</a> <span class="preprocessor"></span><span class="preprocessor">#define UA_TYPE_BINARY_ENCODING_AS(TYPE, TYPE_AS) \</span>
-<a name="l00059"></a>00059 <span class="preprocessor">    UA_TYPE_CALCSIZEBINARY_AS(TYPE, TYPE_AS)      \</span>
-<a name="l00060"></a>00060 <span class="preprocessor">    UA_TYPE_ENCODEBINARY_AS(TYPE, TYPE_AS)        \</span>
-<a name="l00061"></a>00061 <span class="preprocessor">    UA_TYPE_DECODEBINARY_AS(TYPE, TYPE_AS)</span>
-<a name="l00062"></a>00062 <span class="preprocessor"></span>
-<a name="l00063"></a><a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">00063</a> <span class="preprocessor">#define UA_TYPE_BINARY_ENCODING(TYPE)                                                     \</span>
-<a name="l00064"></a>00064 <span class="preprocessor">    UA_Int32 TYPE##_calcSizeBinary(TYPE const *p);                                        \</span>
-<a name="l00065"></a>00065 <span class="preprocessor">    UA_Int32 TYPE##_encodeBinary(TYPE const *src, UA_ByteString *dst, UA_UInt32 *offset); \</span>
-<a name="l00066"></a>00066 <span class="preprocessor">    UA_Int32 TYPE##_decodeBinary(UA_ByteString const *src, UA_UInt32 *offset, TYPE *dst);</span>
-<a name="l00067"></a>00067 <span class="preprocessor"></span>
-<a name="l00068"></a>00068 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga0632a6a27680358c83dcb69725e15139" title="A two-state logical value (true or false).">UA_Boolean</a>)
-<a name="l00069"></a>00069 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga4ba04733a2525e207fa5ea5337ad17f3" title="An integer value between -129 and 127.">UA_SByte</a>)
-<a name="l00070"></a>00070 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#gac31865e6fcb9a042b5eaf5a5bd4ed30d" title="An integer value between 0 and 256.">UA_Byte</a>)
-<a name="l00071"></a>00071 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga2dfa954c25e6984956ab6fa8e8fd73db" title="An integer value between -32 768 and 32 767.">UA_Int16</a>)
-<a name="l00072"></a>00072 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05" title="An integer value between 0 and 65 535.">UA_UInt16</a>)
-<a name="l00073"></a>00073 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a>)
-<a name="l00074"></a>00074 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a>)
-<a name="l00075"></a>00075 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#gae5c13df54009d7a3e374bfc594af8059" title="An integer value between -10 223 372 036 854 775 808 and 9 223 372 036 854 775 807.">UA_Int64</a>)
-<a name="l00076"></a>00076 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#gad0d8e52a357b7fbe50a0b93a2b688b51" title="An integer value between 0 and 18 446 744 073 709 551 615.">UA_UInt64</a>)
-<a name="l00077"></a>00077 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga899228311700e99d006f1ba5bcfcbd02" title="An IEEE single precision (32 bit) floating point value.">UA_Float</a>)
-<a name="l00078"></a>00078 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#gaac69e6c4659bdcafdb30498200a0ab07" title="An IEEE double precision (64 bit) floating point value.">UA_Double</a>)
-<a name="l00079"></a>00079 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__String" title="A sequence of Unicode characters.">UA_String</a>)
-<a name="l00080"></a>00080 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#gab4378e68c207b1de4e58d0ae26dc333c" title="An instance in time.">UA_DateTime</a>)
-<a name="l00081"></a>00081 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__Guid" title="A 16 byte value that can be used as a globally unique identifier.">UA_Guid</a>)
-<a name="l00082"></a>00082 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(UA_ByteString)
-<a name="l00083"></a>00083 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(UA_XmlElement)
-<a name="l00084"></a>00084 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="structUA__NodeId.html" title="An identifier for a node in the address space of an OPC UA Server.">UA_NodeId</a>)
-<a name="l00085"></a>00085 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__ExpandedNodeId" title="A NodeId that allows the namespace URI to be specified instead of an index.">UA_ExpandedNodeId</a>)
-<a name="l00086"></a>00086 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e" title="A numeric identifier for a error or condition that is associated with a value or an operation...">UA_StatusCode</a>)
-<a name="l00087"></a>00087 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__QualifiedName" title="A name qualified by a namespace.">UA_QualifiedName</a>)
-<a name="l00088"></a>00088 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__LocalizedText" title="Human readable text with an optional locale identifier.">UA_LocalizedText</a>)
-<a name="l00089"></a>00089 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="structUA__ExtensionObject.html" title="A structure that contains an application specific data type that may not be recognized by the receive...">UA_ExtensionObject</a>)
-<a name="l00090"></a>00090 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__DataValue" title="A data value with an associated status code and timestamps.">UA_DataValue</a>)
-<a name="l00091"></a>00091 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__Variant" title="A union of all of the types specified above.">UA_Variant</a>)
-<a name="l00092"></a>00092 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__DiagnosticInfo" title="A structure that contains detailed error and diagnostic information associated with a StatusCode...">UA_DiagnosticInfo</a>)
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094 <span class="comment">/* Not built-in types */</span>
-<a name="l00095"></a>00095 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#gabb778a6b095690de8e5d510550fc3743" title="Type use internally to denote an invalid datatype.">UA_InvalidType</a>)
-<a name="l00096"></a>00096 
-<a name="l00097"></a>00097 <span class="comment">/*********/</span>
-<a name="l00098"></a>00098 <span class="comment">/* Array */</span>
-<a name="l00099"></a>00099 <span class="comment">/*********/</span>
-<a name="l00100"></a>00100 
-<a name="l00101"></a>00101 <span class="comment">/* Computes the size of an array (incl. length field) in a binary blob. */</span>
-<a name="l00102"></a>00102 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__encoding__binary.html#ga82959391f893252b10c4de38f8596683">UA_Array_calcSizeBinary</a>(<a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> nElements, <a class="code" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, const <span class="keywordtype">void</span> *data);
-<a name="l00103"></a>00103 
-<a name="l00104"></a>00104 <span class="comment">/* @brief Encodes an array into a binary blob. The array size is printed as well. */</span>
-<a name="l00105"></a>00105 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__encoding__binary.html#ga6a579938085a3392b9179c8ee95b666e">UA_Array_encodeBinary</a>(const <span class="keywordtype">void</span> *src, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> noElements, <a class="code" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, UA_ByteString *dst, <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> *offset);
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="ua__types_8h.html">ua_types.h</a>&quot;</span>
+<a name="l00005"></a>00005 
+<a name="l00034"></a>00034 <span class="comment">/* Stop decoding at the first failure. Free members that were already allocated.</span>
+<a name="l00035"></a>00035 <span class="comment">   It is assumed that retval is already defined. */</span>
+<a name="l00036"></a><a class="code" href="group__encoding__binary.html#ga3e32c1e90da256a0d13845c618a44350">00036</a> <span class="preprocessor">#define CHECKED_DECODE(DECODE, CLEAN_UP) do { \</span>
+<a name="l00037"></a>00037 <span class="preprocessor">        retval |= DECODE;                     \</span>
+<a name="l00038"></a>00038 <span class="preprocessor">        if(retval != UA_SUCCESS) {            \</span>
+<a name="l00039"></a>00039 <span class="preprocessor">            CLEAN_UP;                         \</span>
+<a name="l00040"></a>00040 <span class="preprocessor">            return retval;                    \</span>
+<a name="l00041"></a>00041 <span class="preprocessor">        } } while(0)</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span>
+<a name="l00043"></a><a class="code" href="group__encoding__binary.html#ga51a02293e59b38880ac9a9f26d14ff60">00043</a> <span class="preprocessor">#define UA_TYPE_CALCSIZEBINARY_AS(TYPE, TYPE_AS)       \</span>
+<a name="l00044"></a>00044 <span class="preprocessor">    UA_Int32 TYPE##_calcSizeBinary(TYPE const *p) {    \</span>
+<a name="l00045"></a>00045 <span class="preprocessor">        return TYPE_AS##_calcSizeBinary((TYPE_AS *)p); \</span>
+<a name="l00046"></a>00046 <span class="preprocessor">    }</span>
+<a name="l00047"></a>00047 <span class="preprocessor"></span>
+<a name="l00048"></a><a class="code" href="group__encoding__binary.html#ga538e9e4883582662e992298762c02480">00048</a> <span class="preprocessor">#define UA_TYPE_ENCODEBINARY_AS(TYPE, TYPE_AS)                                             \</span>
+<a name="l00049"></a>00049 <span class="preprocessor">    UA_Int32 TYPE##_encodeBinary(TYPE const *src, UA_ByteString *dst, UA_UInt32 *offset) { \</span>
+<a name="l00050"></a>00050 <span class="preprocessor">        return TYPE_AS##_encodeBinary((TYPE_AS *)src, dst, offset);                        \</span>
+<a name="l00051"></a>00051 <span class="preprocessor">    }</span>
+<a name="l00052"></a>00052 <span class="preprocessor"></span>
+<a name="l00053"></a><a class="code" href="group__encoding__binary.html#ga758e36ae4932a22e98aa7ba309f1d882">00053</a> <span class="preprocessor">#define UA_TYPE_DECODEBINARY_AS(TYPE, TYPE_AS)                                             \</span>
+<a name="l00054"></a>00054 <span class="preprocessor">    UA_Int32 TYPE##_decodeBinary(UA_ByteString const *src, UA_UInt32 *offset, TYPE *dst) { \</span>
+<a name="l00055"></a>00055 <span class="preprocessor">        return TYPE_AS##_decodeBinary(src, offset, (TYPE_AS *)dst);                        \</span>
+<a name="l00056"></a>00056 <span class="preprocessor">    }</span>
+<a name="l00057"></a><a class="code" href="group__encoding__binary.html#ga50acb1dd324719337812a0f05efa95f6">00057</a> <span class="preprocessor"></span><span class="preprocessor">#define UA_TYPE_BINARY_ENCODING_AS(TYPE, TYPE_AS) \</span>
+<a name="l00058"></a>00058 <span class="preprocessor">    UA_TYPE_CALCSIZEBINARY_AS(TYPE, TYPE_AS)      \</span>
+<a name="l00059"></a>00059 <span class="preprocessor">    UA_TYPE_ENCODEBINARY_AS(TYPE, TYPE_AS)        \</span>
+<a name="l00060"></a>00060 <span class="preprocessor">    UA_TYPE_DECODEBINARY_AS(TYPE, TYPE_AS)</span>
+<a name="l00061"></a>00061 <span class="preprocessor"></span>
+<a name="l00062"></a><a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">00062</a> <span class="preprocessor">#define UA_TYPE_BINARY_ENCODING(TYPE)                                                     \</span>
+<a name="l00063"></a>00063 <span class="preprocessor">    UA_Int32 TYPE##_calcSizeBinary(TYPE const *p);                                        \</span>
+<a name="l00064"></a>00064 <span class="preprocessor">    UA_Int32 TYPE##_encodeBinary(TYPE const *src, UA_ByteString *dst, UA_UInt32 *offset); \</span>
+<a name="l00065"></a>00065 <span class="preprocessor">    UA_Int32 TYPE##_decodeBinary(UA_ByteString const *src, UA_UInt32 *offset, TYPE *dst);</span>
+<a name="l00066"></a>00066 <span class="preprocessor"></span>
+<a name="l00067"></a>00067 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga0632a6a27680358c83dcb69725e15139" title="A two-state logical value (true or false).">UA_Boolean</a>)
+<a name="l00068"></a>00068 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga4ba04733a2525e207fa5ea5337ad17f3" title="An integer value between -129 and 127.">UA_SByte</a>)
+<a name="l00069"></a>00069 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#gac31865e6fcb9a042b5eaf5a5bd4ed30d" title="An integer value between 0 and 256.">UA_Byte</a>)
+<a name="l00070"></a>00070 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga2dfa954c25e6984956ab6fa8e8fd73db" title="An integer value between -32 768 and 32 767.">UA_Int16</a>)
+<a name="l00071"></a>00071 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05" title="An integer value between 0 and 65 535.">UA_UInt16</a>)
+<a name="l00072"></a>00072 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a>)
+<a name="l00073"></a>00073 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a>)
+<a name="l00074"></a>00074 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#gae5c13df54009d7a3e374bfc594af8059" title="An integer value between -10 223 372 036 854 775 808 and 9 223 372 036 854 775 807.">UA_Int64</a>)
+<a name="l00075"></a>00075 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#gad0d8e52a357b7fbe50a0b93a2b688b51" title="An integer value between 0 and 18 446 744 073 709 551 615.">UA_UInt64</a>)
+<a name="l00076"></a>00076 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga899228311700e99d006f1ba5bcfcbd02" title="An IEEE single precision (32 bit) floating point value.">UA_Float</a>)
+<a name="l00077"></a>00077 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#gaac69e6c4659bdcafdb30498200a0ab07" title="An IEEE double precision (64 bit) floating point value.">UA_Double</a>)
+<a name="l00078"></a>00078 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__String" title="A sequence of Unicode characters.">UA_String</a>)
+<a name="l00079"></a>00079 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#gab4378e68c207b1de4e58d0ae26dc333c" title="An instance in time.">UA_DateTime</a>)
+<a name="l00080"></a>00080 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__Guid" title="A 16 byte value that can be used as a globally unique identifier.">UA_Guid</a>)
+<a name="l00081"></a>00081 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(UA_ByteString)
+<a name="l00082"></a>00082 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(UA_XmlElement)
+<a name="l00083"></a>00083 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="structUA__NodeId.html" title="An identifier for a node in the address space of an OPC UA Server.">UA_NodeId</a>)
+<a name="l00084"></a>00084 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__ExpandedNodeId" title="A NodeId that allows the namespace URI to be specified instead of an index.">UA_ExpandedNodeId</a>)
+<a name="l00085"></a>00085 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e" title="A numeric identifier for a error or condition that is associated with a value or an operation...">UA_StatusCode</a>)
+<a name="l00086"></a>00086 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__QualifiedName" title="A name qualified by a namespace.">UA_QualifiedName</a>)
+<a name="l00087"></a>00087 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__LocalizedText" title="Human readable text with an optional locale identifier.">UA_LocalizedText</a>)
+<a name="l00088"></a>00088 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="structUA__ExtensionObject.html" title="A structure that contains an application specific data type that may not be recognized by the receive...">UA_ExtensionObject</a>)
+<a name="l00089"></a>00089 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__DataValue" title="A data value with an associated status code and timestamps.">UA_DataValue</a>)
+<a name="l00090"></a>00090 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__Variant" title="A union of all of the types specified above.">UA_Variant</a>)
+<a name="l00091"></a>00091 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#structUA__DiagnosticInfo" title="A structure that contains detailed error and diagnostic information associated with a StatusCode...">UA_DiagnosticInfo</a>)
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 <span class="comment">/* Not built-in types */</span>
+<a name="l00094"></a>00094 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="group__types.html#gabb778a6b095690de8e5d510550fc3743" title="Type use internally to denote an invalid datatype.">UA_InvalidType</a>)
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 <span class="comment">/*********/</span>
+<a name="l00097"></a>00097 <span class="comment">/* Array */</span>
+<a name="l00098"></a>00098 <span class="comment">/*********/</span>
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 <span class="comment">/* Computes the size of an array (incl. length field) in a binary blob. */</span>
+<a name="l00101"></a>00101 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__encoding__binary.html#ga82959391f893252b10c4de38f8596683">UA_Array_calcSizeBinary</a>(<a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> nElements, <a class="code" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, const <span class="keywordtype">void</span> *data);
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103 <span class="comment">/* @brief Encodes an array into a binary blob. The array size is printed as well. */</span>
+<a name="l00104"></a>00104 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__encoding__binary.html#ga6a579938085a3392b9179c8ee95b666e">UA_Array_encodeBinary</a>(const <span class="keywordtype">void</span> *src, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> noElements, <a class="code" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, UA_ByteString *dst,
+<a name="l00105"></a>00105                                <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> *offset);
 <a name="l00106"></a>00106 
 <a name="l00107"></a>00107 <span class="comment">/* @brief Decodes an array from a binary blob. The array is allocated automatically before decoding. */</span>
-<a name="l00108"></a>00108 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__encoding__binary.html#gacf529389d295f275a6651062dd78bfd1">UA_Array_decodeBinary</a>(const UA_ByteString *src, <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> * offset, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> noElements, <a class="code" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, <span class="keywordtype">void</span> **dst);
-<a name="l00109"></a>00109 
+<a name="l00108"></a>00108 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__encoding__binary.html#gacf529389d295f275a6651062dd78bfd1">UA_Array_decodeBinary</a>(const UA_ByteString *src, <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> *offset, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> noElements,
+<a name="l00109"></a>00109                                <a class="code" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt,
+<a name="l00110"></a>00110                                <span class="keywordtype">void</span> **dst);
 <a name="l00111"></a>00111 
-<a name="l00112"></a>00112 <span class="preprocessor">#endif </span><span class="comment">/* UA_TYPES_ENCODING_BINARY_H_ */</span>
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 <span class="preprocessor">#endif </span><span class="comment">/* UA_TYPES_ENCODING_BINARY_H_ */</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Wed Sep 10 2014 10:01:00 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 12 2014 13:15:28 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

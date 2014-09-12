@@ -42,68 +42,65 @@
 <a href="ua__log_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef UA_LOG_H_</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define UA_LOG_H_</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00017"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">00017</a> <span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> {
-<a name="l00018"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa3a26abbe0ccf3aaf2b53982b7d8f9f7c">00018</a>     <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa3a26abbe0ccf3aaf2b53982b7d8f9f7c">UA_LOGGERCATEGORY_CONNECTION</a>,
-<a name="l00019"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa6fbc4fe7947d66f5a7d7255d19666ea1">00019</a>     <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa6fbc4fe7947d66f5a7d7255d19666ea1">UA_LOGGERCATEGORY_SESSION</a>,
-<a name="l00020"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aaa5bb8dea8a9adabaaa0370ea1923228f">00020</a>     <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aaa5bb8dea8a9adabaaa0370ea1923228f">UA_LOGGERCATEGORY_SUBSCRIPTION</a>,
-<a name="l00021"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aadf9fc59ec3ccc194857bdb781fc94bcc">00021</a>     <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aadf9fc59ec3ccc194857bdb781fc94bcc">UA_LOGGERCATEGORY_MAINTENANCE</a>,
-<a name="l00022"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aae60dd58323f095ee067ba614df186d27">00022</a>     <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aae60dd58323f095ee067ba614df186d27">UA_LOGGERCATEGORY_LOAD</a>,
-<a name="l00023"></a>00023 } <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a>;
-<a name="l00024"></a>00024 
-<a name="l00025"></a><a class="code" href="structUA__Logger.html">00025</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structUA__Logger.html">UA_Logger</a> {
-<a name="l00026"></a><a class="code" href="structUA__Logger.html#a4d3f3918f756040d2644e55569b4cb51">00026</a>     void (*<a class="code" href="structUA__Logger.html#a4d3f3918f756040d2644e55569b4cb51">log_trace</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
-<a name="l00027"></a><a class="code" href="structUA__Logger.html#a151fbf67f9f1690d83edcce3b70d7fc1">00027</a>     void (*<a class="code" href="structUA__Logger.html#a151fbf67f9f1690d83edcce3b70d7fc1">log_debug</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
-<a name="l00028"></a><a class="code" href="structUA__Logger.html#ac5bf65e8613056acc8d1fa5aa903af11">00028</a>     void (*<a class="code" href="structUA__Logger.html#ac5bf65e8613056acc8d1fa5aa903af11">log_info</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
-<a name="l00029"></a><a class="code" href="structUA__Logger.html#ad43ea973a31a5f27f23a4627696096ac">00029</a>     void (*<a class="code" href="structUA__Logger.html#ad43ea973a31a5f27f23a4627696096ac">log_warning</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
-<a name="l00030"></a><a class="code" href="structUA__Logger.html#a126880a8b0de74692640d925652c5e35">00030</a>     void (*<a class="code" href="structUA__Logger.html#a126880a8b0de74692640d925652c5e35">log_error</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
-<a name="l00031"></a><a class="code" href="structUA__Logger.html#aa98e868de774a27f3454906f0a08450f">00031</a>     void (*<a class="code" href="structUA__Logger.html#aa98e868de774a27f3454906f0a08450f">log_fatal</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
-<a name="l00032"></a>00032 } <a class="code" href="structUA__Logger.html">UA_Logger</a>;
-<a name="l00033"></a>00033 
-<a name="l00036"></a>00036 <span class="keyword">static</span> <a class="code" href="structUA__Logger.html">UA_Logger</a> logger;
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 <span class="preprocessor">#if UA_LOGLEVEL &lt;= 100</span>
-<a name="l00039"></a><a class="code" href="ua__log_8h.html#afca7ee0b6b4adff559c778b053afa130">00039</a> <span class="preprocessor"></span><span class="preprocessor">#define LOG_TRACE(CATEGORY, MSG, ...) do{ logger.log_trace(CATEGORY, MSG, __VA_ARGS__); } while</span>
-<a name="l00040"></a>00040 <span class="preprocessor"></span><span class="preprocessor">#else</span>
-<a name="l00041"></a>00041 <span class="preprocessor"></span><span class="preprocessor">#define LOG_TRACE(CATEGORY, MSG, ...) do {} while;</span>
-<a name="l00042"></a>00042 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00043"></a>00043 <span class="preprocessor"></span>
-<a name="l00044"></a>00044 <span class="preprocessor">#if UA_LOGLEVEL &lt;= 200</span>
-<a name="l00045"></a><a class="code" href="ua__log_8h.html#aecca2df132bfd8c88caf6137c78f98e9">00045</a> <span class="preprocessor"></span><span class="preprocessor">#define LOG_DEBUG(CATEGORY, MSG, ...) do{ logger.log_debug(CATEGORY, MSG, __VA_ARGS__); } while</span>
-<a name="l00046"></a>00046 <span class="preprocessor"></span><span class="preprocessor">#else</span>
-<a name="l00047"></a>00047 <span class="preprocessor"></span><span class="preprocessor">#define LOG_DEBUG(CATEGORY, MSG, ...) do {} while;</span>
-<a name="l00048"></a>00048 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00049"></a>00049 <span class="preprocessor"></span>
-<a name="l00050"></a>00050 <span class="preprocessor">#if UA_LOGLEVEL &lt;= 300</span>
-<a name="l00051"></a><a class="code" href="ua__log_8h.html#a2f0550ac670086939159a79a08501a84">00051</a> <span class="preprocessor"></span><span class="preprocessor">#define LOG_INFO(CATEGORY, MSG, ...) do{ logger.log_info(CATEGORY, MSG, __VA_ARGS__); } while</span>
-<a name="l00052"></a>00052 <span class="preprocessor"></span><span class="preprocessor">#else</span>
-<a name="l00053"></a>00053 <span class="preprocessor"></span><span class="preprocessor">#define LOG_INFO(CATEGORY, MSG, ...) do {} while;</span>
-<a name="l00054"></a>00054 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00055"></a>00055 <span class="preprocessor"></span>
-<a name="l00056"></a>00056 <span class="preprocessor">#if UA_LOGLEVEL &lt;= 400</span>
-<a name="l00057"></a><a class="code" href="ua__log_8h.html#a386802ce974a0815bd555117c0e07b62">00057</a> <span class="preprocessor"></span><span class="preprocessor">#define LOG_WARNING(CATEGORY, MSG, ...) do{ logger.log_warning(CATEGORY, MSG, __VA_ARGS__); } while</span>
-<a name="l00058"></a>00058 <span class="preprocessor"></span><span class="preprocessor">#else</span>
-<a name="l00059"></a>00059 <span class="preprocessor"></span><span class="preprocessor">#define LOG_WARNING(CATEGORY, MSG, ...) do {} while;</span>
-<a name="l00060"></a>00060 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00061"></a>00061 <span class="preprocessor"></span>
-<a name="l00062"></a>00062 <span class="preprocessor">#if UA_LOGLEVEL &lt;= 500</span>
-<a name="l00063"></a><a class="code" href="ua__log_8h.html#a49bded54d04004594a10a9fff440caa2">00063</a> <span class="preprocessor"></span><span class="preprocessor">#define LOG_ERROR(CATEGORY, MSG, ...) do{ logger.log_error(CATEGORY, MSG, __VA_ARGS__); } while</span>
-<a name="l00064"></a>00064 <span class="preprocessor"></span><span class="preprocessor">#else</span>
-<a name="l00065"></a>00065 <span class="preprocessor"></span><span class="preprocessor">#define LOG_ERROR(CATEGORY, MSG, ...) do {} while;</span>
-<a name="l00066"></a>00066 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00067"></a>00067 <span class="preprocessor"></span>
-<a name="l00068"></a>00068 <span class="preprocessor">#if UA_LOGLEVEL &lt;= 600</span>
-<a name="l00069"></a><a class="code" href="ua__log_8h.html#accb892ab6bace5c0ed82ff7e2fb84a68">00069</a> <span class="preprocessor"></span><span class="preprocessor">#define LOG_FATAL(CATEGORY, MSG, ...) do{ logger.log_fatal(CATEGORY, MSG, __VA_ARGS__); } while</span>
-<a name="l00070"></a>00070 <span class="preprocessor"></span><span class="preprocessor">#else</span>
-<a name="l00071"></a>00071 <span class="preprocessor"></span><span class="preprocessor">#define LOG_FATAL(CATEGORY, MSG, ...) do {} while;</span>
-<a name="l00072"></a>00072 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00073"></a>00073 <span class="preprocessor"></span>
-<a name="l00074"></a>00074 <span class="preprocessor">#endif </span><span class="comment">/* UA_LOG_H_ */</span>
+<a name="l00011"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">00011</a> <span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> {
+<a name="l00012"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa99e74f72b64a890b0d4c3b3735283f8c">00012</a>     <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa99e74f72b64a890b0d4c3b3735283f8c">UA_LOGGINGCATEGORY_CONNECTION</a>,
+<a name="l00013"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aab044517e19bafe4635089226cb5a941e">00013</a>     <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aab044517e19bafe4635089226cb5a941e">UA_LOGGINGCATEGORY_SESSION</a>,
+<a name="l00014"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa170afb46541c936c19a4c3b91654a12b">00014</a>     <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa170afb46541c936c19a4c3b91654a12b">UA_LOGGINGCATEGORY_SUBSCRIPTION</a>,
+<a name="l00015"></a><a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aadcbc1c1f1a6f87e3d637d203c9afc080">00015</a>     <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aadcbc1c1f1a6f87e3d637d203c9afc080">UA_LOGGINGCATEGORY_SERVER</a>
+<a name="l00016"></a>00016 } <a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a>;
+<a name="l00017"></a>00017 
+<a name="l00018"></a><a class="code" href="structUA__Logger.html">00018</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structUA__Logger.html">UA_Logger</a> {
+<a name="l00019"></a><a class="code" href="structUA__Logger.html#a4d3f3918f756040d2644e55569b4cb51">00019</a>     void (*<a class="code" href="structUA__Logger.html#a4d3f3918f756040d2644e55569b4cb51">log_trace</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
+<a name="l00020"></a><a class="code" href="structUA__Logger.html#a151fbf67f9f1690d83edcce3b70d7fc1">00020</a>     void (*<a class="code" href="structUA__Logger.html#a151fbf67f9f1690d83edcce3b70d7fc1">log_debug</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
+<a name="l00021"></a><a class="code" href="structUA__Logger.html#ac5bf65e8613056acc8d1fa5aa903af11">00021</a>     void (*<a class="code" href="structUA__Logger.html#ac5bf65e8613056acc8d1fa5aa903af11">log_info</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
+<a name="l00022"></a><a class="code" href="structUA__Logger.html#ad43ea973a31a5f27f23a4627696096ac">00022</a>     void (*<a class="code" href="structUA__Logger.html#ad43ea973a31a5f27f23a4627696096ac">log_warning</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
+<a name="l00023"></a><a class="code" href="structUA__Logger.html#a126880a8b0de74692640d925652c5e35">00023</a>     void (*<a class="code" href="structUA__Logger.html#a126880a8b0de74692640d925652c5e35">log_error</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
+<a name="l00024"></a><a class="code" href="structUA__Logger.html#aa98e868de774a27f3454906f0a08450f">00024</a>     void (*<a class="code" href="structUA__Logger.html#aa98e868de774a27f3454906f0a08450f">log_fatal</a>)(<a class="code" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> category, <span class="keyword">const</span> <span class="keywordtype">char</span> *msg, ...);
+<a name="l00025"></a>00025 } <a class="code" href="structUA__Logger.html">UA_Logger</a>;
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="preprocessor">#if UA_LOGLEVEL &lt;= 100</span>
+<a name="l00028"></a><a class="code" href="ua__log_8h.html#ad66a7ecd581b9c6891a1c4b841182834">00028</a> <span class="preprocessor"></span><span class="preprocessor">#define UA_LOG_TRACE(CATEGORY, MSG, ...) do { logger.log_trace(CATEGORY, MSG, __VA_ARGS__); } while(0)</span>
+<a name="l00029"></a>00029 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00030"></a>00030 <span class="preprocessor"></span><span class="preprocessor">#define UA_LOG_TRACE(CATEGORY, MSG, ...) do {} while(0)</span>
+<a name="l00031"></a>00031 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00032"></a>00032 <span class="preprocessor"></span>
+<a name="l00033"></a>00033 <span class="preprocessor">#if UA_LOGLEVEL &lt;= 200</span>
+<a name="l00034"></a><a class="code" href="ua__log_8h.html#ae7ef94392cdfb7f28ad3f94d22ea9327">00034</a> <span class="preprocessor"></span><span class="preprocessor">#define UA_LOG_DEBUG(CATEGORY, MSG, ...) do { logger.log_debug(CATEGORY, MSG, __VA_ARGS__); } while(0)</span>
+<a name="l00035"></a>00035 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span><span class="preprocessor">#define UA_LOG_DEBUG(CATEGORY, MSG, ...) do {} while(0)</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00038"></a>00038 <span class="preprocessor"></span>
+<a name="l00039"></a>00039 <span class="preprocessor">#if UA_LOGLEVEL &lt;= 300</span>
+<a name="l00040"></a><a class="code" href="ua__log_8h.html#a8774d043827eb04aafebecae722db6f9">00040</a> <span class="preprocessor"></span><span class="preprocessor">#define UA_LOG_INFO(CATEGORY, MSG, ...) do { logger.log_info(CATEGORY, MSG, __VA_ARGS__); } while(0)</span>
+<a name="l00041"></a>00041 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span><span class="preprocessor">#define UA_LOG_INFO(CATEGORY, MSG, ...) do {} while(0)</span>
+<a name="l00043"></a>00043 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span>
+<a name="l00045"></a>00045 <span class="preprocessor">#if UA_LOGLEVEL &lt;= 400</span>
+<a name="l00046"></a><a class="code" href="ua__log_8h.html#adf7b0906414c7a4805b908ae4bfbc2a0">00046</a> <span class="preprocessor"></span><span class="preprocessor">#define UA_LOG_WARNING(CATEGORY, MSG, ...) do { logger.log_warning(CATEGORY, MSG, __VA_ARGS__); } while(0)</span>
+<a name="l00047"></a>00047 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00048"></a>00048 <span class="preprocessor"></span><span class="preprocessor">#define UA_LOG_WARNING(CATEGORY, MSG, ...) do {} while(0)</span>
+<a name="l00049"></a>00049 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00050"></a>00050 <span class="preprocessor"></span>
+<a name="l00051"></a>00051 <span class="preprocessor">#if UA_LOGLEVEL &lt;= 500</span>
+<a name="l00052"></a><a class="code" href="ua__log_8h.html#a07316e48db1744f39f380509269e06b2">00052</a> <span class="preprocessor"></span><span class="preprocessor">#define UA_LOG_ERROR(CATEGORY, MSG, ...) do { logger.log_error(CATEGORY, MSG, __VA_ARGS__); } while(0)</span>
+<a name="l00053"></a>00053 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00054"></a>00054 <span class="preprocessor"></span><span class="preprocessor">#define UA_LOG_ERROR(CATEGORY, MSG, ...) do {} while(0)</span>
+<a name="l00055"></a>00055 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00056"></a>00056 <span class="preprocessor"></span>
+<a name="l00057"></a>00057 <span class="preprocessor">#if UA_LOGLEVEL &lt;= 600</span>
+<a name="l00058"></a><a class="code" href="ua__log_8h.html#a4e1d5d997e081b71e0f761420921d234">00058</a> <span class="preprocessor"></span><span class="preprocessor">#define UA_LOG_FATAL(CATEGORY, MSG, ...) do { logger.log_fatal(CATEGORY, MSG, __VA_ARGS__); } while(0)</span>
+<a name="l00059"></a>00059 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00060"></a>00060 <span class="preprocessor"></span><span class="preprocessor">#define UA_LOG_FATAL(CATEGORY, MSG, ...) do {} while(0)</span>
+<a name="l00061"></a>00061 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00062"></a>00062 <span class="preprocessor"></span>
+<a name="l00063"></a>00063 <span class="preprocessor">#endif </span><span class="comment">/* UA_LOG_H_ */</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Wed Sep 10 2014 10:01:00 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 12 2014 13:15:28 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

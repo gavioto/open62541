@@ -41,10 +41,9 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock">Here are the data structures with brief descriptions:</div><table>
-  <tr><td class="indexkey"><a class="el" href="ua__application_8h.html#structApplication">Application</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="ua__transport_8h.html#structSession">Session</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="ua__transport__connection_8h.html#structTL__Buffer">TL_Buffer</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="ua__transport_8h.html#structUA__AsymmetricAlgorithmSecurityHeader">UA_AsymmetricAlgorithmSecurityHeader</a></td><td class="indexvalue">Security Header&gt; </td></tr>
+  <tr><td class="indexkey"><a class="el" href="ua__connection_8h.html#structUA__ByteStringArray">UA_ByteStringArray</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="ua__connection_8h.html#structUA__ConnectionConfig">UA_ConnectionConfig</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="group__types.html#structUA__DataValue">UA_DataValue</a></td><td class="indexvalue">A data value with an associated status code and timestamps </td></tr>
   <tr><td class="indexkey"><a class="el" href="group__types.html#structUA__DateTimeStruct">UA_DateTimeStruct</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="group__types.html#structUA__DiagnosticInfo">UA_DiagnosticInfo</a></td><td class="indexvalue">A structure that contains detailed error and diagnostic information associated with a StatusCode </td></tr>
@@ -52,7 +51,6 @@
   <tr><td class="indexkey"><a class="el" href="group__types.html#structUA__ExpandedNodeId">UA_ExpandedNodeId</a></td><td class="indexvalue">A NodeId that allows the namespace URI to be specified instead of an index </td></tr>
   <tr><td class="indexkey"><a class="el" href="structUA__ExtensionObject.html">UA_ExtensionObject</a></td><td class="indexvalue">A structure that contains an application specific data type that may not be recognized by the receiver </td></tr>
   <tr><td class="indexkey"><a class="el" href="group__types.html#structUA__Guid">UA_Guid</a></td><td class="indexvalue">A 16 byte value that can be used as a globally unique identifier </td></tr>
-  <tr><td class="indexkey"><a class="el" href="ua__indexedList_8h.html#structUA__indexedList__Element">UA_indexedList_Element</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="ua__list_8h.html#structUA__list__Element">UA_list_Element</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="ua__list_8h.html#structUA__list__List">UA_list_List</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="group__types.html#structUA__LocalizedText">UA_LocalizedText</a></td><td class="indexvalue">Human readable text with an optional locale identifier </td></tr>
@@ -62,15 +60,11 @@
   <tr><td class="indexkey"><a class="el" href="ua__namespace__xml_8h.html#structUA__NodeSet">UA_NodeSet</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="ua__xml_8h.html#structUA__NodeSetAlias">UA_NodeSetAlias</a></td><td class="indexvalue">A readable shortcut for NodeIds. A list of aliases is intensively used in the namespace0-xml-files </td></tr>
   <tr><td class="indexkey"><a class="el" href="ua__xml_8h.html#structUA__NodeSetAliases">UA_NodeSetAliases</a></td><td class="indexvalue"><a class="el" href="ua__xml_8h.html#structUA__NodeSetAliases" title="UA_NodeSetAliases - a list of aliases.">UA_NodeSetAliases</a> - a list of aliases </td></tr>
-  <tr><td class="indexkey"><a class="el" href="ua__transport_8h.html#structUA__OPCUATcpAcknowledgeMessage">UA_OPCUATcpAcknowledgeMessage</a></td><td class="indexvalue">Acknowledge Message </td></tr>
-  <tr><td class="indexkey"><a class="el" href="ua__transport_8h.html#structUA__OPCUATcpHelloMessage">UA_OPCUATcpHelloMessage</a></td><td class="indexvalue">Hello Message </td></tr>
-  <tr><td class="indexkey"><a class="el" href="ua__transport_8h.html#structUA__OPCUATcpMessageHeader">UA_OPCUATcpMessageHeader</a></td><td class="indexvalue">TCP Header </td></tr>
   <tr><td class="indexkey"><a class="el" href="group__types.html#structUA__QualifiedName">UA_QualifiedName</a></td><td class="indexvalue">A name qualified by a namespace </td></tr>
-  <tr><td class="indexkey"><a class="el" href="ua__transport_8h.html#structUA__SecureConversationMessageAbortBody">UA_SecureConversationMessageAbortBody</a></td><td class="indexvalue">Secure Conversation Message Abort Body </td></tr>
-  <tr><td class="indexkey"><a class="el" href="ua__transport_8h.html#structUA__SecureConversationMessageFooter">UA_SecureConversationMessageFooter</a></td><td class="indexvalue">Secure Conversation Message Footer </td></tr>
-  <tr><td class="indexkey"><a class="el" href="ua__transport_8h.html#structUA__SecureConversationMessageHeader">UA_SecureConversationMessageHeader</a></td><td class="indexvalue">Secure Layer Sequence Header </td></tr>
-  <tr><td class="indexkey"><a class="el" href="ua__transport_8h.html#structUA__SequenceHeader">UA_SequenceHeader</a></td><td class="indexvalue">Secure Layer Sequence Header </td></tr>
-  <tr><td class="indexkey"><a class="el" href="ua__transport_8h.html#structUA__SymmetricAlgorithmSecurityHeader">UA_SymmetricAlgorithmSecurityHeader</a></td><td class="indexvalue">Secure Layer Symmetric Algorithm Header </td></tr>
+  <tr><td class="indexkey"><a class="el" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="ua__transport__generated_8h.html#structUA__TcpHelloMessage">UA_TcpHelloMessage</a></td><td class="indexvalue">Hello Message </td></tr>
   <tr><td class="indexkey"><a class="el" href="ua__xml_8h.html#structUA__TypedArray">UA_TypedArray</a></td><td class="indexvalue">Object to hold a typed array </td></tr>
   <tr><td class="indexkey"><a class="el" href="group__types.html#structUA__Variant">UA_Variant</a></td><td class="indexvalue">A union of all of the types specified above </td></tr>
   <tr><td class="indexkey"><a class="el" href="group__types.html#structUA__VTable">UA_VTable</a></td><td class="indexvalue"></td></tr>
@@ -85,7 +79,7 @@
 
 
 <address class="footer"><small>
-Generated on Wed Sep 10 2014 10:01:00 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 12 2014 13:15:29 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

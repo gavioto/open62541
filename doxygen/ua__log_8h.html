@@ -43,7 +43,16 @@
 <div class="title">/home/travis/build/acplt/open62541/src/util/ua_log.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="ua__log_8h__dep__incl.png" border="0" usemap="#_2home_2travis_2build_2acplt_2open62541_2src_2util_2ua__log_8hdep" alt=""/></div>
+<map name="_2home_2travis_2build_2acplt_2open62541_2src_2util_2ua__log_8hdep" id="_2home_2travis_2build_2acplt_2open62541_2src_2util_2ua__log_8hdep">
+<area shape="rect" id="node3" href="ua__server_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_server.h" alt="" coords="12,83,369,112"/><area shape="rect" id="node5" href="ua__services_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_services.h" alt="" coords="5,160,376,189"/></map>
+</div>
+</div>
 <p><a href="ua__log_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
@@ -51,31 +60,27 @@ Data Structures</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUA__Logger.html">UA_Logger</a></td></tr>
 <tr><td colspan="2"><h2><a name="define-members"></a>
 Defines</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__log_8h.html#afca7ee0b6b4adff559c778b053afa130">LOG_TRACE</a>(CATEGORY, MSG,...)&#160;&#160;&#160;do{ logger.log_trace(CATEGORY, MSG, __VA_ARGS__); } while</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__log_8h.html#aecca2df132bfd8c88caf6137c78f98e9">LOG_DEBUG</a>(CATEGORY, MSG,...)&#160;&#160;&#160;do{ logger.log_debug(CATEGORY, MSG, __VA_ARGS__); } while</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__log_8h.html#a2f0550ac670086939159a79a08501a84">LOG_INFO</a>(CATEGORY, MSG,...)&#160;&#160;&#160;do{ logger.log_info(CATEGORY, MSG, __VA_ARGS__); } while</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__log_8h.html#a386802ce974a0815bd555117c0e07b62">LOG_WARNING</a>(CATEGORY, MSG,...)&#160;&#160;&#160;do{ logger.log_warning(CATEGORY, MSG, __VA_ARGS__); } while</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__log_8h.html#a49bded54d04004594a10a9fff440caa2">LOG_ERROR</a>(CATEGORY, MSG,...)&#160;&#160;&#160;do{ logger.log_error(CATEGORY, MSG, __VA_ARGS__); } while</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__log_8h.html#accb892ab6bace5c0ed82ff7e2fb84a68">LOG_FATAL</a>(CATEGORY, MSG,...)&#160;&#160;&#160;do{ logger.log_fatal(CATEGORY, MSG, __VA_ARGS__); } while</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__log_8h.html#ad66a7ecd581b9c6891a1c4b841182834">UA_LOG_TRACE</a>(CATEGORY, MSG,...)&#160;&#160;&#160;do { logger.log_trace(CATEGORY, MSG, __VA_ARGS__); } while(0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__log_8h.html#ae7ef94392cdfb7f28ad3f94d22ea9327">UA_LOG_DEBUG</a>(CATEGORY, MSG,...)&#160;&#160;&#160;do { logger.log_debug(CATEGORY, MSG, __VA_ARGS__); } while(0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__log_8h.html#a8774d043827eb04aafebecae722db6f9">UA_LOG_INFO</a>(CATEGORY, MSG,...)&#160;&#160;&#160;do { logger.log_info(CATEGORY, MSG, __VA_ARGS__); } while(0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__log_8h.html#adf7b0906414c7a4805b908ae4bfbc2a0">UA_LOG_WARNING</a>(CATEGORY, MSG,...)&#160;&#160;&#160;do { logger.log_warning(CATEGORY, MSG, __VA_ARGS__); } while(0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__log_8h.html#a07316e48db1744f39f380509269e06b2">UA_LOG_ERROR</a>(CATEGORY, MSG,...)&#160;&#160;&#160;do { logger.log_error(CATEGORY, MSG, __VA_ARGS__); } while(0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__log_8h.html#a4e1d5d997e081b71e0f761420921d234">UA_LOG_FATAL</a>(CATEGORY, MSG,...)&#160;&#160;&#160;do { logger.log_fatal(CATEGORY, MSG, __VA_ARGS__); } while(0)</td></tr>
 <tr><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> { <br/>
-&#160;&#160;<a class="el" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa3a26abbe0ccf3aaf2b53982b7d8f9f7c">UA_LOGGERCATEGORY_CONNECTION</a>, 
-<a class="el" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa6fbc4fe7947d66f5a7d7255d19666ea1">UA_LOGGERCATEGORY_SESSION</a>, 
-<a class="el" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aaa5bb8dea8a9adabaaa0370ea1923228f">UA_LOGGERCATEGORY_SUBSCRIPTION</a>, 
-<a class="el" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aadf9fc59ec3ccc194857bdb781fc94bcc">UA_LOGGERCATEGORY_MAINTENANCE</a>, 
-<br/>
-&#160;&#160;<a class="el" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aae60dd58323f095ee067ba614df186d27">UA_LOGGERCATEGORY_LOAD</a>
-<br/>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769a">UA_LoggerCategory</a> { <a class="el" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa99e74f72b64a890b0d4c3b3735283f8c">UA_LOGGINGCATEGORY_CONNECTION</a>, 
+<a class="el" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aab044517e19bafe4635089226cb5a941e">UA_LOGGINGCATEGORY_SESSION</a>, 
+<a class="el" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aa170afb46541c936c19a4c3b91654a12b">UA_LOGGINGCATEGORY_SUBSCRIPTION</a>, 
+<a class="el" href="ua__log_8h.html#ad4b277673ba717588b9197c9f0dc769aadcbc1c1f1a6f87e3d637d203c9afc080">UA_LOGGINGCATEGORY_SERVER</a>
  }</td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
-<a class="anchor" id="aecca2df132bfd8c88caf6137c78f98e9"></a><!-- doxytag: member="ua_log.h::LOG_DEBUG" ref="aecca2df132bfd8c88caf6137c78f98e9" args="(CATEGORY, MSG,...)" -->
+<a class="anchor" id="ae7ef94392cdfb7f28ad3f94d22ea9327"></a><!-- doxytag: member="ua_log.h::UA_LOG_DEBUG" ref="ae7ef94392cdfb7f28ad3f94d22ea9327" args="(CATEGORY, MSG,...)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define <a class="el" href="ua__log_8h.html#aecca2df132bfd8c88caf6137c78f98e9">LOG_DEBUG</a></td>
+          <td class="memname">#define <a class="el" href="ua__log_8h.html#ae7ef94392cdfb7f28ad3f94d22ea9327">UA_LOG_DEBUG</a></td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">CATEGORY, </td>
@@ -95,7 +100,7 @@ Enumerations</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;do{ logger.log_debug(CATEGORY, MSG, __VA_ARGS__); } while</td>
+          <td></td><td>&#160;&#160;&#160;do { logger.log_debug(CATEGORY, MSG, __VA_ARGS__); } while(0)</td>
         </tr>
       </table>
 </div>
@@ -103,12 +108,12 @@ Enumerations</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a49bded54d04004594a10a9fff440caa2"></a><!-- doxytag: member="ua_log.h::LOG_ERROR" ref="a49bded54d04004594a10a9fff440caa2" args="(CATEGORY, MSG,...)" -->
+<a class="anchor" id="a07316e48db1744f39f380509269e06b2"></a><!-- doxytag: member="ua_log.h::UA_LOG_ERROR" ref="a07316e48db1744f39f380509269e06b2" args="(CATEGORY, MSG,...)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define <a class="el" href="ua__log_8h.html#a49bded54d04004594a10a9fff440caa2">LOG_ERROR</a></td>
+          <td class="memname">#define <a class="el" href="ua__log_8h.html#a07316e48db1744f39f380509269e06b2">UA_LOG_ERROR</a></td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">CATEGORY, </td>
@@ -128,7 +133,7 @@ Enumerations</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;do{ logger.log_error(CATEGORY, MSG, __VA_ARGS__); } while</td>
+          <td></td><td>&#160;&#160;&#160;do { logger.log_error(CATEGORY, MSG, __VA_ARGS__); } while(0)</td>
         </tr>
       </table>
 </div>
@@ -136,12 +141,12 @@ Enumerations</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="accb892ab6bace5c0ed82ff7e2fb84a68"></a><!-- doxytag: member="ua_log.h::LOG_FATAL" ref="accb892ab6bace5c0ed82ff7e2fb84a68" args="(CATEGORY, MSG,...)" -->
+<a class="anchor" id="a4e1d5d997e081b71e0f761420921d234"></a><!-- doxytag: member="ua_log.h::UA_LOG_FATAL" ref="a4e1d5d997e081b71e0f761420921d234" args="(CATEGORY, MSG,...)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define <a class="el" href="ua__log_8h.html#accb892ab6bace5c0ed82ff7e2fb84a68">LOG_FATAL</a></td>
+          <td class="memname">#define <a class="el" href="ua__log_8h.html#a4e1d5d997e081b71e0f761420921d234">UA_LOG_FATAL</a></td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">CATEGORY, </td>
@@ -161,7 +166,7 @@ Enumerations</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;do{ logger.log_fatal(CATEGORY, MSG, __VA_ARGS__); } while</td>
+          <td></td><td>&#160;&#160;&#160;do { logger.log_fatal(CATEGORY, MSG, __VA_ARGS__); } while(0)</td>
         </tr>
       </table>
 </div>
@@ -169,12 +174,12 @@ Enumerations</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2f0550ac670086939159a79a08501a84"></a><!-- doxytag: member="ua_log.h::LOG_INFO" ref="a2f0550ac670086939159a79a08501a84" args="(CATEGORY, MSG,...)" -->
+<a class="anchor" id="a8774d043827eb04aafebecae722db6f9"></a><!-- doxytag: member="ua_log.h::UA_LOG_INFO" ref="a8774d043827eb04aafebecae722db6f9" args="(CATEGORY, MSG,...)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define <a class="el" href="ua__log_8h.html#a2f0550ac670086939159a79a08501a84">LOG_INFO</a></td>
+          <td class="memname">#define <a class="el" href="ua__log_8h.html#a8774d043827eb04aafebecae722db6f9">UA_LOG_INFO</a></td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">CATEGORY, </td>
@@ -194,7 +199,7 @@ Enumerations</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;do{ logger.log_info(CATEGORY, MSG, __VA_ARGS__); } while</td>
+          <td></td><td>&#160;&#160;&#160;do { logger.log_info(CATEGORY, MSG, __VA_ARGS__); } while(0)</td>
         </tr>
       </table>
 </div>
@@ -202,12 +207,12 @@ Enumerations</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="afca7ee0b6b4adff559c778b053afa130"></a><!-- doxytag: member="ua_log.h::LOG_TRACE" ref="afca7ee0b6b4adff559c778b053afa130" args="(CATEGORY, MSG,...)" -->
+<a class="anchor" id="ad66a7ecd581b9c6891a1c4b841182834"></a><!-- doxytag: member="ua_log.h::UA_LOG_TRACE" ref="ad66a7ecd581b9c6891a1c4b841182834" args="(CATEGORY, MSG,...)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define <a class="el" href="ua__log_8h.html#afca7ee0b6b4adff559c778b053afa130">LOG_TRACE</a></td>
+          <td class="memname">#define <a class="el" href="ua__log_8h.html#ad66a7ecd581b9c6891a1c4b841182834">UA_LOG_TRACE</a></td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">CATEGORY, </td>
@@ -227,7 +232,7 @@ Enumerations</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;do{ logger.log_trace(CATEGORY, MSG, __VA_ARGS__); } while</td>
+          <td></td><td>&#160;&#160;&#160;do { logger.log_trace(CATEGORY, MSG, __VA_ARGS__); } while(0)</td>
         </tr>
       </table>
 </div>
@@ -235,12 +240,12 @@ Enumerations</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a386802ce974a0815bd555117c0e07b62"></a><!-- doxytag: member="ua_log.h::LOG_WARNING" ref="a386802ce974a0815bd555117c0e07b62" args="(CATEGORY, MSG,...)" -->
+<a class="anchor" id="adf7b0906414c7a4805b908ae4bfbc2a0"></a><!-- doxytag: member="ua_log.h::UA_LOG_WARNING" ref="adf7b0906414c7a4805b908ae4bfbc2a0" args="(CATEGORY, MSG,...)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define <a class="el" href="ua__log_8h.html#a386802ce974a0815bd555117c0e07b62">LOG_WARNING</a></td>
+          <td class="memname">#define <a class="el" href="ua__log_8h.html#adf7b0906414c7a4805b908ae4bfbc2a0">UA_LOG_WARNING</a></td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">CATEGORY, </td>
@@ -260,7 +265,7 @@ Enumerations</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;do{ logger.log_warning(CATEGORY, MSG, __VA_ARGS__); } while</td>
+          <td></td><td>&#160;&#160;&#160;do { logger.log_warning(CATEGORY, MSG, __VA_ARGS__); } while(0)</td>
         </tr>
       </table>
 </div>
@@ -280,15 +285,13 @@ Enumerations</h2></td></tr>
 </div>
 <div class="memdoc">
 <dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="ad4b277673ba717588b9197c9f0dc769aa3a26abbe0ccf3aaf2b53982b7d8f9f7c"></a><!-- doxytag: member="UA_LOGGERCATEGORY_CONNECTION" ref="ad4b277673ba717588b9197c9f0dc769aa3a26abbe0ccf3aaf2b53982b7d8f9f7c" args="" -->UA_LOGGERCATEGORY_CONNECTION</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="ad4b277673ba717588b9197c9f0dc769aa99e74f72b64a890b0d4c3b3735283f8c"></a><!-- doxytag: member="UA_LOGGINGCATEGORY_CONNECTION" ref="ad4b277673ba717588b9197c9f0dc769aa99e74f72b64a890b0d4c3b3735283f8c" args="" -->UA_LOGGINGCATEGORY_CONNECTION</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ad4b277673ba717588b9197c9f0dc769aa6fbc4fe7947d66f5a7d7255d19666ea1"></a><!-- doxytag: member="UA_LOGGERCATEGORY_SESSION" ref="ad4b277673ba717588b9197c9f0dc769aa6fbc4fe7947d66f5a7d7255d19666ea1" args="" -->UA_LOGGERCATEGORY_SESSION</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="ad4b277673ba717588b9197c9f0dc769aab044517e19bafe4635089226cb5a941e"></a><!-- doxytag: member="UA_LOGGINGCATEGORY_SESSION" ref="ad4b277673ba717588b9197c9f0dc769aab044517e19bafe4635089226cb5a941e" args="" -->UA_LOGGINGCATEGORY_SESSION</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ad4b277673ba717588b9197c9f0dc769aaa5bb8dea8a9adabaaa0370ea1923228f"></a><!-- doxytag: member="UA_LOGGERCATEGORY_SUBSCRIPTION" ref="ad4b277673ba717588b9197c9f0dc769aaa5bb8dea8a9adabaaa0370ea1923228f" args="" -->UA_LOGGERCATEGORY_SUBSCRIPTION</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="ad4b277673ba717588b9197c9f0dc769aa170afb46541c936c19a4c3b91654a12b"></a><!-- doxytag: member="UA_LOGGINGCATEGORY_SUBSCRIPTION" ref="ad4b277673ba717588b9197c9f0dc769aa170afb46541c936c19a4c3b91654a12b" args="" -->UA_LOGGINGCATEGORY_SUBSCRIPTION</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ad4b277673ba717588b9197c9f0dc769aadf9fc59ec3ccc194857bdb781fc94bcc"></a><!-- doxytag: member="UA_LOGGERCATEGORY_MAINTENANCE" ref="ad4b277673ba717588b9197c9f0dc769aadf9fc59ec3ccc194857bdb781fc94bcc" args="" -->UA_LOGGERCATEGORY_MAINTENANCE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ad4b277673ba717588b9197c9f0dc769aae60dd58323f095ee067ba614df186d27"></a><!-- doxytag: member="UA_LOGGERCATEGORY_LOAD" ref="ad4b277673ba717588b9197c9f0dc769aae60dd58323f095ee067ba614df186d27" args="" -->UA_LOGGERCATEGORY_LOAD</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="ad4b277673ba717588b9197c9f0dc769aadcbc1c1f1a6f87e3d637d203c9afc080"></a><!-- doxytag: member="UA_LOGGINGCATEGORY_SERVER" ref="ad4b277673ba717588b9197c9f0dc769aadcbc1c1f1a6f87e3d637d203c9afc080" args="" -->UA_LOGGINGCATEGORY_SERVER</em>&nbsp;</td><td>
 </td></tr>
 </table>
 </dd>
@@ -301,7 +304,7 @@ Enumerations</h2></td></tr>
 
 
 <address class="footer"><small>
-Generated on Wed Sep 10 2014 10:01:00 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 12 2014 13:15:29 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$ua__channel__manager_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_channel_manager.h" alt="" coords="5,83,429,112"/>
-<area shape="rect" id="node7" href="$ua__transport__binary__secure_8h.html" title="/home/travis/build/acplt/open62541/src/ua_transport_binary_secure.h" alt="" coords="193,160,615,189"/>
-<area shape="rect" id="node10" href="$ua__session_8h.html" title="/home/travis/build/acplt/open62541/src/ua_session.h" alt="" coords="627,83,952,112"/>
-<area shape="rect" id="node5" href="$ua__services_8h.html" title="Defines the method signatures for all the standard defined services." alt="" coords="219,237,589,267"/>
-<area shape="rect" id="node12" href="$ua__session__manager_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_session_manager.h" alt="" coords="639,160,1063,189"/>
-</map>
