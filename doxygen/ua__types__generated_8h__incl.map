@@ -1,7 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$ua__types_8h.html" title="ua_types.h" alt="" coords="677,237,763,267"/>
-<area shape="rect" id="node11" href="$ua__types__encoding__binary_8h.html" title="ua_types_encoding_binary.h" alt="" coords="692,160,879,189"/>
-<area shape="rect" id="node14" href="$ua__namespace__0_8h.html" title="ua_namespace_0.h" alt="" coords="484,83,617,112"/>
-<area shape="rect" id="node5" href="$ua__config_8h.html" title="ua_config.h" alt="" coords="644,315,732,344"/>
-<area shape="rect" id="node16" href="$ua__util_8h.html" title="util/ua_util.h" alt="" coords="401,160,492,189"/>
+<area shape="rect" id="node3" href="$ua__types_8h.html" title="ua_types.h" alt="" coords="105,160,191,189"/>
+<area shape="rect" id="node11" href="$ua__types__encoding__binary_8h.html" title="ua_types_encoding_binary.h" alt="" coords="55,83,241,112"/>
+<area shape="rect" id="node14" href="$ua__namespace__0_8h.html" title="ua_namespace_0.h" alt="" coords="265,83,399,112"/>
+<area shape="rect" id="node5" href="$ua__config_8h.html" title="ua_config.h" alt="" coords="5,237,93,267"/>
 </map>

@@ -68,7 +68,7 @@
 <a name="l00027"></a><a class="code" href="ua__connection_8h.html#a81ee2d188d2f91abf01656de3fe8baa3">00027</a>     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> <a class="code" href="ua__connection_8h.html#a81ee2d188d2f91abf01656de3fe8baa3">maxChunkCount</a>;
 <a name="l00028"></a>00028 } <a class="code" href="ua__connection_8h.html#structUA__ConnectionConfig">UA_ConnectionConfig</a>;
 <a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="keyword">extern</span> <a class="code" href="ua__connection_8h.html#structUA__ConnectionConfig">UA_ConnectionConfig</a> <a class="code" href="ua__connection_8h.html#a74051fe4e469ed62708a16124734b370">UA_ConnectionConfig_standard</a>;
+<a name="l00030"></a>00030 <span class="keyword">extern</span> <a class="code" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="code" href="ua__connection_8h.html#structUA__ConnectionConfig">UA_ConnectionConfig</a> <a class="code" href="ua__connection_8h.html#ad4db675c35be63b9df574c95bea865c8">UA_ConnectionConfig_standard</a>;
 <a name="l00031"></a>00031 
 <a name="l00032"></a>00032 <span class="comment">/* Forward declaration */</span>
 <a name="l00033"></a>00033 <span class="keyword">struct </span><a class="code" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a>;
@@ -87,9 +87,9 @@
 <a name="l00046"></a><a class="code" href="ua__connection_8h.html#a9bef4e3a17dcdaaa8a6e39aa2b086526">00046</a>     <a class="code" href="ua__connection_8h.html#a8697b46a9ba782e6807543aba1d2d1c0">UA_Connection_closeCallback</a> <a class="code" href="ua__connection_8h.html#a9bef4e3a17dcdaaa8a6e39aa2b086526">close</a>;
 <a name="l00047"></a>00047 } <a class="code" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a>;
 <a name="l00048"></a>00048 
-<a name="l00049"></a>00049 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__connection_8h.html#a3bd4d17c51f6ca33da3ee4a69832fa81">UA_Connection_init</a>(<a class="code" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, <a class="code" href="ua__connection_8h.html#structUA__ConnectionConfig">UA_ConnectionConfig</a> localConf, <span class="keywordtype">void</span> *callbackHandle,
-<a name="l00050"></a>00050                             <a class="code" href="ua__connection_8h.html#a8697b46a9ba782e6807543aba1d2d1c0">UA_Connection_closeCallback</a> close, <a class="code" href="ua__connection_8h.html#a840a003cc5a0420753ad0acd14316eda">UA_Connection_writeCallback</a> write);
-<a name="l00051"></a>00051 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__connection_8h.html#ac7d6aa7e0a8a2eaa794caefab4528c67">UA_Connection_deleteMembers</a>(<a class="code" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection);
+<a name="l00049"></a>00049 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="code" href="ua__connection_8h.html#a039c2896588e92afb5435b08978135a5">UA_Connection_init</a>(<a class="code" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, <a class="code" href="ua__connection_8h.html#structUA__ConnectionConfig">UA_ConnectionConfig</a> localConf, <span class="keywordtype">void</span> *callbackHandle,
+<a name="l00050"></a>00050                                        <a class="code" href="ua__connection_8h.html#a8697b46a9ba782e6807543aba1d2d1c0">UA_Connection_closeCallback</a> close, <a class="code" href="ua__connection_8h.html#a840a003cc5a0420753ad0acd14316eda">UA_Connection_writeCallback</a> write);
+<a name="l00051"></a>00051 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="code" href="ua__connection_8h.html#aaf9dd2b8bf730fe612d235c4e5e3c654">UA_Connection_deleteMembers</a>(<a class="code" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection);
 <a name="l00052"></a>00052 
 <a name="l00053"></a>00053 <span class="comment">// todo: closing a binaryconnection that was closed on the network level</span>
 <a name="l00054"></a>00054 
@@ -99,7 +99,7 @@
 
 
 <address class="footer"><small>
-Generated on Fri Sep 12 2014 18:06:16 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 12 2014 22:51:44 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
