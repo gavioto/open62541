@@ -42,33 +42,33 @@
 <a href="ua__session__manager_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef UA_SESSION_MANAGER_H_</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define UA_SESSION_MANAGER_H_</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;ua_server.h&quot;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="ua__server_8h.html">ua_server.h</a>&quot;</span>
 <a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="ua__session_8h.html">ua_session.h</a>&quot;</span>
 <a name="l00006"></a>00006 
-<a name="l00007"></a>00007 UA_Int32 <a class="code" href="ua__session__manager_8h.html#a14e85001a31ef41e6569d1aa7933a8ec">UA_SessionManager_new</a>(UA_SessionManager **sessionManager, UA_UInt32 maxSessionCount,
-<a name="l00008"></a>00008                                UA_UInt32 sessionLifetime, UA_UInt32 startSessionId);
+<a name="l00007"></a>00007 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__session__manager_8h.html#a14e85001a31ef41e6569d1aa7933a8ec">UA_SessionManager_new</a>(<a class="code" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> **sessionManager, <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> maxSessionCount,
+<a name="l00008"></a>00008                                <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> sessionLifetime, <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> startSessionId);
 <a name="l00009"></a>00009 
-<a name="l00010"></a>00010 UA_Int32 <a class="code" href="ua__session__manager_8h.html#ac647a1a80e158d56ec0500c3d2ed9104">UA_SessionManager_delete</a>(UA_SessionManager *sessionManager);
+<a name="l00010"></a>00010 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__session__manager_8h.html#ac647a1a80e158d56ec0500c3d2ed9104">UA_SessionManager_delete</a>(<a class="code" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> *sessionManager);
 <a name="l00011"></a>00011 
-<a name="l00012"></a>00012 UA_Int32 <a class="code" href="ua__session__manager_8h.html#a13facff09de2c19f0d295b183f740537">UA_SessionManager_addSession</a>(UA_SessionManager *sessionManager,
+<a name="l00012"></a>00012 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__session__manager_8h.html#a13facff09de2c19f0d295b183f740537">UA_SessionManager_addSession</a>(<a class="code" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> *sessionManager,
 <a name="l00013"></a>00013                                       <a class="code" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *channel, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> **session);
 <a name="l00014"></a>00014 
-<a name="l00020"></a>00020 UA_Int32 <a class="code" href="ua__session__manager_8h.html#a0ff30f606f86083d4bc700c9621d29a4" title="removes a session from the manager list">UA_SessionManager_removeSession</a>(UA_SessionManager *sessionManager,
-<a name="l00021"></a>00021                                          UA_NodeId         *sessionId);
+<a name="l00020"></a>00020 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__session__manager_8h.html#a0ff30f606f86083d4bc700c9621d29a4" title="removes a session from the manager list">UA_SessionManager_removeSession</a>(<a class="code" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> *sessionManager,
+<a name="l00021"></a>00021                                          <a class="code" href="structUA__NodeId.html" title="An identifier for a node in the address space of an OPC UA Server.">UA_NodeId</a>         *sessionId);
 <a name="l00022"></a>00022 
-<a name="l00029"></a>00029 UA_Int32 <a class="code" href="ua__session__manager_8h.html#a73ce89bfdb9934ae29b0e1edcf104daf" title="finds the session which is identified by the sessionId">UA_SessionManager_getSessionById</a>(UA_SessionManager *sessionManager,
-<a name="l00030"></a>00030                                           UA_NodeId *sessionId, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> **session);
+<a name="l00029"></a>00029 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__session__manager_8h.html#a73ce89bfdb9934ae29b0e1edcf104daf" title="finds the session which is identified by the sessionId">UA_SessionManager_getSessionById</a>(<a class="code" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> *sessionManager,
+<a name="l00030"></a>00030                                           <a class="code" href="structUA__NodeId.html" title="An identifier for a node in the address space of an OPC UA Server.">UA_NodeId</a> *sessionId, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> **session);
 <a name="l00031"></a>00031 
-<a name="l00038"></a>00038 UA_Int32 <a class="code" href="ua__session__manager_8h.html#ac3d51cf3468e7380c6edcfbf2fa7f067">UA_SessionManager_getSessionByToken</a>(UA_SessionManager *sessionManager,
-<a name="l00039"></a>00039                                              UA_NodeId *token, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> **session);
+<a name="l00038"></a>00038 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__session__manager_8h.html#ac3d51cf3468e7380c6edcfbf2fa7f067">UA_SessionManager_getSessionByToken</a>(<a class="code" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> *sessionManager,
+<a name="l00039"></a>00039                                              <a class="code" href="structUA__NodeId.html" title="An identifier for a node in the address space of an OPC UA Server.">UA_NodeId</a> *token, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> **session);
 <a name="l00040"></a>00040 
-<a name="l00047"></a>00047 UA_Int32 <a class="code" href="ua__session__manager_8h.html#a30dfbfb09cee8de824d869b22ff23ee8" title="gets the session timeout value which should be assigned to all sessions handled by the manager...">UA_SessionManager_getSessionTimeout</a>(UA_SessionManager *sessionManager,
-<a name="l00048"></a>00048                                              UA_Int64          *timeout_ms);
+<a name="l00047"></a>00047 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__session__manager_8h.html#a30dfbfb09cee8de824d869b22ff23ee8" title="gets the session timeout value which should be assigned to all sessions handled by the manager...">UA_SessionManager_getSessionTimeout</a>(<a class="code" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> *sessionManager,
+<a name="l00048"></a>00048                                              <a class="code" href="group__types.html#gae5c13df54009d7a3e374bfc594af8059" title="An integer value between -10 223 372 036 854 775 808 and 9 223 372 036 854 775 807.">UA_Int64</a>          *timeout_ms);
 <a name="l00049"></a>00049 
 <a name="l00050"></a>00050 <span class="comment">//UA_Int32 UA_SessionManager_updateSessions();</span>
 <a name="l00051"></a>00051 <span class="comment">//UA_Int32 UA_SessionManager_generateToken(UA_Session session, UA_Int32 requestedLifeTime, SecurityTokenRequestType requestType, UA_ChannelSecurityToken* newToken);</span>
-<a name="l00052"></a>00052 UA_Int32 <a class="code" href="ua__session__manager_8h.html#a1b990b36727a11a12ae5c0544434e084">UA_SessionManager_generateSessionId</a>(UA_SessionManager *sessionManager,
-<a name="l00053"></a>00053                                              UA_NodeId         *newSessionId);
+<a name="l00052"></a>00052 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__session__manager_8h.html#a1b990b36727a11a12ae5c0544434e084">UA_SessionManager_generateSessionId</a>(<a class="code" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> *sessionManager,
+<a name="l00053"></a>00053                                              <a class="code" href="structUA__NodeId.html" title="An identifier for a node in the address space of an OPC UA Server.">UA_NodeId</a>         *newSessionId);
 <a name="l00054"></a>00054 
 <a name="l00055"></a>00055 <span class="preprocessor">#endif </span><span class="comment">/* UA_SESSION_MANAGER_H_ */</span>
 </pre></div></div><!-- contents -->
@@ -76,7 +76,7 @@
 
 
 <address class="footer"><small>
-Generated on Sat Sep 13 2014 16:37:19 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Sep 13 2014 16:42:10 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -41,7 +41,7 @@
 <div class="title">/home/travis/build/acplt/open62541/src/util/ua_base64.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;ua_types.h&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="ua__types_8h_source.html">ua_types.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="ua__util_8h_source.html">ua_util.h</a>&quot;</code><br/>
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for ua_base64.h:</div>
@@ -50,16 +50,16 @@
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="ua__base64_8h__incl.png" border="0" usemap="#_2home_2travis_2build_2acplt_2open62541_2src_2util_2ua__base64_8h" alt=""/></div>
 <map name="_2home_2travis_2build_2acplt_2open62541_2src_2util_2ua__base64_8h" id="_2home_2travis_2build_2acplt_2open62541_2src_2util_2ua__base64_8h">
-<area shape="rect" id="node5" href="ua__util_8h.html" title="ua_util.h" alt="" coords="331,83,400,112"/><area shape="rect" id="node15" href="ua__config_8h.html" title="ua_config.h" alt="" coords="469,160,557,189"/></map>
+<area shape="rect" id="node3" href="ua__types_8h.html" title="ua_types.h" alt="" coords="15,160,100,189"/><area shape="rect" id="node9" href="ua__util_8h.html" title="ua_util.h" alt="" coords="301,83,371,112"/><area shape="rect" id="node7" href="ua__config_8h.html" title="ua_config.h" alt="" coords="93,237,181,267"/></map>
 </div>
 </div>
 <p><a href="ua__base64_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__base64_8h.html#ab977ad0ef5bf88cd4366b542c5d2dd52">UA_base64_getDecodedSize</a> (UA_String *const base64EncodedData)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__base64_8h.html#ab977ad0ef5bf88cd4366b542c5d2dd52">UA_base64_getDecodedSize</a> (<a class="el" href="group__types.html#structUA__String">UA_String</a> *const base64EncodedData)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the exact size for the binary data that is encoded in base64 encoded string  <a href="#ab977ad0ef5bf88cd4366b542c5d2dd52"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__base64_8h.html#a273e24c38f060d09047eea790184305c">UA_base64_decode</a> (UA_String *const base64EncodedData, UA_Byte *target)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__base64_8h.html#a273e24c38f060d09047eea790184305c">UA_base64_decode</a> (<a class="el" href="group__types.html#structUA__String">UA_String</a> *const base64EncodedData, <a class="el" href="group__types.html#gac31865e6fcb9a042b5eaf5a5bd4ed30d">UA_Byte</a> *target)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">decodes base64 encoded string into target, target should be at least of the size returned by UA_base64_getDecodedSizeUB  <a href="#a273e24c38f060d09047eea790184305c"></a><br/></td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
@@ -68,15 +68,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UA_Int32 <a class="el" href="ua__base64_8h.html#a273e24c38f060d09047eea790184305c">UA_base64_decode</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__base64_8h.html#a273e24c38f060d09047eea790184305c">UA_base64_decode</a> </td>
           <td>(</td>
-          <td class="paramtype">UA_String *const&#160;</td>
+          <td class="paramtype"><a class="el" href="group__types.html#structUA__String">UA_String</a> *const&#160;</td>
           <td class="paramname"><em>base64EncodedData</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">UA_Byte *&#160;</td>
+          <td class="paramtype"><a class="el" href="group__types.html#gac31865e6fcb9a042b5eaf5a5bd4ed30d">UA_Byte</a> *&#160;</td>
           <td class="paramname"><em>target</em>&#160;</td>
         </tr>
         <tr>
@@ -97,9 +97,9 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">UA_Int32 <a class="el" href="ua__base64_8h.html#ab977ad0ef5bf88cd4366b542c5d2dd52">UA_base64_getDecodedSize</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__base64_8h.html#ab977ad0ef5bf88cd4366b542c5d2dd52">UA_base64_getDecodedSize</a> </td>
           <td>(</td>
-          <td class="paramtype">UA_String *const&#160;</td>
+          <td class="paramtype"><a class="el" href="group__types.html#structUA__String">UA_String</a> *const&#160;</td>
           <td class="paramname"><em>base64EncodedData</em></td><td>)</td>
           <td></td>
         </tr>
@@ -116,7 +116,7 @@ Functions</h2></td></tr>
 
 
 <address class="footer"><small>
-Generated on Sat Sep 13 2014 16:37:20 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Sep 13 2014 16:42:10 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
