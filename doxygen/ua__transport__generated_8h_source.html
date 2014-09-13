@@ -43,72 +43,72 @@
 <a name="l00010"></a>00010 <span class="preprocessor">#ifndef UA_TRANSPORT_GENERATED_H_</span>
 <a name="l00011"></a>00011 <span class="preprocessor"></span><span class="preprocessor">#define UA_TRANSPORT_GENERATED_H_</span>
 <a name="l00012"></a>00012 <span class="preprocessor"></span>
-<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;<a class="code" href="ua__types_8h.html">ua_types.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;ua_types.h&quot;</span>
 <a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="ua__types__encoding__binary_8h.html">ua_types_encoding_binary.h</a>&quot;</span>
 <a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="ua__transport_8h.html">ua_transport.h</a>&quot;</span>
 <a name="l00016"></a>00016 
 <a name="l00018"></a><a class="code" href="ua__transport__generated_8h.html">00018</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="ua__transport__generated_8h.html#structUA__TcpHelloMessage" title="Hello Message.">UA_TcpHelloMessage</a> {
-<a name="l00019"></a><a class="code" href="ua__transport__generated_8h.html#a01562c42b1b28c2549b237d63cfe3769">00019</a>     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> <a class="code" href="ua__transport__generated_8h.html#a01562c42b1b28c2549b237d63cfe3769">protocolVersion</a>;
-<a name="l00020"></a><a class="code" href="ua__transport__generated_8h.html#a7bcd40d8ea675a903162cb2c4cad97fa">00020</a>     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> <a class="code" href="ua__transport__generated_8h.html#a7bcd40d8ea675a903162cb2c4cad97fa">receiveBufferSize</a>;
-<a name="l00021"></a><a class="code" href="ua__transport__generated_8h.html#a9798574f19bc07eafc72d17425ccf5e6">00021</a>     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> <a class="code" href="ua__transport__generated_8h.html#a9798574f19bc07eafc72d17425ccf5e6">sendBufferSize</a>;
-<a name="l00022"></a><a class="code" href="ua__transport__generated_8h.html#a9c30d66357ea7ca47b0b47c9b977292f">00022</a>     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> <a class="code" href="ua__transport__generated_8h.html#a9c30d66357ea7ca47b0b47c9b977292f">maxMessageSize</a>;
-<a name="l00023"></a><a class="code" href="ua__transport__generated_8h.html#aa10b5e2370f1dbdd60d964f78e29a67c">00023</a>     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> <a class="code" href="ua__transport__generated_8h.html#aa10b5e2370f1dbdd60d964f78e29a67c">maxChunkCount</a>;
-<a name="l00024"></a><a class="code" href="ua__transport__generated_8h.html#a8fead84c7af9ada3082a12ad10bb168e">00024</a>     <a class="code" href="group__types.html#structUA__String" title="A sequence of Unicode characters.">UA_String</a> <a class="code" href="ua__transport__generated_8h.html#a8fead84c7af9ada3082a12ad10bb168e">endpointUrl</a>;
+<a name="l00019"></a><a class="code" href="ua__transport__generated_8h.html#a01562c42b1b28c2549b237d63cfe3769">00019</a>     UA_UInt32 <a class="code" href="ua__transport__generated_8h.html#a01562c42b1b28c2549b237d63cfe3769">protocolVersion</a>;
+<a name="l00020"></a><a class="code" href="ua__transport__generated_8h.html#a7bcd40d8ea675a903162cb2c4cad97fa">00020</a>     UA_UInt32 <a class="code" href="ua__transport__generated_8h.html#a7bcd40d8ea675a903162cb2c4cad97fa">receiveBufferSize</a>;
+<a name="l00021"></a><a class="code" href="ua__transport__generated_8h.html#a9798574f19bc07eafc72d17425ccf5e6">00021</a>     UA_UInt32 <a class="code" href="ua__transport__generated_8h.html#a9798574f19bc07eafc72d17425ccf5e6">sendBufferSize</a>;
+<a name="l00022"></a><a class="code" href="ua__transport__generated_8h.html#a9c30d66357ea7ca47b0b47c9b977292f">00022</a>     UA_UInt32 <a class="code" href="ua__transport__generated_8h.html#a9c30d66357ea7ca47b0b47c9b977292f">maxMessageSize</a>;
+<a name="l00023"></a><a class="code" href="ua__transport__generated_8h.html#aa10b5e2370f1dbdd60d964f78e29a67c">00023</a>     UA_UInt32 <a class="code" href="ua__transport__generated_8h.html#aa10b5e2370f1dbdd60d964f78e29a67c">maxChunkCount</a>;
+<a name="l00024"></a><a class="code" href="ua__transport__generated_8h.html#a8fead84c7af9ada3082a12ad10bb168e">00024</a>     UA_String <a class="code" href="ua__transport__generated_8h.html#a8fead84c7af9ada3082a12ad10bb168e">endpointUrl</a>;
 <a name="l00025"></a>00025 } <a class="code" href="ua__transport__generated_8h.html#structUA__TcpHelloMessage" title="Hello Message.">UA_TcpHelloMessage</a>;
-<a name="l00026"></a><a class="code" href="ua__transport__generated_8h.html#a933dc1941f2364e2f08e110775f9e6e5">00026</a> <a class="code" href="group__types.html#gae8394913a6bc14a1dfee6fe6dccb819e">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#structUA__TcpHelloMessage" title="Hello Message.">UA_TcpHelloMessage</a>)
+<a name="l00026"></a><a class="code" href="ua__transport__generated_8h.html#a933dc1941f2364e2f08e110775f9e6e5">00026</a> <a class="code" href="ua__transport_8h.html#af675128dd321a1e0dde49c7cb2cdc19a">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#structUA__TcpHelloMessage" title="Hello Message.">UA_TcpHelloMessage</a>)
 <a name="l00027"></a>00027 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="ua__transport__generated_8h.html#structUA__TcpHelloMessage" title="Hello Message.">UA_TcpHelloMessage</a>)
 <a name="l00029"></a>00029 typedef struct <a class="code" href="ua__transport__generated_8h.html#a81d470c218a530d4a894ef87b7e809f5">UA_TcpAcknowledgeMessage</a> {
-<a name="l00030"></a>00030     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> protocolVersion;
-<a name="l00031"></a>00031     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> receiveBufferSize;
-<a name="l00032"></a>00032     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> sendBufferSize;
-<a name="l00033"></a>00033     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> maxMessageSize;
-<a name="l00034"></a>00034     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> maxChunkCount;
+<a name="l00030"></a>00030     UA_UInt32 protocolVersion;
+<a name="l00031"></a>00031     UA_UInt32 receiveBufferSize;
+<a name="l00032"></a>00032     UA_UInt32 sendBufferSize;
+<a name="l00033"></a>00033     UA_UInt32 maxMessageSize;
+<a name="l00034"></a>00034     UA_UInt32 maxChunkCount;
 <a name="l00035"></a><a class="code" href="ua__transport__generated_8h.html#a81d470c218a530d4a894ef87b7e809f5">00035</a> } <a class="code" href="ua__transport__generated_8h.html#a81d470c218a530d4a894ef87b7e809f5">UA_TcpAcknowledgeMessage</a>;
-<a name="l00036"></a><a class="code" href="ua__transport__generated_8h.html#a5cd0cc212eda3f4f2da276a59cd3ffdc">00036</a> <a class="code" href="group__types.html#gae8394913a6bc14a1dfee6fe6dccb819e">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#a81d470c218a530d4a894ef87b7e809f5">UA_TcpAcknowledgeMessage</a>)
+<a name="l00036"></a><a class="code" href="ua__transport__generated_8h.html#a5cd0cc212eda3f4f2da276a59cd3ffdc">00036</a> <a class="code" href="ua__transport_8h.html#af675128dd321a1e0dde49c7cb2cdc19a">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#a81d470c218a530d4a894ef87b7e809f5">UA_TcpAcknowledgeMessage</a>)
 <a name="l00037"></a>00037 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="ua__transport__generated_8h.html#a81d470c218a530d4a894ef87b7e809f5">UA_TcpAcknowledgeMessage</a>)
 <a name="l00039"></a>00039 typedef struct <a class="code" href="ua__transport__generated_8h.html#af2827cc0b8f80c6a7ea5394c7fc82525">UA_AsymmetricAlgorithmSecurityHeader</a> {
 <a name="l00040"></a>00040     UA_ByteString securityPolicyUri;
 <a name="l00041"></a>00041     UA_ByteString senderCertificate;
 <a name="l00042"></a>00042     UA_ByteString receiverCertificateThumbprint;
 <a name="l00043"></a><a class="code" href="ua__transport__generated_8h.html#af2827cc0b8f80c6a7ea5394c7fc82525">00043</a> } <a class="code" href="ua__transport__generated_8h.html#af2827cc0b8f80c6a7ea5394c7fc82525">UA_AsymmetricAlgorithmSecurityHeader</a>;
-<a name="l00044"></a><a class="code" href="ua__transport__generated_8h.html#a7649917ac979f242d9564bc25b4d73ba">00044</a> <a class="code" href="group__types.html#gae8394913a6bc14a1dfee6fe6dccb819e">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#af2827cc0b8f80c6a7ea5394c7fc82525">UA_AsymmetricAlgorithmSecurityHeader</a>)
+<a name="l00044"></a><a class="code" href="ua__transport__generated_8h.html#a7649917ac979f242d9564bc25b4d73ba">00044</a> <a class="code" href="ua__transport_8h.html#af675128dd321a1e0dde49c7cb2cdc19a">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#af2827cc0b8f80c6a7ea5394c7fc82525">UA_AsymmetricAlgorithmSecurityHeader</a>)
 <a name="l00045"></a>00045 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="ua__transport__generated_8h.html#af2827cc0b8f80c6a7ea5394c7fc82525">UA_AsymmetricAlgorithmSecurityHeader</a>)
 <a name="l00047"></a>00047 typedef struct <a class="code" href="ua__transport__generated_8h.html#abf25467d16387a347ffccb9682d69fe2">UA_SymmetricAlgorithmSecurityHeader</a> {
-<a name="l00048"></a>00048     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> tokenId;
+<a name="l00048"></a>00048     UA_UInt32 tokenId;
 <a name="l00049"></a><a class="code" href="ua__transport__generated_8h.html#abf25467d16387a347ffccb9682d69fe2">00049</a> } <a class="code" href="ua__transport__generated_8h.html#abf25467d16387a347ffccb9682d69fe2">UA_SymmetricAlgorithmSecurityHeader</a>;
-<a name="l00050"></a><a class="code" href="ua__transport__generated_8h.html#ab3373b5914ce87ac14c39ba25597c512">00050</a> <a class="code" href="group__types.html#gae8394913a6bc14a1dfee6fe6dccb819e">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#abf25467d16387a347ffccb9682d69fe2">UA_SymmetricAlgorithmSecurityHeader</a>)
+<a name="l00050"></a><a class="code" href="ua__transport__generated_8h.html#ab3373b5914ce87ac14c39ba25597c512">00050</a> <a class="code" href="ua__transport_8h.html#af675128dd321a1e0dde49c7cb2cdc19a">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#abf25467d16387a347ffccb9682d69fe2">UA_SymmetricAlgorithmSecurityHeader</a>)
 <a name="l00051"></a>00051 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="ua__transport__generated_8h.html#abf25467d16387a347ffccb9682d69fe2">UA_SymmetricAlgorithmSecurityHeader</a>)
 <a name="l00053"></a>00053 typedef struct <a class="code" href="ua__transport__generated_8h.html#a121a96df6165c7564e9b102d24722249">UA_SequenceHeader</a> {
-<a name="l00054"></a>00054     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> sequenceNumber;
-<a name="l00055"></a>00055     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> requestId;
+<a name="l00054"></a>00054     UA_UInt32 sequenceNumber;
+<a name="l00055"></a>00055     UA_UInt32 requestId;
 <a name="l00056"></a><a class="code" href="ua__transport__generated_8h.html#a121a96df6165c7564e9b102d24722249">00056</a> } <a class="code" href="ua__transport__generated_8h.html#a121a96df6165c7564e9b102d24722249">UA_SequenceHeader</a>;
-<a name="l00057"></a><a class="code" href="ua__transport__generated_8h.html#a2e72239b18d7527b9db75fc180c564cd">00057</a> <a class="code" href="group__types.html#gae8394913a6bc14a1dfee6fe6dccb819e">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#a121a96df6165c7564e9b102d24722249">UA_SequenceHeader</a>)
+<a name="l00057"></a><a class="code" href="ua__transport__generated_8h.html#a2e72239b18d7527b9db75fc180c564cd">00057</a> <a class="code" href="ua__transport_8h.html#af675128dd321a1e0dde49c7cb2cdc19a">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#a121a96df6165c7564e9b102d24722249">UA_SequenceHeader</a>)
 <a name="l00058"></a>00058 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="ua__transport__generated_8h.html#a121a96df6165c7564e9b102d24722249">UA_SequenceHeader</a>)
 <a name="l00060"></a>00060 typedef struct <a class="code" href="ua__transport__generated_8h.html#a7adcb98f052a1788eb41e2c95125f321">UA_SecureConversationMessageFooter</a> {
-<a name="l00061"></a>00061     <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> paddingSize;
-<a name="l00062"></a>00062     <a class="code" href="group__types.html#gac31865e6fcb9a042b5eaf5a5bd4ed30d" title="An integer value between 0 and 256.">UA_Byte</a>* padding;
-<a name="l00063"></a>00063     <a class="code" href="group__types.html#gac31865e6fcb9a042b5eaf5a5bd4ed30d" title="An integer value between 0 and 256.">UA_Byte</a> signature;
+<a name="l00061"></a>00061     UA_Int32 paddingSize;
+<a name="l00062"></a>00062     UA_Byte* padding;
+<a name="l00063"></a>00063     UA_Byte signature;
 <a name="l00064"></a><a class="code" href="ua__transport__generated_8h.html#a7adcb98f052a1788eb41e2c95125f321">00064</a> } <a class="code" href="ua__transport__generated_8h.html#a7adcb98f052a1788eb41e2c95125f321">UA_SecureConversationMessageFooter</a>;
-<a name="l00065"></a><a class="code" href="ua__transport__generated_8h.html#a40b8633e0dfa3f55adeb362b5b7f23e8">00065</a> <a class="code" href="group__types.html#gae8394913a6bc14a1dfee6fe6dccb819e">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#a7adcb98f052a1788eb41e2c95125f321">UA_SecureConversationMessageFooter</a>)
+<a name="l00065"></a><a class="code" href="ua__transport__generated_8h.html#a40b8633e0dfa3f55adeb362b5b7f23e8">00065</a> <a class="code" href="ua__transport_8h.html#af675128dd321a1e0dde49c7cb2cdc19a">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#a7adcb98f052a1788eb41e2c95125f321">UA_SecureConversationMessageFooter</a>)
 <a name="l00066"></a>00066 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="ua__transport__generated_8h.html#a7adcb98f052a1788eb41e2c95125f321">UA_SecureConversationMessageFooter</a>)
 <a name="l00068"></a>00068 typedef struct <a class="code" href="ua__transport__generated_8h.html#aa771c83f3fa0006d3953eba0b0f5d036">UA_SecureConversationMessageAbortBody</a> {
-<a name="l00069"></a>00069     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> error;
-<a name="l00070"></a>00070     <a class="code" href="group__types.html#structUA__String" title="A sequence of Unicode characters.">UA_String</a> reason;
+<a name="l00069"></a>00069     UA_UInt32 error;
+<a name="l00070"></a>00070     UA_String reason;
 <a name="l00071"></a><a class="code" href="ua__transport__generated_8h.html#aa771c83f3fa0006d3953eba0b0f5d036">00071</a> } <a class="code" href="ua__transport__generated_8h.html#aa771c83f3fa0006d3953eba0b0f5d036">UA_SecureConversationMessageAbortBody</a>;
-<a name="l00072"></a><a class="code" href="ua__transport__generated_8h.html#afce5e02a8c0b527d9e781e0c30e48893">00072</a> <a class="code" href="group__types.html#gae8394913a6bc14a1dfee6fe6dccb819e">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#aa771c83f3fa0006d3953eba0b0f5d036">UA_SecureConversationMessageAbortBody</a>)
+<a name="l00072"></a><a class="code" href="ua__transport__generated_8h.html#afce5e02a8c0b527d9e781e0c30e48893">00072</a> <a class="code" href="ua__transport_8h.html#af675128dd321a1e0dde49c7cb2cdc19a">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#aa771c83f3fa0006d3953eba0b0f5d036">UA_SecureConversationMessageAbortBody</a>)
 <a name="l00073"></a>00073 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="ua__transport__generated_8h.html#aa771c83f3fa0006d3953eba0b0f5d036">UA_SecureConversationMessageAbortBody</a>)
 <a name="l00075"></a>00075 typedef struct <a class="code" href="ua__transport__generated_8h.html#aa5ad5bf08443112ac5bea5a2b7bb8a63">UA_TcpMessageHeader</a> {
 <a name="l00076"></a>00076     <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a> messageType;
-<a name="l00077"></a>00077     <a class="code" href="group__types.html#gac31865e6fcb9a042b5eaf5a5bd4ed30d" title="An integer value between 0 and 256.">UA_Byte</a> isFinal;
-<a name="l00078"></a>00078     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> messageSize;
+<a name="l00077"></a>00077     UA_Byte isFinal;
+<a name="l00078"></a>00078     UA_UInt32 messageSize;
 <a name="l00079"></a><a class="code" href="ua__transport__generated_8h.html#aa5ad5bf08443112ac5bea5a2b7bb8a63">00079</a> } <a class="code" href="ua__transport__generated_8h.html#aa5ad5bf08443112ac5bea5a2b7bb8a63">UA_TcpMessageHeader</a>;
-<a name="l00080"></a><a class="code" href="ua__transport__generated_8h.html#a4e407336b9d3dfbb5b477b5fdf3ec7ea">00080</a> <a class="code" href="group__types.html#gae8394913a6bc14a1dfee6fe6dccb819e">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#aa5ad5bf08443112ac5bea5a2b7bb8a63">UA_TcpMessageHeader</a>)
+<a name="l00080"></a><a class="code" href="ua__transport__generated_8h.html#a4e407336b9d3dfbb5b477b5fdf3ec7ea">00080</a> <a class="code" href="ua__transport_8h.html#af675128dd321a1e0dde49c7cb2cdc19a">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#aa5ad5bf08443112ac5bea5a2b7bb8a63">UA_TcpMessageHeader</a>)
 <a name="l00081"></a>00081 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="ua__transport__generated_8h.html#aa5ad5bf08443112ac5bea5a2b7bb8a63">UA_TcpMessageHeader</a>)
 <a name="l00083"></a>00083 typedef struct <a class="code" href="ua__transport__generated_8h.html#a80e6451a7cb1aab8f5f8817b023483ca">UA_SecureConversationMessageHeader</a> {
 <a name="l00084"></a>00084     <a class="code" href="ua__transport__generated_8h.html#aa5ad5bf08443112ac5bea5a2b7bb8a63">UA_TcpMessageHeader</a> messageHeader;
-<a name="l00085"></a>00085     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> secureChannelId;
+<a name="l00085"></a>00085     UA_UInt32 secureChannelId;
 <a name="l00086"></a><a class="code" href="ua__transport__generated_8h.html#a80e6451a7cb1aab8f5f8817b023483ca">00086</a> } <a class="code" href="ua__transport__generated_8h.html#a80e6451a7cb1aab8f5f8817b023483ca">UA_SecureConversationMessageHeader</a>;
-<a name="l00087"></a>00087 <a class="code" href="group__types.html#gae8394913a6bc14a1dfee6fe6dccb819e">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#a80e6451a7cb1aab8f5f8817b023483ca">UA_SecureConversationMessageHeader</a>)
+<a name="l00087"></a>00087 <a class="code" href="ua__transport_8h.html#af675128dd321a1e0dde49c7cb2cdc19a">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport__generated_8h.html#a80e6451a7cb1aab8f5f8817b023483ca">UA_SecureConversationMessageHeader</a>)
 <a name="l00088"></a>00088 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="ua__transport__generated_8h.html#a80e6451a7cb1aab8f5f8817b023483ca">UA_SecureConversationMessageHeader</a>)
 <a name="l00089"></a>00089 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
@@ -116,7 +116,7 @@
 
 
 <address class="footer"><small>
-Generated on Sat Sep 13 2014 10:25:54 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Sep 13 2014 16:37:19 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -42,31 +42,31 @@
 <a href="ua__session_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef UA_SESSION_H_</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define UA_SESSION_H_</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="ua__types_8h.html">ua_types.h</a>&quot;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;ua_types.h&quot;</span>
 <a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="ua__securechannel_8h.html">ua_securechannel.h</a>&quot;</span>
 <a name="l00006"></a>00006 
 <a name="l00013"></a><a class="code" href="ua__session_8h.html">00013</a> <span class="keyword">struct </span><a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> {
 <a name="l00014"></a><a class="code" href="ua__session_8h.html#ac22828ad4ae842cc558bbb17627e4bb7">00014</a>     <a class="code" href="ua__types__generated_8h.html#a1f250e5e7dcd4d21d30a818cda35f579">UA_ApplicationDescription</a> <a class="code" href="ua__session_8h.html#ac22828ad4ae842cc558bbb17627e4bb7">clientDescription</a>;
-<a name="l00015"></a><a class="code" href="ua__session_8h.html#a83ee3b647386ad4a300601bc8f85f8d7">00015</a>     <a class="code" href="group__types.html#structUA__String" title="A sequence of Unicode characters.">UA_String</a>         <a class="code" href="ua__session_8h.html#a83ee3b647386ad4a300601bc8f85f8d7">sessionName</a>;
-<a name="l00016"></a><a class="code" href="ua__session_8h.html#aa7b6047f076e1d0847c1d90d8b196b7e">00016</a>     <a class="code" href="structUA__NodeId.html" title="An identifier for a node in the address space of an OPC UA Server.">UA_NodeId</a>         <a class="code" href="ua__session_8h.html#aa7b6047f076e1d0847c1d90d8b196b7e">authenticationToken</a>;
-<a name="l00017"></a><a class="code" href="ua__session_8h.html#a04b611f1c5c2e991378c5c21d36a144e">00017</a>     <a class="code" href="structUA__NodeId.html" title="An identifier for a node in the address space of an OPC UA Server.">UA_NodeId</a>         <a class="code" href="ua__session_8h.html#a04b611f1c5c2e991378c5c21d36a144e">sessionId</a>;
-<a name="l00018"></a><a class="code" href="ua__session_8h.html#acd3ed55d092611a47a9deb3a72bd09ef">00018</a>     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a>         <a class="code" href="ua__session_8h.html#acd3ed55d092611a47a9deb3a72bd09ef">maxRequestMessageSize</a>;
-<a name="l00019"></a><a class="code" href="ua__session_8h.html#a24a9a5f890a2b70db0ad526da1b886f8">00019</a>     <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a>         <a class="code" href="ua__session_8h.html#a24a9a5f890a2b70db0ad526da1b886f8">maxResponseMessageSize</a>;
-<a name="l00020"></a><a class="code" href="ua__session_8h.html#a1ba1fe97ec28ec7acd5c067e70d4a41a">00020</a>     <a class="code" href="group__types.html#gae5c13df54009d7a3e374bfc594af8059" title="An integer value between -10 223 372 036 854 775 808 and 9 223 372 036 854 775 807.">UA_Int64</a>          <a class="code" href="ua__session_8h.html#a1ba1fe97ec28ec7acd5c067e70d4a41a">timeout</a>;
-<a name="l00021"></a><a class="code" href="ua__session_8h.html#a36ae64e0a95bff52f4a23167c08462b3">00021</a>     <a class="code" href="group__types.html#gab4378e68c207b1de4e58d0ae26dc333c" title="An instance in time.">UA_DateTime</a>       <a class="code" href="ua__session_8h.html#a36ae64e0a95bff52f4a23167c08462b3">validTill</a>;
+<a name="l00015"></a><a class="code" href="ua__session_8h.html#a83ee3b647386ad4a300601bc8f85f8d7">00015</a>     UA_String         <a class="code" href="ua__session_8h.html#a83ee3b647386ad4a300601bc8f85f8d7">sessionName</a>;
+<a name="l00016"></a><a class="code" href="ua__session_8h.html#aa7b6047f076e1d0847c1d90d8b196b7e">00016</a>     UA_NodeId         <a class="code" href="ua__session_8h.html#aa7b6047f076e1d0847c1d90d8b196b7e">authenticationToken</a>;
+<a name="l00017"></a><a class="code" href="ua__session_8h.html#a04b611f1c5c2e991378c5c21d36a144e">00017</a>     UA_NodeId         <a class="code" href="ua__session_8h.html#a04b611f1c5c2e991378c5c21d36a144e">sessionId</a>;
+<a name="l00018"></a><a class="code" href="ua__session_8h.html#acd3ed55d092611a47a9deb3a72bd09ef">00018</a>     UA_UInt32         <a class="code" href="ua__session_8h.html#acd3ed55d092611a47a9deb3a72bd09ef">maxRequestMessageSize</a>;
+<a name="l00019"></a><a class="code" href="ua__session_8h.html#a24a9a5f890a2b70db0ad526da1b886f8">00019</a>     UA_UInt32         <a class="code" href="ua__session_8h.html#a24a9a5f890a2b70db0ad526da1b886f8">maxResponseMessageSize</a>;
+<a name="l00020"></a><a class="code" href="ua__session_8h.html#a1ba1fe97ec28ec7acd5c067e70d4a41a">00020</a>     UA_Int64          <a class="code" href="ua__session_8h.html#a1ba1fe97ec28ec7acd5c067e70d4a41a">timeout</a>;
+<a name="l00021"></a><a class="code" href="ua__session_8h.html#a36ae64e0a95bff52f4a23167c08462b3">00021</a>     UA_DateTime       <a class="code" href="ua__session_8h.html#a36ae64e0a95bff52f4a23167c08462b3">validTill</a>;
 <a name="l00022"></a><a class="code" href="ua__session_8h.html#ab4065b426bb772f20007a66e127ca76c">00022</a>     <a class="code" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *<a class="code" href="ua__session_8h.html#ab4065b426bb772f20007a66e127ca76c">channel</a>;
 <a name="l00023"></a>00023 };
 <a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__session_8h.html#ae6f3b60620a247b38e7e561b1f5fbca6">UA_Session_new</a>(<a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> **session);
-<a name="l00026"></a>00026 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__session_8h.html#ac0d018b438543816478834b859df83af">UA_Session_init</a>(<a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session);
-<a name="l00027"></a>00027 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__session_8h.html#acffe7d95b4c8c418342eecb028dd007f">UA_Session_delete</a>(<a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session);
-<a name="l00028"></a>00028 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__session_8h.html#a10fdb7b0724137247ba57ede38ba10e9">UA_Session_deleteMembers</a>(<a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session);
+<a name="l00025"></a>00025 UA_Int32 <a class="code" href="ua__session_8h.html#ae6f3b60620a247b38e7e561b1f5fbca6">UA_Session_new</a>(<a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> **session);
+<a name="l00026"></a>00026 UA_Int32 <a class="code" href="ua__session_8h.html#ac0d018b438543816478834b859df83af">UA_Session_init</a>(<a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session);
+<a name="l00027"></a>00027 UA_Int32 <a class="code" href="ua__session_8h.html#acffe7d95b4c8c418342eecb028dd007f">UA_Session_delete</a>(<a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session);
+<a name="l00028"></a>00028 UA_Int32 <a class="code" href="ua__session_8h.html#a10fdb7b0724137247ba57ede38ba10e9">UA_Session_deleteMembers</a>(<a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session);
 <a name="l00029"></a>00029 
-<a name="l00031"></a>00031 <a class="code" href="group__types.html#ga0632a6a27680358c83dcb69725e15139" title="A two-state logical value (true or false).">UA_Boolean</a> <a class="code" href="ua__session_8h.html#a72b7ee63d07bd9b2a635b10e9b854585">UA_Session_compare</a>(<a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session1, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session2);
+<a name="l00031"></a>00031 UA_Boolean <a class="code" href="ua__session_8h.html#a72b7ee63d07bd9b2a635b10e9b854585">UA_Session_compare</a>(<a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session1, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session2);
 <a name="l00032"></a>00032 
-<a name="l00034"></a>00034 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__session_8h.html#a417e5588f3fb7ecf47fda2ed2e33f445">UA_Session_updateLifetime</a>(<a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session);
+<a name="l00034"></a>00034 UA_Int32 <a class="code" href="ua__session_8h.html#a417e5588f3fb7ecf47fda2ed2e33f445">UA_Session_updateLifetime</a>(<a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session);
 <a name="l00035"></a>00035 
-<a name="l00037"></a>00037 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__session_8h.html#abc9b4e223a029d95acc53a158b34e7ea">UA_Session_getPendingLifetime</a>(<a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, <a class="code" href="group__types.html#gaac69e6c4659bdcafdb30498200a0ab07" title="An IEEE double precision (64 bit) floating point value.">UA_Double</a> *pendingLifetime);
+<a name="l00037"></a>00037 UA_Int32 <a class="code" href="ua__session_8h.html#abc9b4e223a029d95acc53a158b34e7ea">UA_Session_getPendingLifetime</a>(<a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, UA_Double *pendingLifetime);
 <a name="l00038"></a>00038 
 <a name="l00039"></a>00039 <span class="preprocessor">#endif </span><span class="comment">/* UA_SESSION_H_ */</span>
 </pre></div></div><!-- contents -->
@@ -74,7 +74,7 @@
 
 
 <address class="footer"><small>
-Generated on Sat Sep 13 2014 10:25:54 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Sep 13 2014 16:37:19 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

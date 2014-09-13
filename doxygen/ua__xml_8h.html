@@ -50,7 +50,7 @@
 <code>#include &lt;string.h&gt;</code><br/>
 <code>#include &lt;ctype.h&gt;</code><br/>
 <code>#include &lt;unistd.h&gt;</code><br/>
-<code>#include &quot;<a class="el" href="ua__types_8h_source.html">ua_types.h</a>&quot;</code><br/>
+<code>#include &quot;ua_types.h&quot;</code><br/>
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for ua_xml.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -58,7 +58,7 @@
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="ua__xml_8h__incl.png" border="0" usemap="#_2home_2travis_2build_2acplt_2open62541_2src_2ongoing_2ua__xml_8h" alt=""/></div>
 <map name="_2home_2travis_2build_2acplt_2open62541_2src_2ongoing_2ua__xml_8h" id="_2home_2travis_2build_2acplt_2open62541_2src_2ongoing_2ua__xml_8h">
-<area shape="rect" id="node15" href="ua__types_8h.html" title="ua_types.h" alt="" coords="499,83,584,112"/><area shape="rect" id="node17" href="ua__config_8h.html" title="ua_config.h" alt="" coords="447,160,535,189"/></map>
+</map>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
@@ -91,37 +91,37 @@ Defines</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef char const *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a36ac51d1465b00c7340c19b33627163c">XML_Attr</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef char const *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a4bbefee03f0125eb7d673125f1b12564">XML_decoder</a> )(struct <a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *s, <a class="el" href="ua__xml_8h.html#a36ac51d1465b00c7340c19b33627163c">XML_Attr</a> *attr, void *dst, <a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> isStart)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef UA_Int32(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a4bbefee03f0125eb7d673125f1b12564">XML_decoder</a> )(struct <a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *s, <a class="el" href="ua__xml_8h.html#a36ac51d1465b00c7340c19b33627163c">XML_Attr</a> *attr, void *dst, UA_Boolean isStart)</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#aa77501586afdf8ddbf0768feb70ab5bb">UA_Boolean_copycstring</a> (<a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> src, <a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> *dst)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a5215b5575ca31e8cb92f4b38fee8d0e4">UA_Int16_copycstring</a> (<a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> src, <a class="el" href="group__types.html#ga2dfa954c25e6984956ab6fa8e8fd73db">UA_Int16</a> *dst)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#aac5a38de59a1938cf1cfd38a2e238faa">UA_UInt16_copycstring</a> (<a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> src, <a class="el" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05">UA_UInt16</a> *dst)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a139634ba7022e2a0e81d0f81a0593aac">UA_NodeId_isBuiltinType</a> (<a class="el" href="structUA__NodeId.html">UA_NodeId</a> *nodeid)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a410f1d3d1279ced0dd74063c0daa92a1">UA_TypedArray_init</a> (<a class="el" href="ua__xml_8h.html#structUA__TypedArray">UA_TypedArray</a> *p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#aa77501586afdf8ddbf0768feb70ab5bb">UA_Boolean_copycstring</a> (<a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> src, UA_Boolean *dst)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a5215b5575ca31e8cb92f4b38fee8d0e4">UA_Int16_copycstring</a> (<a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> src, UA_Int16 *dst)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#aac5a38de59a1938cf1cfd38a2e238faa">UA_UInt16_copycstring</a> (<a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> src, UA_UInt16 *dst)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a139634ba7022e2a0e81d0f81a0593aac">UA_NodeId_isBuiltinType</a> (UA_NodeId *nodeid)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a410f1d3d1279ced0dd74063c0daa92a1">UA_TypedArray_init</a> (<a class="el" href="ua__xml_8h.html#structUA__TypedArray">UA_TypedArray</a> *p)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">init typed array with size=-1 and an UA_INVALIDTYPE  <a href="#a410f1d3d1279ced0dd74063c0daa92a1"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#ae76e3ba08fa65f07d9a576e9d82f3fd5">UA_TypedArray_new</a> (<a class="el" href="ua__xml_8h.html#structUA__TypedArray">UA_TypedArray</a> **p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#ae76e3ba08fa65f07d9a576e9d82f3fd5">UA_TypedArray_new</a> (<a class="el" href="ua__xml_8h.html#structUA__TypedArray">UA_TypedArray</a> **p)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">allocate memory for the array header only  <a href="#ae76e3ba08fa65f07d9a576e9d82f3fd5"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a3658717bf6134ef6e3efc39d891cf57d">UA_TypedArray_setType</a> (<a class="el" href="ua__xml_8h.html#structUA__TypedArray">UA_TypedArray</a> *p, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> type)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#afb4ba58edd5b450c8266eadf4d92b57b">UA_NodeSetAlias_init</a> (<a class="el" href="ua__xml_8h.html#structUA__NodeSetAlias">UA_NodeSetAlias</a> *p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#abf83b7e7154b7673a86c5469cfa777ff">UA_NodeSetAlias_new</a> (<a class="el" href="ua__xml_8h.html#structUA__NodeSetAlias">UA_NodeSetAlias</a> **p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a4b8af4d4bde40cb2378d7f46fdecbd50">UA_NodeSetAliases_init</a> (<a class="el" href="ua__xml_8h.html#structUA__NodeSetAliases">UA_NodeSetAliases</a> *p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#acdf9bb4ae18f02818b5b9e41b6958937">UA_NodeSetAliases_new</a> (<a class="el" href="ua__xml_8h.html#structUA__NodeSetAliases">UA_NodeSetAliases</a> **p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a2199189380f58e7d281726e88543974e">UA_NodeSetAliases_println</a> (<a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> label, <a class="el" href="ua__xml_8h.html#structUA__NodeSetAliases">UA_NodeSetAliases</a> *p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#aa5253c230c373429ded131bacf962e17">UA_ExpandedNodeId_copycstring</a> (<a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> src, <a class="el" href="group__types.html#structUA__ExpandedNodeId">UA_ExpandedNodeId</a> *dst, <a class="el" href="ua__xml_8h.html#structUA__NodeSetAliases">UA_NodeSetAliases</a> *aliases)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a9d800430bb40d074a1ce8bde805fa724">XML_Stack_init</a> (<a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *p, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> nsid, <a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a3658717bf6134ef6e3efc39d891cf57d">UA_TypedArray_setType</a> (<a class="el" href="ua__xml_8h.html#structUA__TypedArray">UA_TypedArray</a> *p, UA_Int32 type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#afb4ba58edd5b450c8266eadf4d92b57b">UA_NodeSetAlias_init</a> (<a class="el" href="ua__xml_8h.html#structUA__NodeSetAlias">UA_NodeSetAlias</a> *p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#abf83b7e7154b7673a86c5469cfa777ff">UA_NodeSetAlias_new</a> (<a class="el" href="ua__xml_8h.html#structUA__NodeSetAlias">UA_NodeSetAlias</a> **p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a4b8af4d4bde40cb2378d7f46fdecbd50">UA_NodeSetAliases_init</a> (<a class="el" href="ua__xml_8h.html#structUA__NodeSetAliases">UA_NodeSetAliases</a> *p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#acdf9bb4ae18f02818b5b9e41b6958937">UA_NodeSetAliases_new</a> (<a class="el" href="ua__xml_8h.html#structUA__NodeSetAliases">UA_NodeSetAliases</a> **p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a2199189380f58e7d281726e88543974e">UA_NodeSetAliases_println</a> (<a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> label, <a class="el" href="ua__xml_8h.html#structUA__NodeSetAliases">UA_NodeSetAliases</a> *p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#aa5253c230c373429ded131bacf962e17">UA_ExpandedNodeId_copycstring</a> (<a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> src, UA_ExpandedNodeId *dst, <a class="el" href="ua__xml_8h.html#structUA__NodeSetAliases">UA_NodeSetAliases</a> *aliases)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a9d800430bb40d074a1ce8bde805fa724">XML_Stack_init</a> (<a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *p, UA_UInt32 nsid, <a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> name)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a70ca3614bd3bd65272b93f92affe3a7e">XML_Stack_print</a> (<a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *s)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#ab51f676eaac530a3ea13ff7b951262b0">XML_Stack_handleTextAsElementOf</a> (<a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *p, <a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> textAttrib, unsigned int textAttribIdx)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">add a reference to a handler (  <a href="#ab51f676eaac530a3ea13ff7b951262b0"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#ad9ca71a70dedf2f876b332526fa79a82">XML_Stack_addChildHandler</a> (<a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *p, <a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> name, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> nameLength, <a class="el" href="ua__xml_8h.html#a4bbefee03f0125eb7d673125f1b12564">XML_decoder</a> handler, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> type, void *dst)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#ad9ca71a70dedf2f876b332526fa79a82">XML_Stack_addChildHandler</a> (<a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *p, <a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> name, UA_Int32 nameLength, <a class="el" href="ua__xml_8h.html#a4bbefee03f0125eb7d673125f1b12564">XML_decoder</a> handler, UA_Int32 type, void *dst)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">make a handler known to the XML-stack on the current level  <a href="#ad9ca71a70dedf2f876b332526fa79a82"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a79399b1a109d2a3c0be258f46452e861">XML_Stack_startElement</a> (void *data, const char *el, const char **attr)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#ae2498cb9f4b9f4505ea8b24f63c86092">XML_isSpace</a> (<a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> s, int len)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#ae2498cb9f4b9f4505ea8b24f63c86092">XML_isSpace</a> (<a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> s, int len)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a2a1ee271f044e59e7fdf6e1ffcb13167">XML_Stack_handleText</a> (void *data, const char *txt, int len)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a7c0b2ec1454442b0b6b11a281459f05e">XML_Stack_endElement</a> (void *data, const char *el)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a7899db88c3951c35f43d27d17d737bc4">UA_Text_decodeXmlFromStack</a> (<a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *s, <a class="el" href="ua__xml_8h.html#a36ac51d1465b00c7340c19b33627163c">XML_Attr</a> *attr, <a class="el" href="group__types.html#gac31865e6fcb9a042b5eaf5a5bd4ed30d">UA_Byte</a> **dst, _Bool isStart)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#ad6717ef7d77d2bafa2fa433a071fe71d">UA_NodeId_copycstring</a> (<a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> src, <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *dst, <a class="el" href="ua__xml_8h.html#structUA__NodeSetAliases">UA_NodeSetAliases</a> *aliases)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#afc5bbcf08e427b881f5f8a8ed719a4f8">UA_TypedArray_decodeXmlFromStack</a> (<a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *s, <a class="el" href="ua__xml_8h.html#a36ac51d1465b00c7340c19b33627163c">XML_Attr</a> *attr, <a class="el" href="ua__xml_8h.html#structUA__TypedArray">UA_TypedArray</a> *dst, _Bool isStart)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#a7899db88c3951c35f43d27d17d737bc4">UA_Text_decodeXmlFromStack</a> (<a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *s, <a class="el" href="ua__xml_8h.html#a36ac51d1465b00c7340c19b33627163c">XML_Attr</a> *attr, UA_Byte **dst, _Bool isStart)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#ad6717ef7d77d2bafa2fa433a071fe71d">UA_NodeId_copycstring</a> (<a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a> src, UA_NodeId *dst, <a class="el" href="ua__xml_8h.html#structUA__NodeSetAliases">UA_NodeSetAliases</a> *aliases)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">UA_Int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__xml_8h.html#afc5bbcf08e427b881f5f8a8ed719a4f8">UA_TypedArray_decodeXmlFromStack</a> (<a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *s, <a class="el" href="ua__xml_8h.html#a36ac51d1465b00c7340c19b33627163c">XML_Attr</a> *attr, <a class="el" href="ua__xml_8h.html#structUA__TypedArray">UA_TypedArray</a> *dst, _Bool isStart)</td></tr>
 </table>
 <hr/><h2>Data Structure Documentation</h2>
 <a name="structUA__NodeSetAlias" id="structUA__NodeSetAlias"></a>
@@ -138,13 +138,13 @@ Functions</h2></td></tr>
 </div><table class="fieldtable">
 <tr><th colspan="3">Data Fields</th></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="a35da09e0b20a7810425dbfac0ce6f46c"></a><!-- doxytag: member="alias" ref="a35da09e0b20a7810425dbfac0ce6f46c" args="" --><a class="el" href="group__types.html#structUA__String">UA_String</a></td>
+<a class="anchor" id="a35da09e0b20a7810425dbfac0ce6f46c"></a><!-- doxytag: member="alias" ref="a35da09e0b20a7810425dbfac0ce6f46c" args="" -->UA_String</td>
 <td class="fieldname">
 alias</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="a99144be766e0cdd82b9d30ad7e832c04"></a><!-- doxytag: member="value" ref="a99144be766e0cdd82b9d30ad7e832c04" args="" --><a class="el" href="group__types.html#structUA__String">UA_String</a></td>
+<a class="anchor" id="a99144be766e0cdd82b9d30ad7e832c04"></a><!-- doxytag: member="value" ref="a99144be766e0cdd82b9d30ad7e832c04" args="" -->UA_String</td>
 <td class="fieldname">
 value</td>
 <td class="fielddoc">
@@ -173,7 +173,7 @@ aliases</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="a9e062a36dee1581f553630ca15e4af34"></a><!-- doxytag: member="size" ref="a9e062a36dee1581f553630ca15e4af34" args="" --><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a></td>
+<a class="anchor" id="a9e062a36dee1581f553630ca15e4af34"></a><!-- doxytag: member="size" ref="a9e062a36dee1581f553630ca15e4af34" args="" -->UA_Int32</td>
 <td class="fieldname">
 size</td>
 <td class="fielddoc">
@@ -201,7 +201,7 @@ elementHandler</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="a89f913c39906b0a0a1a83efab8d08a1c"></a><!-- doxytag: member="length" ref="a89f913c39906b0a0a1a83efab8d08a1c" args="" --><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a></td>
+<a class="anchor" id="a89f913c39906b0a0a1a83efab8d08a1c"></a><!-- doxytag: member="length" ref="a89f913c39906b0a0a1a83efab8d08a1c" args="" -->UA_Int32</td>
 <td class="fieldname">
 length</td>
 <td class="fielddoc">
@@ -219,7 +219,7 @@ obj</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="a9efeff103765fd4f5b3e4a419c1b33f4"></a><!-- doxytag: member="type" ref="a9efeff103765fd4f5b3e4a419c1b33f4" args="" --><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a></td>
+<a class="anchor" id="a9efeff103765fd4f5b3e4a419c1b33f4"></a><!-- doxytag: member="type" ref="a9efeff103765fd4f5b3e4a419c1b33f4" args="" -->UA_Int32</td>
 <td class="fieldname">
 type</td>
 <td class="fielddoc">
@@ -334,13 +334,13 @@ elements</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="aa6f84770c2813237e18caa4acf42d83a"></a><!-- doxytag: member="size" ref="aa6f84770c2813237e18caa4acf42d83a" args="" --><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a></td>
+<a class="anchor" id="aa6f84770c2813237e18caa4acf42d83a"></a><!-- doxytag: member="size" ref="aa6f84770c2813237e18caa4acf42d83a" args="" -->UA_Int32</td>
 <td class="fieldname">
 size</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="a8033e8bde53fdbbbebae1a4060ca92db"></a><!-- doxytag: member="vt" ref="a8033e8bde53fdbbbebae1a4060ca92db" args="" --><a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *</td>
+<a class="anchor" id="a8033e8bde53fdbbbebae1a4060ca92db"></a><!-- doxytag: member="vt" ref="a8033e8bde53fdbbbebae1a4060ca92db" args="" -->UA_VTable_Entry *</td>
 <td class="fieldname">
 vt</td>
 <td class="fielddoc">
@@ -408,7 +408,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>(* <a class="el" href="ua__xml_8h.html#a4bbefee03f0125eb7d673125f1b12564">XML_decoder</a>)(struct <a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *s, <a class="el" href="ua__xml_8h.html#a36ac51d1465b00c7340c19b33627163c">XML_Attr</a> *attr, void *dst, <a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> isStart)</td>
+          <td class="memname">typedef UA_Int32(* <a class="el" href="ua__xml_8h.html#a4bbefee03f0125eb7d673125f1b12564">XML_decoder</a>)(struct <a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *s, <a class="el" href="ua__xml_8h.html#a36ac51d1465b00c7340c19b33627163c">XML_Attr</a> *attr, void *dst, UA_Boolean isStart)</td>
         </tr>
       </table>
 </div>
@@ -422,7 +422,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#aa77501586afdf8ddbf0768feb70ab5bb">UA_Boolean_copycstring</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#aa77501586afdf8ddbf0768feb70ab5bb">UA_Boolean_copycstring</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a>&#160;</td>
           <td class="paramname"><em>src</em>, </td>
@@ -430,7 +430,7 @@ vt</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> *&#160;</td>
+          <td class="paramtype">UA_Boolean *&#160;</td>
           <td class="paramname"><em>dst</em>&#160;</td>
         </tr>
         <tr>
@@ -449,7 +449,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#aa5253c230c373429ded131bacf962e17">UA_ExpandedNodeId_copycstring</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#aa5253c230c373429ded131bacf962e17">UA_ExpandedNodeId_copycstring</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a>&#160;</td>
           <td class="paramname"><em>src</em>, </td>
@@ -457,7 +457,7 @@ vt</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__types.html#structUA__ExpandedNodeId">UA_ExpandedNodeId</a> *&#160;</td>
+          <td class="paramtype">UA_ExpandedNodeId *&#160;</td>
           <td class="paramname"><em>dst</em>, </td>
         </tr>
         <tr>
@@ -482,7 +482,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#a5215b5575ca31e8cb92f4b38fee8d0e4">UA_Int16_copycstring</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#a5215b5575ca31e8cb92f4b38fee8d0e4">UA_Int16_copycstring</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a>&#160;</td>
           <td class="paramname"><em>src</em>, </td>
@@ -490,7 +490,7 @@ vt</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__types.html#ga2dfa954c25e6984956ab6fa8e8fd73db">UA_Int16</a> *&#160;</td>
+          <td class="paramtype">UA_Int16 *&#160;</td>
           <td class="paramname"><em>dst</em>&#160;</td>
         </tr>
         <tr>
@@ -509,7 +509,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#ad6717ef7d77d2bafa2fa433a071fe71d">UA_NodeId_copycstring</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#ad6717ef7d77d2bafa2fa433a071fe71d">UA_NodeId_copycstring</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a>&#160;</td>
           <td class="paramname"><em>src</em>, </td>
@@ -517,7 +517,7 @@ vt</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structUA__NodeId.html">UA_NodeId</a> *&#160;</td>
+          <td class="paramtype">UA_NodeId *&#160;</td>
           <td class="paramname"><em>dst</em>, </td>
         </tr>
         <tr>
@@ -542,9 +542,9 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> <a class="el" href="ua__xml_8h.html#a139634ba7022e2a0e81d0f81a0593aac">UA_NodeId_isBuiltinType</a> </td>
+          <td class="memname">UA_Boolean <a class="el" href="ua__xml_8h.html#a139634ba7022e2a0e81d0f81a0593aac">UA_NodeId_isBuiltinType</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structUA__NodeId.html">UA_NodeId</a> *&#160;</td>
+          <td class="paramtype">UA_NodeId *&#160;</td>
           <td class="paramname"><em>nodeid</em></td><td>)</td>
           <td></td>
         </tr>
@@ -559,7 +559,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#afb4ba58edd5b450c8266eadf4d92b57b">UA_NodeSetAlias_init</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#afb4ba58edd5b450c8266eadf4d92b57b">UA_NodeSetAlias_init</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#structUA__NodeSetAlias">UA_NodeSetAlias</a> *&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
@@ -576,7 +576,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#abf83b7e7154b7673a86c5469cfa777ff">UA_NodeSetAlias_new</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#abf83b7e7154b7673a86c5469cfa777ff">UA_NodeSetAlias_new</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#structUA__NodeSetAlias">UA_NodeSetAlias</a> **&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
@@ -593,7 +593,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#a4b8af4d4bde40cb2378d7f46fdecbd50">UA_NodeSetAliases_init</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#a4b8af4d4bde40cb2378d7f46fdecbd50">UA_NodeSetAliases_init</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#structUA__NodeSetAliases">UA_NodeSetAliases</a> *&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
@@ -610,7 +610,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#acdf9bb4ae18f02818b5b9e41b6958937">UA_NodeSetAliases_new</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#acdf9bb4ae18f02818b5b9e41b6958937">UA_NodeSetAliases_new</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#structUA__NodeSetAliases">UA_NodeSetAliases</a> **&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
@@ -627,7 +627,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#a2199189380f58e7d281726e88543974e">UA_NodeSetAliases_println</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#a2199189380f58e7d281726e88543974e">UA_NodeSetAliases_println</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a>&#160;</td>
           <td class="paramname"><em>label</em>, </td>
@@ -654,7 +654,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#a7899db88c3951c35f43d27d17d737bc4">UA_Text_decodeXmlFromStack</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#a7899db88c3951c35f43d27d17d737bc4">UA_Text_decodeXmlFromStack</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *&#160;</td>
           <td class="paramname"><em>s</em>, </td>
@@ -668,7 +668,7 @@ vt</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__types.html#gac31865e6fcb9a042b5eaf5a5bd4ed30d">UA_Byte</a> **&#160;</td>
+          <td class="paramtype">UA_Byte **&#160;</td>
           <td class="paramname"><em>dst</em>, </td>
         </tr>
         <tr>
@@ -693,7 +693,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#afc5bbcf08e427b881f5f8a8ed719a4f8">UA_TypedArray_decodeXmlFromStack</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#afc5bbcf08e427b881f5f8a8ed719a4f8">UA_TypedArray_decodeXmlFromStack</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#structXML__Stack">XML_Stack</a> *&#160;</td>
           <td class="paramname"><em>s</em>, </td>
@@ -732,7 +732,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#a410f1d3d1279ced0dd74063c0daa92a1">UA_TypedArray_init</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#a410f1d3d1279ced0dd74063c0daa92a1">UA_TypedArray_init</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#structUA__TypedArray">UA_TypedArray</a> *&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
@@ -751,7 +751,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#ae76e3ba08fa65f07d9a576e9d82f3fd5">UA_TypedArray_new</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#ae76e3ba08fa65f07d9a576e9d82f3fd5">UA_TypedArray_new</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#structUA__TypedArray">UA_TypedArray</a> **&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
@@ -770,7 +770,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#a3658717bf6134ef6e3efc39d891cf57d">UA_TypedArray_setType</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#a3658717bf6134ef6e3efc39d891cf57d">UA_TypedArray_setType</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#structUA__TypedArray">UA_TypedArray</a> *&#160;</td>
           <td class="paramname"><em>p</em>, </td>
@@ -778,7 +778,7 @@ vt</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td>
+          <td class="paramtype">UA_Int32&#160;</td>
           <td class="paramname"><em>type</em>&#160;</td>
         </tr>
         <tr>
@@ -797,7 +797,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#aac5a38de59a1938cf1cfd38a2e238faa">UA_UInt16_copycstring</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#aac5a38de59a1938cf1cfd38a2e238faa">UA_UInt16_copycstring</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a>&#160;</td>
           <td class="paramname"><em>src</em>, </td>
@@ -805,7 +805,7 @@ vt</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05">UA_UInt16</a> *&#160;</td>
+          <td class="paramtype">UA_UInt16 *&#160;</td>
           <td class="paramname"><em>dst</em>&#160;</td>
         </tr>
         <tr>
@@ -824,7 +824,7 @@ vt</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__xml_8h.html#ae2498cb9f4b9f4505ea8b24f63c86092">XML_isSpace</a> </td>
+          <td class="memname">UA_Int32 <a class="el" href="ua__xml_8h.html#ae2498cb9f4b9f4505ea8b24f63c86092">XML_isSpace</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__xml_8h.html#ae6c76aa00607832535ec76a10e9adf63">cstring</a>&#160;</td>
           <td class="paramname"><em>s</em>, </td>
@@ -865,7 +865,7 @@ vt</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td>
+          <td class="paramtype">UA_Int32&#160;</td>
           <td class="paramname"><em>nameLength</em>, </td>
         </tr>
         <tr>
@@ -877,7 +877,7 @@ vt</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td>
+          <td class="paramtype">UA_Int32&#160;</td>
           <td class="paramname"><em>type</em>, </td>
         </tr>
         <tr>
@@ -1030,7 +1030,7 @@ vt</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a>&#160;</td>
+          <td class="paramtype">UA_UInt32&#160;</td>
           <td class="paramname"><em>nsid</em>, </td>
         </tr>
         <tr>
@@ -1105,7 +1105,7 @@ vt</td>
 
 
 <address class="footer"><small>
-Generated on Sat Sep 13 2014 10:25:54 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Sep 13 2014 16:37:20 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

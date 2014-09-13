@@ -1,6 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$ua__types_8h.html" title="ua_types.h" alt="" coords="129,237,215,267"/>
-<area shape="rect" id="node11" href="$ua__types__encoding__binary_8h.html" title="ua_types_encoding_binary.h" alt="" coords="79,160,265,189"/>
-<area shape="rect" id="node14" href="$ua__transport_8h.html" title="ua_transport.h" alt="" coords="169,83,273,112"/>
-<area shape="rect" id="node5" href="$ua__config_8h.html" title="ua_config.h" alt="" coords="29,315,117,344"/>
+<area shape="rect" id="node5" href="$ua__types__encoding__binary_8h.html" title="ua_types_encoding_binary.h" alt="" coords="79,160,265,189"/>
+<area shape="rect" id="node8" href="$ua__transport_8h.html" title="ua_transport.h" alt="" coords="169,83,273,112"/>
 </map>
