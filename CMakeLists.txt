@@ -57,6 +57,16 @@ add_definitions(-Dopen62541_EXPORTS) # dllexport/dllimport differentiation in ua
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMakeModules")
 set(generate_src_options) # the options for the tools that generate code from xml-schema definitions
 
+
+## self-signed certificates
+option(EXTENSION_STATELESS "Enable stateless extension" OFF)
+if(EXTENSION_STATELESS)
+    message(STATUS "Extesnsions: enabling stateless")
+	add_definitions(-DEXTENSION_STATELESS)
+	add_executable(statelessClient examples/statelessClient.c)
+	target_link_libraries(statelessClient open62541)
+endif()
+    
 ## self-signed certificates
 option(ENABLE_SELFSIGNED "Enable self-signed certificates" OFF)
 if(ENABLE_SELFSIGNED)

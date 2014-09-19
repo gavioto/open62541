@@ -28,30 +28,30 @@ void stopHandler(int sign) {
 }
 
 void serverCallback(UA_Server *server) {
-    //	printf("does whatever servers do\n");
+	//	printf("does whatever servers do\n");
 }
 
 UA_ByteString loadCertificate() {
-    UA_ByteString certificate = UA_STRING_NULL;
+	UA_ByteString certificate = UA_STRING_NULL;
 	FILE *fp = UA_NULL;
 	//FIXME: a potiential bug of locating the certificate, we need to get the path from the server's config
 	fp=fopen("localhost.der", "rb");
 
 	if(!fp) {
-        errno = 0; // otherwise we think sth went wrong on the tcp socket level
-        return certificate;
-    }
+		errno = 0; // otherwise we think sth went wrong on the tcp socket level
+		return certificate;
+	}
 
-    fseek(fp, 0, SEEK_END);
-    certificate.length = ftell(fp);
-    certificate.data = malloc(certificate.length*sizeof(UA_Byte));
+	fseek(fp, 0, SEEK_END);
+	certificate.length = ftell(fp);
+	certificate.data = malloc(certificate.length*sizeof(UA_Byte));
 
-    fseek(fp, 0, SEEK_SET);
-    if(fread(certificate.data, sizeof(UA_Byte), certificate.length, fp) < (size_t)certificate.length)
-        UA_ByteString_deleteMembers(&certificate); // error reading the cert
-    fclose(fp);
+	fseek(fp, 0, SEEK_SET);
+	if(fread(certificate.data, sizeof(UA_Byte), certificate.length, fp) < (size_t)certificate.length)
+		UA_ByteString_deleteMembers(&certificate); // error reading the cert
+	fclose(fp);
 
-    return certificate;
+	return certificate;
 }
 
 int main(int argc, char** argv) {
@@ -62,15 +62,15 @@ int main(int argc, char** argv) {
 	UA_String_copycstring("no endpoint url",&endpointUrl);
 	UA_Server_init(&server, &endpointUrl);
 	Logger_Stdout_init(&server.logger);
-    server.serverCertificate = loadCertificate();
-	
-	#define PORT 16664
+	server.serverCertificate = loadCertificate();
+
+#define PORT 16664
 	NetworklayerTCP* nl;
 	NetworklayerTCP_new(&nl, UA_ConnectionConfig_standard, PORT);
 	printf("Server started, connect to to opc.tcp://127.0.0.1:%i\n", PORT);
 	struct timeval callback_interval = {1, 0}; // 1 second
 	UA_Int32 retval = NetworkLayerTCP_run(nl, &server, callback_interval,
-										  serverCallback, &running);
+			serverCallback, &running);
 	NetworklayerTCP_delete(nl);
 	UA_Server_deleteMembers(&server);
 	return retval == UA_SUCCESS ? 0 : retval;

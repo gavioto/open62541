@@ -208,7 +208,16 @@ static void Service_Browse_getBrowseResult(UA_NodeStore         *ns,
 UA_Int32 Service_Browse(UA_Server *server, UA_Session *session,
                         const UA_BrowseRequest *request, UA_BrowseResponse *response) {
     UA_Int32 retval = UA_SUCCESS;
-    if(server == UA_NULL || session == UA_NULL)
+
+//session can be UA_NULL is a stateless request is coming
+#ifndef EXTENSION_STATELESS
+    if(session == UA_NULL) {
+        response->responseHeader.serviceResult = UA_STATUSCODE_BADSESSIONIDINVALID;
+        return UA_ERROR;
+    }
+#endif
+
+    if(server == UA_NULL)
         return UA_ERROR;
 
     //TODO request->view not used atm

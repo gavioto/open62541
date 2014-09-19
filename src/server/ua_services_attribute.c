@@ -217,10 +217,13 @@ static UA_DataValue service_read_node(UA_Server *server, const UA_ReadValueId *i
 UA_Int32 Service_Read(UA_Server *server, UA_Session *session, const UA_ReadRequest *request,
                       UA_ReadResponse *response) {
     UA_Int32 readsize;
+//session can be UA_NULL is a stateless request is coming
+#ifndef EXTENSION_STATELESS
     if(session == UA_NULL) {
         response->responseHeader.serviceResult = UA_STATUSCODE_BADSESSIONIDINVALID;
         return UA_ERROR;
     }
+#endif
 
     readsize = request->nodesToReadSize;
     /* NothingTodo */
@@ -389,7 +392,15 @@ UA_Int32 Service_Write(UA_Server *server, UA_Session *session, const UA_WriteReq
                        UA_WriteResponse *response) {
     UA_Int32 retval = UA_SUCCESS;
     UA_Int32 i;
-    if(session == UA_NULL || server == UA_NULL)
+//session can be UA_NULL is a stateless request is coming
+#ifndef EXTENSION_STATELESS
+    if(session == UA_NULL) {
+        response->responseHeader.serviceResult = UA_STATUSCODE_BADSESSIONIDINVALID;
+        return UA_ERROR;
+    }
+#endif
+
+    if(server == UA_NULL)
         return UA_ERROR;    // TODO: Return error message
     response->resultsSize = request->nodesToWriteSize;
     //TODO evalutate diagnostic info within the request
