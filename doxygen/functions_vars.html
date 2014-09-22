@@ -85,13 +85,13 @@
 , <a class="el" href="ua__xml_8h.html#ab907eb4e16fddc1c57c2de8f312e6fe6">XML_Stack</a>
 </li>
 <li>arrayDimensions
-: <a class="el" href="group__types.html#ade07659b1d4e0e421e7e42d102098e47">UA_Variant</a>
+: <a class="el" href="group__types.html#a8f5052b2f41d2e2b43388ee83feebf1c">UA_VariantData</a>
 </li>
 <li>arrayDimensionsLength
-: <a class="el" href="group__types.html#aabb640d08a513b6de13d2fa5a834e660">UA_Variant</a>
+: <a class="el" href="group__types.html#a60012a49e0225fa31503bf6119cbd0c2">UA_VariantData</a>
 </li>
 <li>arrayLength
-: <a class="el" href="group__types.html#ac3446679c7a5074e02f06406ba8bfe26">UA_Variant</a>
+: <a class="el" href="group__types.html#a8feb0be622c6cbeee380a6ec057633b7">UA_VariantData</a>
 </li>
 <li>authenticationToken
 : <a class="el" href="ua__session_8h.html#aa7b6047f076e1d0847c1d90d8b196b7e">UA_Session</a>
@@ -144,7 +144,6 @@
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
 <li>data
 : <a class="el" href="group__types.html#a2f7bc1bda80a1e22b8ccbee020266de4">UA_XmlElement</a>
-, <a class="el" href="group__types.html#ada37e83e1c07bafef77b7132403e1456">UA_Variant</a>
 </li>
 <li>data1
 : <a class="el" href="group__types.html#a8bf7258113c8ddead09af5c062f38b42">UA_Guid</a>
@@ -158,6 +157,9 @@
 <li>data4
 : <a class="el" href="group__types.html#ab1082247bb89bf3b7b44082bb5050fff">UA_Guid</a>
 </li>
+<li>dataPtr
+: <a class="el" href="group__types.html#a5fc1b7f0755da3fa439266f6b0e25fca">UA_VariantData</a>
+</li>
 <li>day
 : <a class="el" href="group__types.html#a941e2ac55d610125af0f392b701ee6a1">UA_DateTimeStruct</a>
 </li>
@@ -165,10 +167,11 @@
 : <a class="el" href="structUA__Encoding.html#a2d9b3a3d074568947c8996e324641dde">UA_Encoding</a>
 </li>
 <li>delete
-: <a class="el" href="structUA__VTable__Entry.html#a9f597fe66dce3fe2a6f781266fb51985">UA_VTable_Entry</a>
+: <a class="el" href="structUA__VariantDataSource.html#a1295a874e455df664eac57e89c6de523">UA_VariantDataSource</a>
+, <a class="el" href="structUA__VTable__Entry.html#a496c2b49663bd52d01ff8ac1652f549a">UA_VTable_Entry</a>
 </li>
 <li>deleteMembers
-: <a class="el" href="structUA__VTable__Entry.html#ab9ecc6fcaa2c5143b1034854980021a7">UA_VTable_Entry</a>
+: <a class="el" href="structUA__VTable__Entry.html#a016f4f1c3cf0c3c09296511afd77065f">UA_VTable_Entry</a>
 </li>
 <li>depth
 : <a class="el" href="ua__xml_8h.html#a7d3584c4f5d2286a21516bf11c5a41cb">XML_Stack</a>
@@ -219,6 +222,9 @@
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>get
+: <a class="el" href="structUA__VariantDataSource.html#af18a0e302c54d3c94cb5bbebc0334f6b">UA_VariantDataSource</a>
+</li>
 <li>getTypeIndex
 : <a class="el" href="group__types.html#adce5fd6fdd57dd9ff755f6eadd521d00">UA_VTable</a>
 </li>
@@ -235,12 +241,13 @@
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
 <li>identifier
 : <a class="el" href="structUA__NodeId.html#a6efae3fe9d7c47029fef4ccae3de72eb">UA_NodeId</a>
+, <a class="el" href="structUA__VariantDataSource.html#a505d389dedb2c763a3403a7aa5a1c60c">UA_VariantDataSource</a>
 </li>
 <li>identifierType
 : <a class="el" href="structUA__NodeId.html#a08f3c77365b7ec187f444aac0d7036da">UA_NodeId</a>
 </li>
 <li>init
-: <a class="el" href="structUA__VTable__Entry.html#a87a73835b93e05f011e5c3a8f33dd0e8">UA_VTable_Entry</a>
+: <a class="el" href="structUA__VTable__Entry.html#a681a7f098b09a450c8a14ad1f701b3b2">UA_VTable_Entry</a>
 </li>
 <li>innerDiagnosticInfo
 : <a class="el" href="group__types.html#a2e89179aa0c5e88ca83ab994955dfe92">UA_DiagnosticInfo</a>
@@ -396,6 +403,9 @@
 <li>recvBufferSize
 : <a class="el" href="ua__connection_8h.html#ab70c6c71dd05052b87cb23cf50c70ff9">UA_ConnectionConfig</a>
 </li>
+<li>release
+: <a class="el" href="structUA__VariantDataSource.html#ab4da34b31c46d30a529bef5b80e69329">UA_VariantDataSource</a>
+</li>
 <li>remoteConf
 : <a class="el" href="ua__connection_8h.html#a0f1ed258d0a0b956d823e5e52fcf2bc4">UA_Connection</a>
 </li>
@@ -455,10 +465,13 @@
 <li>sessionName
 : <a class="el" href="ua__session_8h.html#a83ee3b647386ad4a300601bc8f85f8d7">UA_Session</a>
 </li>
+<li>set
+: <a class="el" href="structUA__VariantDataSource.html#a55b3b54fe49bc7fd3815db44006107a8">UA_VariantDataSource</a>
+</li>
 <li>size
-: <a class="el" href="ua__xml_8h.html#a9e062a36dee1581f553630ca15e4af34">UA_NodeSetAliases</a>
-, <a class="el" href="ua__xml_8h.html#aa6f84770c2813237e18caa4acf42d83a">UA_TypedArray</a>
+: <a class="el" href="ua__xml_8h.html#aa6f84770c2813237e18caa4acf42d83a">UA_TypedArray</a>
 , <a class="el" href="ua__list_8h.html#a6105a8d79620466be3c1cf83e92f1ab5">UA_list_List</a>
+, <a class="el" href="ua__xml_8h.html#a9e062a36dee1581f553630ca15e4af34">UA_NodeSetAliases</a>
 </li>
 <li>sourcePicoseconds
 : <a class="el" href="group__types.html#aa29088971f8f8c5675b7c63b2ab4a8ff">UA_DataValue</a>
@@ -471,6 +484,12 @@
 </li>
 <li>status
 : <a class="el" href="group__types.html#a96804144fa60cfc250d5b0085148e588">UA_DataValue</a>
+</li>
+<li>storage
+: <a class="el" href="structUA__Variant.html#a7f0af61f01ebd6c5f7b0b927226e8d1e">UA_Variant</a>
+</li>
+<li>storageType
+: <a class="el" href="structUA__Variant.html#aff44547f0344f2feddceebfae0af6069">UA_Variant</a>
 </li>
 <li>strings
 : <a class="el" href="ua__connection_8h.html#a2ce48da2ad07f87eb4ecd80414d8904f">UA_ByteStringArray</a>
@@ -519,7 +538,7 @@
 , <a class="el" href="ua__xml_8h.html#a99144be766e0cdd82b9d30ad7e832c04">UA_NodeSetAlias</a>
 </li>
 <li>vt
-: <a class="el" href="group__types.html#a926a8360b1f1b20c60aff9777a0e623a">UA_Variant</a>
+: <a class="el" href="structUA__Variant.html#a926a8360b1f1b20c60aff9777a0e623a">UA_Variant</a>
 , <a class="el" href="ua__xml_8h.html#a8033e8bde53fdbbbebae1a4060ca92db">UA_TypedArray</a>
 </li>
 </ul>
@@ -542,7 +561,7 @@
 
 
 <address class="footer"><small>
-Generated on Sun Sep 21 2014 17:27:06 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 22 2014 20:39:19 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
