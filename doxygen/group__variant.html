@@ -29,6 +29,8 @@
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Data Structures</a>  </div>
   <div class="headertitle">
 <div class="title">Variant</div>  </div>
 <div class="ingroups"><a class="el" href="group__types.html">Datatypes</a></div></div><!--header-->
@@ -36,14 +38,94 @@
 
 <p>Variants may contain (arrays of) any other datatype.  
 <a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__variant.html#structUA__VariantData">UA_VariantData</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUA__VariantDataSource.html">UA_VariantDataSource</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A datasource is the interface to interact with a local data provider.  <a href="structUA__VariantDataSource.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUA__Variant.html">UA_Variant</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A union of all of the types specified above.  <a href="structUA__Variant.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__variant.html#unionUA__Variant_8storage">UA_Variant.storage</a></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <p>Variants may contain (arrays of) any other datatype. </p>
 <p>For that, we provide a reference to the utility functions of the type as well as possible encoding by pointing an entry in the vtable of types. References may either contain a structure with the variants data, or a datasource where this structure may be obtained (using reference counting for async access). </p>
-</div><!-- contents -->
+<hr/><h2>Data Structure Documentation</h2>
+<a name="structUA__VariantData" id="structUA__VariantData"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct UA_VariantData</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<div class="textblock"></div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="a8f5052b2f41d2e2b43388ee83feebf1c"></a><!-- doxytag: member="arrayDimensions" ref="a8f5052b2f41d2e2b43388ee83feebf1c" args="" --><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> *</td>
+<td class="fieldname">
+arrayDimensions</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="a60012a49e0225fa31503bf6119cbd0c2"></a><!-- doxytag: member="arrayDimensionsLength" ref="a60012a49e0225fa31503bf6119cbd0c2" args="" --><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a></td>
+<td class="fieldname">
+arrayDimensionsLength</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="a8feb0be622c6cbeee380a6ec057633b7"></a><!-- doxytag: member="arrayLength" ref="a8feb0be622c6cbeee380a6ec057633b7" args="" --><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a></td>
+<td class="fieldname">
+arrayLength</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="a5fc1b7f0755da3fa439266f6b0e25fca"></a><!-- doxytag: member="dataPtr" ref="a5fc1b7f0755da3fa439266f6b0e25fca" args="" -->void *</td>
+<td class="fieldname">
+dataPtr</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<!-- doxytag: class="UA_VariantData" --><a name="unionUA__Variant_8storage" id="unionUA__Variant_8storage"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">union UA_Variant.storage</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<div class="textblock"></div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="a8d777f385d3dfec8815d20f7496026dc"></a><!-- doxytag: member="data" ref="a8d777f385d3dfec8815d20f7496026dc" args="" --><a class="el" href="group__variant.html#structUA__VariantData">UA_VariantData</a></td>
+<td class="fieldname">
+data</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="a1ea7e575defdf6bc3f26a3f127e98170"></a><!-- doxytag: member="datasource" ref="a1ea7e575defdf6bc3f26a3f127e98170" args="" --><a class="el" href="structUA__VariantDataSource.html">UA_VariantDataSource</a></td>
+<td class="fieldname">
+datasource</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<!-- doxytag: class="UA_Variant.storage" --></div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Mon Sep 22 2014 20:43:24 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 23 2014 09:01:46 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
