@@ -639,14 +639,14 @@ Enumerations</h2></td></tr>
 <a class="el" href="ua__namespace__0_8h.html#aefd308e588b9c824d691ddadd8a339c3aa8d983d5d176f397875b31262c4cb095">UA_INVALIDTYPE</a> =  254
 <br/>
  }</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">the set of possible indices into <a class="el" href="group__types.html#structUA__VTable">UA_VTable</a>  <a href="ua__namespace__0_8h.html#aefd308e588b9c824d691ddadd8a339c3">More...</a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">the set of possible indices into UA_VTable  <a href="ua__namespace__0_8h.html#aefd308e588b9c824d691ddadd8a339c3">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__namespace__0_8h.html#abb79bc420ce1c28042cec03c0cef35d0">UA_ns0ToVTableIndex</a> (const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *id)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">maps namespace zero nodeId to index into <a class="el" href="group__types.html#structUA__VTable">UA_VTable</a>  <a href="#abb79bc420ce1c28042cec03c0cef35d0"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">maps namespace zero nodeId to index into UA_VTable  <a href="#abb79bc420ce1c28042cec03c0cef35d0"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="group__types.html#structUA__VTable">UA_VTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__namespace__0_8h.html#a8aa9de86a41dcfa3d43cb00093147767">UA_</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__namespace__0_8h.html#a4d3c67dab2aeafd8a7942b42b5015be8">UA_</a></td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
 <a class="anchor" id="a65f4c1ef8c960ec651a537eaf9a7e65c"></a><!-- doxytag: member="ua_namespace_0.h::SIZE_UA_VTABLE" ref="a65f4c1ef8c960ec651a537eaf9a7e65c" args="" -->
@@ -3989,7 +3989,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>the set of possible indices into <a class="el" href="group__types.html#structUA__VTable">UA_VTable</a> </p>
+<p>the set of possible indices into UA_VTable </p>
 <p>Enumerated type to define the types that the open62541 stack can handle </p>
 <dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
 <tr><td valign="top"><em><a class="anchor" id="aefd308e588b9c824d691ddadd8a339c3aeb3f1b9f8569c331a697fcb6eeba86be"></a><!-- doxytag: member="UA_BOOLEAN" ref="aefd308e588b9c824d691ddadd8a339c3aeb3f1b9f8569c331a697fcb6eeba86be" args="" -->UA_BOOLEAN</em>&nbsp;</td><td>
@@ -4524,7 +4524,7 @@ Variables</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>maps namespace zero nodeId to index into <a class="el" href="group__types.html#structUA__VTable">UA_VTable</a> </p>
+<p>maps namespace zero nodeId to index into UA_VTable </p>
 <dl class="params"><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>The namespace zero nodeId</td></tr>
@@ -4534,7 +4534,7 @@ Variables</h2></td></tr>
 <dl class="retval"><dt><b>Return values:</b></dt><dd>
   <table class="retval">
     <tr><td class="paramname">UA_ERR_INVALID_VALUE</td><td>whenever ns0Id could not be mapped </td></tr>
-    <tr><td class="paramname">the</td><td>corresponding index into <a class="el" href="group__types.html#structUA__VTable">UA_VTable</a> </td></tr>
+    <tr><td class="paramname">the</td><td>corresponding index into UA_VTable </td></tr>
   </table>
   </dd>
 </dl>
@@ -4542,12 +4542,12 @@ Variables</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Variable Documentation</h2>
-<a class="anchor" id="a8aa9de86a41dcfa3d43cb00093147767"></a><!-- doxytag: member="ua_namespace_0.h::UA_" ref="a8aa9de86a41dcfa3d43cb00093147767" args="" -->
+<a class="anchor" id="a4d3c67dab2aeafd8a7942b42b5015be8"></a><!-- doxytag: member="ua_namespace_0.h::UA_" ref="a4d3c67dab2aeafd8a7942b42b5015be8" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="group__types.html#structUA__VTable">UA_VTable</a> <a class="el" href="ua__namespace__0_8h.html#a8aa9de86a41dcfa3d43cb00093147767">UA_</a></td>
+          <td class="memname">const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a>* <a class="el" href="ua__namespace__0_8h.html#a4d3c67dab2aeafd8a7942b42b5015be8">UA_</a></td>
         </tr>
       </table>
 </div>
@@ -4560,7 +4560,7 @@ Variables</h2></td></tr>
 
 
 <address class="footer"><small>
-Generated on Tue Sep 23 2014 11:52:06 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 25 2014 17:52:25 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

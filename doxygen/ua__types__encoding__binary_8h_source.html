@@ -111,25 +111,24 @@
 <a name="l00098"></a>00098 <span class="comment">/*********/</span>
 <a name="l00099"></a>00099 
 <a name="l00100"></a>00100 <span class="comment">/* Computes the size of an array (incl. length field) in a binary blob. */</span>
-<a name="l00101"></a>00101 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__encoding__binary.html#ga82959391f893252b10c4de38f8596683">UA_Array_calcSizeBinary</a>(<a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> nElements, <a class="code" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, const <span class="keywordtype">void</span> *data);
+<a name="l00101"></a>00101 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__encoding__binary.html#gac152bf12bcdc1651c2934bbaa641b38a">UA_Array_calcSizeBinary</a>(<a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> nElements, const <a class="code" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, const <span class="keywordtype">void</span> *data);
 <a name="l00102"></a>00102 
 <a name="l00103"></a>00103 <span class="comment">/* @brief Encodes an array into a binary blob. The array size is printed as well. */</span>
-<a name="l00104"></a>00104 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__encoding__binary.html#ga6a579938085a3392b9179c8ee95b666e">UA_Array_encodeBinary</a>(const <span class="keywordtype">void</span> *src, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> noElements, <a class="code" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, UA_ByteString *dst,
-<a name="l00105"></a>00105                                <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> *offset);
+<a name="l00104"></a>00104 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__encoding__binary.html#ga5e139c7958012d7921f5d82a036a494d">UA_Array_encodeBinary</a>(const <span class="keywordtype">void</span> *src, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> noElements, const <a class="code" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt,
+<a name="l00105"></a>00105                                UA_ByteString *dst, <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> *offset);
 <a name="l00106"></a>00106 
 <a name="l00107"></a>00107 <span class="comment">/* @brief Decodes an array from a binary blob. The array is allocated automatically before decoding. */</span>
-<a name="l00108"></a>00108 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__encoding__binary.html#gacf529389d295f275a6651062dd78bfd1">UA_Array_decodeBinary</a>(const UA_ByteString *src, <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> *offset, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> noElements,
-<a name="l00109"></a>00109                                <a class="code" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt,
-<a name="l00110"></a>00110                                <span class="keywordtype">void</span> **dst);
-<a name="l00111"></a>00111 
-<a name="l00113"></a>00113 
-<a name="l00114"></a>00114 <span class="preprocessor">#endif </span><span class="comment">/* UA_TYPES_ENCODING_BINARY_H_ */</span>
+<a name="l00108"></a>00108 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__encoding__binary.html#gaee1efa9eaa4bf8267f9d75f82c6acf80">UA_Array_decodeBinary</a>(const UA_ByteString *src, <a class="code" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf" title="An integer value between 0 and 429 4967 295.">UA_UInt32</a> *offset, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> noElements,
+<a name="l00109"></a>00109                                const <a class="code" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, <span class="keywordtype">void</span> **dst);
+<a name="l00110"></a>00110 
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 <span class="preprocessor">#endif </span><span class="comment">/* UA_TYPES_ENCODING_BINARY_H_ */</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Tue Sep 23 2014 11:52:06 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 25 2014 17:52:25 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

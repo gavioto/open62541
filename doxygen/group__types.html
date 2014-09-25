@@ -68,7 +68,6 @@ Data Structures</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#structUA__DateTimeStruct">UA_DateTimeStruct</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUA__Encoding.html">UA_Encoding</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#structUA__VTable">UA_VTable</a></td></tr>
 <tr><td colspan="2"><h2><a name="groups"></a>
 Modules</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__variant.html">Variant</a></td></tr>
@@ -158,7 +157,6 @@ Typedefs</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A numeric identifier for a error or condition that is associated with a value or an operation.  <a href="#ga2fd91100a04d020cd6280c021660a33e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gabb778a6b095690de8e5d510550fc3743">UA_InvalidType</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Type use internally to denote an invalid datatype.  <a href="#gabb778a6b095690de8e5d510550fc3743"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga37904021a22815ba88ae98995ca01c65">UA_nodeIdToVTableIndex</a> )(const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *id)</td></tr>
 <tr><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gaa2f2203b60c031d80b138aecbde4b0b2">UA_EQUALITY</a> { <a class="el" href="group__types.html#ggaa2f2203b60c031d80b138aecbde4b0b2a624b2e09dbc224d21a85dcb41ca3e821">UA_EQUAL</a>, 
@@ -332,12 +330,12 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gacf6798e7994b6ddb46b2318b2c375f5b">UA_ExpandedNodeId_isNull</a> (const <a class="el" href="group__types.html#structUA__ExpandedNodeId">UA_ExpandedNodeId</a> *p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gae9174fe454c4785298ba5a4a1262902b">UA_QualifiedName_copycstring</a> (char const *src, <a class="el" href="group__types.html#structUA__QualifiedName">UA_QualifiedName</a> *dst)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gac86a1958798017660a9dae2e3113a0d9">UA_LocalizedText_copycstring</a> (char const *src, <a class="el" href="group__types.html#structUA__LocalizedText">UA_LocalizedText</a> *dst)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga4d0416f76a5431625af7db531d0b9503">UA_Variant_copySetValue</a> (<a class="el" href="structUA__Variant.html">UA_Variant</a> *v, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, const void *value)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gafb0abcecc2e461aea098194bc6c0fae7">UA_Variant_copySetArray</a> (<a class="el" href="structUA__Variant.html">UA_Variant</a> *v, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> arrayLength, const void *array)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gac848109406751bd912eda82ecdaa98e9">UA_Array_new</a> (void **p, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> noElements, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gafe90597c723521c759bddb28fb04935f">UA_Array_init</a> (void *p, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> noElements, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga0ab70561e738afc40341b811a00c1a43">UA_Array_delete</a> (void *p, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> noElements, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga038b19876b7fc3479fe0ab83ad96a2d9">UA_Array_copy</a> (const void *src, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> noElements, <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, void **dst)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga7c215246e4d2835d863bcf42340ad144">UA_Variant_copySetValue</a> (<a class="el" href="structUA__Variant.html">UA_Variant</a> *v, const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, const void *value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gaebe680657866f2b82a1f25409edaab8f">UA_Variant_copySetArray</a> (<a class="el" href="structUA__Variant.html">UA_Variant</a> *v, const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> arrayLength, const void *array)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga598f5057f52001148771eaca1a54ed30">UA_Array_new</a> (void **p, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> noElements, const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga8f1610bba2ba7b5271513eaff85c7bd4">UA_Array_init</a> (void *p, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> noElements, const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gad3bbc358959db706b2a595c1c358bbc7">UA_Array_delete</a> (void *p, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> noElements, const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gaa98b3bf5c1d1684fecdf7de1fcb8cba9">UA_Array_copy</a> (const void *src, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> noElements, const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, void **dst)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <p>This module describes the datatypes used in OPC UA. There is a division into built-in datatypes (integers, strings, etc.) and more complex datatypes that are comprise of built-in datatypes (structs defined in the OPC UA standard). </p>
@@ -757,35 +755,7 @@ year</td>
 
 </div>
 </div>
-<!-- doxytag: class="UA_DateTimeStruct" --><a name="structUA__VTable" id="structUA__VTable"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct UA_VTable</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<div class="textblock"></div><table class="fieldtable">
-<tr><th colspan="3">Data Fields</th></tr>
-<tr><td class="fieldtype">
-<a class="anchor" id="adce5fd6fdd57dd9ff755f6eadd521d00"></a><!-- doxytag: member="getTypeIndex" ref="adce5fd6fdd57dd9ff755f6eadd521d00" args="" --><a class="el" href="group__types.html#ga37904021a22815ba88ae98995ca01c65">UA_nodeIdToVTableIndex</a></td>
-<td class="fieldname">
-getTypeIndex</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a class="anchor" id="a57420f458b8757c36058dd91c320f631"></a><!-- doxytag: member="types" ref="a57420f458b8757c36058dd91c320f631" args="" --><a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *</td>
-<td class="fieldname">
-types</td>
-<td class="fielddoc">
-</td></tr>
-</table>
-
-</div>
-</div>
-<!-- doxytag: class="UA_VTable" --><hr/><h2>Define Documentation</h2>
+<!-- doxytag: class="UA_DateTimeStruct" --><hr/><h2>Define Documentation</h2>
 <a class="anchor" id="ga970489f59ae6954183b1b1dcd5bd0574"></a><!-- doxytag: member="ua_types.h::NS0EXPANDEDNODEID" ref="ga970489f59ae6954183b1b1dcd5bd0574" args="(VARIABLE, NUMERIC_ID)" -->
 <div class="memitem">
 <div class="memproto">
@@ -1754,19 +1724,6 @@ types</td>
 
 </div>
 </div>
-<a class="anchor" id="ga37904021a22815ba88ae98995ca01c65"></a><!-- doxytag: member="ua_types.h::UA_nodeIdToVTableIndex" ref="ga37904021a22815ba88ae98995ca01c65" args=")(const UA_NodeId *id)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>(* <a class="el" href="group__types.html#ga37904021a22815ba88ae98995ca01c65">UA_nodeIdToVTableIndex</a>)(const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *id)</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="ga4ba04733a2525e207fa5ea5337ad17f3"></a><!-- doxytag: member="ua_types.h::UA_SByte" ref="ga4ba04733a2525e207fa5ea5337ad17f3" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -1925,12 +1882,12 @@ types</td>
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
-<a class="anchor" id="ga038b19876b7fc3479fe0ab83ad96a2d9"></a><!-- doxytag: member="ua_types.h::UA_Array_copy" ref="ga038b19876b7fc3479fe0ab83ad96a2d9" args="(const void *src, UA_Int32 noElements, UA_VTable_Entry *vt, void **dst)" -->
+<a class="anchor" id="gaa98b3bf5c1d1684fecdf7de1fcb8cba9"></a><!-- doxytag: member="ua_types.h::UA_Array_copy" ref="gaa98b3bf5c1d1684fecdf7de1fcb8cba9" args="(const void *src, UA_Int32 noElements, const UA_VTable_Entry *vt, void **dst)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="el" href="group__types.html#ga038b19876b7fc3479fe0ab83ad96a2d9">UA_Array_copy</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="el" href="group__types.html#gaa98b3bf5c1d1684fecdf7de1fcb8cba9">UA_Array_copy</a> </td>
           <td>(</td>
           <td class="paramtype">const void *&#160;</td>
           <td class="paramname"><em>src</em>, </td>
@@ -1944,7 +1901,7 @@ types</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *&#160;</td>
           <td class="paramname"><em>vt</em>, </td>
         </tr>
         <tr>
@@ -1964,12 +1921,12 @@ types</td>
 
 </div>
 </div>
-<a class="anchor" id="ga0ab70561e738afc40341b811a00c1a43"></a><!-- doxytag: member="ua_types.h::UA_Array_delete" ref="ga0ab70561e738afc40341b811a00c1a43" args="(void *p, UA_Int32 noElements, UA_VTable_Entry *vt)" -->
+<a class="anchor" id="gad3bbc358959db706b2a595c1c358bbc7"></a><!-- doxytag: member="ua_types.h::UA_Array_delete" ref="gad3bbc358959db706b2a595c1c358bbc7" args="(void *p, UA_Int32 noElements, const UA_VTable_Entry *vt)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="el" href="group__types.html#ga0ab70561e738afc40341b811a00c1a43">UA_Array_delete</a> </td>
+          <td class="memname">void <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="el" href="group__types.html#gad3bbc358959db706b2a595c1c358bbc7">UA_Array_delete</a> </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>p</em>, </td>
@@ -1983,7 +1940,7 @@ types</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *&#160;</td>
           <td class="paramname"><em>vt</em>&#160;</td>
         </tr>
         <tr>
@@ -1997,12 +1954,12 @@ types</td>
 
 </div>
 </div>
-<a class="anchor" id="gafe90597c723521c759bddb28fb04935f"></a><!-- doxytag: member="ua_types.h::UA_Array_init" ref="gafe90597c723521c759bddb28fb04935f" args="(void *p, UA_Int32 noElements, UA_VTable_Entry *vt)" -->
+<a class="anchor" id="ga8f1610bba2ba7b5271513eaff85c7bd4"></a><!-- doxytag: member="ua_types.h::UA_Array_init" ref="ga8f1610bba2ba7b5271513eaff85c7bd4" args="(void *p, UA_Int32 noElements, const UA_VTable_Entry *vt)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="el" href="group__types.html#gafe90597c723521c759bddb28fb04935f">UA_Array_init</a> </td>
+          <td class="memname">void <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="el" href="group__types.html#ga8f1610bba2ba7b5271513eaff85c7bd4">UA_Array_init</a> </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>p</em>, </td>
@@ -2016,7 +1973,7 @@ types</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *&#160;</td>
           <td class="paramname"><em>vt</em>&#160;</td>
         </tr>
         <tr>
@@ -2030,12 +1987,12 @@ types</td>
 
 </div>
 </div>
-<a class="anchor" id="gac848109406751bd912eda82ecdaa98e9"></a><!-- doxytag: member="ua_types.h::UA_Array_new" ref="gac848109406751bd912eda82ecdaa98e9" args="(void **p, UA_Int32 noElements, UA_VTable_Entry *vt)" -->
+<a class="anchor" id="ga598f5057f52001148771eaca1a54ed30"></a><!-- doxytag: member="ua_types.h::UA_Array_new" ref="ga598f5057f52001148771eaca1a54ed30" args="(void **p, UA_Int32 noElements, const UA_VTable_Entry *vt)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="el" href="group__types.html#gac848109406751bd912eda82ecdaa98e9">UA_Array_new</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="el" href="group__types.html#ga598f5057f52001148771eaca1a54ed30">UA_Array_new</a> </td>
           <td>(</td>
           <td class="paramtype">void **&#160;</td>
           <td class="paramname"><em>p</em>, </td>
@@ -2049,7 +2006,7 @@ types</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *&#160;</td>
           <td class="paramname"><em>vt</em>&#160;</td>
         </tr>
         <tr>
@@ -4730,12 +4687,12 @@ types</td>
 
 </div>
 </div>
-<a class="anchor" id="gafb0abcecc2e461aea098194bc6c0fae7"></a><!-- doxytag: member="ua_types.h::UA_Variant_copySetArray" ref="gafb0abcecc2e461aea098194bc6c0fae7" args="(UA_Variant *v, UA_VTable_Entry *vt, UA_Int32 arrayLength, const void *array)" -->
+<a class="anchor" id="gaebe680657866f2b82a1f25409edaab8f"></a><!-- doxytag: member="ua_types.h::UA_Variant_copySetArray" ref="gaebe680657866f2b82a1f25409edaab8f" args="(UA_Variant *v, const UA_VTable_Entry *vt, UA_Int32 arrayLength, const void *array)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="el" href="group__types.html#gafb0abcecc2e461aea098194bc6c0fae7">UA_Variant_copySetArray</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="el" href="group__types.html#gaebe680657866f2b82a1f25409edaab8f">UA_Variant_copySetArray</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structUA__Variant.html">UA_Variant</a> *&#160;</td>
           <td class="paramname"><em>v</em>, </td>
@@ -4743,7 +4700,7 @@ types</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *&#160;</td>
           <td class="paramname"><em>vt</em>, </td>
         </tr>
         <tr>
@@ -4769,12 +4726,12 @@ types</td>
 
 </div>
 </div>
-<a class="anchor" id="ga4d0416f76a5431625af7db531d0b9503"></a><!-- doxytag: member="ua_types.h::UA_Variant_copySetValue" ref="ga4d0416f76a5431625af7db531d0b9503" args="(UA_Variant *v, UA_VTable_Entry *vt, const void *value)" -->
+<a class="anchor" id="ga7c215246e4d2835d863bcf42340ad144"></a><!-- doxytag: member="ua_types.h::UA_Variant_copySetValue" ref="ga7c215246e4d2835d863bcf42340ad144" args="(UA_Variant *v, const UA_VTable_Entry *vt, const void *value)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="el" href="group__types.html#ga4d0416f76a5431625af7db531d0b9503">UA_Variant_copySetValue</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="el" href="group__types.html#ga7c215246e4d2835d863bcf42340ad144">UA_Variant_copySetValue</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structUA__Variant.html">UA_Variant</a> *&#160;</td>
           <td class="paramname"><em>v</em>, </td>
@@ -4782,7 +4739,7 @@ types</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *&#160;</td>
           <td class="paramname"><em>vt</em>, </td>
         </tr>
         <tr>
@@ -4970,7 +4927,7 @@ types</td>
 
 
 <address class="footer"><small>
-Generated on Tue Sep 23 2014 11:52:06 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 25 2014 17:52:25 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
