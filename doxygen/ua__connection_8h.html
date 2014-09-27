@@ -74,8 +74,8 @@ Data Structures</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a></td></tr>
 <tr><td colspan="2"><h2><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__connection_8h.html#a840a003cc5a0420753ad0acd14316eda">UA_Connection_writeCallback</a> )(void *handle, <a class="el" href="ua__connection_8h.html#structUA__ByteStringArray">UA_ByteStringArray</a> buf)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__connection_8h.html#a8697b46a9ba782e6807543aba1d2d1c0">UA_Connection_closeCallback</a> )(void *handle)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__connection_8h.html#a7e33ba430de3ae3204c3b9cf8c8e991c">UA_Connection_writeCallback</a> )(void *handle, const <a class="el" href="ua__connection_8h.html#structUA__ByteStringArray">UA_ByteStringArray</a> buf)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__connection_8h.html#a136620cf991e9719f376a1418ba6fa63">UA_Connection_closeCallback</a> )(void *handle)</td></tr>
 <tr><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__connection_8h.html#a581d16bf4bb2cef817c374c81680fc8d">UA_ConnectionState</a> { <a class="el" href="ua__connection_8h.html#a581d16bf4bb2cef817c374c81680fc8da1cad58934b273287b2ffd4596d212354">UA_CONNECTION_OPENING</a>, 
@@ -84,7 +84,7 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__connection_8h.html#a039c2896588e92afb5435b08978135a5">UA_Connection_init</a> (<a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, <a class="el" href="ua__connection_8h.html#structUA__ConnectionConfig">UA_ConnectionConfig</a> localConf, void *callbackHandle, <a class="el" href="ua__connection_8h.html#a8697b46a9ba782e6807543aba1d2d1c0">UA_Connection_closeCallback</a> close, <a class="el" href="ua__connection_8h.html#a840a003cc5a0420753ad0acd14316eda">UA_Connection_writeCallback</a> write)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__connection_8h.html#a039c2896588e92afb5435b08978135a5">UA_Connection_init</a> (<a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, <a class="el" href="ua__connection_8h.html#structUA__ConnectionConfig">UA_ConnectionConfig</a> localConf, void *callbackHandle, <a class="el" href="ua__connection_8h.html#a136620cf991e9719f376a1418ba6fa63">UA_Connection_closeCallback</a> close, <a class="el" href="ua__connection_8h.html#a7e33ba430de3ae3204c3b9cf8c8e991c">UA_Connection_writeCallback</a> write)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__connection_8h.html#aaf9dd2b8bf730fe612d235c4e5e3c654">UA_Connection_deleteMembers</a> (<a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection)</td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -191,7 +191,7 @@ channel</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="a9bef4e3a17dcdaaa8a6e39aa2b086526"></a><!-- doxytag: member="close" ref="a9bef4e3a17dcdaaa8a6e39aa2b086526" args="" --><a class="el" href="ua__connection_8h.html#a8697b46a9ba782e6807543aba1d2d1c0">UA_Connection_closeCallback</a></td>
+<a class="anchor" id="a9bef4e3a17dcdaaa8a6e39aa2b086526"></a><!-- doxytag: member="close" ref="a9bef4e3a17dcdaaa8a6e39aa2b086526" args="" --><a class="el" href="ua__connection_8h.html#a136620cf991e9719f376a1418ba6fa63">UA_Connection_closeCallback</a></td>
 <td class="fieldname">
 close</td>
 <td class="fielddoc">
@@ -215,7 +215,7 @@ state</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="a8c40f10c61be5f6ef59aa28e6115de58"></a><!-- doxytag: member="write" ref="a8c40f10c61be5f6ef59aa28e6115de58" args="" --><a class="el" href="ua__connection_8h.html#a840a003cc5a0420753ad0acd14316eda">UA_Connection_writeCallback</a></td>
+<a class="anchor" id="a8c40f10c61be5f6ef59aa28e6115de58"></a><!-- doxytag: member="write" ref="a8c40f10c61be5f6ef59aa28e6115de58" args="" --><a class="el" href="ua__connection_8h.html#a7e33ba430de3ae3204c3b9cf8c8e991c">UA_Connection_writeCallback</a></td>
 <td class="fieldname">
 write</td>
 <td class="fielddoc">
@@ -225,12 +225,12 @@ write</td>
 </div>
 </div>
 <!-- doxytag: class="UA_Connection" --><hr/><h2>Typedef Documentation</h2>
-<a class="anchor" id="a8697b46a9ba782e6807543aba1d2d1c0"></a><!-- doxytag: member="ua_connection.h::UA_Connection_closeCallback" ref="a8697b46a9ba782e6807543aba1d2d1c0" args=")(void *handle)" -->
+<a class="anchor" id="a136620cf991e9719f376a1418ba6fa63"></a><!-- doxytag: member="ua_connection.h::UA_Connection_closeCallback" ref="a136620cf991e9719f376a1418ba6fa63" args=")(void *handle)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>(* <a class="el" href="ua__connection_8h.html#a8697b46a9ba782e6807543aba1d2d1c0">UA_Connection_closeCallback</a>)(void *handle)</td>
+          <td class="memname">typedef void(* <a class="el" href="ua__connection_8h.html#a136620cf991e9719f376a1418ba6fa63">UA_Connection_closeCallback</a>)(void *handle)</td>
         </tr>
       </table>
 </div>
@@ -238,12 +238,12 @@ write</td>
 
 </div>
 </div>
-<a class="anchor" id="a840a003cc5a0420753ad0acd14316eda"></a><!-- doxytag: member="ua_connection.h::UA_Connection_writeCallback" ref="a840a003cc5a0420753ad0acd14316eda" args=")(void *handle, UA_ByteStringArray buf)" -->
+<a class="anchor" id="a7e33ba430de3ae3204c3b9cf8c8e991c"></a><!-- doxytag: member="ua_connection.h::UA_Connection_writeCallback" ref="a7e33ba430de3ae3204c3b9cf8c8e991c" args=")(void *handle, const UA_ByteStringArray buf)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>(* <a class="el" href="ua__connection_8h.html#a840a003cc5a0420753ad0acd14316eda">UA_Connection_writeCallback</a>)(void *handle, <a class="el" href="ua__connection_8h.html#structUA__ByteStringArray">UA_ByteStringArray</a> buf)</td>
+          <td class="memname">typedef void(* <a class="el" href="ua__connection_8h.html#a7e33ba430de3ae3204c3b9cf8c8e991c">UA_Connection_writeCallback</a>)(void *handle, const <a class="el" href="ua__connection_8h.html#structUA__ByteStringArray">UA_ByteStringArray</a> buf)</td>
         </tr>
       </table>
 </div>
@@ -318,13 +318,13 @@ write</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="ua__connection_8h.html#a8697b46a9ba782e6807543aba1d2d1c0">UA_Connection_closeCallback</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__connection_8h.html#a136620cf991e9719f376a1418ba6fa63">UA_Connection_closeCallback</a>&#160;</td>
           <td class="paramname"><em>close</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="ua__connection_8h.html#a840a003cc5a0420753ad0acd14316eda">UA_Connection_writeCallback</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__connection_8h.html#a7e33ba430de3ae3204c3b9cf8c8e991c">UA_Connection_writeCallback</a>&#160;</td>
           <td class="paramname"><em>write</em>&#160;</td>
         </tr>
         <tr>
@@ -357,7 +357,7 @@ write</td>
 
 
 <address class="footer"><small>
-Generated on Fri Sep 26 2014 16:05:02 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Sep 27 2014 22:20:08 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
