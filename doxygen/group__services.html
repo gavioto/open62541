@@ -85,19 +85,6 @@ Attribute Service Set</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to read one or more Attributes of one or more Nodes. For constructed Attribute values whose elements are indexed, such as an array, this Service allows Clients to read the entire set of indexed values as a composite, to read individual elements or to read ranges of elements of the composite.  <a href="#gaba8f3d08b864376982d9f78727e8cd07"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#ga1c7b9b3d0e068926bc29ee99765c41c4">Service_Write</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#ga28a7724351ef213fe3ec70082e69d726">UA_WriteRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gaaae7ed1d6ca973e02cf18d1a52087c3d">UA_WriteResponse</a> *response)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to write one or more Attributes of one or more Nodes. For constructed Attribute values whose elements are indexed, such as an array, this Service allows Clients to write the entire set of indexed values as a composite, to write individual elements or to write ranges of elements of the composite.  <a href="#ga1c7b9b3d0e068926bc29ee99765c41c4"></a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="member-group"></a>
-MonitoredItem Service Set</h2></td></tr>
-<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpd8d19f130528af866c1643cf7f5e8159"></a> Clients define MonitoredItems to subscribe to data and Events. Each MonitoredItem identifies the item to be monitored and the Subscription to use to send Notifications. The item to be monitored may be any Node Attribute. </p>
-</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#ga0f52c146db47563a06a7197fba4070c5">Service_CreateMonitoredItems</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#ga827c6a4a642a034e36b41fb6df21ddf2">UA_CreateMonitoredItemsRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga6450d80fd64d32707d1d4a4772ae5590">UA_CreateMonitoredItemsResponse</a> *response)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to create and add one or more MonitoredItems to a Subscription. A MonitoredItem is deleted automatically by the Server when the Subscription is deleted. Deleting a MonitoredItem causes its entire set of triggered item links to be deleted, but has no effect on the MonitoredItems referenced by the triggered items.  <a href="#ga0f52c146db47563a06a7197fba4070c5"></a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="member-group"></a>
-Subscription Service Set</h2></td></tr>
-<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp159304cf8d17fc08cde9683f88be2b83"></a> Subscriptions are used to report Notifications to the Client. </p>
-</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gad4a1043500408b13a0a39df5d719f734">Service_CreateSubscription</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#gad59fe02dce8c21aca7745912d548a43a">UA_CreateSubscriptionRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gae0dc9809957898bf81caf2a9d8852378">UA_CreateSubscriptionResponse</a> *response)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gab641842f50204b4337d699bc85c75298">Service_SetPublishingMode</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#gac3f9e1dafed26b7c77923e380a7a9bd5">UA_SetPublishingModeRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga34f8199b4c73d54afba9ecf057a1dff2">UA_SetPublishingModeResponse</a> *response)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#ga0f42f7b6e062fabac5013d263fc72abc">Service_Publish</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#ga0b55632d91668eafd8ff571ba4953c38">UA_PublishRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga6e9f4d683995ccbca85675d23e77539f">UA_PublishResponse</a> *response)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <p>This module describes all the services used to communicate in in OPC UA. </p>
@@ -348,47 +335,6 @@ Subscription Service Set</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga0f52c146db47563a06a7197fba4070c5"></a><!-- doxytag: member="ua_services.h::Service_CreateMonitoredItems" ref="ga0f52c146db47563a06a7197fba4070c5" args="(UA_Server *server, UA_Session *session, const UA_CreateMonitoredItemsRequest *request, UA_CreateMonitoredItemsResponse *response)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="group__services.html#ga0f52c146db47563a06a7197fba4070c5">Service_CreateMonitoredItems</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
-          <td class="paramname"><em>server</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *&#160;</td>
-          <td class="paramname"><em>session</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group__ua__types__generated.html#ga827c6a4a642a034e36b41fb6df21ddf2">UA_CreateMonitoredItemsRequest</a> *&#160;</td>
-          <td class="paramname"><em>request</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group__ua__types__generated.html#ga6450d80fd64d32707d1d4a4772ae5590">UA_CreateMonitoredItemsResponse</a> *&#160;</td>
-          <td class="paramname"><em>response</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>This Service is used to create and add one or more MonitoredItems to a Subscription. A MonitoredItem is deleted automatically by the Server when the Subscription is deleted. Deleting a MonitoredItem causes its entire set of triggered item links to be deleted, but has no effect on the MonitoredItems referenced by the triggered items. </p>
-
-</div>
-</div>
 <a class="anchor" id="ga1402aa7ba470c8713b75a0ded3f3e9c1"></a><!-- doxytag: member="ua_services.h::Service_CreateSession" ref="ga1402aa7ba470c8713b75a0ded3f3e9c1" args="(UA_Server *server, UA_SecureChannel *channel, const UA_CreateSessionRequest *request, UA_CreateSessionResponse *response)" -->
 <div class="memitem">
 <div class="memproto">
@@ -427,45 +373,6 @@ Subscription Service Set</h2></td></tr>
 <div class="memdoc">
 
 <p>This Service is used by an OPC UA Client to create a Session and the Server returns two values which uniquely identify the Session. The first value is the sessionId which is used to identify the Session in the audit logs and in the Server’s address space. The second is the authenticationToken which is used to associate an incoming request with a Session. </p>
-
-</div>
-</div>
-<a class="anchor" id="gad4a1043500408b13a0a39df5d719f734"></a><!-- doxytag: member="ua_services.h::Service_CreateSubscription" ref="gad4a1043500408b13a0a39df5d719f734" args="(UA_Server *server, UA_Session *session, const UA_CreateSubscriptionRequest *request, UA_CreateSubscriptionResponse *response)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="group__services.html#gad4a1043500408b13a0a39df5d719f734">Service_CreateSubscription</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
-          <td class="paramname"><em>server</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *&#160;</td>
-          <td class="paramname"><em>session</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group__ua__types__generated.html#gad59fe02dce8c21aca7745912d548a43a">UA_CreateSubscriptionRequest</a> *&#160;</td>
-          <td class="paramname"><em>request</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group__ua__types__generated.html#gae0dc9809957898bf81caf2a9d8852378">UA_CreateSubscriptionResponse</a> *&#160;</td>
-          <td class="paramname"><em>response</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
 
 </div>
 </div>
@@ -545,45 +452,6 @@ Subscription Service Set</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga0f42f7b6e062fabac5013d263fc72abc"></a><!-- doxytag: member="ua_services.h::Service_Publish" ref="ga0f42f7b6e062fabac5013d263fc72abc" args="(UA_Server *server, UA_Session *session, const UA_PublishRequest *request, UA_PublishResponse *response)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="group__services.html#ga0f42f7b6e062fabac5013d263fc72abc">Service_Publish</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
-          <td class="paramname"><em>server</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *&#160;</td>
-          <td class="paramname"><em>session</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group__ua__types__generated.html#ga0b55632d91668eafd8ff571ba4953c38">UA_PublishRequest</a> *&#160;</td>
-          <td class="paramname"><em>request</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group__ua__types__generated.html#ga6e9f4d683995ccbca85675d23e77539f">UA_PublishResponse</a> *&#160;</td>
-          <td class="paramname"><em>response</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="gaba8f3d08b864376982d9f78727e8cd07"></a><!-- doxytag: member="ua_services.h::Service_Read" ref="gaba8f3d08b864376982d9f78727e8cd07" args="(UA_Server *server, UA_Session *session, const UA_ReadRequest *request, UA_ReadResponse *response)" -->
 <div class="memitem">
 <div class="memproto">
@@ -622,45 +490,6 @@ Subscription Service Set</h2></td></tr>
 <div class="memdoc">
 
 <p>This Service is used to read one or more Attributes of one or more Nodes. For constructed Attribute values whose elements are indexed, such as an array, this Service allows Clients to read the entire set of indexed values as a composite, to read individual elements or to read ranges of elements of the composite. </p>
-
-</div>
-</div>
-<a class="anchor" id="gab641842f50204b4337d699bc85c75298"></a><!-- doxytag: member="ua_services.h::Service_SetPublishingMode" ref="gab641842f50204b4337d699bc85c75298" args="(UA_Server *server, UA_Session *session, const UA_SetPublishingModeRequest *request, UA_SetPublishingModeResponse *response)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="group__services.html#gab641842f50204b4337d699bc85c75298">Service_SetPublishingMode</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
-          <td class="paramname"><em>server</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *&#160;</td>
-          <td class="paramname"><em>session</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="group__ua__types__generated.html#gac3f9e1dafed26b7c77923e380a7a9bd5">UA_SetPublishingModeRequest</a> *&#160;</td>
-          <td class="paramname"><em>request</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group__ua__types__generated.html#ga34f8199b4c73d54afba9ecf057a1dff2">UA_SetPublishingModeResponse</a> *&#160;</td>
-          <td class="paramname"><em>response</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
 
 </div>
 </div>
@@ -751,7 +580,7 @@ Subscription Service Set</h2></td></tr>
 
 
 <address class="footer"><small>
-Generated on Thu Oct 2 2014 09:20:41 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 3 2014 12:32:46 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -102,26 +102,26 @@
 <a name="l00204"></a>00204                        <a class="code" href="group__ua__types__generated.html#gaaae7ed1d6ca973e02cf18d1a52087c3d">UA_WriteResponse</a> *response);
 <a name="l00205"></a>00205 <span class="comment">// Service_HistoryUpdate</span>
 <a name="l00216"></a>00216 <span class="comment"></span><span class="comment">// Service_Call</span>
-<a name="l00236"></a>00236 <span class="comment"></span><a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#ga0f52c146db47563a06a7197fba4070c5" title="This Service is used to create and add one or more MonitoredItems to a Subscription. A MonitoredItem is deleted automatically by the Server when the Subscription is deleted. Deleting a MonitoredItem causes its entire set of triggered item links to be deleted, but has no effect on the MonitoredItems referenced by the triggered items.">Service_CreateMonitoredItems</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
-<a name="l00237"></a>00237                                       <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga827c6a4a642a034e36b41fb6df21ddf2">UA_CreateMonitoredItemsRequest</a> *request,
-<a name="l00238"></a>00238                                       <a class="code" href="group__ua__types__generated.html#ga6450d80fd64d32707d1d4a4772ae5590">UA_CreateMonitoredItemsResponse</a> *response);
+<a name="l00236"></a>00236 <span class="comment"></span><span class="comment">/* UA_Int32 Service_CreateMonitoredItems(UA_Server *server, UA_Session *session, */</span>
+<a name="l00237"></a>00237 <span class="comment">/*                                       const UA_CreateMonitoredItemsRequest *request, */</span>
+<a name="l00238"></a>00238 <span class="comment">/*                                       UA_CreateMonitoredItemsResponse *response); */</span>
 <a name="l00239"></a>00239 <span class="comment">// Service_ModifyMonitoredItems</span>
 <a name="l00240"></a>00240 <span class="comment">// Service_SetMonitoringMode</span>
 <a name="l00241"></a>00241 <span class="comment">// Service_SetTriggering</span>
 <a name="l00242"></a>00242 <span class="comment">// Service_DeleteMonitoredItems</span>
 <a name="l00252"></a>00252 <span class="comment"></span><span class="comment">// Service_CreateSubscription</span>
-<a name="l00253"></a>00253 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#gad4a1043500408b13a0a39df5d719f734">Service_CreateSubscription</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
-<a name="l00254"></a>00254                                     <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#gad59fe02dce8c21aca7745912d548a43a">UA_CreateSubscriptionRequest</a> *request,
-<a name="l00255"></a>00255                                     <a class="code" href="group__ua__types__generated.html#gae0dc9809957898bf81caf2a9d8852378">UA_CreateSubscriptionResponse</a> *response);
+<a name="l00253"></a>00253 <span class="comment">/* UA_Int32 Service_CreateSubscription(UA_Server *server, UA_Session *session, */</span>
+<a name="l00254"></a>00254 <span class="comment">/*                                     const UA_CreateSubscriptionRequest *request, */</span>
+<a name="l00255"></a>00255 <span class="comment">/*                                     UA_CreateSubscriptionResponse *response); */</span>
 <a name="l00256"></a>00256 <span class="comment">// Service_ModifySubscription</span>
 <a name="l00257"></a>00257 <span class="comment">// Service_SetPublishingMode</span>
-<a name="l00258"></a>00258 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#gab641842f50204b4337d699bc85c75298">Service_SetPublishingMode</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
-<a name="l00259"></a>00259                                    <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#gac3f9e1dafed26b7c77923e380a7a9bd5">UA_SetPublishingModeRequest</a> *request,
-<a name="l00260"></a>00260                                    <a class="code" href="group__ua__types__generated.html#ga34f8199b4c73d54afba9ecf057a1dff2">UA_SetPublishingModeResponse</a> *response);
+<a name="l00258"></a>00258 <span class="comment">/* UA_Int32 Service_SetPublishingMode(UA_Server *server, UA_Session *session, */</span>
+<a name="l00259"></a>00259 <span class="comment">/*                                    const UA_SetPublishingModeRequest *request, */</span>
+<a name="l00260"></a>00260 <span class="comment">/*                                    UA_SetPublishingModeResponse *response); */</span>
 <a name="l00261"></a>00261 
-<a name="l00262"></a>00262 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#ga0f42f7b6e062fabac5013d263fc72abc">Service_Publish</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
-<a name="l00263"></a>00263                          <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga0b55632d91668eafd8ff571ba4953c38">UA_PublishRequest</a> *request,
-<a name="l00264"></a>00264                          <a class="code" href="group__ua__types__generated.html#ga6e9f4d683995ccbca85675d23e77539f">UA_PublishResponse</a> *response);
+<a name="l00262"></a>00262 <span class="comment">/* UA_Int32 Service_Publish(UA_Server *server, UA_Session *session, */</span>
+<a name="l00263"></a>00263 <span class="comment">/*                          const UA_PublishRequest *request, */</span>
+<a name="l00264"></a>00264 <span class="comment">/*                          UA_PublishResponse *response); */</span>
 <a name="l00265"></a>00265 
 <a name="l00266"></a>00266 <span class="comment">// Service_Republish</span>
 <a name="l00267"></a>00267 <span class="comment">// Service_TransferSubscription</span>
@@ -133,7 +133,7 @@
 
 
 <address class="footer"><small>
-Generated on Thu Oct 2 2014 09:20:40 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 3 2014 12:32:46 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
