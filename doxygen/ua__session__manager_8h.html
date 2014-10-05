@@ -59,19 +59,19 @@
 Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__session__manager_8h.html#a14e85001a31ef41e6569d1aa7933a8ec">UA_SessionManager_new</a> (<a class="el" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> **sessionManager, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> maxSessionCount, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> sessionLifetime, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> startSessionId)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__session__manager_8h.html#ac647a1a80e158d56ec0500c3d2ed9104">UA_SessionManager_delete</a> (<a class="el" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> *sessionManager)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__session__manager_8h.html#a0eef6eb0b1231f9e8072ea82826c3d44">UA_SessionManager_createSession</a> (<a class="el" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> *sessionManager, <a class="el" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *channel, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> **session)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__session__manager_8h.html#a709b6263209569b5bf2979383617959b">UA_SessionManager_createSession</a> (<a class="el" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> *sessionManager, <a class="el" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *channel, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> **session)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__session__manager_8h.html#a0ff30f606f86083d4bc700c9621d29a4">UA_SessionManager_removeSession</a> (<a class="el" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> *sessionManager, <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *sessionId)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__session__manager_8h.html#a73ce89bfdb9934ae29b0e1edcf104daf">UA_SessionManager_getSessionById</a> (<a class="el" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> *sessionManager, <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *sessionId, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> **session)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">finds the session which is identified by the sessionId  <a href="#a73ce89bfdb9934ae29b0e1edcf104daf"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__session__manager_8h.html#ac3d51cf3468e7380c6edcfbf2fa7f067">UA_SessionManager_getSessionByToken</a> (<a class="el" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> *sessionManager, <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *token, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> **session)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
-<a class="anchor" id="a0eef6eb0b1231f9e8072ea82826c3d44"></a><!-- doxytag: member="ua_session_manager.h::UA_SessionManager_createSession" ref="a0eef6eb0b1231f9e8072ea82826c3d44" args="(UA_SessionManager *sessionManager, UA_SecureChannel *channel, UA_Session **session)" -->
+<a class="anchor" id="a709b6263209569b5bf2979383617959b"></a><!-- doxytag: member="ua_session_manager.h::UA_SessionManager_createSession" ref="a709b6263209569b5bf2979383617959b" args="(UA_SessionManager *sessionManager, UA_SecureChannel *channel, UA_Session **session)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__session__manager_8h.html#a0eef6eb0b1231f9e8072ea82826c3d44">UA_SessionManager_createSession</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a> <a class="el" href="ua__session__manager_8h.html#a709b6263209569b5bf2979383617959b">UA_SessionManager_createSession</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__server_8h.html#aa9b7bf8617c8eeca4d0944f364a094c8">UA_SessionManager</a> *&#160;</td>
           <td class="paramname"><em>sessionManager</em>, </td>
@@ -271,7 +271,7 @@ Functions</h2></td></tr>
 
 
 <address class="footer"><small>
-Generated on Sat Oct 4 2014 15:14:13 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 5 2014 19:42:38 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

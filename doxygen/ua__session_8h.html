@@ -37,7 +37,8 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">/home/travis/build/acplt/open62541/src/ua_session.h File Reference</div>  </div>
 </div><!--header-->
@@ -78,6 +79,12 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__session_8h.html#a417e5588f3fb7ecf47fda2ed2e33f445">UA_Session_updateLifetime</a> (<a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__session_8h.html#a9a8c68a1febc4a35ecc5ad1b35489c15">UA_Session_setExpirationDate</a> (<a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__session_8h.html#abc9b4e223a029d95acc53a158b34e7ea">UA_Session_getPendingLifetime</a> (<a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, <a class="el" href="group__types.html#gaac69e6c4659bdcafdb30498200a0ab07">UA_Double</a> *pendingLifetime)</td></tr>
+<tr><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__session_8h.html#a5174a84a7bc233c3836ad9ad7f354e8c">anonymousSession</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">If anonymous access is allowed, this session is used internally (Session ID: 0)  <a href="#a5174a84a7bc233c3836ad9ad7f354e8c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__session_8h.html#a26e06e7e93b0a6420e1a8659d2724209">adminSession</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Local access to the services (for startup and maintenance) uses this Session with all possible access rights (Session ID: 1)  <a href="#a26e06e7e93b0a6420e1a8659d2724209"></a><br/></td></tr>
 </table>
 <hr/><h2>Data Structure Documentation</h2>
 <a name="structUA__Session" id="structUA__Session"></a>
@@ -311,12 +318,43 @@ validTill</td>
 
 </div>
 </div>
+<hr/><h2>Variable Documentation</h2>
+<a class="anchor" id="a26e06e7e93b0a6420e1a8659d2724209"></a><!-- doxytag: member="ua_session.h::adminSession" ref="a26e06e7e93b0a6420e1a8659d2724209" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> <a class="el" href="ua__session_8h.html#a26e06e7e93b0a6420e1a8659d2724209">adminSession</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Local access to the services (for startup and maintenance) uses this Session with all possible access rights (Session ID: 1) </p>
+
+</div>
+</div>
+<a class="anchor" id="a5174a84a7bc233c3836ad9ad7f354e8c"></a><!-- doxytag: member="ua_session.h::anonymousSession" ref="a5174a84a7bc233c3836ad9ad7f354e8c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> <a class="el" href="ua__session_8h.html#a5174a84a7bc233c3836ad9ad7f354e8c">anonymousSession</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>If anonymous access is allowed, this session is used internally (Session ID: 0) </p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Sat Oct 4 2014 15:14:13 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 5 2014 19:42:38 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -88,17 +88,23 @@
 <a name="l00049"></a>00049 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="code" href="ua__server_8h.html#a120c3668064231bf169acc1dababfc28">UA_Server_deleteMembers</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server);
 <a name="l00050"></a>00050 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__config_8h.html#a47d71dfa177be1a7e5afd4d4d1add29b">UA_LIBEXPORT</a> <a class="code" href="ua__server_8h.html#a6ae0167609dbc00388e99e9aa65606cd">UA_Server_processBinaryMessage</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, <span class="keyword">const</span> UA_ByteString *msg);
 <a name="l00051"></a>00051 
-<a name="l00052"></a>00052 <span class="preprocessor">#ifdef __cplusplus</span>
-<a name="l00053"></a>00053 <span class="preprocessor"></span>} <span class="comment">// extern &quot;C&quot;</span>
-<a name="l00054"></a>00054 <span class="preprocessor">#endif</span>
-<a name="l00055"></a>00055 <span class="preprocessor"></span>
-<a name="l00056"></a>00056 <span class="preprocessor">#endif </span><span class="comment">/* UA_SERVER_H_ */</span>
+<a name="l00052"></a>00052 <span class="comment">/* Services for local use */</span>
+<a name="l00053"></a>00053 <span class="keywordtype">void</span> <a class="code" href="ua__server_8h.html#ade8d096d051aaa3be0e199dd2187f10e">Server_addNodes</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga97beebc7213a065f726f2436ee2c63aa">UA_AddNodesRequest</a> *request,
+<a name="l00054"></a>00054                      <a class="code" href="group__ua__types__generated.html#ga72059290a5468a9cd53fb9c42945978b">UA_AddNodesResponse</a> *response);
+<a name="l00055"></a>00055 <span class="keywordtype">void</span> <a class="code" href="ua__server_8h.html#a1d8ff911c89c64f8e8a02cdb6f575c26">Server_addReferences</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga9069e153d4368a9c1dfd7c92fb6d91af">UA_AddReferencesRequest</a> *request,
+<a name="l00056"></a>00056                           <a class="code" href="group__ua__types__generated.html#ga469a8fd1d3a72f18806d6af02f6cb401">UA_AddReferencesResponse</a> *response);
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00059"></a>00059 <span class="preprocessor"></span>} <span class="comment">// extern &quot;C&quot;</span>
+<a name="l00060"></a>00060 <span class="preprocessor">#endif</span>
+<a name="l00061"></a>00061 <span class="preprocessor"></span>
+<a name="l00062"></a>00062 <span class="preprocessor">#endif </span><span class="comment">/* UA_SERVER_H_ */</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Sat Oct 4 2014 15:14:13 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 5 2014 19:42:37 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

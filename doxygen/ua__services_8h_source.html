@@ -49,91 +49,86 @@
 <a name="l00008"></a>00008 
 <a name="l00025"></a>00025 <span class="comment">// Service_FindServers</span>
 <a name="l00026"></a>00026 
-<a name="l00032"></a>00032 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#ga877a16770e446937e260cddb88b872c1" title="This Service returns the Endpoints supported by a Server and all of the configuration information req...">Service_GetEndpoints</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a>                    *server,
-<a name="l00033"></a>00033                               <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga2e76caa4690f30085d789f3f20644c12">UA_GetEndpointsRequest</a> *request,
-<a name="l00034"></a>00034                               <a class="code" href="group__ua__types__generated.html#gadf2b44ec62c1ed73950804cc23b0757d">UA_GetEndpointsResponse</a>      *response);
-<a name="l00035"></a>00035 <span class="comment">// Service_RegisterServer</span>
-<a name="l00051"></a>00051 <span class="comment"></span><a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#ga640ccab99f4162d033ee36c29866866a" title="This Service is used to open or renew a SecureChannel that can be used to ensure Confidentiality and ...">Service_OpenSecureChannel</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection,
-<a name="l00052"></a>00052                                    <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga33288612f5244dbb8fae8161a86e69c8">UA_OpenSecureChannelRequest</a> *request,
-<a name="l00053"></a>00053                                    <a class="code" href="group__ua__types__generated.html#gab1acc894d821411ceb331c7230d23932">UA_OpenSecureChannelResponse</a> *response);
-<a name="l00054"></a>00054 
-<a name="l00056"></a>00056 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#ga80c06db68af540e8ab95a039370a5d09" title="This Service is used to terminate a SecureChannel.">Service_CloseSecureChannel</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *channel,
-<a name="l00057"></a>00057                                     <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga4a5f45ccbad374876d5942fe1929d35f">UA_CloseSecureChannelRequest</a> *request,
-<a name="l00058"></a>00058                                     <a class="code" href="group__ua__types__generated.html#ga928a5942f59511f08fa4f8e326a4e837">UA_CloseSecureChannelResponse</a> *response);
-<a name="l00077"></a>00077 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#ga1402aa7ba470c8713b75a0ded3f3e9c1" title="This Service is used by an OPC UA Client to create a Session and the Server returns two values which ...">Service_CreateSession</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *channel,
-<a name="l00078"></a>00078                                <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#gaa5ad7b57faa9f03d8f41b22f07b8e041">UA_CreateSessionRequest</a> *request,
-<a name="l00079"></a>00079                                <a class="code" href="group__ua__types__generated.html#ga447edb2a63b596a7ce23b37510a7c4be">UA_CreateSessionResponse</a> *response);
-<a name="l00080"></a>00080 
-<a name="l00088"></a>00088 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#gad3658f4e19402c3579b340edf65e0dea" title="This Service is used by the Client to submit its SoftwareCertificates to the Server for validation an...">Service_ActivateSession</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *channel,
-<a name="l00089"></a>00089                                  <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#gae0093bfeeb5522e019fe9ec13acdfc2e">UA_ActivateSessionRequest</a> *request,
-<a name="l00090"></a>00090                                  <a class="code" href="group__ua__types__generated.html#ga46dc7760ff7ea7ab5d4512d1580cfb21">UA_ActivateSessionResponse</a> *response);
-<a name="l00091"></a>00091 
-<a name="l00095"></a>00095 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#ga4448391544649e7c9fef65f18822496b" title="This Service is used to terminate a Session.">Service_CloseSession</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
-<a name="l00096"></a>00096                               <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#gad96ccc4040205ef060fd6275907ebc38">UA_CloseSessionRequest</a> *request,
-<a name="l00097"></a>00097                               <a class="code" href="group__ua__types__generated.html#gafa7099cafb423982cff7443f7a6b45ee">UA_CloseSessionResponse</a> *response);
-<a name="l00098"></a>00098 <span class="comment">// Service_Cancel</span>
-<a name="l00114"></a>00114 <span class="comment"></span><a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#ga1a51773c3223fb3919c901050198d053" title="This Service is used to add one or more Nodes into the AddressSpace hierarchy.">Service_AddNodes</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
-<a name="l00115"></a>00115                           <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga97beebc7213a065f726f2436ee2c63aa">UA_AddNodesRequest</a> *request, <a class="code" href="group__ua__types__generated.html#ga72059290a5468a9cd53fb9c42945978b">UA_AddNodesResponse</a> *response);
-<a name="l00116"></a>00116 
-<a name="l00120"></a>00120 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#ga089217bd1dcc6771ac31c3da1d7fbebe" title="This Service is used to add one or more References to one or more Nodes.">Service_AddReferences</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
-<a name="l00121"></a>00121                                <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga9069e153d4368a9c1dfd7c92fb6d91af">UA_AddReferencesRequest</a> *request,
-<a name="l00122"></a>00122                                <a class="code" href="group__ua__types__generated.html#ga469a8fd1d3a72f18806d6af02f6cb401">UA_AddReferencesResponse</a> *response);
-<a name="l00123"></a>00123 
-<a name="l00124"></a>00124 <span class="comment">// Service_DeleteNodes</span>
-<a name="l00125"></a>00125 <span class="comment">// Service_DeleteReferences</span>
-<a name="l00142"></a>00142 <span class="comment"></span><a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#ga97c9b540b83e720b1ce9ab34dbd70aae" title="This Service is used to discover the References of a specified Node. The browse can be further limite...">Service_Browse</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
-<a name="l00143"></a>00143                         <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga3c937a1ee33042734760c555bb2e63a7">UA_BrowseRequest</a> *request, <a class="code" href="group__ua__types__generated.html#ga278081bb73069a06512373d9f6033896">UA_BrowseResponse</a> *response);
-<a name="l00144"></a>00144 
-<a name="l00148"></a>00148 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#ga258bac42ba72c66045c8f5415d7a991b" title="This Service is used to translate textual node paths to their respective ids.">Service_TranslateBrowsePathsToNodeIds</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
-<a name="l00149"></a>00149                                                <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#gaea33f99feb289de9fe48a747bd8b9707">UA_TranslateBrowsePathsToNodeIdsRequest</a> *request,
-<a name="l00150"></a>00150                                                <a class="code" href="group__ua__types__generated.html#gaf1e1bba122c71a857b4534c324a4af7c">UA_TranslateBrowsePathsToNodeIdsResponse</a> *response);
-<a name="l00151"></a>00151 <span class="comment">// Service_BrowseNext</span>
-<a name="l00152"></a>00152 <span class="comment">// Service_TranslateBrowsePathsToNodeIds</span>
-<a name="l00153"></a>00153 <span class="comment">// Service_RegisterNodes</span>
-<a name="l00154"></a>00154 <span class="comment">// Service_UnregisterNodes</span>
-<a name="l00158"></a>00158 <span class="comment"></span><span class="comment">/* Part 4: 5.9 Query Service Set */</span>
-<a name="l00172"></a>00172 <span class="comment">// Service_QueryFirst</span>
-<a name="l00173"></a>00173 <span class="comment">// Service_QueryNext</span>
-<a name="l00176"></a>00176 <span class="comment"></span><span class="comment">/* Part 4: 5.10 Attribute Service Set */</span>
-<a name="l00193"></a>00193 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#gaba8f3d08b864376982d9f78727e8cd07" title="This Service is used to read one or more Attributes of one or more Nodes. For constructed Attribute v...">Service_Read</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga4ab9188850fcfcb76519cc91e8158f7e">UA_ReadRequest</a> *request,
-<a name="l00194"></a>00194                       <a class="code" href="group__ua__types__generated.html#ga77bb9645b68210059ebcb1f31f0bd324">UA_ReadResponse</a> *response);
-<a name="l00195"></a>00195 <span class="comment">// Service_HistoryRead</span>
-<a name="l00203"></a>00203 <span class="comment"></span><a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="group__services.html#ga1c7b9b3d0e068926bc29ee99765c41c4" title="This Service is used to write one or more Attributes of one or more Nodes. For constructed Attribute ...">Service_Write</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga28a7724351ef213fe3ec70082e69d726">UA_WriteRequest</a> *request,
-<a name="l00204"></a>00204                        <a class="code" href="group__ua__types__generated.html#gaaae7ed1d6ca973e02cf18d1a52087c3d">UA_WriteResponse</a> *response);
-<a name="l00205"></a>00205 <span class="comment">// Service_HistoryUpdate</span>
-<a name="l00216"></a>00216 <span class="comment"></span><span class="comment">// Service_Call</span>
-<a name="l00236"></a>00236 <span class="comment"></span><span class="comment">/* UA_Int32 Service_CreateMonitoredItems(UA_Server *server, UA_Session *session, */</span>
-<a name="l00237"></a>00237 <span class="comment">/*                                       const UA_CreateMonitoredItemsRequest *request, */</span>
-<a name="l00238"></a>00238 <span class="comment">/*                                       UA_CreateMonitoredItemsResponse *response); */</span>
-<a name="l00239"></a>00239 <span class="comment">// Service_ModifyMonitoredItems</span>
-<a name="l00240"></a>00240 <span class="comment">// Service_SetMonitoringMode</span>
-<a name="l00241"></a>00241 <span class="comment">// Service_SetTriggering</span>
-<a name="l00242"></a>00242 <span class="comment">// Service_DeleteMonitoredItems</span>
-<a name="l00252"></a>00252 <span class="comment"></span><span class="comment">// Service_CreateSubscription</span>
-<a name="l00253"></a>00253 <span class="comment">/* UA_Int32 Service_CreateSubscription(UA_Server *server, UA_Session *session, */</span>
-<a name="l00254"></a>00254 <span class="comment">/*                                     const UA_CreateSubscriptionRequest *request, */</span>
-<a name="l00255"></a>00255 <span class="comment">/*                                     UA_CreateSubscriptionResponse *response); */</span>
-<a name="l00256"></a>00256 <span class="comment">// Service_ModifySubscription</span>
-<a name="l00257"></a>00257 <span class="comment">// Service_SetPublishingMode</span>
-<a name="l00258"></a>00258 <span class="comment">/* UA_Int32 Service_SetPublishingMode(UA_Server *server, UA_Session *session, */</span>
-<a name="l00259"></a>00259 <span class="comment">/*                                    const UA_SetPublishingModeRequest *request, */</span>
-<a name="l00260"></a>00260 <span class="comment">/*                                    UA_SetPublishingModeResponse *response); */</span>
-<a name="l00261"></a>00261 
-<a name="l00262"></a>00262 <span class="comment">/* UA_Int32 Service_Publish(UA_Server *server, UA_Session *session, */</span>
-<a name="l00263"></a>00263 <span class="comment">/*                          const UA_PublishRequest *request, */</span>
-<a name="l00264"></a>00264 <span class="comment">/*                          UA_PublishResponse *response); */</span>
-<a name="l00265"></a>00265 
-<a name="l00266"></a>00266 <span class="comment">// Service_Republish</span>
-<a name="l00267"></a>00267 <span class="comment">// Service_TransferSubscription</span>
-<a name="l00268"></a>00268 <span class="comment">// Service_DeleteSubscription // end of group</span>
-<a name="l00272"></a>00272 
-<a name="l00273"></a>00273 <span class="preprocessor">#endif</span>
+<a name="l00032"></a>00032 <span class="keywordtype">void</span> <a class="code" href="group__services.html#ga810b8cc0243476e5267e34c40e149140" title="This Service returns the Endpoints supported by a Server and all of the configuration information req...">Service_GetEndpoints</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a>                    *server,
+<a name="l00033"></a>00033                           <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga2e76caa4690f30085d789f3f20644c12">UA_GetEndpointsRequest</a> *request, <a class="code" href="group__ua__types__generated.html#gadf2b44ec62c1ed73950804cc23b0757d">UA_GetEndpointsResponse</a> *response);
+<a name="l00034"></a>00034 <span class="comment">// Service_RegisterServer</span>
+<a name="l00050"></a>00050 <span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="group__services.html#gae09db04d5a376fde439436847b9944a5" title="This Service is used to open or renew a SecureChannel that can be used to ensure Confidentiality and ...">Service_OpenSecureChannel</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection,
+<a name="l00051"></a>00051                                <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga33288612f5244dbb8fae8161a86e69c8">UA_OpenSecureChannelRequest</a> *request,
+<a name="l00052"></a>00052                                <a class="code" href="group__ua__types__generated.html#gab1acc894d821411ceb331c7230d23932">UA_OpenSecureChannelResponse</a> *response);
+<a name="l00053"></a>00053 
+<a name="l00055"></a>00055 <span class="keywordtype">void</span> <a class="code" href="group__services.html#gaf99913dd7235c67afa7f3e24d932caeb" title="This Service is used to terminate a SecureChannel.">Service_CloseSecureChannel</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *channel,
+<a name="l00056"></a>00056                                 <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga4a5f45ccbad374876d5942fe1929d35f">UA_CloseSecureChannelRequest</a> *request,
+<a name="l00057"></a>00057                                 <a class="code" href="group__ua__types__generated.html#ga928a5942f59511f08fa4f8e326a4e837">UA_CloseSecureChannelResponse</a> *response);
+<a name="l00076"></a>00076 <span class="keywordtype">void</span> <a class="code" href="group__services.html#gaf58a784fc3879a160d257139af18caa9" title="This Service is used by an OPC UA Client to create a Session and the Server returns two values which ...">Service_CreateSession</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *channel,
+<a name="l00077"></a>00077                            <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#gaa5ad7b57faa9f03d8f41b22f07b8e041">UA_CreateSessionRequest</a> *request, <a class="code" href="group__ua__types__generated.html#ga447edb2a63b596a7ce23b37510a7c4be">UA_CreateSessionResponse</a> *response);
+<a name="l00078"></a>00078 
+<a name="l00086"></a>00086 <span class="keywordtype">void</span> <a class="code" href="group__services.html#gaf965e1b90c35c901efdae40bcdc235e9" title="This Service is used by the Client to submit its SoftwareCertificates to the Server for validation an...">Service_ActivateSession</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *channel,
+<a name="l00087"></a>00087                              <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#gae0093bfeeb5522e019fe9ec13acdfc2e">UA_ActivateSessionRequest</a> *request, <a class="code" href="group__ua__types__generated.html#ga46dc7760ff7ea7ab5d4512d1580cfb21">UA_ActivateSessionResponse</a> *response);
+<a name="l00088"></a>00088 
+<a name="l00092"></a>00092 <span class="keywordtype">void</span> <a class="code" href="group__services.html#ga0fbc9a3db1074fd51324f8bd2f690656" title="This Service is used to terminate a Session.">Service_CloseSession</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
+<a name="l00093"></a>00093                           <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#gad96ccc4040205ef060fd6275907ebc38">UA_CloseSessionRequest</a> *request, <a class="code" href="group__ua__types__generated.html#gafa7099cafb423982cff7443f7a6b45ee">UA_CloseSessionResponse</a> *response);
+<a name="l00094"></a>00094 <span class="comment">// Service_Cancel</span>
+<a name="l00110"></a>00110 <span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="group__services.html#gac2803a739b87365afe4a7fee26cf6916" title="This Service is used to add one or more Nodes into the AddressSpace hierarchy.">Service_AddNodes</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
+<a name="l00111"></a>00111                       <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga97beebc7213a065f726f2436ee2c63aa">UA_AddNodesRequest</a> *request, <a class="code" href="group__ua__types__generated.html#ga72059290a5468a9cd53fb9c42945978b">UA_AddNodesResponse</a> *response);
+<a name="l00112"></a>00112 
+<a name="l00116"></a>00116 <span class="keywordtype">void</span> <a class="code" href="group__services.html#ga93217b9e4a5d40b1688836029a0cf4a9" title="This Service is used to add one or more References to one or more Nodes.">Service_AddReferences</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
+<a name="l00117"></a>00117                            <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga9069e153d4368a9c1dfd7c92fb6d91af">UA_AddReferencesRequest</a> *request, <a class="code" href="group__ua__types__generated.html#ga469a8fd1d3a72f18806d6af02f6cb401">UA_AddReferencesResponse</a> *response);
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119 <span class="comment">// Service_DeleteNodes</span>
+<a name="l00120"></a>00120 <span class="comment">// Service_DeleteReferences</span>
+<a name="l00137"></a>00137 <span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="group__services.html#ga50877906caf2f8d31993038c7e131265" title="This Service is used to discover the References of a specified Node. The browse can be further limite...">Service_Browse</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
+<a name="l00138"></a>00138                     <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga3c937a1ee33042734760c555bb2e63a7">UA_BrowseRequest</a> *request, <a class="code" href="group__ua__types__generated.html#ga278081bb73069a06512373d9f6033896">UA_BrowseResponse</a> *response);
+<a name="l00139"></a>00139 
+<a name="l00143"></a>00143 <span class="keywordtype">void</span> <a class="code" href="group__services.html#gab012f718870f7740eb511c28ede6a017" title="This Service is used to translate textual node paths to their respective ids.">Service_TranslateBrowsePathsToNodeIds</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
+<a name="l00144"></a>00144                                            <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#gaea33f99feb289de9fe48a747bd8b9707">UA_TranslateBrowsePathsToNodeIdsRequest</a> *request,
+<a name="l00145"></a>00145                                            <a class="code" href="group__ua__types__generated.html#gaf1e1bba122c71a857b4534c324a4af7c">UA_TranslateBrowsePathsToNodeIdsResponse</a> *response);
+<a name="l00146"></a>00146 <span class="comment">// Service_BrowseNext</span>
+<a name="l00147"></a>00147 <span class="comment">// Service_TranslateBrowsePathsToNodeIds</span>
+<a name="l00148"></a>00148 <span class="comment">// Service_RegisterNodes</span>
+<a name="l00149"></a>00149 <span class="comment">// Service_UnregisterNodes</span>
+<a name="l00153"></a>00153 <span class="comment"></span><span class="comment">/* Part 4: 5.9 Query Service Set */</span>
+<a name="l00167"></a>00167 <span class="comment">// Service_QueryFirst</span>
+<a name="l00168"></a>00168 <span class="comment">// Service_QueryNext</span>
+<a name="l00171"></a>00171 <span class="comment"></span><span class="comment">/* Part 4: 5.10 Attribute Service Set */</span>
+<a name="l00188"></a>00188 <span class="keywordtype">void</span> <a class="code" href="group__services.html#gafca6b56ad57d5bbf7be71face8426496" title="This Service is used to read one or more Attributes of one or more Nodes. For constructed Attribute v...">Service_Read</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
+<a name="l00189"></a>00189                   <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga4ab9188850fcfcb76519cc91e8158f7e">UA_ReadRequest</a> *request, <a class="code" href="group__ua__types__generated.html#ga77bb9645b68210059ebcb1f31f0bd324">UA_ReadResponse</a> *response);
+<a name="l00190"></a>00190 <span class="comment">// Service_HistoryRead</span>
+<a name="l00198"></a>00198 <span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="group__services.html#ga5be44d3595fccfcea6d64785d25c2868" title="This Service is used to write one or more Attributes of one or more Nodes. For constructed Attribute ...">Service_Write</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session,
+<a name="l00199"></a>00199                    <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#ga28a7724351ef213fe3ec70082e69d726">UA_WriteRequest</a> *request, <a class="code" href="group__ua__types__generated.html#gaaae7ed1d6ca973e02cf18d1a52087c3d">UA_WriteResponse</a> *response);
+<a name="l00200"></a>00200 <span class="comment">// Service_HistoryUpdate</span>
+<a name="l00211"></a>00211 <span class="comment"></span><span class="comment">// Service_Call</span>
+<a name="l00231"></a>00231 <span class="comment"></span><span class="comment">/* UA_Int32 Service_CreateMonitoredItems(UA_Server *server, UA_Session *session, */</span>
+<a name="l00232"></a>00232 <span class="comment">/*                                       const UA_CreateMonitoredItemsRequest *request, */</span>
+<a name="l00233"></a>00233 <span class="comment">/*                                       UA_CreateMonitoredItemsResponse *response); */</span>
+<a name="l00234"></a>00234 <span class="comment">// Service_ModifyMonitoredItems</span>
+<a name="l00235"></a>00235 <span class="comment">// Service_SetMonitoringMode</span>
+<a name="l00236"></a>00236 <span class="comment">// Service_SetTriggering</span>
+<a name="l00237"></a>00237 <span class="comment">// Service_DeleteMonitoredItems</span>
+<a name="l00247"></a>00247 <span class="comment"></span><span class="comment">// Service_CreateSubscription</span>
+<a name="l00248"></a>00248 <span class="comment">/* UA_Int32 Service_CreateSubscription(UA_Server *server, UA_Session *session, */</span>
+<a name="l00249"></a>00249 <span class="comment">/*                                     const UA_CreateSubscriptionRequest *request, */</span>
+<a name="l00250"></a>00250 <span class="comment">/*                                     UA_CreateSubscriptionResponse *response); */</span>
+<a name="l00251"></a>00251 <span class="comment">// Service_ModifySubscription</span>
+<a name="l00252"></a>00252 <span class="comment">// Service_SetPublishingMode</span>
+<a name="l00253"></a>00253 <span class="comment">/* UA_Int32 Service_SetPublishingMode(UA_Server *server, UA_Session *session, */</span>
+<a name="l00254"></a>00254 <span class="comment">/*                                    const UA_SetPublishingModeRequest *request, */</span>
+<a name="l00255"></a>00255 <span class="comment">/*                                    UA_SetPublishingModeResponse *response); */</span>
+<a name="l00256"></a>00256 
+<a name="l00257"></a>00257 <span class="comment">/* UA_Int32 Service_Publish(UA_Server *server, UA_Session *session, */</span>
+<a name="l00258"></a>00258 <span class="comment">/*                          const UA_PublishRequest *request, */</span>
+<a name="l00259"></a>00259 <span class="comment">/*                          UA_PublishResponse *response); */</span>
+<a name="l00260"></a>00260 
+<a name="l00261"></a>00261 <span class="comment">// Service_Republish</span>
+<a name="l00262"></a>00262 <span class="comment">// Service_TransferSubscription</span>
+<a name="l00263"></a>00263 <span class="comment">// Service_DeleteSubscription // end of group</span>
+<a name="l00267"></a>00267 
+<a name="l00268"></a>00268 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Sat Oct 4 2014 15:14:13 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 5 2014 19:42:37 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
