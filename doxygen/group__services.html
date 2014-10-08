@@ -59,8 +59,8 @@ Session Service Set</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used by an OPC UA Client to create a Session and the Server returns two values which uniquely identify the Session. The first value is the sessionId which is used to identify the Session in the audit logs and in the Server’s address space. The second is the authenticationToken which is used to associate an incoming request with a Session.  <a href="#gaf58a784fc3879a160d257139af18caa9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gaf965e1b90c35c901efdae40bcdc235e9">Service_ActivateSession</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *channel, const <a class="el" href="group__ua__types__generated.html#gae0093bfeeb5522e019fe9ec13acdfc2e">UA_ActivateSessionRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga46dc7760ff7ea7ab5d4512d1580cfb21">UA_ActivateSessionResponse</a> *response)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used by the Client to submit its SoftwareCertificates to the Server for validation and to specify the identity of the user associated with the Session. This Service request shall be issued by the Client before it issues any other Service request after CreateSession. Failure to do so shall cause the Server to close the Session.  <a href="#gaf965e1b90c35c901efdae40bcdc235e9"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#ga0fbc9a3db1074fd51324f8bd2f690656">Service_CloseSession</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#gad96ccc4040205ef060fd6275907ebc38">UA_CloseSessionRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gafa7099cafb423982cff7443f7a6b45ee">UA_CloseSessionResponse</a> *response)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to terminate a Session.  <a href="#ga0fbc9a3db1074fd51324f8bd2f690656"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gac411e6086794f9f950e22b6383dad81e">Service_CloseSession</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, const <a class="el" href="group__ua__types__generated.html#gad96ccc4040205ef060fd6275907ebc38">UA_CloseSessionRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gafa7099cafb423982cff7443f7a6b45ee">UA_CloseSessionResponse</a> *response)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to terminate a Session.  <a href="#gac411e6086794f9f950e22b6383dad81e"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="member-group"></a>
 NodeManagement Service Set</h2></td></tr>
 <tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp2dba78809e49c3d23e6dda8a47fd1cc6"></a> This Service Set defines Services to add and delete AddressSpace Nodes and References between them. All added Nodes continue to exist in the AddressSpace even if the Client that created them disconnects from the Server. </p>
@@ -282,21 +282,15 @@ Attribute Service Set</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga0fbc9a3db1074fd51324f8bd2f690656"></a><!-- doxytag: member="ua_services.h::Service_CloseSession" ref="ga0fbc9a3db1074fd51324f8bd2f690656" args="(UA_Server *server, UA_Session *session, const UA_CloseSessionRequest *request, UA_CloseSessionResponse *response)" -->
+<a class="anchor" id="gac411e6086794f9f950e22b6383dad81e"></a><!-- doxytag: member="ua_services.h::Service_CloseSession" ref="gac411e6086794f9f950e22b6383dad81e" args="(UA_Server *server, const UA_CloseSessionRequest *request, UA_CloseSessionResponse *response)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="group__services.html#ga0fbc9a3db1074fd51324f8bd2f690656">Service_CloseSession</a> </td>
+          <td class="memname">void <a class="el" href="group__services.html#gac411e6086794f9f950e22b6383dad81e">Service_CloseSession</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *&#160;</td>
-          <td class="paramname"><em>session</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -568,7 +562,7 @@ Attribute Service Set</h2></td></tr>
 
 
 <address class="footer"><small>
-Generated on Tue Oct 7 2014 20:57:17 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 8 2014 08:21:26 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
