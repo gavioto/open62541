@@ -153,8 +153,8 @@ Typedefs</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">An IEEE double precision (64 bit) floating point value.  <a href="#gaac69e6c4659bdcafdb30498200a0ab07"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__types.html#gae5c13df54009d7a3e374bfc594af8059">UA_Int64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gab4378e68c207b1de4e58d0ae26dc333c">UA_DateTime</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">An instance in time.  <a href="#gab4378e68c207b1de4e58d0ae26dc333c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A numeric identifier for a error or condition that is associated with a value or an operation.  <a href="#ga2fd91100a04d020cd6280c021660a33e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A numeric identifier for a error or condition that is associated with a value or an operation.  <a href="#ga31190895fd16b9bda5a2b80c970875f6"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gabb778a6b095690de8e5d510550fc3743">UA_InvalidType</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Type use internally to denote an invalid datatype.  <a href="#gabb778a6b095690de8e5d510550fc3743"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="enum-members"></a>
@@ -275,11 +275,11 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga53b829ada101a64708ce08d1f7284e7d">UA_ExpandedNodeId_delete</a> (<a class="el" href="group__types.html#structUA__ExpandedNodeId">UA_ExpandedNodeId</a> *p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gac802dbd3a960c3f53a68d0525cc455d7">UA_ExpandedNodeId_deleteMembers</a> (<a class="el" href="group__types.html#structUA__ExpandedNodeId">UA_ExpandedNodeId</a> *p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gab274c5d5e8c9fe0a98424e8e7206e9b8">UA_ExpandedNodeId_copy</a> (const <a class="el" href="group__types.html#structUA__ExpandedNodeId">UA_ExpandedNodeId</a> *src, <a class="el" href="group__types.html#structUA__ExpandedNodeId">UA_ExpandedNodeId</a> *dst)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gaca74bc506bb8bc879d366c515b830906">UA_StatusCode_new</a> (<a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a> **p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga702b814255ee22eb3f67e9d6e538b502">UA_StatusCode_init</a> (<a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a> *p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga382807f680d95d3f04f8c272fa7d0adf">UA_StatusCode_delete</a> (<a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a> *p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga20632b7c740b84b87a60f9368be33bad">UA_StatusCode_deleteMembers</a> (<a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a> *p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga813e2405c075de06696b00518183dfda">UA_StatusCode_copy</a> (const <a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a> *src, <a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a> *dst)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gaca74bc506bb8bc879d366c515b830906">UA_StatusCode_new</a> (<a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> **p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga702b814255ee22eb3f67e9d6e538b502">UA_StatusCode_init</a> (<a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> *p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga382807f680d95d3f04f8c272fa7d0adf">UA_StatusCode_delete</a> (<a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> *p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga20632b7c740b84b87a60f9368be33bad">UA_StatusCode_deleteMembers</a> (<a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> *p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga813e2405c075de06696b00518183dfda">UA_StatusCode_copy</a> (const <a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> *src, <a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> *dst)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gac9380ac1c76de1f3d4a4f5feba090015">UA_QualifiedName_new</a> (<a class="el" href="group__types.html#structUA__QualifiedName">UA_QualifiedName</a> **p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga8c93dc056943d2a3549f661fd867d926">UA_QualifiedName_init</a> (<a class="el" href="group__types.html#structUA__QualifiedName">UA_QualifiedName</a> *p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga73bbad3877209c765c74eed314e03b5f">UA_QualifiedName_delete</a> (<a class="el" href="group__types.html#structUA__QualifiedName">UA_QualifiedName</a> *p)</td></tr>
@@ -605,7 +605,7 @@ sourceTimestamp</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="a96804144fa60cfc250d5b0085148e588"></a><!-- doxytag: member="status" ref="a96804144fa60cfc250d5b0085148e588" args="" --><a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a></td>
+<a class="anchor" id="a96804144fa60cfc250d5b0085148e588"></a><!-- doxytag: member="status" ref="a96804144fa60cfc250d5b0085148e588" args="" --><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a></td>
 <td class="fieldname">
 status</td>
 <td class="fielddoc">
@@ -652,7 +652,7 @@ innerDiagnosticInfo</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="af47a0c7b7f900928b9bc10b830b775dc"></a><!-- doxytag: member="innerStatusCode" ref="af47a0c7b7f900928b9bc10b830b775dc" args="" --><a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a></td>
+<a class="anchor" id="af47a0c7b7f900928b9bc10b830b775dc"></a><!-- doxytag: member="innerStatusCode" ref="af47a0c7b7f900928b9bc10b830b775dc" args="" --><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a></td>
 <td class="fieldname">
 innerStatusCode</td>
 <td class="fielddoc">
@@ -1450,7 +1450,7 @@ year</td>
 </div>
 <div class="memdoc">
 <b>Value:</b><div class="fragment"><pre class="fragment"><a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> TYPE##_new(TYPE **p) {                          \
-        if(<a class="code" href="ua__util_8h.html#a3e6a2031b0de08a04059093b224bcac6">UA_alloc</a>((<span class="keywordtype">void</span> **)p, <span class="keyword">sizeof</span>(TYPE)) != <a class="code" href="group__types.html#ga76b842aec15a81fd559804a74a975503">UA_SUCCESS</a>) \
+        if(!(*p = <a class="code" href="ua__util_8h.html#aabace04c23baa4938fbb70ac23890d58">UA_alloc</a>(<span class="keyword">sizeof</span>(TYPE))))                    \
             return <a class="code" href="group__types.html#gaae8332dafa2bc92d9c3c713e19971c3a">UA_ERROR</a>;                                 \
         TYPE##_init(*p);                                     \
         return <a class="code" href="group__types.html#ga76b842aec15a81fd559804a74a975503">UA_SUCCESS</a>;                                   \
@@ -1739,12 +1739,12 @@ year</td>
 
 </div>
 </div>
-<a class="anchor" id="ga2fd91100a04d020cd6280c021660a33e"></a><!-- doxytag: member="ua_types.h::UA_StatusCode" ref="ga2fd91100a04d020cd6280c021660a33e" args="" -->
+<a class="anchor" id="ga31190895fd16b9bda5a2b80c970875f6"></a><!-- doxytag: member="ua_types.h::UA_StatusCode" ref="ga31190895fd16b9bda5a2b80c970875f6" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> <a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a></td>
+          <td class="memname">typedef enum <a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a></td>
         </tr>
       </table>
 </div>
@@ -4105,13 +4105,13 @@ year</td>
         <tr>
           <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__types.html#ga813e2405c075de06696b00518183dfda">UA_StatusCode_copy</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> *&#160;</td>
           <td class="paramname"><em>src</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> *&#160;</td>
           <td class="paramname"><em>dst</em>&#160;</td>
         </tr>
         <tr>
@@ -4132,7 +4132,7 @@ year</td>
         <tr>
           <td class="memname">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__types.html#ga382807f680d95d3f04f8c272fa7d0adf">UA_StatusCode_delete</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> *&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4149,7 +4149,7 @@ year</td>
         <tr>
           <td class="memname">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__types.html#ga20632b7c740b84b87a60f9368be33bad">UA_StatusCode_deleteMembers</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> *&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4166,7 +4166,7 @@ year</td>
         <tr>
           <td class="memname">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__types.html#ga702b814255ee22eb3f67e9d6e538b502">UA_StatusCode_init</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> *&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4183,7 +4183,7 @@ year</td>
         <tr>
           <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__types.html#gaca74bc506bb8bc879d366c515b830906">UA_StatusCode_new</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__types.html#ga2fd91100a04d020cd6280c021660a33e">UA_StatusCode</a> **&#160;</td>
+          <td class="paramtype"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> **&#160;</td>
           <td class="paramname"><em>p</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4927,7 +4927,7 @@ year</td>
 
 
 <address class="footer"><small>
-Generated on Thu Oct 9 2014 08:39:27 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 12 2014 13:09:18 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

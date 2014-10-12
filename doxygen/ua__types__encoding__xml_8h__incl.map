@@ -1,5 +1,6 @@
 <map id="G" name="G">
 <area shape="rect" id="node3" href="$ua__xml_8h.html" title="ua_xml.h" alt="" coords="305,83,380,112"/>
 <area shape="rect" id="node17" href="$ua__types_8h.html" title="ua_types.h" alt="" coords="533,160,619,189"/>
-<area shape="rect" id="node21" href="$ua__config_8h.html" title="ua_config.h" alt="" coords="581,237,669,267"/>
+<area shape="rect" id="node21" href="$ua__config_8h.html" title="ua_config.h" alt="" coords="532,237,620,267"/>
+<area shape="rect" id="node23" href="$ua__statuscodes_8h.html" title="ua_statuscodes.h" alt="" coords="644,237,769,267"/>
 </map>
