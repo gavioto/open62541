@@ -77,11 +77,11 @@ Defines</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__util_8h.html#a64722d16439619a340d02b5328b231d9">DBG_ERR</a>(expression)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__util_8h.html#a88d834e32fc4d813e922f3439a89eb62">DBG</a>(expression)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__util_8h.html#a134e6f8e1aa5c8625e22719513e10f1a">UA_assert</a>(ignore)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__util_8h.html#a902a381dbfe2a8d20d892ca348ae3b9d">UA_free</a>(ptr)&#160;&#160;&#160;<a class="el" href="ua__util_8h.html#a85287b03ec18a1d0347037d232cfdeb8">_UA_free</a>(ptr, # ptr, __FILE__, __LINE__)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__util_8h.html#a902a381dbfe2a8d20d892ca348ae3b9d">UA_free</a>(ptr)&#160;&#160;&#160;<a class="el" href="ua__util_8h.html#af83ed97bbb2dc2ede313c4f404824588">_UA_free</a>(ptr)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__util_8h.html#aabace04c23baa4938fbb70ac23890d58">UA_alloc</a>(size)&#160;&#160;&#160;<a class="el" href="ua__util_8h.html#aca111327dc3f2f378a2b0e2848970c6a">_UA_alloc</a>(size)</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__util_8h.html#a85287b03ec18a1d0347037d232cfdeb8">_UA_free</a> (void *ptr, char *pname, char *f, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> l)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__util_8h.html#af83ed97bbb2dc2ede313c4f404824588">_UA_free</a> (void *ptr)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__util_8h.html#aca111327dc3f2f378a2b0e2848970c6a">_UA_alloc</a> (<a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> size)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__util_8h.html#a5d7c723c579fdf3db16bab1e95feefd3">UA_memcpy</a> (void *dst, void const *src, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> size)</td></tr>
 </table>
@@ -180,7 +180,7 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">ptr</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="ua__util_8h.html#a85287b03ec18a1d0347037d232cfdeb8">_UA_free</a>(ptr, # ptr, __FILE__, __LINE__)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="ua__util_8h.html#af83ed97bbb2dc2ede313c4f404824588">_UA_free</a>(ptr)</td>
         </tr>
       </table>
 </div>
@@ -206,38 +206,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a85287b03ec18a1d0347037d232cfdeb8"></a><!-- doxytag: member="ua_util.h::_UA_free" ref="a85287b03ec18a1d0347037d232cfdeb8" args="(void *ptr, char *pname, char *f, UA_Int32 l)" -->
+<a class="anchor" id="af83ed97bbb2dc2ede313c4f404824588"></a><!-- doxytag: member="ua_util.h::_UA_free" ref="af83ed97bbb2dc2ede313c4f404824588" args="(void *ptr)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__util_8h.html#a85287b03ec18a1d0347037d232cfdeb8">_UA_free</a> </td>
+          <td class="memname"><a class="el" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> void <a class="el" href="ua__util_8h.html#af83ed97bbb2dc2ede313c4f404824588">_UA_free</a> </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ptr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>pname</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td>
-          <td class="paramname"><em>l</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div>
@@ -283,7 +261,7 @@ Functions</h2></td></tr>
 
 
 <address class="footer"><small>
-Generated on Tue Oct 14 2014 06:54:14 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 17 2014 16:40:50 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

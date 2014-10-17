@@ -36,7 +36,7 @@
 <div class="ingroups"><a class="el" href="group__types.html">Datatypes</a></div></div><!--header-->
 <div class="contents">
 
-<p>Datatypes can have several encodings. The methods defined for encodings and their signature are fixed.  
+<p>Datatypes can have several encodings. The methods defined for encodings and their signature are fixed. When supplied with an inappropriate null-pointer, these functions _will crash_. Exceptions are documented for the individual functions.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="groups"></a>
@@ -49,22 +49,22 @@ Modules</h2></td></tr>
 <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<p>Datatypes can have several encodings. The methods defined for encodings and their signature are fixed. </p>
+<p>Datatypes can have several encodings. The methods defined for encodings and their signature are fixed. When supplied with an inappropriate null-pointer, these functions _will crash_. Exceptions are documented for the individual functions. </p>
 <ul>
 <li>CalcSize: Returns the size of the (encoded) variable in bytes. This function is mainly used to allocate the bytestring into which the encoding is done.</li>
 </ul>
 <ul>
-<li>Encode: Encodes a variable into a bytestring.</li>
+<li>Encode: Encodes a variable into a bytestring. If an error occurs (indicated by the return value), the bytestring may be left in an inconsistent state.</li>
 </ul>
 <ul>
-<li>Decode: Decodes a variable stored in a bytestring. It is assumed that the input variable (dst) is allocated in memory, but not its dynamically sized members. </li>
+<li>Decode: Decodes a variable stored in a bytestring. The destination is cleaned up (init) before decoding into it. If an error occurs (indicated by the return value), the destination is cleaned up (deleteMembers, but no init) before returning. </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Tue Oct 14 2014 06:54:14 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 17 2014 16:40:50 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

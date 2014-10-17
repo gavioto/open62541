@@ -48,8 +48,8 @@
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUA__Encoding.html#a8719cb7fa2ee32313e1d2edb1bca1208">calcSize</a> )(const void *p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUA__Encoding.html#a4b3ff4a6f5b5b0a26fc9a472869cded8">encode</a> )(const void *src, UA_ByteString *dst, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> *offset)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUA__Encoding.html#a2d9b3a3d074568947c8996e324641dde">decode</a> )(const UA_ByteString *src, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> *offset, void *dst)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUA__Encoding.html#a97b076a99bc8117b7a33f7032470f22e">encode</a> )(const void *src, UA_ByteString *dst, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> *offset)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUA__Encoding.html#abf3306621e3fb80f3e5d57334eef1dca">decode</a> )(const UA_ByteString *src, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> *offset, void *dst)</td></tr>
 </table>
 <hr/><h2>Field Documentation</h2>
 <a class="anchor" id="a8719cb7fa2ee32313e1d2edb1bca1208"></a><!-- doxytag: member="UA_Encoding::calcSize" ref="a8719cb7fa2ee32313e1d2edb1bca1208" args=")(const void *p)" -->
@@ -66,12 +66,12 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2d9b3a3d074568947c8996e324641dde"></a><!-- doxytag: member="UA_Encoding::decode" ref="a2d9b3a3d074568947c8996e324641dde" args=")(const UA_ByteString *src, UA_UInt32 *offset, void *dst)" -->
+<a class="anchor" id="abf3306621e3fb80f3e5d57334eef1dca"></a><!-- doxytag: member="UA_Encoding::decode" ref="abf3306621e3fb80f3e5d57334eef1dca" args=")(const UA_ByteString *src, UA_UInt32 *offset, void *dst)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>(* <a class="el" href="structUA__Encoding.html#a2d9b3a3d074568947c8996e324641dde">UA_Encoding::decode</a>)(const UA_ByteString *src, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> *offset, void *dst)</td>
+          <td class="memname"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>(* <a class="el" href="structUA__Encoding.html#abf3306621e3fb80f3e5d57334eef1dca">UA_Encoding::decode</a>)(const UA_ByteString *src, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> *offset, void *dst)</td>
         </tr>
       </table>
 </div>
@@ -80,12 +80,12 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4b3ff4a6f5b5b0a26fc9a472869cded8"></a><!-- doxytag: member="UA_Encoding::encode" ref="a4b3ff4a6f5b5b0a26fc9a472869cded8" args=")(const void *src, UA_ByteString *dst, UA_UInt32 *offset)" -->
+<a class="anchor" id="a97b076a99bc8117b7a33f7032470f22e"></a><!-- doxytag: member="UA_Encoding::encode" ref="a97b076a99bc8117b7a33f7032470f22e" args=")(const void *src, UA_ByteString *dst, UA_UInt32 *offset)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>(* <a class="el" href="structUA__Encoding.html#a4b3ff4a6f5b5b0a26fc9a472869cded8">UA_Encoding::encode</a>)(const void *src, UA_ByteString *dst, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> *offset)</td>
+          <td class="memname"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>(* <a class="el" href="structUA__Encoding.html#a97b076a99bc8117b7a33f7032470f22e">UA_Encoding::encode</a>)(const void *src, UA_ByteString *dst, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> *offset)</td>
         </tr>
       </table>
 </div>
@@ -102,7 +102,7 @@ Data Fields</h2></td></tr>
 
 
 <address class="footer"><small>
-Generated on Tue Oct 14 2014 06:54:14 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 17 2014 16:40:50 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

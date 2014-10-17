@@ -101,9 +101,9 @@
 <a name="l00064"></a><a class="code" href="ua__connection_8h.html#a9bef4e3a17dcdaaa8a6e39aa2b086526">00064</a>     <a class="code" href="ua__connection_8h.html#a136620cf991e9719f376a1418ba6fa63">UA_Connection_closeCallback</a> <a class="code" href="ua__connection_8h.html#a9bef4e3a17dcdaaa8a6e39aa2b086526">close</a>;
 <a name="l00065"></a>00065 } <a class="code" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a>;
 <a name="l00066"></a>00066 
-<a name="l00067"></a>00067 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="code" href="ua__connection_8h.html#a4e8786a3ce17058b32e3ce6e09b66091">UA_Connection_init</a>(<a class="code" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, <a class="code" href="ua__connection_8h.html#structUA__ConnectionConfig">UA_ConnectionConfig</a> localConf, <span class="keywordtype">void</span> *callbackHandle,
+<a name="l00067"></a>00067 <a class="code" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6" title="A numeric identifier for a error or condition that is associated with a value or an operation...">UA_StatusCode</a> <a class="code" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="code" href="ua__connection_8h.html#a421badecd7bb6cb964e6f9c766d9aedd">UA_Connection_init</a>(<a class="code" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, <a class="code" href="ua__connection_8h.html#structUA__ConnectionConfig">UA_ConnectionConfig</a> localConf, <span class="keywordtype">void</span> *callbackHandle,
 <a name="l00068"></a>00068                                          <a class="code" href="ua__connection_8h.html#a136620cf991e9719f376a1418ba6fa63">UA_Connection_closeCallback</a> close, <a class="code" href="ua__connection_8h.html#a7e33ba430de3ae3204c3b9cf8c8e991c">UA_Connection_writeCallback</a> write);
-<a name="l00069"></a>00069 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="code" href="ua__connection_8h.html#ad1ac2ad256d25a6470608758290f9cc1">UA_Connection_deleteMembers</a>(<a class="code" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection);
+<a name="l00069"></a>00069 <span class="keywordtype">void</span> <a class="code" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="code" href="ua__connection_8h.html#aefc61054519d8391f4c80f542101dfc6">UA_Connection_deleteMembers</a>(<a class="code" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection);
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071 <span class="comment">// todo: closing a binaryconnection that was closed on the network level</span>
 <a name="l00072"></a>00072 
@@ -117,7 +117,7 @@
 
 
 <address class="footer"><small>
-Generated on Tue Oct 14 2014 06:54:14 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 17 2014 16:40:50 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

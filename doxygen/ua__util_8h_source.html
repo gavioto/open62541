@@ -50,7 +50,7 @@
 <a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="ua__config_8h.html">ua_config.h</a>&quot;</span>
 <a name="l00010"></a>00010 
 <a name="l00011"></a>00011 <span class="preprocessor">#include &lt;stddef.h&gt;</span> <span class="comment">/* Needed for sys/queue.h */</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#if !defined(MSVC) &amp;&amp; !defined(__MINGW32__)</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#ifndef MSVC</span>
 <a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#include &lt;sys/queue.h&gt;</span>
 <a name="l00014"></a>00014 <span class="preprocessor">#else</span>
 <a name="l00015"></a>00015 <span class="preprocessor"></span><span class="preprocessor">#include &quot;queue.h&quot;</span>
@@ -80,38 +80,44 @@
 <a name="l00039"></a>00039 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
 <a name="l00040"></a>00040 <span class="preprocessor"></span>
 <a name="l00041"></a>00041 <span class="comment">/* Heap memory functions */</span>
-<a name="l00042"></a><a class="code" href="ua__util_8h.html#a902a381dbfe2a8d20d892ca348ae3b9d">00042</a> <span class="preprocessor">#define UA_free(ptr) _UA_free(ptr, # ptr, __FILE__, __LINE__)</span>
-<a name="l00043"></a><a class="code" href="ua__util_8h.html#a85287b03ec18a1d0347037d232cfdeb8">00043</a> <span class="preprocessor"></span><a class="code" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__util_8h.html#a85287b03ec18a1d0347037d232cfdeb8">_UA_free</a>(<span class="keywordtype">void</span> *ptr, <span class="keywordtype">char</span> *pname, <span class="keywordtype">char</span> *f, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> l) {
-<a name="l00044"></a>00044     <a class="code" href="ua__util_8h.html#a93ca95977f3fe20ee238d6a54791c1b4">DBG_VERBOSE</a>(printf(<span class="stringliteral">&quot;UA_free;%p;;%s;;%s;%d\n&quot;</span>, ptr, pname, f, l); fflush(stdout));
-<a name="l00045"></a>00045     free(ptr); <span class="comment">// checks if ptr != NULL in the background</span>
-<a name="l00046"></a>00046     <span class="keywordflow">return</span> <a class="code" href="group__types.html#ga76b842aec15a81fd559804a74a975503">UA_SUCCESS</a>;
+<a name="l00042"></a>00042 <span class="preprocessor">#ifdef DEBUG</span>
+<a name="l00043"></a>00043 <span class="preprocessor"></span><span class="preprocessor">#define UA_free(ptr) _UA_free(ptr, # ptr, __FILE__, __LINE__)</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span><a class="code" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> <span class="keywordtype">void</span> <a class="code" href="ua__util_8h.html#af83ed97bbb2dc2ede313c4f404824588">_UA_free</a>(<span class="keywordtype">void</span> *ptr, <span class="keywordtype">char</span> *pname, <span class="keywordtype">char</span> *f, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> l) {
+<a name="l00045"></a>00045     <a class="code" href="ua__util_8h.html#a93ca95977f3fe20ee238d6a54791c1b4">DBG_VERBOSE</a>(printf(<span class="stringliteral">&quot;UA_free;%p;;%s;;%s;%d\n&quot;</span>, ptr, pname, f, l); fflush(stdout));
+<a name="l00046"></a>00046     free(ptr); <span class="comment">// checks if ptr != NULL in the background</span>
 <a name="l00047"></a>00047 }
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 <span class="preprocessor">#ifdef DEBUG</span>
-<a name="l00050"></a>00050 <span class="preprocessor"></span><span class="preprocessor">#define UA_alloc(size) _UA_alloc(size, __FILE__, __LINE__) </span>
-<a name="l00051"></a>00051 <span class="preprocessor"></span><a class="code" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> <span class="keywordtype">void</span> * <a class="code" href="ua__util_8h.html#aca111327dc3f2f378a2b0e2848970c6a">_UA_alloc</a>(<a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> size, <span class="keywordtype">char</span> *file, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> line) {
-<a name="l00052"></a>00052     <a class="code" href="ua__util_8h.html#a93ca95977f3fe20ee238d6a54791c1b4">DBG_VERBOSE</a>(printf(<span class="stringliteral">&quot;UA_alloc - %d;%s;%d\n&quot;</span>, size, file, line); fflush(stdout));
-<a name="l00053"></a>00053     <span class="keywordflow">return</span> malloc(size);
-<a name="l00054"></a>00054 }
-<a name="l00055"></a>00055 <span class="preprocessor">#else</span>
-<a name="l00056"></a><a class="code" href="ua__util_8h.html#aabace04c23baa4938fbb70ac23890d58">00056</a> <span class="preprocessor"></span><span class="preprocessor">#define UA_alloc(size) _UA_alloc(size) </span>
-<a name="l00057"></a><a class="code" href="ua__util_8h.html#aca111327dc3f2f378a2b0e2848970c6a">00057</a> <span class="preprocessor"></span><a class="code" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> <span class="keywordtype">void</span> * <a class="code" href="ua__util_8h.html#aca111327dc3f2f378a2b0e2848970c6a">_UA_alloc</a>(<a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> size) {
-<a name="l00058"></a>00058     <span class="keywordflow">return</span> malloc(size);
-<a name="l00059"></a>00059 }
-<a name="l00060"></a>00060 <span class="preprocessor">#endif</span>
-<a name="l00061"></a>00061 <span class="preprocessor"></span>
-<a name="l00062"></a><a class="code" href="ua__util_8h.html#a5d7c723c579fdf3db16bab1e95feefd3">00062</a> <a class="code" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> <span class="keywordtype">void</span> <a class="code" href="ua__util_8h.html#a5d7c723c579fdf3db16bab1e95feefd3">UA_memcpy</a>(<span class="keywordtype">void</span> *dst, <span class="keywordtype">void</span> <span class="keyword">const</span> *src, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> size) {
-<a name="l00063"></a>00063     <a class="code" href="ua__util_8h.html#a93ca95977f3fe20ee238d6a54791c1b4">DBG_VERBOSE</a>(printf(<span class="stringliteral">&quot;UA_memcpy - %p;%p;%d\n&quot;</span>, dst, src, size));
-<a name="l00064"></a>00064     memcpy(dst, src, size);
+<a name="l00048"></a>00048 <span class="preprocessor">#else</span>
+<a name="l00049"></a><a class="code" href="ua__util_8h.html#a902a381dbfe2a8d20d892ca348ae3b9d">00049</a> <span class="preprocessor"></span><span class="preprocessor">#define UA_free(ptr) _UA_free(ptr)</span>
+<a name="l00050"></a><a class="code" href="ua__util_8h.html#af83ed97bbb2dc2ede313c4f404824588">00050</a> <span class="preprocessor"></span><a class="code" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> <span class="keywordtype">void</span> <a class="code" href="ua__util_8h.html#af83ed97bbb2dc2ede313c4f404824588">_UA_free</a>(<span class="keywordtype">void</span> *ptr) {
+<a name="l00051"></a>00051     free(ptr); <span class="comment">// checks if ptr != NULL in the background</span>
+<a name="l00052"></a>00052 }
+<a name="l00053"></a>00053 <span class="preprocessor">#endif</span>
+<a name="l00054"></a>00054 <span class="preprocessor"></span>
+<a name="l00055"></a>00055 <span class="preprocessor">#ifdef DEBUG</span>
+<a name="l00056"></a>00056 <span class="preprocessor"></span><span class="preprocessor">#define UA_alloc(size) _UA_alloc(size, __FILE__, __LINE__) </span>
+<a name="l00057"></a>00057 <span class="preprocessor"></span><a class="code" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> <span class="keywordtype">void</span> * <a class="code" href="ua__util_8h.html#aca111327dc3f2f378a2b0e2848970c6a">_UA_alloc</a>(<a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> size, <span class="keywordtype">char</span> *file, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> line) {
+<a name="l00058"></a>00058     <a class="code" href="ua__util_8h.html#a93ca95977f3fe20ee238d6a54791c1b4">DBG_VERBOSE</a>(printf(<span class="stringliteral">&quot;UA_alloc - %d;%s;%d\n&quot;</span>, size, file, line); fflush(stdout));
+<a name="l00059"></a>00059     <span class="keywordflow">return</span> malloc(size);
+<a name="l00060"></a>00060 }
+<a name="l00061"></a>00061 <span class="preprocessor">#else</span>
+<a name="l00062"></a><a class="code" href="ua__util_8h.html#aabace04c23baa4938fbb70ac23890d58">00062</a> <span class="preprocessor"></span><span class="preprocessor">#define UA_alloc(size) _UA_alloc(size) </span>
+<a name="l00063"></a><a class="code" href="ua__util_8h.html#aca111327dc3f2f378a2b0e2848970c6a">00063</a> <span class="preprocessor"></span><a class="code" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> <span class="keywordtype">void</span> * <a class="code" href="ua__util_8h.html#aca111327dc3f2f378a2b0e2848970c6a">_UA_alloc</a>(<a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> size) {
+<a name="l00064"></a>00064     <span class="keywordflow">return</span> malloc(size);
 <a name="l00065"></a>00065 }
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067 <span class="preprocessor">#endif </span><span class="comment">/* UA_UTIL_H_ */</span>
+<a name="l00066"></a>00066 <span class="preprocessor">#endif</span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span>
+<a name="l00068"></a><a class="code" href="ua__util_8h.html#a5d7c723c579fdf3db16bab1e95feefd3">00068</a> <a class="code" href="ua__config_8h.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a> <span class="keywordtype">void</span> <a class="code" href="ua__util_8h.html#a5d7c723c579fdf3db16bab1e95feefd3">UA_memcpy</a>(<span class="keywordtype">void</span> *dst, <span class="keywordtype">void</span> <span class="keyword">const</span> *src, <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> size) {
+<a name="l00069"></a>00069     <a class="code" href="ua__util_8h.html#a93ca95977f3fe20ee238d6a54791c1b4">DBG_VERBOSE</a>(printf(<span class="stringliteral">&quot;UA_memcpy - %p;%p;%d\n&quot;</span>, dst, src, size));
+<a name="l00070"></a>00070     memcpy(dst, src, size);
+<a name="l00071"></a>00071 }
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 <span class="preprocessor">#endif </span><span class="comment">/* UA_UTIL_H_ */</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Tue Oct 14 2014 06:54:14 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 17 2014 16:40:50 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

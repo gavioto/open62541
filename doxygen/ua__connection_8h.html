@@ -84,8 +84,8 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__connection_8h.html#a4e8786a3ce17058b32e3ce6e09b66091">UA_Connection_init</a> (<a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, <a class="el" href="ua__connection_8h.html#structUA__ConnectionConfig">UA_ConnectionConfig</a> localConf, void *callbackHandle, <a class="el" href="ua__connection_8h.html#a136620cf991e9719f376a1418ba6fa63">UA_Connection_closeCallback</a> close, <a class="el" href="ua__connection_8h.html#a7e33ba430de3ae3204c3b9cf8c8e991c">UA_Connection_writeCallback</a> write)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__connection_8h.html#ad1ac2ad256d25a6470608758290f9cc1">UA_Connection_deleteMembers</a> (<a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__connection_8h.html#a421badecd7bb6cb964e6f9c766d9aedd">UA_Connection_init</a> (<a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, <a class="el" href="ua__connection_8h.html#structUA__ConnectionConfig">UA_ConnectionConfig</a> localConf, void *callbackHandle, <a class="el" href="ua__connection_8h.html#a136620cf991e9719f376a1418ba6fa63">UA_Connection_closeCallback</a> close, <a class="el" href="ua__connection_8h.html#a7e33ba430de3ae3204c3b9cf8c8e991c">UA_Connection_writeCallback</a> write)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__connection_8h.html#aefc61054519d8391f4c80f542101dfc6">UA_Connection_deleteMembers</a> (<a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection)</td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__connection_8h.html#structUA__ConnectionConfig">UA_ConnectionConfig</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__connection_8h.html#aa55839b5c52239af19a559390ba1da6d">UA_ConnectionConfig_standard</a></td></tr>
@@ -276,12 +276,12 @@ write</td>
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
-<a class="anchor" id="ad1ac2ad256d25a6470608758290f9cc1"></a><!-- doxytag: member="ua_connection.h::UA_Connection_deleteMembers" ref="ad1ac2ad256d25a6470608758290f9cc1" args="(UA_Connection *connection)" -->
+<a class="anchor" id="aefc61054519d8391f4c80f542101dfc6"></a><!-- doxytag: member="ua_connection.h::UA_Connection_deleteMembers" ref="aefc61054519d8391f4c80f542101dfc6" args="(UA_Connection *connection)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__connection_8h.html#ad1ac2ad256d25a6470608758290f9cc1">UA_Connection_deleteMembers</a> </td>
+          <td class="memname">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__connection_8h.html#aefc61054519d8391f4c80f542101dfc6">UA_Connection_deleteMembers</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *&#160;</td>
           <td class="paramname"><em>connection</em></td><td>)</td>
@@ -293,12 +293,12 @@ write</td>
 
 </div>
 </div>
-<a class="anchor" id="a4e8786a3ce17058b32e3ce6e09b66091"></a><!-- doxytag: member="ua_connection.h::UA_Connection_init" ref="a4e8786a3ce17058b32e3ce6e09b66091" args="(UA_Connection *connection, UA_ConnectionConfig localConf, void *callbackHandle, UA_Connection_closeCallback close, UA_Connection_writeCallback write)" -->
+<a class="anchor" id="a421badecd7bb6cb964e6f9c766d9aedd"></a><!-- doxytag: member="ua_connection.h::UA_Connection_init" ref="a421badecd7bb6cb964e6f9c766d9aedd" args="(UA_Connection *connection, UA_ConnectionConfig localConf, void *callbackHandle, UA_Connection_closeCallback close, UA_Connection_writeCallback write)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__connection_8h.html#a4e8786a3ce17058b32e3ce6e09b66091">UA_Connection_init</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__connection_8h.html#a421badecd7bb6cb964e6f9c766d9aedd">UA_Connection_init</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *&#160;</td>
           <td class="paramname"><em>connection</em>, </td>
@@ -357,7 +357,7 @@ write</td>
 
 
 <address class="footer"><small>
-Generated on Tue Oct 14 2014 06:54:14 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 17 2014 16:40:50 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

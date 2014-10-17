@@ -90,9 +90,9 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__transport_8h.html#af675128dd321a1e0dde49c7cb2cdc19a">UA_TYPE_PROTOTYPES</a> (<a class="el" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a>) <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> UA_MessageType_calcSizeBinary(<a class="el" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a> const *p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__transport_8h.html#a637bf9e812a5184ddf7a40905bf4aa28">UA_MessageType_encodeBinary</a> (<a class="el" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a> const *src, UA_ByteString *dst, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> *offset)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__transport_8h.html#a2313e1d52da68255bfb1a55c2c190d97">UA_MessageType_decodeBinary</a> (UA_ByteString const *src, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> *offset, <a class="el" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a> *dst)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__transport_8h.html#a75be4c8fff4609093feb6b4758ea1021">UA_TYPE_PROTOTYPES</a> (<a class="el" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a>) <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> UA_MessageType_calcSizeBinary(<a class="el" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a> const *p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__transport_8h.html#aa67d771246db4812e853efc7171fe793">UA_MessageType_encodeBinary</a> (<a class="el" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a> const *src, UA_ByteString *dst, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> *offset)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__transport_8h.html#a45ae8b53598160210ce55d611f1c4f85">UA_MessageType_decodeBinary</a> (UA_ByteString const *src, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> *offset, <a class="el" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a> *dst)</td></tr>
 </table>
 <hr/><h2>Typedef Documentation</h2>
 <a class="anchor" id="a45d437fa241f18505ac7243d05bde4d1"></a><!-- doxytag: member="ua_transport.h::UA_MessageType" ref="a45d437fa241f18505ac7243d05bde4d1" args="" -->
@@ -183,12 +183,12 @@ Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
-<a class="anchor" id="a2313e1d52da68255bfb1a55c2c190d97"></a><!-- doxytag: member="ua_transport.h::UA_MessageType_decodeBinary" ref="a2313e1d52da68255bfb1a55c2c190d97" args="(UA_ByteString const *src, UA_UInt32 *offset, UA_MessageType *dst)" -->
+<a class="anchor" id="a45ae8b53598160210ce55d611f1c4f85"></a><!-- doxytag: member="ua_transport.h::UA_MessageType_decodeBinary" ref="a45ae8b53598160210ce55d611f1c4f85" args="(UA_ByteString const *src, UA_UInt32 *offset, UA_MessageType *dst)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__transport_8h.html#a2313e1d52da68255bfb1a55c2c190d97">UA_MessageType_decodeBinary</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="ua__transport_8h.html#a45ae8b53598160210ce55d611f1c4f85">UA_MessageType_decodeBinary</a> </td>
           <td>(</td>
           <td class="paramtype">UA_ByteString const *&#160;</td>
           <td class="paramname"><em>src</em>, </td>
@@ -216,12 +216,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a637bf9e812a5184ddf7a40905bf4aa28"></a><!-- doxytag: member="ua_transport.h::UA_MessageType_encodeBinary" ref="a637bf9e812a5184ddf7a40905bf4aa28" args="(UA_MessageType const *src, UA_ByteString *dst, UA_UInt32 *offset)" -->
+<a class="anchor" id="aa67d771246db4812e853efc7171fe793"></a><!-- doxytag: member="ua_transport.h::UA_MessageType_encodeBinary" ref="aa67d771246db4812e853efc7171fe793" args="(UA_MessageType const *src, UA_ByteString *dst, UA_UInt32 *offset)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__transport_8h.html#a637bf9e812a5184ddf7a40905bf4aa28">UA_MessageType_encodeBinary</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="ua__transport_8h.html#aa67d771246db4812e853efc7171fe793">UA_MessageType_encodeBinary</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a> const *&#160;</td>
           <td class="paramname"><em>src</em>, </td>
@@ -249,7 +249,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af675128dd321a1e0dde49c7cb2cdc19a"></a><!-- doxytag: member="ua_transport.h::UA_TYPE_PROTOTYPES" ref="af675128dd321a1e0dde49c7cb2cdc19a" args="(UA_MessageType) UA_Int32 UA_MessageType_calcSizeBinary(UA_MessageType const *p)" -->
+<a class="anchor" id="a75be4c8fff4609093feb6b4758ea1021"></a><!-- doxytag: member="ua_transport.h::UA_TYPE_PROTOTYPES" ref="a75be4c8fff4609093feb6b4758ea1021" args="(UA_MessageType) UA_UInt32 UA_MessageType_calcSizeBinary(UA_MessageType const *p)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -271,7 +271,7 @@ Functions</h2></td></tr>
 
 
 <address class="footer"><small>
-Generated on Tue Oct 14 2014 06:54:14 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 17 2014 16:40:50 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -85,8 +85,8 @@ Typedefs</h2></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#ab6044845019e28dfe0cf54ea1a1ccce7">UA_Server_init</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="group__types.html#structUA__String">UA_String</a> *endpointUrl)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a352b9e269b8f3aec55e4e663964feb60">UA_Server_deleteMembers</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a07d837ba8ea8f10532871b93fa962850">UA_Server_processBinaryMessage</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, const UA_ByteString *msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a1c92e6791e6b88de5aa2c1ffe5728880">UA_Server_deleteMembers</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a303c0101d3c2afe48e7c0dca570e8fec">UA_Server_processBinaryMessage</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, const UA_ByteString *msg)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__ua__types__generated.html#ga6427781ad4ba67709a760db1a7bbfb58">UA_AddNodesResult</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a1d7ee7a255cf965e5e7fb33c83efcb41">UA_Server_addScalarVariableNode</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="group__types.html#structUA__String">UA_String</a> *browseName, void *value, const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, <a class="el" href="group__types.html#structUA__ExpandedNodeId">UA_ExpandedNodeId</a> *parentNodeId, <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *referenceTypeId)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__ua__types__generated.html#ga6427781ad4ba67709a760db1a7bbfb58">UA_AddNodesResult</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a12b2805d68a973d8f1bf914720eae16d">UA_Server_addNode</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> **node, <a class="el" href="group__types.html#structUA__ExpandedNodeId">UA_ExpandedNodeId</a> *parentNodeId, <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *referenceTypeId)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#ad084f98ab362cd3ccff39c1a7a659056">UA_Server_addReferences</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, const <a class="el" href="group__ua__types__generated.html#ga9069e153d4368a9c1dfd7c92fb6d91af">UA_AddReferencesRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga469a8fd1d3a72f18806d6af02f6cb401">UA_AddReferencesResponse</a> *response)</td></tr>
@@ -347,12 +347,12 @@ sessionManager</td>
 
 </div>
 </div>
-<a class="anchor" id="a352b9e269b8f3aec55e4e663964feb60"></a><!-- doxytag: member="ua_server.h::UA_Server_deleteMembers" ref="a352b9e269b8f3aec55e4e663964feb60" args="(UA_Server *server)" -->
+<a class="anchor" id="a1c92e6791e6b88de5aa2c1ffe5728880"></a><!-- doxytag: member="ua_server.h::UA_Server_deleteMembers" ref="a1c92e6791e6b88de5aa2c1ffe5728880" args="(UA_Server *server)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__server_8h.html#a352b9e269b8f3aec55e4e663964feb60">UA_Server_deleteMembers</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__server_8h.html#a1c92e6791e6b88de5aa2c1ffe5728880">UA_Server_deleteMembers</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em></td><td>)</td>
@@ -391,12 +391,12 @@ sessionManager</td>
 
 </div>
 </div>
-<a class="anchor" id="a07d837ba8ea8f10532871b93fa962850"></a><!-- doxytag: member="ua_server.h::UA_Server_processBinaryMessage" ref="a07d837ba8ea8f10532871b93fa962850" args="(UA_Server *server, UA_Connection *connection, const UA_ByteString *msg)" -->
+<a class="anchor" id="a303c0101d3c2afe48e7c0dca570e8fec"></a><!-- doxytag: member="ua_server.h::UA_Server_processBinaryMessage" ref="a303c0101d3c2afe48e7c0dca570e8fec" args="(UA_Server *server, UA_Connection *connection, const UA_ByteString *msg)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__server_8h.html#a07d837ba8ea8f10532871b93fa962850">UA_Server_processBinaryMessage</a> </td>
+          <td class="memname">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__server_8h.html#a303c0101d3c2afe48e7c0dca570e8fec">UA_Server_processBinaryMessage</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
@@ -429,7 +429,7 @@ sessionManager</td>
 
 
 <address class="footer"><small>
-Generated on Tue Oct 14 2014 06:54:14 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 17 2014 16:40:50 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
