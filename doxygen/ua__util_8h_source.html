@@ -50,7 +50,7 @@
 <a name="l00009"></a>00009 <span class="preprocessor">#include &quot;<a class="code" href="ua__config_8h.html">ua_config.h</a>&quot;</span>
 <a name="l00010"></a>00010 
 <a name="l00011"></a>00011 <span class="preprocessor">#include &lt;stddef.h&gt;</span> <span class="comment">/* Needed for sys/queue.h */</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#ifndef MSVC</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#if !defined(MSVC) &amp;&amp; !defined(__MINGW32__)</span>
 <a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#include &lt;sys/queue.h&gt;</span>
 <a name="l00014"></a>00014 <span class="preprocessor">#else</span>
 <a name="l00015"></a>00015 <span class="preprocessor"></span><span class="preprocessor">#include &quot;queue.h&quot;</span>
@@ -117,7 +117,7 @@
 
 
 <address class="footer"><small>
-Generated on Fri Oct 17 2014 16:40:50 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 17 2014 16:44:40 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
