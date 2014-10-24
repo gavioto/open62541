@@ -84,7 +84,7 @@ Typedefs</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#ab6044845019e28dfe0cf54ea1a1ccce7">UA_Server_init</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="group__types.html#structUA__String">UA_String</a> *endpointUrl)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a8d6860f276d3b35b94990d959d746b13">UA_Server_init</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="group__types.html#structUA__String">UA_String</a> *endpointUrl, UA_ByteString *serverCertificate)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a1c92e6791e6b88de5aa2c1ffe5728880">UA_Server_deleteMembers</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a303c0101d3c2afe48e7c0dca570e8fec">UA_Server_processBinaryMessage</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, const UA_ByteString *msg)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__ua__types__generated.html#ga6427781ad4ba67709a760db1a7bbfb58">UA_AddNodesResult</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a1d7ee7a255cf965e5e7fb33c83efcb41">UA_Server_addScalarVariableNode</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="group__types.html#structUA__String">UA_String</a> *browseName, void *value, const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, <a class="el" href="group__types.html#structUA__ExpandedNodeId">UA_ExpandedNodeId</a> *parentNodeId, <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *referenceTypeId)</td></tr>
@@ -108,6 +108,18 @@ Functions</h2></td></tr>
 <a class="anchor" id="a7a78e5923e14f791a6201e3df2f0735b"></a><!-- doxytag: member="description" ref="a7a78e5923e14f791a6201e3df2f0735b" args="" --><a class="el" href="group__ua__types__generated.html#ga1f250e5e7dcd4d21d30a818cda35f579">UA_ApplicationDescription</a></td>
 <td class="fieldname">
 description</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="a9d985c41b8e684e165d2b65946c95651"></a><!-- doxytag: member="endpointDescriptions" ref="a9d985c41b8e684e165d2b65946c95651" args="" --><a class="el" href="group__ua__types__generated.html#ga2956ef04d786ab21dd105e14d5ded93d">UA_EndpointDescription</a> *</td>
+<td class="fieldname">
+endpointDescriptions</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a class="anchor" id="a3a01c63afce4d7cf45161cb238893e4b"></a><!-- doxytag: member="endpointDescriptionsSize" ref="a3a01c63afce4d7cf45161cb238893e4b" args="" --><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a></td>
+<td class="fieldname">
+endpointDescriptionsSize</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
@@ -364,12 +376,12 @@ sessionManager</td>
 
 </div>
 </div>
-<a class="anchor" id="ab6044845019e28dfe0cf54ea1a1ccce7"></a><!-- doxytag: member="ua_server.h::UA_Server_init" ref="ab6044845019e28dfe0cf54ea1a1ccce7" args="(UA_Server *server, UA_String *endpointUrl)" -->
+<a class="anchor" id="a8d6860f276d3b35b94990d959d746b13"></a><!-- doxytag: member="ua_server.h::UA_Server_init" ref="a8d6860f276d3b35b94990d959d746b13" args="(UA_Server *server, UA_String *endpointUrl, UA_ByteString *serverCertificate)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__server_8h.html#ab6044845019e28dfe0cf54ea1a1ccce7">UA_Server_init</a> </td>
+          <td class="memname">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__server_8h.html#a8d6860f276d3b35b94990d959d746b13">UA_Server_init</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
@@ -378,7 +390,13 @@ sessionManager</td>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="group__types.html#structUA__String">UA_String</a> *&#160;</td>
-          <td class="paramname"><em>endpointUrl</em>&#160;</td>
+          <td class="paramname"><em>endpointUrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UA_ByteString *&#160;</td>
+          <td class="paramname"><em>serverCertificate</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -429,7 +447,7 @@ sessionManager</td>
 
 
 <address class="footer"><small>
-Generated on Fri Oct 24 2014 09:14:22 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 24 2014 12:27:43 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
