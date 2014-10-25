@@ -45,39 +45,28 @@
 <a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="ua__types_8h.html">ua_types.h</a>&quot;</span>
 <a name="l00005"></a>00005 <span class="preprocessor">#include &quot;<a class="code" href="ua__types__encoding__binary_8h.html">ua_types_encoding_binary.h</a>&quot;</span>
 <a name="l00006"></a>00006 
-<a name="l00007"></a><a class="code" href="ua__transport_8h.html#a446851ffd95eff9ecf96dcb4ef5d965f">00007</a> <span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="ua__transport_8h.html#a446851ffd95eff9ecf96dcb4ef5d965f">SecurityTokenRequestType</a> {
-<a name="l00008"></a><a class="code" href="ua__transport_8h.html#a446851ffd95eff9ecf96dcb4ef5d965fa7993025ee2be08afa4310f4136c885b0">00008</a>     <a class="code" href="ua__transport_8h.html#a446851ffd95eff9ecf96dcb4ef5d965fa7993025ee2be08afa4310f4136c885b0">UA_SECURITYTOKEN_ISSUE</a> = 0,
-<a name="l00009"></a><a class="code" href="ua__transport_8h.html#a446851ffd95eff9ecf96dcb4ef5d965fa38d93dbe18f15ec945248d4a1b339362">00009</a>     <a class="code" href="ua__transport_8h.html#a446851ffd95eff9ecf96dcb4ef5d965fa38d93dbe18f15ec945248d4a1b339362">UA_SECURITYTOKEN_RENEW</a> = 1
-<a name="l00010"></a>00010 } <a class="code" href="ua__transport_8h.html#a446851ffd95eff9ecf96dcb4ef5d965f">SecurityTokenRequestType</a>;
-<a name="l00011"></a>00011 
-<a name="l00012"></a><a class="code" href="ua__transport_8h.html#a6bbe9d700f30fd5a9a36da6cc6b0b010">00012</a> <span class="keyword">typedef</span> <span class="keyword">enum</span> {
-<a name="l00013"></a><a class="code" href="ua__transport_8h.html#a6bbe9d700f30fd5a9a36da6cc6b0b010abb52305b83a918c8fe0baa30d0a289dc">00013</a>     <a class="code" href="ua__transport_8h.html#a6bbe9d700f30fd5a9a36da6cc6b0b010abb52305b83a918c8fe0baa30d0a289dc">UA_SECURITYMODE_INVALID</a>        = 0,
-<a name="l00014"></a><a class="code" href="ua__transport_8h.html#a6bbe9d700f30fd5a9a36da6cc6b0b010ac10ee098624deebe6cde046bbd505a43">00014</a>     <a class="code" href="ua__transport_8h.html#a6bbe9d700f30fd5a9a36da6cc6b0b010ac10ee098624deebe6cde046bbd505a43">UA_SECURITYMODE_NONE</a>           = 1,
-<a name="l00015"></a><a class="code" href="ua__transport_8h.html#a6bbe9d700f30fd5a9a36da6cc6b0b010a763b84ffd978656363099bc5bcbed291">00015</a>     <a class="code" href="ua__transport_8h.html#a6bbe9d700f30fd5a9a36da6cc6b0b010a763b84ffd978656363099bc5bcbed291">UA_SECURITYMODE_SIGNANDENCRYPT</a> = 2
-<a name="l00016"></a>00016 } <a class="code" href="ua__transport_8h.html#a6bbe9d700f30fd5a9a36da6cc6b0b010">SecurityMode</a>;
-<a name="l00017"></a>00017 
-<a name="l00018"></a>00018 <span class="comment">/* MessageType */</span>
-<a name="l00019"></a><a class="code" href="ua__transport_8h.html#a45d437fa241f18505ac7243d05bde4d1">00019</a> <span class="keyword">typedef</span> <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a>;
-<a name="l00020"></a><a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">00020</a> <span class="keyword">enum</span> <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a> {
-<a name="l00021"></a><a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a1a9f234b699e8c45ce60c256baad938f">00021</a>     <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a1a9f234b699e8c45ce60c256baad938f">UA_MESSAGETYPE_HEL</a> = 0x48454C, <span class="comment">// H E L</span>
-<a name="l00022"></a><a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81aa4e40f6cea91143bb7cddf63901aa1ea">00022</a>     <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81aa4e40f6cea91143bb7cddf63901aa1ea">UA_MESSAGETYPE_ACK</a> = 0x41434B, <span class="comment">// A C k</span>
-<a name="l00023"></a><a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a4d793c7f47ba4877ac6aaf54da3890f4">00023</a>     <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a4d793c7f47ba4877ac6aaf54da3890f4">UA_MESSAGETYPE_ERR</a> = 0x455151, <span class="comment">// E R R</span>
-<a name="l00024"></a><a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a22a161d87ebc23e8b66a0cedfba183eb">00024</a>     <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a22a161d87ebc23e8b66a0cedfba183eb">UA_MESSAGETYPE_OPN</a> = 0x4F504E, <span class="comment">// O P N</span>
-<a name="l00025"></a><a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a20eb73d24d73c3a3197456cd1530424f">00025</a>     <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a20eb73d24d73c3a3197456cd1530424f">UA_MESSAGETYPE_MSG</a> = 0x4D5347, <span class="comment">// M S G</span>
-<a name="l00026"></a><a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a95416663c340f439a1fdd275035dab82">00026</a>     <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a95416663c340f439a1fdd275035dab82">UA_MESSAGETYPE_CLO</a> = 0x434C4F  <span class="comment">// C L O</span>
-<a name="l00027"></a>00027 };
-<a name="l00028"></a>00028 <a class="code" href="group__types.html#gae8394913a6bc14a1dfee6fe6dccb819e">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a>)
-<a name="l00029"></a>00029 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a>)
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="comment">/* All other transport types are auto-generated from a schema definition. */</span>
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="preprocessor">#endif </span><span class="comment">/* UA_TRANSPORT_H_ */</span>
+<a name="l00007"></a>00007 <span class="comment">/* MessageType */</span>
+<a name="l00008"></a><a class="code" href="ua__transport_8h.html#a45d437fa241f18505ac7243d05bde4d1">00008</a> <span class="keyword">typedef</span> <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a>;
+<a name="l00009"></a><a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">00009</a> <span class="keyword">enum</span> <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a> {
+<a name="l00010"></a><a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a1a9f234b699e8c45ce60c256baad938f">00010</a>     <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a1a9f234b699e8c45ce60c256baad938f">UA_MESSAGETYPE_HEL</a> = 0x48454C, <span class="comment">// H E L</span>
+<a name="l00011"></a><a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81aa4e40f6cea91143bb7cddf63901aa1ea">00011</a>     <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81aa4e40f6cea91143bb7cddf63901aa1ea">UA_MESSAGETYPE_ACK</a> = 0x41434B, <span class="comment">// A C k</span>
+<a name="l00012"></a><a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a4d793c7f47ba4877ac6aaf54da3890f4">00012</a>     <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a4d793c7f47ba4877ac6aaf54da3890f4">UA_MESSAGETYPE_ERR</a> = 0x455151, <span class="comment">// E R R</span>
+<a name="l00013"></a><a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a22a161d87ebc23e8b66a0cedfba183eb">00013</a>     <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a22a161d87ebc23e8b66a0cedfba183eb">UA_MESSAGETYPE_OPN</a> = 0x4F504E, <span class="comment">// O P N</span>
+<a name="l00014"></a><a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a20eb73d24d73c3a3197456cd1530424f">00014</a>     <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a20eb73d24d73c3a3197456cd1530424f">UA_MESSAGETYPE_MSG</a> = 0x4D5347, <span class="comment">// M S G</span>
+<a name="l00015"></a><a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a95416663c340f439a1fdd275035dab82">00015</a>     <a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a95416663c340f439a1fdd275035dab82">UA_MESSAGETYPE_CLO</a> = 0x434C4F  <span class="comment">// C L O</span>
+<a name="l00016"></a>00016 };
+<a name="l00017"></a>00017 <a class="code" href="group__types.html#gae8394913a6bc14a1dfee6fe6dccb819e">UA_TYPE_PROTOTYPES</a>(<a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a>)
+<a name="l00018"></a>00018 <a class="code" href="group__encoding__binary.html#ga53e68b2b87f84730979b48cc6e0e1a9b">UA_TYPE_BINARY_ENCODING</a>(<a class="code" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a>)
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 <span class="comment">/* All other transport types are auto-generated from a schema definition. */</span>
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="preprocessor">#endif </span><span class="comment">/* UA_TRANSPORT_H_ */</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Fri Oct 24 2014 12:49:38 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 25 2014 15:58:42 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

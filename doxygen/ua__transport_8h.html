@@ -71,13 +71,6 @@ Typedefs</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__transport_8h.html#a45d437fa241f18505ac7243d05bde4d1">UA_MessageType</a></td></tr>
 <tr><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__transport_8h.html#a446851ffd95eff9ecf96dcb4ef5d965f">SecurityTokenRequestType</a> { <a class="el" href="ua__transport_8h.html#a446851ffd95eff9ecf96dcb4ef5d965fa7993025ee2be08afa4310f4136c885b0">UA_SECURITYTOKEN_ISSUE</a> =  0, 
-<a class="el" href="ua__transport_8h.html#a446851ffd95eff9ecf96dcb4ef5d965fa38d93dbe18f15ec945248d4a1b339362">UA_SECURITYTOKEN_RENEW</a> =  1
- }</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__transport_8h.html#a6bbe9d700f30fd5a9a36da6cc6b0b010">SecurityMode</a> { <a class="el" href="ua__transport_8h.html#a6bbe9d700f30fd5a9a36da6cc6b0b010abb52305b83a918c8fe0baa30d0a289dc">UA_SECURITYMODE_INVALID</a> =  0, 
-<a class="el" href="ua__transport_8h.html#a6bbe9d700f30fd5a9a36da6cc6b0b010ac10ee098624deebe6cde046bbd505a43">UA_SECURITYMODE_NONE</a> =  1, 
-<a class="el" href="ua__transport_8h.html#a6bbe9d700f30fd5a9a36da6cc6b0b010a763b84ffd978656363099bc5bcbed291">UA_SECURITYMODE_SIGNANDENCRYPT</a> =  2
- }</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81">UA_MessageType</a> { <br/>
 &#160;&#160;<a class="el" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81a1a9f234b699e8c45ce60c256baad938f">UA_MESSAGETYPE_HEL</a> =  0x48454C, 
 <a class="el" href="ua__transport_8h.html#a43d47d97ef10bdc0be5cc2187a55cf81aa4e40f6cea91143bb7cddf63901aa1ea">UA_MESSAGETYPE_ACK</a> =  0x41434B, 
@@ -109,50 +102,6 @@ Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Enumeration Type Documentation</h2>
-<a class="anchor" id="a6bbe9d700f30fd5a9a36da6cc6b0b010"></a><!-- doxytag: member="ua_transport.h::SecurityMode" ref="a6bbe9d700f30fd5a9a36da6cc6b0b010" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="ua__transport_8h.html#a6bbe9d700f30fd5a9a36da6cc6b0b010">SecurityMode</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a6bbe9d700f30fd5a9a36da6cc6b0b010abb52305b83a918c8fe0baa30d0a289dc"></a><!-- doxytag: member="UA_SECURITYMODE_INVALID" ref="a6bbe9d700f30fd5a9a36da6cc6b0b010abb52305b83a918c8fe0baa30d0a289dc" args="" -->UA_SECURITYMODE_INVALID</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a6bbe9d700f30fd5a9a36da6cc6b0b010ac10ee098624deebe6cde046bbd505a43"></a><!-- doxytag: member="UA_SECURITYMODE_NONE" ref="a6bbe9d700f30fd5a9a36da6cc6b0b010ac10ee098624deebe6cde046bbd505a43" args="" -->UA_SECURITYMODE_NONE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a6bbe9d700f30fd5a9a36da6cc6b0b010a763b84ffd978656363099bc5bcbed291"></a><!-- doxytag: member="UA_SECURITYMODE_SIGNANDENCRYPT" ref="a6bbe9d700f30fd5a9a36da6cc6b0b010a763b84ffd978656363099bc5bcbed291" args="" -->UA_SECURITYMODE_SIGNANDENCRYPT</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a446851ffd95eff9ecf96dcb4ef5d965f"></a><!-- doxytag: member="ua_transport.h::SecurityTokenRequestType" ref="a446851ffd95eff9ecf96dcb4ef5d965f" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="ua__transport_8h.html#a446851ffd95eff9ecf96dcb4ef5d965f">SecurityTokenRequestType</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a446851ffd95eff9ecf96dcb4ef5d965fa7993025ee2be08afa4310f4136c885b0"></a><!-- doxytag: member="UA_SECURITYTOKEN_ISSUE" ref="a446851ffd95eff9ecf96dcb4ef5d965fa7993025ee2be08afa4310f4136c885b0" args="" -->UA_SECURITYTOKEN_ISSUE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a446851ffd95eff9ecf96dcb4ef5d965fa38d93dbe18f15ec945248d4a1b339362"></a><!-- doxytag: member="UA_SECURITYTOKEN_RENEW" ref="a446851ffd95eff9ecf96dcb4ef5d965fa38d93dbe18f15ec945248d4a1b339362" args="" -->UA_SECURITYTOKEN_RENEW</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="a43d47d97ef10bdc0be5cc2187a55cf81"></a><!-- doxytag: member="ua_transport.h::UA_MessageType" ref="a43d47d97ef10bdc0be5cc2187a55cf81" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -271,7 +220,7 @@ Functions</h2></td></tr>
 
 
 <address class="footer"><small>
-Generated on Fri Oct 24 2014 12:49:38 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 25 2014 15:58:42 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
