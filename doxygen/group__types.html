@@ -97,8 +97,11 @@ Defines</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gaeff6f6263daba8099f343fbbd1b51be2">UA_INT64_MIN</a>&#160;&#160;&#160;−9223372036854775808</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gac5ba5d30b237ef175a2ff5a0c2197810">UA_UINT64_MAX</a>&#160;&#160;&#160;= 18446744073709551615</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga96fb8bea1846ee7cca6d60396270e09b">UA_UINT64_MIN</a>&#160;&#160;&#160;= 0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gac4bc0bea046413938ea0b1aa54f4bf1c">PRINTTYPE</a>(TYPE)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gad48a39a1c93c261ec21c1d0a2bdff711">PRINTTYPE_NOEXPORT</a>(TYPE)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gae8394913a6bc14a1dfee6fe6dccb819e">UA_TYPE_PROTOTYPES</a>(TYPE)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga110846759e839327492b0e01513ff43e">UA_STRING_NULL</a>&#160;&#160;&#160;(<a class="el" href="group__types.html#structUA__String">UA_String</a>) {-1, <a class="el" href="ua__types_8h.html#a81365fba629fc5e5ce70fe03320a5b1e">UA_NULL</a> }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gac10537ef3ab9ed7f979b72a5311d2fb3">UA_TYPE_PROTOTYPES_NOEXPORT</a>(TYPE)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga110846759e839327492b0e01513ff43e">UA_STRING_NULL</a>&#160;&#160;&#160;(<a class="el" href="group__types.html#structUA__String">UA_String</a>) {-1, (<a class="el" href="group__types.html#gac31865e6fcb9a042b5eaf5a5bd4ed30d">UA_Byte</a>*)0 }</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga1acf0ca7d4c4eccd285aa82928fed5b6">UA_STRING_STATIC</a>(VARIABLE, STRING)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga5a6504099101debe10cc0e93b680ad0d">NS0NODEID</a>(NUMERIC_ID)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga970489f59ae6954183b1b1dcd5bd0574">NS0EXPANDEDNODEID</a>(VARIABLE, NUMERIC_ID)</td></tr>
@@ -304,14 +307,14 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga518805a962ac782c2da143c337144039">UA_InvalidType_copy</a> (const <a class="el" href="group__types.html#gabb778a6b095690de8e5d510550fc3743">UA_InvalidType</a> *src, <a class="el" href="group__types.html#gabb778a6b095690de8e5d510550fc3743">UA_InvalidType</a> *dst)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gad1357eb4e1f7e56e5bd0aa7d5ea51dcf">UA_String_copycstring</a> (char const *src, <a class="el" href="group__types.html#structUA__String">UA_String</a> *dst)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga7caa30bdd2743cf20ebabb8f8442ae6c">UA_String_copyprintf</a> (char const *fmt, <a class="el" href="group__types.html#structUA__String">UA_String</a> *dst,...)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="ua__types_8h.html#aa2f2203b60c031d80b138aecbde4b0b2">UA_EQUALITY</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga1a4ea254cddec2f6fcd2bb203c1e811e">UA_String_equal</a> (const <a class="el" href="group__types.html#structUA__String">UA_String</a> *string1, const <a class="el" href="group__types.html#structUA__String">UA_String</a> *string2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga2e6ef278a97bd264ac6d2e28144ac789">UA_String_equal</a> (const <a class="el" href="group__types.html#structUA__String">UA_String</a> *string1, const <a class="el" href="group__types.html#structUA__String">UA_String</a> *string2)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#gab4378e68c207b1de4e58d0ae26dc333c">UA_DateTime</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga028904d873c7522b138d97f5b3bbe9f9">UA_DateTime_now</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#structUA__DateTimeStruct">UA_DateTimeStruct</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gab293dfcbd9136f431b1395443b1650b1">UA_DateTime_toStruct</a> (<a class="el" href="group__types.html#gab4378e68c207b1de4e58d0ae26dc333c">UA_DateTime</a> time)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gad68c059a6662f882f6ed1194323922a0">UA_DateTime_toString</a> (<a class="el" href="group__types.html#gab4378e68c207b1de4e58d0ae26dc333c">UA_DateTime</a> time, <a class="el" href="group__types.html#structUA__String">UA_String</a> *timeString)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="ua__types_8h.html#aa2f2203b60c031d80b138aecbde4b0b2">UA_EQUALITY</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga0fdc488c71d08c5544e0b735c6405dcf">UA_Guid_equal</a> (const <a class="el" href="group__types.html#structUA__Guid">UA_Guid</a> *g1, const <a class="el" href="group__types.html#structUA__Guid">UA_Guid</a> *g2)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="ua__types_8h.html#aa2f2203b60c031d80b138aecbde4b0b2">UA_EQUALITY</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga51ad5095f4457969dad2bed32f5726bd">UA_ByteString_equal</a> (const UA_ByteString *string1, const UA_ByteString *string2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gac3ae077251d644af4be97e13d6d41a4a">UA_Guid_equal</a> (const <a class="el" href="group__types.html#structUA__Guid">UA_Guid</a> *g1, const <a class="el" href="group__types.html#structUA__Guid">UA_Guid</a> *g2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gacd3ee5d99795176f1e0ddf8ca33185b6">UA_ByteString_equal</a> (const UA_ByteString *string1, const UA_ByteString *string2)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#gaabd85d4aaa5502bafdbfc294c21d8d91">UA_ByteString_newMembers</a> (UA_ByteString *p, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> length)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="ua__types_8h.html#aa2f2203b60c031d80b138aecbde4b0b2">UA_EQUALITY</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga1157a8dddd8cb8c9dbdfeeda71336f33">UA_NodeId_equal</a> (const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *n1, const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *n2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga711402f9064cc08c4ca232ac7a6143d7">UA_NodeId_equal</a> (const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *n1, const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *n2)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga1a6d82c6228c07e7c9051a0796f482b2">UA_NodeId_isNull</a> (const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *p)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga728c40adc591ffe581216e21b2b66707">UA_NodeId_isBasicType</a> (<a class="el" href="structUA__NodeId.html">UA_NodeId</a> const *id)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__types.html#ga162cddbfce43bf95bc0884b8ab8502da">UA_ExpandedNodeId_isNull</a> (const <a class="el" href="group__types.html#structUA__ExpandedNodeId">UA_ExpandedNodeId</a> *p)</td></tr>
@@ -794,6 +797,40 @@ year</td>
 </pre></div>
 </div>
 </div>
+<a class="anchor" id="gac4bc0bea046413938ea0b1aa54f4bf1c"></a><!-- doxytag: member="ua_types.h::PRINTTYPE" ref="gac4bc0bea046413938ea0b1aa54f4bf1c" args="(TYPE)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="group__types.html#gac4bc0bea046413938ea0b1aa54f4bf1c">PRINTTYPE</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TYPE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="gad48a39a1c93c261ec21c1d0a2bdff711"></a><!-- doxytag: member="ua_types.h::PRINTTYPE_NOEXPORT" ref="gad48a39a1c93c261ec21c1d0a2bdff711" args="(TYPE)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="group__types.html#gad48a39a1c93c261ec21c1d0a2bdff711">PRINTTYPE_NOEXPORT</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TYPE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ga61a09d12d05995b104b0852f3f73959c"></a><!-- doxytag: member="ua_types.h::UA_BYTE_MAX" ref="ga61a09d12d05995b104b0852f3f73959c" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -1002,7 +1039,7 @@ year</td>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define <a class="el" href="group__types.html#ga110846759e839327492b0e01513ff43e">UA_STRING_NULL</a>&#160;&#160;&#160;(<a class="el" href="group__types.html#structUA__String">UA_String</a>) {-1, <a class="el" href="ua__types_8h.html#a81365fba629fc5e5ce70fe03320a5b1e">UA_NULL</a> }</td>
+          <td class="memname">#define <a class="el" href="group__types.html#ga110846759e839327492b0e01513ff43e">UA_STRING_NULL</a>&#160;&#160;&#160;(<a class="el" href="group__types.html#structUA__String">UA_String</a>) {-1, (<a class="el" href="group__types.html#gac31865e6fcb9a042b5eaf5a5bd4ed30d">UA_Byte</a>*)0 }</td>
         </tr>
       </table>
 </div>
@@ -1357,11 +1394,35 @@ year</td>
       </table>
 </div>
 <div class="memdoc">
-<b>Value:</b><div class="fragment"><pre class="fragment"><a class="code" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6" title="A numeric identifier for a error or condition that is associated with a value or an operation...">UA_StatusCode</a> <a class="code" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> TYPE##_new(TYPE **p);                       \
-    void <a class="code" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> TYPE##_init(TYPE * p);                               \
-    void <a class="code" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> TYPE##_delete(TYPE * p);                             \
-    void <a class="code" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> TYPE##_deleteMembers(TYPE * p);                      \
-    UA_StatusCode <a class="code" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> TYPE##_copy(<span class="keyword">const</span> TYPE *src, TYPE *dst);
+<b>Value:</b><div class="fragment"><pre class="fragment"><a class="code" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6" title="A numeric identifier for a error or condition that is associated with a value or an operation...">UA_StatusCode</a> <a class="code" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> TYPE##_new(TYPE **p);                    \
+    void <a class="code" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> TYPE##_init(TYPE * p);                            \
+    void <a class="code" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> TYPE##_delete(TYPE * p);                          \
+    void <a class="code" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> TYPE##_deleteMembers(TYPE * p);                   \
+    UA_StatusCode <a class="code" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> TYPE##_copy(<span class="keyword">const</span> TYPE *src, TYPE *dst); \
+    PRINTTYPE(TYPE)
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="gac10537ef3ab9ed7f979b72a5311d2fb3"></a><!-- doxytag: member="ua_types.h::UA_TYPE_PROTOTYPES_NOEXPORT" ref="gac10537ef3ab9ed7f979b72a5311d2fb3" args="(TYPE)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="group__types.html#gac10537ef3ab9ed7f979b72a5311d2fb3">UA_TYPE_PROTOTYPES_NOEXPORT</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TYPE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Value:</b><div class="fragment"><pre class="fragment"><a class="code" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6" title="A numeric identifier for a error or condition that is associated with a value or an operation...">UA_StatusCode</a> TYPE##_new(TYPE **p);                              \
+    void TYPE##_init(TYPE * p);                                      \
+    void TYPE##_delete(TYPE * p);                                    \
+    void TYPE##_deleteMembers(TYPE * p);                             \
+    UA_StatusCode TYPE##_copy(<span class="keyword">const</span> TYPE *src, TYPE *dst);           \
+    PRINTTYPE_NOEXPORT(TYPE)
 </pre></div>
 </div>
 </div>
@@ -2105,12 +2166,12 @@ year</td>
 
 </div>
 </div>
-<a class="anchor" id="ga51ad5095f4457969dad2bed32f5726bd"></a><!-- doxytag: member="ua_types.h::UA_ByteString_equal" ref="ga51ad5095f4457969dad2bed32f5726bd" args="(const UA_ByteString *string1, const UA_ByteString *string2)" -->
+<a class="anchor" id="gacd3ee5d99795176f1e0ddf8ca33185b6"></a><!-- doxytag: member="ua_types.h::UA_ByteString_equal" ref="gacd3ee5d99795176f1e0ddf8ca33185b6" args="(const UA_ByteString *string1, const UA_ByteString *string2)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ua__types_8h.html#aa2f2203b60c031d80b138aecbde4b0b2">UA_EQUALITY</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__types.html#ga51ad5095f4457969dad2bed32f5726bd">UA_ByteString_equal</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__types.html#gacd3ee5d99795176f1e0ddf8ca33185b6">UA_ByteString_equal</a> </td>
           <td>(</td>
           <td class="paramtype">const UA_ByteString *&#160;</td>
           <td class="paramname"><em>string1</em>, </td>
@@ -2996,12 +3057,12 @@ year</td>
 
 </div>
 </div>
-<a class="anchor" id="ga0fdc488c71d08c5544e0b735c6405dcf"></a><!-- doxytag: member="ua_types.h::UA_Guid_equal" ref="ga0fdc488c71d08c5544e0b735c6405dcf" args="(const UA_Guid *g1, const UA_Guid *g2)" -->
+<a class="anchor" id="gac3ae077251d644af4be97e13d6d41a4a"></a><!-- doxytag: member="ua_types.h::UA_Guid_equal" ref="gac3ae077251d644af4be97e13d6d41a4a" args="(const UA_Guid *g1, const UA_Guid *g2)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ua__types_8h.html#aa2f2203b60c031d80b138aecbde4b0b2">UA_EQUALITY</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__types.html#ga0fdc488c71d08c5544e0b735c6405dcf">UA_Guid_equal</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__types.html#gac3ae077251d644af4be97e13d6d41a4a">UA_Guid_equal</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="group__types.html#structUA__Guid">UA_Guid</a> *&#160;</td>
           <td class="paramname"><em>g1</em>, </td>
@@ -3620,12 +3681,12 @@ year</td>
 
 </div>
 </div>
-<a class="anchor" id="ga1157a8dddd8cb8c9dbdfeeda71336f33"></a><!-- doxytag: member="ua_types.h::UA_NodeId_equal" ref="ga1157a8dddd8cb8c9dbdfeeda71336f33" args="(const UA_NodeId *n1, const UA_NodeId *n2)" -->
+<a class="anchor" id="ga711402f9064cc08c4ca232ac7a6143d7"></a><!-- doxytag: member="ua_types.h::UA_NodeId_equal" ref="ga711402f9064cc08c4ca232ac7a6143d7" args="(const UA_NodeId *n1, const UA_NodeId *n2)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ua__types_8h.html#aa2f2203b60c031d80b138aecbde4b0b2">UA_EQUALITY</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__types.html#ga1157a8dddd8cb8c9dbdfeeda71336f33">UA_NodeId_equal</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__types.html#ga711402f9064cc08c4ca232ac7a6143d7">UA_NodeId_equal</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *&#160;</td>
           <td class="paramname"><em>n1</em>, </td>
@@ -4148,12 +4209,12 @@ year</td>
 
 </div>
 </div>
-<a class="anchor" id="ga1a4ea254cddec2f6fcd2bb203c1e811e"></a><!-- doxytag: member="ua_types.h::UA_String_equal" ref="ga1a4ea254cddec2f6fcd2bb203c1e811e" args="(const UA_String *string1, const UA_String *string2)" -->
+<a class="anchor" id="ga2e6ef278a97bd264ac6d2e28144ac789"></a><!-- doxytag: member="ua_types.h::UA_String_equal" ref="ga2e6ef278a97bd264ac6d2e28144ac789" args="(const UA_String *string1, const UA_String *string2)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ua__types_8h.html#aa2f2203b60c031d80b138aecbde4b0b2">UA_EQUALITY</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__types.html#ga1a4ea254cddec2f6fcd2bb203c1e811e">UA_String_equal</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__types.html#ga2e6ef278a97bd264ac6d2e28144ac789">UA_String_equal</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="group__types.html#structUA__String">UA_String</a> *&#160;</td>
           <td class="paramname"><em>string1</em>, </td>
@@ -4761,7 +4822,7 @@ year</td>
 
 
 <address class="footer"><small>
-Generated on Sun Oct 26 2014 10:29:44 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 28 2014 10:57:08 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
