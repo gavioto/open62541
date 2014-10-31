@@ -257,7 +257,7 @@
 <a name="l00301"></a>00301 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
 <a name="l00302"></a>00302 <span class="preprocessor"></span>    
 <a name="l00303"></a><a class="code" href="group__types.html#gae8394913a6bc14a1dfee6fe6dccb819e">00303</a> <span class="preprocessor">#define UA_TYPE_PROTOTYPES(TYPE)                                     \</span>
-<a name="l00304"></a>00304 <span class="preprocessor">    UA_StatusCode UA_EXPORT TYPE##_new(TYPE **p);                    \</span>
+<a name="l00304"></a>00304 <span class="preprocessor">    TYPE UA_EXPORT * TYPE##_new();                                   \</span>
 <a name="l00305"></a>00305 <span class="preprocessor">    void UA_EXPORT TYPE##_init(TYPE * p);                            \</span>
 <a name="l00306"></a>00306 <span class="preprocessor">    void UA_EXPORT TYPE##_delete(TYPE * p);                          \</span>
 <a name="l00307"></a>00307 <span class="preprocessor">    void UA_EXPORT TYPE##_deleteMembers(TYPE * p);                   \</span>
@@ -265,7 +265,7 @@
 <a name="l00309"></a>00309 <span class="preprocessor">    PRINTTYPE(TYPE)</span>
 <a name="l00310"></a>00310 <span class="preprocessor"></span>
 <a name="l00311"></a><a class="code" href="group__types.html#gac10537ef3ab9ed7f979b72a5311d2fb3">00311</a> <span class="preprocessor">#define UA_TYPE_PROTOTYPES_NOEXPORT(TYPE)                            \</span>
-<a name="l00312"></a>00312 <span class="preprocessor">    UA_StatusCode TYPE##_new(TYPE **p);                              \</span>
+<a name="l00312"></a>00312 <span class="preprocessor">    TYPE * TYPE##_new();                                             \</span>
 <a name="l00313"></a>00313 <span class="preprocessor">    void TYPE##_init(TYPE * p);                                      \</span>
 <a name="l00314"></a>00314 <span class="preprocessor">    void TYPE##_delete(TYPE * p);                                    \</span>
 <a name="l00315"></a>00315 <span class="preprocessor">    void TYPE##_deleteMembers(TYPE * p);                             \</span>
@@ -406,7 +406,7 @@
 <a name="l00453"></a><a class="code" href="structUA__VTable__Entry.html">00453</a> <span class="keyword">struct </span><a class="code" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> {
 <a name="l00454"></a><a class="code" href="structUA__VTable__Entry.html#a189e62cb4505b3717a66c585f4298605">00454</a>     <a class="code" href="structUA__NodeId.html" title="An identifier for a node in the address space of an OPC UA Server.">UA_NodeId</a>     <a class="code" href="structUA__VTable__Entry.html#a189e62cb4505b3717a66c585f4298605">typeId</a>;
 <a name="l00455"></a><a class="code" href="structUA__VTable__Entry.html#a2ef93760dfd3c4d157f851eb23b828e8">00455</a>     UA_Byte       *<a class="code" href="structUA__VTable__Entry.html#a2ef93760dfd3c4d157f851eb23b828e8">name</a>;
-<a name="l00456"></a><a class="code" href="structUA__VTable__Entry.html#afb8908740de038ccdab88378ece64b38">00456</a>     <a class="code" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6" title="A numeric identifier for a error or condition that is associated with a value or an operation...">UA_StatusCode</a> (*<span class="keyword">new</span>)(<span class="keywordtype">void</span> **p);
+<a name="l00456"></a><a class="code" href="structUA__VTable__Entry.html#a6a8ffdf08be4ef5408af6f8dcf04c6e8">00456</a>     <span class="keywordtype">void</span> *        (*new)();
 <a name="l00457"></a><a class="code" href="structUA__VTable__Entry.html#a681a7f098b09a450c8a14ad1f701b3b2">00457</a>     void          (*<a class="code" href="structUA__VTable__Entry.html#a681a7f098b09a450c8a14ad1f701b3b2">init</a>)(<span class="keywordtype">void</span> *p);
 <a name="l00458"></a><a class="code" href="structUA__VTable__Entry.html#a2e02f8972f838a6a116b9bc5bf2d6c83">00458</a>     <a class="code" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6" title="A numeric identifier for a error or condition that is associated with a value or an operation...">UA_StatusCode</a> (*<a class="code" href="structUA__VTable__Entry.html#a2e02f8972f838a6a116b9bc5bf2d6c83">copy</a>)(<span class="keywordtype">void</span> <span class="keyword">const</span> *src, <span class="keywordtype">void</span> *dst);
 <a name="l00459"></a><a class="code" href="structUA__VTable__Entry.html#a496c2b49663bd52d01ff8ac1652f549a">00459</a>     void          (*<span class="keyword">delete</span>)(<span class="keywordtype">void</span> *p);
@@ -433,86 +433,80 @@
 <a name="l00480"></a>00480 <span class="preprocessor">    UA_TYPE_COPY_DEFAULT(TYPE)           \</span>
 <a name="l00481"></a>00481 <span class="preprocessor">    </span>
 <a name="l00482"></a><a class="code" href="group__types.html#ga96f053f88d58a8ff622fb8ad7f89e935">00482</a> <span class="preprocessor"></span><span class="preprocessor">#define UA_TYPE_NEW_DEFAULT(TYPE)                             \</span>
-<a name="l00483"></a>00483 <span class="preprocessor">    UA_StatusCode TYPE##_new(TYPE **p) {                      \</span>
-<a name="l00484"></a>00484 <span class="preprocessor">        if(!(*p = UA_alloc(sizeof(TYPE))))                    \</span>
-<a name="l00485"></a>00485 <span class="preprocessor">            return UA_STATUSCODE_BADOUTOFMEMORY;              \</span>
-<a name="l00486"></a>00486 <span class="preprocessor">        TYPE##_init(*p);                                      \</span>
-<a name="l00487"></a>00487 <span class="preprocessor">        return UA_STATUSCODE_GOOD;                            \</span>
-<a name="l00488"></a>00488 <span class="preprocessor">    }</span>
-<a name="l00489"></a>00489 <span class="preprocessor"></span>
-<a name="l00490"></a><a class="code" href="group__types.html#ga5d7da565276170a612cee498898c0cee">00490</a> <span class="preprocessor">#define UA_TYPE_INIT_DEFAULT(TYPE) \</span>
-<a name="l00491"></a>00491 <span class="preprocessor">    void TYPE##_init(TYPE * p) {   \</span>
-<a name="l00492"></a>00492 <span class="preprocessor">        *p = (TYPE)0;              \</span>
-<a name="l00493"></a>00493 <span class="preprocessor">    }</span>
-<a name="l00494"></a>00494 <span class="preprocessor"></span>
-<a name="l00495"></a><a class="code" href="group__types.html#ga12f8275ed80d16eb7243920514696f32">00495</a> <span class="preprocessor">#define UA_TYPE_INIT_AS(TYPE, TYPE_AS) \</span>
-<a name="l00496"></a>00496 <span class="preprocessor">    void TYPE##_init(TYPE * p) {       \</span>
-<a name="l00497"></a>00497 <span class="preprocessor">        TYPE_AS##_init((TYPE_AS *)p);  \</span>
-<a name="l00498"></a>00498 <span class="preprocessor">    }</span>
-<a name="l00499"></a>00499 <span class="preprocessor"></span>
-<a name="l00500"></a><a class="code" href="group__types.html#ga49a73e5eb615bc3d1b2ce911a1b0ad8d">00500</a> <span class="preprocessor">#define UA_TYPE_DELETE_DEFAULT(TYPE) \</span>
-<a name="l00501"></a>00501 <span class="preprocessor">    void TYPE##_delete(TYPE *p) {    \</span>
-<a name="l00502"></a>00502 <span class="preprocessor">        TYPE##_deleteMembers(p);     \</span>
-<a name="l00503"></a>00503 <span class="preprocessor">        UA_free(p);                  \</span>
-<a name="l00504"></a>00504 <span class="preprocessor">    }</span>
-<a name="l00505"></a>00505 <span class="preprocessor"></span>
-<a name="l00506"></a><a class="code" href="group__types.html#ga77a9d42d33b2d64180115bafa885c90a">00506</a> <span class="preprocessor">#define UA_TYPE_DELETE_AS(TYPE, TYPE_AS) \</span>
-<a name="l00507"></a>00507 <span class="preprocessor">    void TYPE##_delete(TYPE * p) {       \</span>
-<a name="l00508"></a>00508 <span class="preprocessor">        TYPE_AS##_delete((TYPE_AS *)p);  \</span>
-<a name="l00509"></a>00509 <span class="preprocessor">    }</span>
-<a name="l00510"></a>00510 <span class="preprocessor"></span>
-<a name="l00511"></a><a class="code" href="group__types.html#gaf237b893171a178c1d1a6415cfb48a75">00511</a> <span class="preprocessor">#define UA_TYPE_DELETEMEMBERS_NOACTION(TYPE) \</span>
-<a name="l00512"></a>00512 <span class="preprocessor">    void TYPE##_deleteMembers(TYPE * p) { return; }</span>
-<a name="l00513"></a>00513 <span class="preprocessor"></span>
-<a name="l00514"></a><a class="code" href="group__types.html#ga95fd8fc38047ed8c2fdb7ab8eff28c71">00514</a> <span class="preprocessor">#define UA_TYPE_DELETEMEMBERS_AS(TYPE, TYPE_AS) \</span>
-<a name="l00515"></a>00515 <span class="preprocessor">    void TYPE##_deleteMembers(TYPE * p) { TYPE_AS##_deleteMembers((TYPE_AS *)p); }</span>
-<a name="l00516"></a>00516 <span class="preprocessor"></span>
-<a name="l00517"></a>00517 <span class="comment">/* Use only when the type has no arrays. Otherwise, implement deep copy */</span>
-<a name="l00518"></a><a class="code" href="group__types.html#ga8d3e981b263e385c69d1dc402247b380">00518</a> <span class="preprocessor">#define UA_TYPE_COPY_DEFAULT(TYPE)                             \</span>
-<a name="l00519"></a>00519 <span class="preprocessor">    UA_StatusCode TYPE##_copy(TYPE const *src, TYPE *dst) {    \</span>
-<a name="l00520"></a>00520 <span class="preprocessor">        *dst = *src;                                           \</span>
-<a name="l00521"></a>00521 <span class="preprocessor">        return UA_STATUSCODE_GOOD;                             \</span>
-<a name="l00522"></a>00522 <span class="preprocessor">    }</span>
-<a name="l00523"></a>00523 <span class="preprocessor"></span>
-<a name="l00524"></a><a class="code" href="group__types.html#ga854043f1716f43be1fb06b8a35028a8e">00524</a> <span class="preprocessor">#define UA_TYPE_COPY_AS(TYPE, TYPE_AS)                         \</span>
-<a name="l00525"></a>00525 <span class="preprocessor">    UA_StatusCode TYPE##_copy(TYPE const *src, TYPE *dst) {         \</span>
-<a name="l00526"></a>00526 <span class="preprocessor">        return TYPE_AS##_copy((TYPE_AS *)src, (TYPE_AS *)dst); \</span>
-<a name="l00527"></a>00527 <span class="preprocessor">    }</span>
-<a name="l00528"></a>00528 <span class="preprocessor"></span>
-<a name="l00529"></a><a class="code" href="group__types.html#ga46b12dd910f13c76bd3d6b6cdd72be3d">00529</a> <span class="preprocessor">#define UA_TYPE_PRINT_AS(TYPE, TYPE_AS)              \</span>
+<a name="l00483"></a>00483 <span class="preprocessor">    TYPE * TYPE##_new() {                                     \</span>
+<a name="l00484"></a>00484 <span class="preprocessor">        TYPE *p = UA_alloc(sizeof(TYPE));                     \</span>
+<a name="l00485"></a>00485 <span class="preprocessor">        if(p) TYPE##_init(p);                                 \</span>
+<a name="l00486"></a>00486 <span class="preprocessor">        return p;                                             \</span>
+<a name="l00487"></a>00487 <span class="preprocessor">    }</span>
+<a name="l00488"></a>00488 <span class="preprocessor"></span>
+<a name="l00489"></a><a class="code" href="group__types.html#ga5d7da565276170a612cee498898c0cee">00489</a> <span class="preprocessor">#define UA_TYPE_INIT_DEFAULT(TYPE) \</span>
+<a name="l00490"></a>00490 <span class="preprocessor">    void TYPE##_init(TYPE * p) {   \</span>
+<a name="l00491"></a>00491 <span class="preprocessor">        *p = (TYPE)0;              \</span>
+<a name="l00492"></a>00492 <span class="preprocessor">    }</span>
+<a name="l00493"></a>00493 <span class="preprocessor"></span>
+<a name="l00494"></a><a class="code" href="group__types.html#ga12f8275ed80d16eb7243920514696f32">00494</a> <span class="preprocessor">#define UA_TYPE_INIT_AS(TYPE, TYPE_AS) \</span>
+<a name="l00495"></a>00495 <span class="preprocessor">    void TYPE##_init(TYPE * p) {       \</span>
+<a name="l00496"></a>00496 <span class="preprocessor">        TYPE_AS##_init((TYPE_AS *)p);  \</span>
+<a name="l00497"></a>00497 <span class="preprocessor">    }</span>
+<a name="l00498"></a>00498 <span class="preprocessor"></span>
+<a name="l00499"></a><a class="code" href="group__types.html#ga49a73e5eb615bc3d1b2ce911a1b0ad8d">00499</a> <span class="preprocessor">#define UA_TYPE_DELETE_DEFAULT(TYPE) \</span>
+<a name="l00500"></a>00500 <span class="preprocessor">    void TYPE##_delete(TYPE *p) {    \</span>
+<a name="l00501"></a>00501 <span class="preprocessor">        TYPE##_deleteMembers(p);     \</span>
+<a name="l00502"></a>00502 <span class="preprocessor">        UA_free(p);                  \</span>
+<a name="l00503"></a>00503 <span class="preprocessor">    }</span>
+<a name="l00504"></a>00504 <span class="preprocessor"></span>
+<a name="l00505"></a><a class="code" href="group__types.html#ga77a9d42d33b2d64180115bafa885c90a">00505</a> <span class="preprocessor">#define UA_TYPE_DELETE_AS(TYPE, TYPE_AS) \</span>
+<a name="l00506"></a>00506 <span class="preprocessor">    void TYPE##_delete(TYPE * p) {       \</span>
+<a name="l00507"></a>00507 <span class="preprocessor">        TYPE_AS##_delete((TYPE_AS *)p);  \</span>
+<a name="l00508"></a>00508 <span class="preprocessor">    }</span>
+<a name="l00509"></a>00509 <span class="preprocessor"></span>
+<a name="l00510"></a><a class="code" href="group__types.html#gaf237b893171a178c1d1a6415cfb48a75">00510</a> <span class="preprocessor">#define UA_TYPE_DELETEMEMBERS_NOACTION(TYPE) \</span>
+<a name="l00511"></a>00511 <span class="preprocessor">    void TYPE##_deleteMembers(TYPE * p) { return; }</span>
+<a name="l00512"></a>00512 <span class="preprocessor"></span>
+<a name="l00513"></a><a class="code" href="group__types.html#ga95fd8fc38047ed8c2fdb7ab8eff28c71">00513</a> <span class="preprocessor">#define UA_TYPE_DELETEMEMBERS_AS(TYPE, TYPE_AS) \</span>
+<a name="l00514"></a>00514 <span class="preprocessor">    void TYPE##_deleteMembers(TYPE * p) { TYPE_AS##_deleteMembers((TYPE_AS *)p); }</span>
+<a name="l00515"></a>00515 <span class="preprocessor"></span>
+<a name="l00516"></a>00516 <span class="comment">/* Use only when the type has no arrays. Otherwise, implement deep copy */</span>
+<a name="l00517"></a><a class="code" href="group__types.html#ga8d3e981b263e385c69d1dc402247b380">00517</a> <span class="preprocessor">#define UA_TYPE_COPY_DEFAULT(TYPE)                             \</span>
+<a name="l00518"></a>00518 <span class="preprocessor">    UA_StatusCode TYPE##_copy(TYPE const *src, TYPE *dst) {    \</span>
+<a name="l00519"></a>00519 <span class="preprocessor">        *dst = *src;                                           \</span>
+<a name="l00520"></a>00520 <span class="preprocessor">        return UA_STATUSCODE_GOOD;                             \</span>
+<a name="l00521"></a>00521 <span class="preprocessor">    }</span>
+<a name="l00522"></a>00522 <span class="preprocessor"></span>
+<a name="l00523"></a><a class="code" href="group__types.html#ga854043f1716f43be1fb06b8a35028a8e">00523</a> <span class="preprocessor">#define UA_TYPE_COPY_AS(TYPE, TYPE_AS)                         \</span>
+<a name="l00524"></a>00524 <span class="preprocessor">    UA_StatusCode TYPE##_copy(TYPE const *src, TYPE *dst) {    \</span>
+<a name="l00525"></a>00525 <span class="preprocessor">        return TYPE_AS##_copy((TYPE_AS *)src, (TYPE_AS *)dst); \</span>
+<a name="l00526"></a>00526 <span class="preprocessor">    }</span>
+<a name="l00527"></a>00527 <span class="preprocessor"></span>
+<a name="l00528"></a>00528 <span class="preprocessor">#ifdef DEBUG //print functions only in debug mode</span>
+<a name="l00529"></a>00529 <span class="preprocessor"></span><span class="preprocessor">#define UA_TYPE_PRINT_AS(TYPE, TYPE_AS)              \</span>
 <a name="l00530"></a>00530 <span class="preprocessor">    void TYPE##_print(TYPE const *p, FILE *stream) { \</span>
 <a name="l00531"></a>00531 <span class="preprocessor">        TYPE_AS##_print((TYPE_AS *)p, stream);       \</span>
-<a name="l00532"></a>00532 <span class="preprocessor">    }                                                \</span>
-<a name="l00533"></a>00533 <span class="preprocessor"></span>
-<a name="l00534"></a>00534 <span class="preprocessor"></span><span class="preprocessor">#ifdef DEBUG //print functions only in debug mode</span>
-<a name="l00535"></a>00535 <span class="preprocessor"></span><span class="preprocessor">#define UA_TYPE_AS(TYPE, TYPE_AS)           \</span>
-<a name="l00536"></a>00536 <span class="preprocessor">    UA_TYPE_NEW_DEFAULT(TYPE)               \</span>
-<a name="l00537"></a>00537 <span class="preprocessor">    UA_TYPE_INIT_AS(TYPE, TYPE_AS)          \</span>
-<a name="l00538"></a>00538 <span class="preprocessor">    UA_TYPE_DELETE_AS(TYPE, TYPE_AS)        \</span>
-<a name="l00539"></a>00539 <span class="preprocessor">    UA_TYPE_DELETEMEMBERS_AS(TYPE, TYPE_AS) \</span>
-<a name="l00540"></a>00540 <span class="preprocessor">    UA_TYPE_COPY_AS(TYPE, TYPE_AS)          \</span>
-<a name="l00541"></a>00541 <span class="preprocessor">    UA_TYPE_PRINT_AS(TYPE, TYPE_AS)</span>
-<a name="l00542"></a>00542 <span class="preprocessor"></span><span class="preprocessor">#else</span>
-<a name="l00543"></a><a class="code" href="group__types.html#ga49633faaa1379935971d96f5a0a60b5e">00543</a> <span class="preprocessor"></span><span class="preprocessor">#define UA_TYPE_AS(TYPE, TYPE_AS)           \</span>
-<a name="l00544"></a>00544 <span class="preprocessor">    UA_TYPE_NEW_DEFAULT(TYPE)               \</span>
-<a name="l00545"></a>00545 <span class="preprocessor">    UA_TYPE_INIT_AS(TYPE, TYPE_AS)          \</span>
-<a name="l00546"></a>00546 <span class="preprocessor">    UA_TYPE_DELETE_AS(TYPE, TYPE_AS)        \</span>
-<a name="l00547"></a>00547 <span class="preprocessor">    UA_TYPE_DELETEMEMBERS_AS(TYPE, TYPE_AS) \</span>
-<a name="l00548"></a>00548 <span class="preprocessor">    UA_TYPE_COPY_AS(TYPE, TYPE_AS)</span>
-<a name="l00549"></a>00549 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00532"></a>00532 <span class="preprocessor">    }</span>
+<a name="l00533"></a>00533 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00534"></a><a class="code" href="group__types.html#ga46b12dd910f13c76bd3d6b6cdd72be3d">00534</a> <span class="preprocessor"></span><span class="preprocessor">#define UA_TYPE_PRINT_AS(TYPE, TYPE_AS)</span>
+<a name="l00535"></a>00535 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00536"></a>00536 <span class="preprocessor"></span>
+<a name="l00537"></a><a class="code" href="group__types.html#ga49633faaa1379935971d96f5a0a60b5e">00537</a> <span class="preprocessor">#define UA_TYPE_AS(TYPE, TYPE_AS)           \</span>
+<a name="l00538"></a>00538 <span class="preprocessor">    UA_TYPE_NEW_DEFAULT(TYPE)               \</span>
+<a name="l00539"></a>00539 <span class="preprocessor">    UA_TYPE_INIT_AS(TYPE, TYPE_AS)          \</span>
+<a name="l00540"></a>00540 <span class="preprocessor">    UA_TYPE_DELETE_AS(TYPE, TYPE_AS)        \</span>
+<a name="l00541"></a>00541 <span class="preprocessor">    UA_TYPE_DELETEMEMBERS_AS(TYPE, TYPE_AS) \</span>
+<a name="l00542"></a>00542 <span class="preprocessor">    UA_TYPE_COPY_AS(TYPE, TYPE_AS)          \</span>
+<a name="l00543"></a>00543 <span class="preprocessor">    UA_TYPE_PRINT_AS(TYPE, TYPE_AS)</span>
+<a name="l00544"></a>00544 <span class="preprocessor"></span>
+<a name="l00546"></a>00546 
+<a name="l00547"></a>00547 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00548"></a>00548 <span class="preprocessor"></span>} <span class="comment">// extern &quot;C&quot;</span>
+<a name="l00549"></a>00549 <span class="preprocessor">#endif</span>
 <a name="l00550"></a>00550 <span class="preprocessor"></span>
-<a name="l00552"></a>00552 
-<a name="l00553"></a>00553 <span class="preprocessor">#ifdef __cplusplus</span>
-<a name="l00554"></a>00554 <span class="preprocessor"></span>} <span class="comment">// extern &quot;C&quot;</span>
-<a name="l00555"></a>00555 <span class="preprocessor">#endif</span>
-<a name="l00556"></a>00556 <span class="preprocessor"></span>
-<a name="l00557"></a>00557 <span class="preprocessor">#endif </span><span class="comment">/* UA_TYPES_H_ */</span>
+<a name="l00551"></a>00551 <span class="preprocessor">#endif </span><span class="comment">/* UA_TYPES_H_ */</span>
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Tue Oct 28 2014 10:57:08 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 31 2014 10:50:59 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
