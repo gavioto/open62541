@@ -51,14 +51,14 @@
 <a name="l00014"></a>00014 <span class="comment"> * @param The namespace where the target node is looked up for the reverse reference (this is omitted if targetns is UA_NULL)</span>
 <a name="l00015"></a>00015 <span class="comment"> */</span>
 <a name="l00016"></a>00016 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> <a class="code" href="ua__services__internal_8h.html#a412fe3e737b8a078f0e9f1cf1356bc8e" title="This files contains helper functions for the UA-Services that are used internally as well (with a sim...">AddReference</a>(<a class="code" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> *nodestore, <a class="code" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> *node, <a class="code" href="group__ua__types__generated.html#gaee6c60b0d52dc405ee7f5cc9da09e4e9">UA_ReferenceNode</a> *reference);
-<a name="l00017"></a>00017 <a class="code" href="group__ua__types__generated.html#ga6427781ad4ba67709a760db1a7bbfb58">UA_AddNodesResult</a> <a class="code" href="ua__services__internal_8h.html#ad1c8aaeb04fc39113689bf7bef354046">AddNode</a>(<a class="code" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, <a class="code" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> **node,
-<a name="l00018"></a>00018                           <a class="code" href="group__types.html#structUA__ExpandedNodeId" title="A NodeId that allows the namespace URI to be specified instead of an index.">UA_ExpandedNodeId</a> *parentNodeId, <a class="code" href="structUA__NodeId.html" title="An identifier for a node in the address space of an OPC UA Server.">UA_NodeId</a> *referenceTypeId);
+<a name="l00017"></a>00017 <a class="code" href="group__ua__types__generated.html#ga6427781ad4ba67709a760db1a7bbfb58">UA_AddNodesResult</a> <a class="code" href="ua__services__internal_8h.html#af67fa632aaccb64b131f6696984570a1">AddNode</a>(<a class="code" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="code" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, <a class="code" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> **node,
+<a name="l00018"></a>00018                           <span class="keyword">const</span> <a class="code" href="group__types.html#structUA__ExpandedNodeId" title="A NodeId that allows the namespace URI to be specified instead of an index.">UA_ExpandedNodeId</a> *parentNodeId, <span class="keyword">const</span> <a class="code" href="structUA__NodeId.html" title="An identifier for a node in the address space of an OPC UA Server.">UA_NodeId</a> *referenceTypeId);
 </pre></div></div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Fri Oct 31 2014 17:04:04 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 2 2014 09:28:06 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -58,7 +58,7 @@
 <a name="l00046"></a>00046 <a class="code" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6" title="A numeric identifier for a error or condition that is associated with a value or an operation...">UA_StatusCode</a> <a class="code" href="group__nodestore.html#gad4fb156e62f62fe39c6550b586d801c5" title="Retrieve a node (read-only) from the namespace. Nodes are immutable. They can only be replaced...">UA_NodeStore_get</a>(<span class="keyword">const</span> <a class="code" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> *ns, <span class="keyword">const</span> <a class="code" href="structUA__NodeId.html" title="An identifier for a node in the address space of an OPC UA Server.">UA_NodeId</a> *nodeid,
 <a name="l00047"></a>00047                                <span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> **managedNode);
 <a name="l00048"></a>00048 
-<a name="l00051"></a>00051 <span class="keywordtype">void</span> <a class="code" href="group__nodestore.html#ga6caf5402f61304593526f58236b9a0f1" title="Release a managed node. Do never insert a node that isn&#39;t stored in a namespace.">UA_NodeStore_releaseManagedNode</a>(<span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> *managed);
+<a name="l00051"></a>00051 <span class="keywordtype">void</span> <a class="code" href="group__nodestore.html#gaafd9cf3d444706dffe43d38ae76fe2b8" title="Release a managed node. Do never insert a node that isn&#39;t stored in a namespace.">UA_NodeStore_release</a>(<span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> *managed);
 <a name="l00052"></a>00052 
 <a name="l00055"></a><a class="code" href="group__nodestore.html#gaf4a4a284506499e2a78e9a8814a88161">00055</a> <span class="keyword">typedef</span> void (*<a class="code" href="group__nodestore.html#gaf4a4a284506499e2a78e9a8814a88161" title="A function that can be evaluated on all entries in a namespace via UA_NodeStore_iterate. Note that the visitor is read-only on the nodes.">UA_NodeStore_nodeVisitor</a>)(<span class="keyword">const</span> <a class="code" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> *node);
 <a name="l00056"></a>00056 
@@ -71,7 +71,7 @@
 
 
 <address class="footer"><small>
-Generated on Fri Oct 31 2014 17:04:04 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 2 2014 09:28:06 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

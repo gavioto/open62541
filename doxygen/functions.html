@@ -37,6 +37,7 @@
   <div id="navrow3" class="tabs2">
     <ul class="tablist">
       <li class="current"><a href="functions.html"><span>All</span></a></li>
+      <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
       <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
     </ul>
@@ -116,6 +117,9 @@
 : <a class="el" href="ua__session_8h.html#ab4065b426bb772f20007a66e127ca76c">UA_Session</a>
 , <a class="el" href="ua__connection_8h.html#a1eab2eaf337b158af98d8ef6a9fd38cd">UA_Connection</a>
 </li>
+<li>channelLifeTime
+: <a class="el" href="structUA__SecureChannelManager.html#ab6bf0f2b458b3ad8559f02a44661c2e3">UA_SecureChannelManager</a>
+</li>
 <li>children
 : <a class="el" href="ua__xml_8h.html#a039f330cc9c94b4a63aac26a8441f08c">XML_Parent</a>
 </li>
@@ -136,6 +140,9 @@
 </li>
 <li>copy
 : <a class="el" href="structUA__VTable__Entry.html#a2e02f8972f838a6a116b9bc5bf2d6c83">UA_VTable_Entry</a>
+</li>
+<li>currentSessionCount
+: <a class="el" href="structUA__SessionManager.html#a3d43856f22af10b2b1cc526a2061b8c0">UA_SessionManager</a>
 </li>
 </ul>
 
@@ -176,7 +183,7 @@
 : <a class="el" href="ua__xml_8h.html#a7d3584c4f5d2286a21516bf11c5a41cb">XML_Stack</a>
 </li>
 <li>description
-: <a class="el" href="ua__server_8h.html#a7a78e5923e14f791a6201e3df2f0735b">UA_Server</a>
+: <a class="el" href="ua__server__internal_8h.html#a7a78e5923e14f791a6201e3df2f0735b">UA_Server</a>
 </li>
 <li>dynMembers
 : <a class="el" href="structUA__VTable__Entry.html#ad5ff4f22bd1d3304e2cf4c868dfbc3af">UA_VTable_Entry</a>
@@ -205,21 +212,19 @@
 : <a class="el" href="structUA__VTable__Entry.html#a2ad3d74045ead2c90d253b88c33ce650">UA_VTable_Entry</a>
 </li>
 <li>endpointDescriptions
-: <a class="el" href="ua__server_8h.html#a9d985c41b8e684e165d2b65946c95651">UA_Server</a>
+: <a class="el" href="ua__server__internal_8h.html#a9d985c41b8e684e165d2b65946c95651">UA_Server</a>
 </li>
 <li>endpointDescriptionsSize
-: <a class="el" href="ua__server_8h.html#a3a01c63afce4d7cf45161cb238893e4b">UA_Server</a>
+: <a class="el" href="ua__server__internal_8h.html#a3a01c63afce4d7cf45161cb238893e4b">UA_Server</a>
 </li>
 <li>endpointUrl
-: <a class="el" href="group__ua__transport__generated.html#a8fead84c7af9ada3082a12ad10bb168e">UA_TcpHelloMessage</a>
+: <a class="el" href="structUA__SecureChannelManager.html#a2c7ee81963dcb408f9812ff678a9efe2">UA_SecureChannelManager</a>
+, <a class="el" href="group__ua__transport__generated.html#a8fead84c7af9ada3082a12ad10bb168e">UA_TcpHelloMessage</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
-<li>hasComponentReferenceTypeId
-: <a class="el" href="ua__server_8h.html#a106844e38deda64addd96b053906f301">UA_Server</a>
-</li>
 <li>hour
 : <a class="el" href="group__types.html#a1728d47b991d0ba906dd8cc1b2cb35c8">UA_DateTimeStruct</a>
 </li>
@@ -247,12 +252,25 @@
 
 
 <h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>lastChannelId
+: <a class="el" href="structUA__SecureChannelManager.html#ab94c050907aa354689bf72e9ba066b60">UA_SecureChannelManager</a>
+</li>
+<li>lastSessionId
+: <a class="el" href="structUA__SessionManager.html#a05bafa91c93765c58234d4b4110a004e">UA_SessionManager</a>
+</li>
+<li>lastTokenId
+: <a class="el" href="structUA__SecureChannelManager.html#a0d29018fd45608e0b6004c651b3e790e">UA_SecureChannelManager</a>
+</li>
 <li>len
 : <a class="el" href="ua__xml_8h.html#ae3d68a85c38bf347a19d21cb2565d250">XML_Parent</a>
 </li>
 <li>length
 : <a class="el" href="group__types.html#ac7286b58d1542337815a4ff1eb7c843c">UA_XmlElement</a>
 , <a class="el" href="ua__xml_8h.html#a89f913c39906b0a0a1a83efab8d08a1c">XML_child</a>
+</li>
+<li>LIST_HEAD()
+: <a class="el" href="structUA__SessionManager.html#a6150fc0a1a39215d9e827955d03d8555">UA_SessionManager</a>
+, <a class="el" href="structUA__SecureChannelManager.html#a02b352376fc09374acd8ce75469a16cf">UA_SecureChannelManager</a>
 </li>
 <li>localConf
 : <a class="el" href="ua__connection_8h.html#ac8e883347d4175f895464d57a664f701">UA_Connection</a>
@@ -283,25 +301,37 @@
 : <a class="el" href="structUA__Logger.html#ad43ea973a31a5f27f23a4627696096ac">UA_Logger</a>
 </li>
 <li>logger
-: <a class="el" href="ua__server_8h.html#a6b286ef2b7b0406ce864476a0c89ff89">UA_Server</a>
+: <a class="el" href="ua__server__internal_8h.html#a6b286ef2b7b0406ce864476a0c89ff89">UA_Server</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>maxChannelCount
+: <a class="el" href="structUA__SecureChannelManager.html#a32c3c008b23645798d4d6fc40e25edbc">UA_SecureChannelManager</a>
+</li>
+<li>maxChannelLifetime
+: <a class="el" href="structUA__SecureChannelManager.html#a21dc060648d16f58dd5ec87382b04b20">UA_SecureChannelManager</a>
+</li>
 <li>maxChunkCount
-: <a class="el" href="ua__connection_8h.html#a81ee2d188d2f91abf01656de3fe8baa3">UA_ConnectionConfig</a>
-, <a class="el" href="group__ua__transport__generated.html#aa10b5e2370f1dbdd60d964f78e29a67c">UA_TcpHelloMessage</a>
+: <a class="el" href="group__ua__transport__generated.html#aa10b5e2370f1dbdd60d964f78e29a67c">UA_TcpHelloMessage</a>
+, <a class="el" href="ua__connection_8h.html#a81ee2d188d2f91abf01656de3fe8baa3">UA_ConnectionConfig</a>
 </li>
 <li>maxMessageSize
-: <a class="el" href="group__ua__transport__generated.html#a9c30d66357ea7ca47b0b47c9b977292f">UA_TcpHelloMessage</a>
-, <a class="el" href="ua__connection_8h.html#a893ad4c0546d3172f65004a129fffa3d">UA_ConnectionConfig</a>
+: <a class="el" href="ua__connection_8h.html#a893ad4c0546d3172f65004a129fffa3d">UA_ConnectionConfig</a>
+, <a class="el" href="group__ua__transport__generated.html#a9c30d66357ea7ca47b0b47c9b977292f">UA_TcpHelloMessage</a>
 </li>
 <li>maxRequestMessageSize
 : <a class="el" href="ua__session_8h.html#acd3ed55d092611a47a9deb3a72bd09ef">UA_Session</a>
 </li>
 <li>maxResponseMessageSize
 : <a class="el" href="ua__session_8h.html#a24a9a5f890a2b70db0ad526da1b886f8">UA_Session</a>
+</li>
+<li>maxSessionCount
+: <a class="el" href="structUA__SessionManager.html#a82aab20ab87dec1e0b5bd32b9fe06b50">UA_SessionManager</a>
+</li>
+<li>maxSessionLifeTime
+: <a class="el" href="structUA__SessionManager.html#a13e84d13ed89abef9c9e08e389bb4e39">UA_SessionManager</a>
 </li>
 <li>memSize
 : <a class="el" href="structUA__VTable__Entry.html#a002105276703981a13e08efed1d59bf6">UA_VTable_Entry</a>
@@ -346,7 +376,7 @@
 : <a class="el" href="group__types.html#a0149bc6bc248fdd89f84c6cea4c10376">UA_ExpandedNodeId</a>
 </li>
 <li>nodestore
-: <a class="el" href="ua__server_8h.html#abe60fc396297f2d47e888b2642f202dc">UA_Server</a>
+: <a class="el" href="ua__server__internal_8h.html#abe60fc396297f2d47e888b2642f202dc">UA_Server</a>
 </li>
 <li>ns
 : <a class="el" href="ua__namespace__xml_8h.html#a8000f900ecde1dbcbe2c7041f94348ce">UA_NodeSet</a>
@@ -357,9 +387,6 @@
 <h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
 <li>obj
 : <a class="el" href="ua__xml_8h.html#a0926b2489e2c28fb7e62f7d68d38c41b">XML_child</a>
-</li>
-<li>objectsNodeId
-: <a class="el" href="ua__server_8h.html#a1d942704db7194c064f7ab23d86c65c3">UA_Server</a>
 </li>
 </ul>
 
@@ -402,10 +429,11 @@
 : <a class="el" href="group__types.html#acf0662f6c3ffcdd60f4b631e66c30d36">UA_DateTimeStruct</a>
 </li>
 <li>secureChannelManager
-: <a class="el" href="ua__server_8h.html#a2e929cee49c8bb8ccb28a0e25b6554d4">UA_Server</a>
+: <a class="el" href="ua__server__internal_8h.html#a0c2b3459cecb0697d224c2af3a0c6d13">UA_Server</a>
 </li>
 <li>securityMode
 : <a class="el" href="ua__securechannel_8h.html#a960dde57f58af9ad99e242c435b8d743">UA_SecureChannel</a>
+, <a class="el" href="structUA__SecureChannelManager.html#a270dfe635db832c3ba178d1a65b46c19">UA_SecureChannelManager</a>
 </li>
 <li>securityToken
 : <a class="el" href="ua__securechannel_8h.html#a7859c965e041c9f0cb09aede55cf7e8e">UA_SecureChannel</a>
@@ -421,7 +449,7 @@
 : <a class="el" href="ua__securechannel_8h.html#ab012d81ad7ba8363d572879488a85da9">UA_SecureChannel</a>
 </li>
 <li>serverCertificate
-: <a class="el" href="ua__server_8h.html#a4045dfb45fa3fabe2e82b95940417139">UA_Server</a>
+: <a class="el" href="ua__server__internal_8h.html#a4045dfb45fa3fabe2e82b95940417139">UA_Server</a>
 </li>
 <li>serverIndex
 : <a class="el" href="group__types.html#a68bb24b785fdf3ca6843ce2c149434fd">UA_ExpandedNodeId</a>
@@ -442,14 +470,17 @@
 : <a class="el" href="ua__session_8h.html#a04b611f1c5c2e991378c5c21d36a144e">UA_Session</a>
 </li>
 <li>sessionManager
-: <a class="el" href="ua__server_8h.html#a5fc4e3742ef11e4a35a421bca95a6693">UA_Server</a>
+: <a class="el" href="ua__server__internal_8h.html#acf5f53eb34eec848abdea5b09a97a9ea">UA_Server</a>
 </li>
 <li>sessionName
 : <a class="el" href="ua__session_8h.html#a83ee3b647386ad4a300601bc8f85f8d7">UA_Session</a>
 </li>
+<li>sessionTimeout
+: <a class="el" href="structUA__SessionManager.html#a6674eda72a768bd6ddc452a79f54c52f">UA_SessionManager</a>
+</li>
 <li>size
-: <a class="el" href="ua__xml_8h.html#aa6f84770c2813237e18caa4acf42d83a">UA_TypedArray</a>
-, <a class="el" href="ua__xml_8h.html#a9e062a36dee1581f553630ca15e4af34">UA_NodeSetAliases</a>
+: <a class="el" href="ua__xml_8h.html#a9e062a36dee1581f553630ca15e4af34">UA_NodeSetAliases</a>
+, <a class="el" href="ua__xml_8h.html#aa6f84770c2813237e18caa4acf42d83a">UA_TypedArray</a>
 </li>
 <li>sourcePicoseconds
 : <a class="el" href="group__types.html#aa29088971f8f8c5675b7c63b2ab4a8ff">UA_DataValue</a>
@@ -571,7 +602,7 @@
 
 
 <address class="footer"><small>
-Generated on Fri Oct 31 2014 17:04:04 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 2 2014 09:28:06 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

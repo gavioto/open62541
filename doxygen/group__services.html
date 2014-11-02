@@ -41,49 +41,49 @@
 Discovery Service Set</h2></td></tr>
 <tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp0df2b86b3c37d4a899af4fb411f24ad0"></a> This Service Set defines Services used to discover the Endpoints implemented by a Server and to read the security configuration for those Endpoints. </p>
 </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#ga810b8cc0243476e5267e34c40e149140">Service_GetEndpoints</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, const <a class="el" href="group__ua__types__generated.html#ga2e76caa4690f30085d789f3f20644c12">UA_GetEndpointsRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gadf2b44ec62c1ed73950804cc23b0757d">UA_GetEndpointsResponse</a> *response)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#ga810b8cc0243476e5267e34c40e149140">Service_GetEndpoints</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, const <a class="el" href="group__ua__types__generated.html#ga2e76caa4690f30085d789f3f20644c12">UA_GetEndpointsRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gadf2b44ec62c1ed73950804cc23b0757d">UA_GetEndpointsResponse</a> *response)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service returns the Endpoints supported by a Server and all of the configuration information required to establish a SecureChannel and a Session.  <a href="#ga810b8cc0243476e5267e34c40e149140"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="member-group"></a>
 SecureChannel Service Set</h2></td></tr>
 <tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp662377704452e2a6b2934a1c8cf8e769"></a> This Service Set defines Services used to open a communication channel that ensures the confidentiality and Integrity of all Messages exchanged with the Server. </p>
 </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gae09db04d5a376fde439436847b9944a5">Service_OpenSecureChannel</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, const <a class="el" href="group__ua__types__generated.html#ga33288612f5244dbb8fae8161a86e69c8">UA_OpenSecureChannelRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gab1acc894d821411ceb331c7230d23932">UA_OpenSecureChannelResponse</a> *response)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gae09db04d5a376fde439436847b9944a5">Service_OpenSecureChannel</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, const <a class="el" href="group__ua__types__generated.html#ga33288612f5244dbb8fae8161a86e69c8">UA_OpenSecureChannelRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gab1acc894d821411ceb331c7230d23932">UA_OpenSecureChannelResponse</a> *response)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to open or renew a SecureChannel that can be used to ensure Confidentiality and Integrity for Message exchange during a Session.  <a href="#gae09db04d5a376fde439436847b9944a5"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gada4a32f803c004389b94fbaf4566b120">Service_CloseSecureChannel</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> channelId)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gada4a32f803c004389b94fbaf4566b120">Service_CloseSecureChannel</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> channelId)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to terminate a SecureChannel.  <a href="#gada4a32f803c004389b94fbaf4566b120"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="member-group"></a>
 Session Service Set</h2></td></tr>
 <tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp8cd14e13c4c0804c4c00b3837b0c49ed"></a> This Service Set defines Services for an application layer connection establishment in the context of a Session. </p>
 </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gaf58a784fc3879a160d257139af18caa9">Service_CreateSession</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *channel, const <a class="el" href="group__ua__types__generated.html#gaa5ad7b57faa9f03d8f41b22f07b8e041">UA_CreateSessionRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga447edb2a63b596a7ce23b37510a7c4be">UA_CreateSessionResponse</a> *response)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gaf58a784fc3879a160d257139af18caa9">Service_CreateSession</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *channel, const <a class="el" href="group__ua__types__generated.html#gaa5ad7b57faa9f03d8f41b22f07b8e041">UA_CreateSessionRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga447edb2a63b596a7ce23b37510a7c4be">UA_CreateSessionResponse</a> *response)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used by an OPC UA Client to create a Session and the Server returns two values which uniquely identify the Session. The first value is the sessionId which is used to identify the Session in the audit logs and in the Server’s address space. The second is the authenticationToken which is used to associate an incoming request with a Session.  <a href="#gaf58a784fc3879a160d257139af18caa9"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gaf965e1b90c35c901efdae40bcdc235e9">Service_ActivateSession</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *channel, const <a class="el" href="group__ua__types__generated.html#gae0093bfeeb5522e019fe9ec13acdfc2e">UA_ActivateSessionRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga46dc7760ff7ea7ab5d4512d1580cfb21">UA_ActivateSessionResponse</a> *response)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gaf965e1b90c35c901efdae40bcdc235e9">Service_ActivateSession</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__securechannel_8h.html#structUA__SecureChannel">UA_SecureChannel</a> *channel, const <a class="el" href="group__ua__types__generated.html#gae0093bfeeb5522e019fe9ec13acdfc2e">UA_ActivateSessionRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga46dc7760ff7ea7ab5d4512d1580cfb21">UA_ActivateSessionResponse</a> *response)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used by the Client to submit its SoftwareCertificates to the Server for validation and to specify the identity of the user associated with the Session. This Service request shall be issued by the Client before it issues any other Service request after CreateSession. Failure to do so shall cause the Server to close the Session.  <a href="#gaf965e1b90c35c901efdae40bcdc235e9"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gac411e6086794f9f950e22b6383dad81e">Service_CloseSession</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, const <a class="el" href="group__ua__types__generated.html#gad96ccc4040205ef060fd6275907ebc38">UA_CloseSessionRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gafa7099cafb423982cff7443f7a6b45ee">UA_CloseSessionResponse</a> *response)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gac411e6086794f9f950e22b6383dad81e">Service_CloseSession</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, const <a class="el" href="group__ua__types__generated.html#gad96ccc4040205ef060fd6275907ebc38">UA_CloseSessionRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gafa7099cafb423982cff7443f7a6b45ee">UA_CloseSessionResponse</a> *response)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to terminate a Session.  <a href="#gac411e6086794f9f950e22b6383dad81e"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="member-group"></a>
 NodeManagement Service Set</h2></td></tr>
 <tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp2dba78809e49c3d23e6dda8a47fd1cc6"></a> This Service Set defines Services to add and delete AddressSpace Nodes and References between them. All added Nodes continue to exist in the AddressSpace even if the Client that created them disconnects from the Server. </p>
 </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gac2803a739b87365afe4a7fee26cf6916">Service_AddNodes</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#ga97beebc7213a065f726f2436ee2c63aa">UA_AddNodesRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga72059290a5468a9cd53fb9c42945978b">UA_AddNodesResponse</a> *response)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gac2803a739b87365afe4a7fee26cf6916">Service_AddNodes</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#ga97beebc7213a065f726f2436ee2c63aa">UA_AddNodesRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga72059290a5468a9cd53fb9c42945978b">UA_AddNodesResponse</a> *response)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to add one or more Nodes into the AddressSpace hierarchy.  <a href="#gac2803a739b87365afe4a7fee26cf6916"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#ga93217b9e4a5d40b1688836029a0cf4a9">Service_AddReferences</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#ga9069e153d4368a9c1dfd7c92fb6d91af">UA_AddReferencesRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga469a8fd1d3a72f18806d6af02f6cb401">UA_AddReferencesResponse</a> *response)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#ga93217b9e4a5d40b1688836029a0cf4a9">Service_AddReferences</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#ga9069e153d4368a9c1dfd7c92fb6d91af">UA_AddReferencesRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga469a8fd1d3a72f18806d6af02f6cb401">UA_AddReferencesResponse</a> *response)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to add one or more References to one or more Nodes.  <a href="#ga93217b9e4a5d40b1688836029a0cf4a9"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="member-group"></a>
 View Service Set</h2></td></tr>
 <tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpe45e358f8810d224b64c0be206865436"></a> Clients use the browse Services of the View Service Set to navigate through the AddressSpace or through a View which is a subset of the AddressSpace. </p>
 </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#ga50877906caf2f8d31993038c7e131265">Service_Browse</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#ga3c937a1ee33042734760c555bb2e63a7">UA_BrowseRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga278081bb73069a06512373d9f6033896">UA_BrowseResponse</a> *response)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#ga50877906caf2f8d31993038c7e131265">Service_Browse</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#ga3c937a1ee33042734760c555bb2e63a7">UA_BrowseRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga278081bb73069a06512373d9f6033896">UA_BrowseResponse</a> *response)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to discover the References of a specified Node. The browse can be further limited by the use of a View. This Browse Service also supports a primitive filtering capability.  <a href="#ga50877906caf2f8d31993038c7e131265"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gab012f718870f7740eb511c28ede6a017">Service_TranslateBrowsePathsToNodeIds</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#gaea33f99feb289de9fe48a747bd8b9707">UA_TranslateBrowsePathsToNodeIdsRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gaf1e1bba122c71a857b4534c324a4af7c">UA_TranslateBrowsePathsToNodeIdsResponse</a> *response)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gab012f718870f7740eb511c28ede6a017">Service_TranslateBrowsePathsToNodeIds</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#gaea33f99feb289de9fe48a747bd8b9707">UA_TranslateBrowsePathsToNodeIdsRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gaf1e1bba122c71a857b4534c324a4af7c">UA_TranslateBrowsePathsToNodeIdsResponse</a> *response)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to translate textual node paths to their respective ids.  <a href="#gab012f718870f7740eb511c28ede6a017"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="member-group"></a>
 Attribute Service Set</h2></td></tr>
 <tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrp379e6b26fb78fd46841f3a7e80d8cc41"></a> This Service Set provides Services to access Attributes that are part of Nodes. </p>
 </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gafca6b56ad57d5bbf7be71face8426496">Service_Read</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#ga4ab9188850fcfcb76519cc91e8158f7e">UA_ReadRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga77bb9645b68210059ebcb1f31f0bd324">UA_ReadResponse</a> *response)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#gafca6b56ad57d5bbf7be71face8426496">Service_Read</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#ga4ab9188850fcfcb76519cc91e8158f7e">UA_ReadRequest</a> *request, <a class="el" href="group__ua__types__generated.html#ga77bb9645b68210059ebcb1f31f0bd324">UA_ReadResponse</a> *response)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to read one or more Attributes of one or more Nodes. For constructed Attribute values whose elements are indexed, such as an array, this Service allows Clients to read the entire set of indexed values as a composite, to read individual elements or to read ranges of elements of the composite.  <a href="#gafca6b56ad57d5bbf7be71face8426496"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#ga5be44d3595fccfcea6d64785d25c2868">Service_Write</a> (<a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#ga28a7724351ef213fe3ec70082e69d726">UA_WriteRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gaaae7ed1d6ca973e02cf18d1a52087c3d">UA_WriteResponse</a> *response)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#ga5be44d3595fccfcea6d64785d25c2868">Service_Write</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#ga28a7724351ef213fe3ec70082e69d726">UA_WriteRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gaaae7ed1d6ca973e02cf18d1a52087c3d">UA_WriteResponse</a> *response)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to write one or more Attributes of one or more Nodes. For constructed Attribute values whose elements are indexed, such as an array, this Service allows Clients to write the entire set of indexed values as a composite, to write individual elements or to write ranges of elements of the composite.  <a href="#ga5be44d3595fccfcea6d64785d25c2868"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
@@ -96,7 +96,7 @@ Attribute Service Set</h2></td></tr>
         <tr>
           <td class="memname">void <a class="el" href="group__services.html#gaf965e1b90c35c901efdae40bcdc235e9">Service_ActivateSession</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
         </tr>
         <tr>
@@ -137,7 +137,7 @@ Attribute Service Set</h2></td></tr>
         <tr>
           <td class="memname">void <a class="el" href="group__services.html#gac2803a739b87365afe4a7fee26cf6916">Service_AddNodes</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
         </tr>
         <tr>
@@ -178,7 +178,7 @@ Attribute Service Set</h2></td></tr>
         <tr>
           <td class="memname">void <a class="el" href="group__services.html#ga93217b9e4a5d40b1688836029a0cf4a9">Service_AddReferences</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
         </tr>
         <tr>
@@ -219,7 +219,7 @@ Attribute Service Set</h2></td></tr>
         <tr>
           <td class="memname">void <a class="el" href="group__services.html#ga50877906caf2f8d31993038c7e131265">Service_Browse</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
         </tr>
         <tr>
@@ -260,7 +260,7 @@ Attribute Service Set</h2></td></tr>
         <tr>
           <td class="memname">void <a class="el" href="group__services.html#gada4a32f803c004389b94fbaf4566b120">Service_CloseSecureChannel</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
         </tr>
         <tr>
@@ -289,7 +289,7 @@ Attribute Service Set</h2></td></tr>
         <tr>
           <td class="memname">void <a class="el" href="group__services.html#gac411e6086794f9f950e22b6383dad81e">Service_CloseSession</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
         </tr>
         <tr>
@@ -324,7 +324,7 @@ Attribute Service Set</h2></td></tr>
         <tr>
           <td class="memname">void <a class="el" href="group__services.html#gaf58a784fc3879a160d257139af18caa9">Service_CreateSession</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
         </tr>
         <tr>
@@ -365,7 +365,7 @@ Attribute Service Set</h2></td></tr>
         <tr>
           <td class="memname">void <a class="el" href="group__services.html#ga810b8cc0243476e5267e34c40e149140">Service_GetEndpoints</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
         </tr>
         <tr>
@@ -400,7 +400,7 @@ Attribute Service Set</h2></td></tr>
         <tr>
           <td class="memname">void <a class="el" href="group__services.html#gae09db04d5a376fde439436847b9944a5">Service_OpenSecureChannel</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
         </tr>
         <tr>
@@ -441,7 +441,7 @@ Attribute Service Set</h2></td></tr>
         <tr>
           <td class="memname">void <a class="el" href="group__services.html#gafca6b56ad57d5bbf7be71face8426496">Service_Read</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
         </tr>
         <tr>
@@ -482,7 +482,7 @@ Attribute Service Set</h2></td></tr>
         <tr>
           <td class="memname">void <a class="el" href="group__services.html#gab012f718870f7740eb511c28ede6a017">Service_TranslateBrowsePathsToNodeIds</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
         </tr>
         <tr>
@@ -523,7 +523,7 @@ Attribute Service Set</h2></td></tr>
         <tr>
           <td class="memname">void <a class="el" href="group__services.html#ga5be44d3595fccfcea6d64785d25c2868">Service_Write</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
         </tr>
         <tr>
@@ -562,7 +562,7 @@ Attribute Service Set</h2></td></tr>
 
 
 <address class="footer"><small>
-Generated on Fri Oct 31 2014 17:04:04 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 2 2014 09:28:06 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

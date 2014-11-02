@@ -61,8 +61,8 @@ Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a node from the namespace. Always succeeds, even if the node was not found.  <a href="#ga6f17e438ced10fd4c1f035a930acd23a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#gad4fb156e62f62fe39c6550b586d801c5">UA_NodeStore_get</a> (const <a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> *ns, const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *nodeid, const <a class="el" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> **managedNode)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a node (read-only) from the namespace. Nodes are immutable. They can only be replaced. After the Node is no longer used, the locked entry needs to be released.  <a href="#gad4fb156e62f62fe39c6550b586d801c5"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#ga6caf5402f61304593526f58236b9a0f1">UA_NodeStore_releaseManagedNode</a> (const <a class="el" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> *managed)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Release a managed node. Do never insert a node that isn't stored in a namespace.  <a href="#ga6caf5402f61304593526f58236b9a0f1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#gaafd9cf3d444706dffe43d38ae76fe2b8">UA_NodeStore_release</a> (const <a class="el" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> *managed)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Release a managed node. Do never insert a node that isn't stored in a namespace.  <a href="#gaafd9cf3d444706dffe43d38ae76fe2b8"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#ga3bf247b62795b6a53bb551124a41e4f1">UA_NodeStore_iterate</a> (const <a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> *ns, <a class="el" href="group__nodestore.html#gaf4a4a284506499e2a78e9a8814a88161">UA_NodeStore_nodeVisitor</a> visitor)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterate over all nodes in a namespace.  <a href="#ga3bf247b62795b6a53bb551124a41e4f1"></a><br/></td></tr>
 </table>
@@ -251,12 +251,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga6caf5402f61304593526f58236b9a0f1"></a><!-- doxytag: member="ua_nodestore.h::UA_NodeStore_releaseManagedNode" ref="ga6caf5402f61304593526f58236b9a0f1" args="(const UA_Node *managed)" -->
+<a class="anchor" id="gaafd9cf3d444706dffe43d38ae76fe2b8"></a><!-- doxytag: member="ua_nodestore.h::UA_NodeStore_release" ref="gaafd9cf3d444706dffe43d38ae76fe2b8" args="(const UA_Node *managed)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="group__nodestore.html#ga6caf5402f61304593526f58236b9a0f1">UA_NodeStore_releaseManagedNode</a> </td>
+          <td class="memname">void <a class="el" href="group__nodestore.html#gaafd9cf3d444706dffe43d38ae76fe2b8">UA_NodeStore_release</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> *&#160;</td>
           <td class="paramname"><em>managed</em></td><td>)</td>
@@ -304,7 +304,7 @@ Functions</h2></td></tr>
 
 
 <address class="footer"><small>
-Generated on Fri Oct 31 2014 17:04:04 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 2 2014 09:28:06 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
