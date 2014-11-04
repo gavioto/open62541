@@ -1,9 +1,10 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$ua__server_8h.html" title="/home/travis/build/acplt/open62541/include/ua_server.h" alt="" coords="756,83,1097,112"/>
-<area shape="rect" id="node5" href="$ua__nodestore_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_nodestore.h" alt="" coords="25,160,404,189"/>
-<area shape="rect" id="node9" href="$ua__securechannel__manager_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_securechannel_manager.h" alt="" coords="428,160,889,189"/>
-<area shape="rect" id="node11" href="$ua__server__internal_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_server_internal.h" alt="" coords="724,237,1129,267"/>
-<area shape="rect" id="node14" href="$ua__session__manager_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_session_manager.h" alt="" coords="964,160,1388,189"/>
-<area shape="rect" id="node17" href="$ua__services_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_services.h" alt="" coords="1412,160,1783,189"/>
-<area shape="rect" id="node7" href="$ua__services__internal_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_services_internal.h" alt="" coords="5,237,424,267"/>
+<area shape="rect" id="node3" href="$ua__server_8h.html" title="/home/travis/build/acplt/open62541/include/ua_server.h" alt="" coords="869,83,1211,112"/>
+<area shape="rect" id="node5" href="$open62541__nodestore_8h.html" title="/home/travis/build/acplt/open62541/src/server/nodestore/open62541_nodestore.h" alt="" coords="5,160,493,189"/>
+<area shape="rect" id="node7" href="$ua__namespace__manager_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_namespace_manager.h" alt="" coords="557,237,1003,267"/>
+<area shape="rect" id="node9" href="$ua__server__internal_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_server_internal.h" alt="" coords="971,315,1376,344"/>
+<area shape="rect" id="node11" href="$ua__nodestore__interface_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_nodestore_interface.h" alt="" coords="568,160,1003,189"/>
+<area shape="rect" id="node14" href="$ua__securechannel__manager_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_securechannel_manager.h" alt="" coords="1077,237,1539,267"/>
+<area shape="rect" id="node18" href="$ua__session__manager_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_session_manager.h" alt="" coords="1563,237,1987,267"/>
+<area shape="rect" id="node21" href="$ua__services_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_services.h" alt="" coords="1179,160,1549,189"/>
 </map>
