@@ -71,7 +71,7 @@
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#structUA__Namespace">UA_Namespace</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#structUA__NodeStore">UA_NodeStore</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#structUA__NodeStore">UA_NodeStoreInterface</a></td></tr>
 <tr><td colspan="2"><h2><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a></td></tr>
@@ -85,13 +85,13 @@ Typedefs</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a6e65ed6f22c3860e79609366d55167d6">UA_NodeStore_browseNodes</a> )(const <a class="el" href="group__ua__types__generated.html#ga575b31a14e1100fd7ab7b2d5fe1e278a">UA_RequestHeader</a> *requestHeader, <a class="el" href="group__ua__types__generated.html#ga9eb33134a4a1c1b8d5b35146f57ff478">UA_BrowseDescription</a> *browseDescriptions, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> *indices, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> indicesSize, <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">UA_UInt32</a> requestedMaxReferencesPerNode, <a class="el" href="group__ua__types__generated.html#ga7f4d6fc097dc1226e6ec9a25331541b2">UA_BrowseResult</a> *browseResults, <a class="el" href="group__types.html#structUA__DiagnosticInfo">UA_DiagnosticInfo</a> *diagnosticInfos)</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a15f0bdacffc3428cfc1bb96451788653">UA_Server_new</a> (<a class="el" href="group__types.html#structUA__String">UA_String</a> *endpointUrl, UA_ByteString *serverCertificate, <a class="el" href="ua__server_8h.html#structUA__NodeStore">UA_NodeStore</a> *ns0Nodestore)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#aa195f315d4b36534be6a807dc38238d4">UA_Server_new</a> (<a class="el" href="group__types.html#structUA__String">UA_String</a> *endpointUrl, UA_ByteString *serverCertificate, UA_NodeStoreInterface *ns0Nodestore, <a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a> useOpen62541NodeStore)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a90155532bd0cb98fc0d297208ee7a4e5">UA_Server_delete</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a303c0101d3c2afe48e7c0dca570e8fec">UA_Server_processBinaryMessage</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__connection_8h.html#structUA__Connection">UA_Connection</a> *connection, const UA_ByteString *msg)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a46ee8afc9a5d6294cc8e2123ed87dbb0">UA_Server_addScalarVariableNode</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="group__types.html#structUA__QualifiedName">UA_QualifiedName</a> *browseName, void *value, const <a class="el" href="structUA__VTable__Entry.html">UA_VTable_Entry</a> *vt, <a class="el" href="group__types.html#structUA__ExpandedNodeId">UA_ExpandedNodeId</a> *parentNodeId, <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *referenceTypeId)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#ac7a61e4a084be534c3767de7ae09fcaf">UA_Server_addNamespace</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05">UA_UInt16</a> namespaceIndex, <a class="el" href="ua__server_8h.html#structUA__NodeStore">UA_NodeStore</a> *nodeStore)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a81e6f82697c5b7b289e39aec734da3ff">UA_Server_addNamespace</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05">UA_UInt16</a> namespaceIndex, UA_NodeStoreInterface *nodeStore)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a625669b7fe33f1b946e54c94b5646546">UA_Server_removeNamespace</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05">UA_UInt16</a> namespaceIndex)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#acb8436ed6349a08836562368aad9414f">UA_Server_setNodeStore</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05">UA_UInt16</a> namespaceIndex, <a class="el" href="ua__server_8h.html#structUA__NodeStore">UA_NodeStore</a> *nodeStore)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__server_8h.html#a7580d873774a4619c2c04db65f45021a">UA_Server_setNodeStore</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05">UA_UInt16</a> namespaceIndex, UA_NodeStoreInterface *nodeStore)</td></tr>
 </table>
 <hr/><h2>Data Structure Documentation</h2>
 <a name="structUA__Namespace" id="structUA__Namespace"></a>
@@ -113,7 +113,7 @@ index</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="aa5678587941ba9e16a67eed5cb915058"></a><!-- doxytag: member="nodeStore" ref="aa5678587941ba9e16a67eed5cb915058" args="" --><a class="el" href="ua__server_8h.html#structUA__NodeStore">UA_NodeStore</a> *</td>
+<a class="anchor" id="ade2100da715eb37e9d38c861e6aafdd3"></a><!-- doxytag: member="nodeStore" ref="ade2100da715eb37e9d38c861e6aafdd3" args="" -->UA_NodeStoreInterface *</td>
 <td class="fieldname">
 nodeStore</td>
 <td class="fielddoc">
@@ -141,43 +141,43 @@ url</td>
 <div class="textblock"></div><table class="fieldtable">
 <tr><th colspan="3">Data Fields</th></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="ac0f2aaf62f23da3a5275d2e3628e2021"></a><!-- doxytag: member="addNodes" ref="ac0f2aaf62f23da3a5275d2e3628e2021" args="" --><a class="el" href="ua__server_8h.html#a49825b523a2839a6dd281dd6a478794f">UA_NodeStore_addNodes</a></td>
+<a class="anchor" id="a948163e886f1122c42ec6b4541246bea"></a><!-- doxytag: member="addNodes" ref="a948163e886f1122c42ec6b4541246bea" args="" --><a class="el" href="ua__server_8h.html#a49825b523a2839a6dd281dd6a478794f">UA_NodeStore_addNodes</a></td>
 <td class="fieldname">
 addNodes</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="aa9c7432e655a95cc88bd6e96e9ea9f1e"></a><!-- doxytag: member="addReferences" ref="aa9c7432e655a95cc88bd6e96e9ea9f1e" args="" --><a class="el" href="ua__server_8h.html#a9fd591064feb7f03943c7a0a018e8da0">UA_NodeStore_addReferences</a></td>
+<a class="anchor" id="a9c8c45e8b318349e354bce2bab51f76b"></a><!-- doxytag: member="addReferences" ref="a9c8c45e8b318349e354bce2bab51f76b" args="" --><a class="el" href="ua__server_8h.html#a9fd591064feb7f03943c7a0a018e8da0">UA_NodeStore_addReferences</a></td>
 <td class="fieldname">
 addReferences</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="af88647f45f3342fc8bce3e77ce04c5b4"></a><!-- doxytag: member="browseNodes" ref="af88647f45f3342fc8bce3e77ce04c5b4" args="" --><a class="el" href="ua__server_8h.html#a6e65ed6f22c3860e79609366d55167d6">UA_NodeStore_browseNodes</a></td>
+<a class="anchor" id="a196002abab10eeddcc32c478cc5f3b1b"></a><!-- doxytag: member="browseNodes" ref="a196002abab10eeddcc32c478cc5f3b1b" args="" --><a class="el" href="ua__server_8h.html#a6e65ed6f22c3860e79609366d55167d6">UA_NodeStore_browseNodes</a></td>
 <td class="fieldname">
 browseNodes</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="ae507a2d6730586a40eab7a5c76a30dc7"></a><!-- doxytag: member="deleteNodes" ref="ae507a2d6730586a40eab7a5c76a30dc7" args="" --><a class="el" href="ua__server_8h.html#a96f7fb3aef90346ddf66ca4da48ae177">UA_NodeStore_deleteNodes</a></td>
+<a class="anchor" id="a1cfa1edc42deab6ef42d517a9212e81e"></a><!-- doxytag: member="deleteNodes" ref="a1cfa1edc42deab6ef42d517a9212e81e" args="" --><a class="el" href="ua__server_8h.html#a96f7fb3aef90346ddf66ca4da48ae177">UA_NodeStore_deleteNodes</a></td>
 <td class="fieldname">
 deleteNodes</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="a650dae623c176bc83a7d974d5b2ecfca"></a><!-- doxytag: member="deleteReferences" ref="a650dae623c176bc83a7d974d5b2ecfca" args="" --><a class="el" href="ua__server_8h.html#a1bd4399985f31ed9ac5b544c98c23e99">UA_NodeStore_deleteReferences</a></td>
+<a class="anchor" id="a101d9627a4335e5546744a4383d94193"></a><!-- doxytag: member="deleteReferences" ref="a101d9627a4335e5546744a4383d94193" args="" --><a class="el" href="ua__server_8h.html#a1bd4399985f31ed9ac5b544c98c23e99">UA_NodeStore_deleteReferences</a></td>
 <td class="fieldname">
 deleteReferences</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="aad097623fcd5490f0a5cc350cf2cb9e9"></a><!-- doxytag: member="readNodes" ref="aad097623fcd5490f0a5cc350cf2cb9e9" args="" --><a class="el" href="ua__server_8h.html#a6176a3aadf9f6c1b569bc4f969e46e5c">UA_NodeStore_readNodes</a></td>
+<a class="anchor" id="a175505f048db3ab66b85e77d92860b5f"></a><!-- doxytag: member="readNodes" ref="a175505f048db3ab66b85e77d92860b5f" args="" --><a class="el" href="ua__server_8h.html#a6176a3aadf9f6c1b569bc4f969e46e5c">UA_NodeStore_readNodes</a></td>
 <td class="fieldname">
 readNodes</td>
 <td class="fielddoc">
 </td></tr>
 <tr><td class="fieldtype">
-<a class="anchor" id="add80de002c410f20babe4d17feaa4285"></a><!-- doxytag: member="writeNodes" ref="add80de002c410f20babe4d17feaa4285" args="" --><a class="el" href="ua__server_8h.html#aea383f7497fc907495e1611530e2d7b6">UA_NodeStore_writeNodes</a></td>
+<a class="anchor" id="a6948d3e5df939b1f03331cc56393ca32"></a><!-- doxytag: member="writeNodes" ref="a6948d3e5df939b1f03331cc56393ca32" args="" --><a class="el" href="ua__server_8h.html#aea383f7497fc907495e1611530e2d7b6">UA_NodeStore_writeNodes</a></td>
 <td class="fieldname">
 writeNodes</td>
 <td class="fielddoc">
@@ -305,12 +305,12 @@ writeNodes</td>
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
-<a class="anchor" id="ac7a61e4a084be534c3767de7ae09fcaf"></a><!-- doxytag: member="ua_server.h::UA_Server_addNamespace" ref="ac7a61e4a084be534c3767de7ae09fcaf" args="(UA_Server *server, UA_UInt16 namespaceIndex, UA_NodeStore *nodeStore)" -->
+<a class="anchor" id="a81e6f82697c5b7b289e39aec734da3ff"></a><!-- doxytag: member="ua_server.h::UA_Server_addNamespace" ref="a81e6f82697c5b7b289e39aec734da3ff" args="(UA_Server *server, UA_UInt16 namespaceIndex, UA_NodeStoreInterface *nodeStore)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__server_8h.html#ac7a61e4a084be534c3767de7ae09fcaf">UA_Server_addNamespace</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__server_8h.html#a81e6f82697c5b7b289e39aec734da3ff">UA_Server_addNamespace</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
@@ -324,7 +324,7 @@ writeNodes</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__NodeStore">UA_NodeStore</a> *&#160;</td>
+          <td class="paramtype">UA_NodeStoreInterface *&#160;</td>
           <td class="paramname"><em>nodeStore</em>&#160;</td>
         </tr>
         <tr>
@@ -406,12 +406,12 @@ writeNodes</td>
 
 </div>
 </div>
-<a class="anchor" id="a15f0bdacffc3428cfc1bb96451788653"></a><!-- doxytag: member="ua_server.h::UA_Server_new" ref="a15f0bdacffc3428cfc1bb96451788653" args="(UA_String *endpointUrl, UA_ByteString *serverCertificate, UA_NodeStore *ns0Nodestore)" -->
+<a class="anchor" id="aa195f315d4b36534be6a807dc38238d4"></a><!-- doxytag: member="ua_server.h::UA_Server_new" ref="aa195f315d4b36534be6a807dc38238d4" args="(UA_String *endpointUrl, UA_ByteString *serverCertificate, UA_NodeStoreInterface *ns0Nodestore, UA_Boolean useOpen62541NodeStore)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>* <a class="el" href="ua__server_8h.html#a15f0bdacffc3428cfc1bb96451788653">UA_Server_new</a> </td>
+          <td class="memname"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>* <a class="el" href="ua__server_8h.html#aa195f315d4b36534be6a807dc38238d4">UA_Server_new</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group__types.html#structUA__String">UA_String</a> *&#160;</td>
           <td class="paramname"><em>endpointUrl</em>, </td>
@@ -425,8 +425,14 @@ writeNodes</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__NodeStore">UA_NodeStore</a> *&#160;</td>
-          <td class="paramname"><em>ns0Nodestore</em>&#160;</td>
+          <td class="paramtype">UA_NodeStoreInterface *&#160;</td>
+          <td class="paramname"><em>ns0Nodestore</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__types.html#ga0632a6a27680358c83dcb69725e15139">UA_Boolean</a>&#160;</td>
+          <td class="paramname"><em>useOpen62541NodeStore</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -499,12 +505,12 @@ writeNodes</td>
 
 </div>
 </div>
-<a class="anchor" id="acb8436ed6349a08836562368aad9414f"></a><!-- doxytag: member="ua_server.h::UA_Server_setNodeStore" ref="acb8436ed6349a08836562368aad9414f" args="(UA_Server *server, UA_UInt16 namespaceIndex, UA_NodeStore *nodeStore)" -->
+<a class="anchor" id="a7580d873774a4619c2c04db65f45021a"></a><!-- doxytag: member="ua_server.h::UA_Server_setNodeStore" ref="a7580d873774a4619c2c04db65f45021a" args="(UA_Server *server, UA_UInt16 namespaceIndex, UA_NodeStoreInterface *nodeStore)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__server_8h.html#acb8436ed6349a08836562368aad9414f">UA_Server_setNodeStore</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e">UA_Int32</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="ua__server_8h.html#a7580d873774a4619c2c04db65f45021a">UA_Server_setNodeStore</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *&#160;</td>
           <td class="paramname"><em>server</em>, </td>
@@ -518,7 +524,7 @@ writeNodes</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#structUA__NodeStore">UA_NodeStore</a> *&#160;</td>
+          <td class="paramtype">UA_NodeStoreInterface *&#160;</td>
           <td class="paramname"><em>nodeStore</em>&#160;</td>
         </tr>
         <tr>
@@ -537,7 +543,7 @@ writeNodes</td>
 
 
 <address class="footer"><small>
-Generated on Wed Nov 5 2014 17:57:33 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 6 2014 10:35:57 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

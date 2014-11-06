@@ -1412,11 +1412,11 @@
 <li>UA_DISCRETEALARMTYPE_SHELVINGSTATE
 : <a class="el" href="ua__namespace__0_8h.html#a086965aa53c011a24b1571d476961788">ua_namespace_0.h</a>
 </li>
-<li>UA_DOUBLE
-: <a class="el" href="ua__namespace__0_8h.html#a5c1eae949fcce45387429ffbf77fe213">ua_namespace_0.h</a>
-</li>
 <li>UA_Double
 : <a class="el" href="group__types.html#gaac69e6c4659bdcafdb30498200a0ab07">ua_types.h</a>
+</li>
+<li>UA_DOUBLE
+: <a class="el" href="ua__namespace__0_8h.html#a5c1eae949fcce45387429ffbf77fe213">ua_namespace_0.h</a>
 </li>
 <li>UA_Double_calcSizeBinary()
 : <a class="el" href="group__encoding__binary.html#ga2655a38edba018ac26d4fb4b2b39213d">ua_types_encoding_binary.h</a>
@@ -2139,11 +2139,11 @@
 <li>UA_HISTORYUPDATERESULT_NS0
 : <a class="el" href="ua__namespace__0_8h.html#ab0ffbcd1f9f342fa0553188336618862">ua_namespace_0.h</a>
 </li>
-<li>UA_HISTORYUPDATETYPE
-: <a class="el" href="ua__namespace__0_8h.html#ad129a78b182f69662b144bb4824f8c3f">ua_namespace_0.h</a>
-</li>
 <li>UA_HistoryUpdateType
 : <a class="el" href="group__ua__types__generated.html#ga5fc6977051b1589156b653e0e383ca82">ua_types_generated.h</a>
+</li>
+<li>UA_HISTORYUPDATETYPE
+: <a class="el" href="ua__namespace__0_8h.html#ad129a78b182f69662b144bb4824f8c3f">ua_namespace_0.h</a>
 </li>
 <li>UA_HISTORYUPDATETYPE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a754fe809f176679b4d24672b0e65efb7">ua_namespace_0.h</a>
@@ -2664,11 +2664,11 @@
 <li>UA_MODIFYSUBSCRIPTIONREQUEST_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a1ac432daee257630794f3d4df4598f7e">ua_namespace_0.h</a>
 </li>
-<li>UA_ModifySubscriptionResponse
-: <a class="el" href="group__ua__types__generated.html#ga80dbe7ecdc75ba4f5ed8d690f2242829">ua_types_generated.h</a>
-</li>
 <li>UA_MODIFYSUBSCRIPTIONRESPONSE
 : <a class="el" href="ua__namespace__0_8h.html#ab52d853797ca06215f79e623e9cdda95">ua_namespace_0.h</a>
+</li>
+<li>UA_ModifySubscriptionResponse
+: <a class="el" href="group__ua__types__generated.html#ga80dbe7ecdc75ba4f5ed8d690f2242829">ua_types_generated.h</a>
 </li>
 <li>UA_MODIFYSUBSCRIPTIONRESPONSE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#abe2094a6399a274c8d69eecceb7d01e6">ua_namespace_0.h</a>
@@ -2752,7 +2752,7 @@
 : <a class="el" href="ua__server_8h.html#a9a4a772d9edc18e5ad54cff05afc3342">ua_server.h</a>
 </li>
 <li>UA_NamespaceManager_addNamespace()
-: <a class="el" href="ua__namespace__manager_8h.html#af41f2e7767c62c18cb7dea8e1e79c1e2">ua_namespace_manager.h</a>
+: <a class="el" href="ua__namespace__manager_8h.html#a8ece98139b8c75cba24102191e990755">ua_namespace_manager.h</a>
 </li>
 <li>UA_NamespaceManager_getNamespace()
 : <a class="el" href="ua__namespace__manager_8h.html#ac7a968092f8a80f0011ab874010a6aad">ua_namespace_manager.h</a>
@@ -2764,7 +2764,7 @@
 : <a class="el" href="ua__namespace__manager_8h.html#a9fb9c595412fa09bb9e45ff28811ce8c">ua_namespace_manager.h</a>
 </li>
 <li>UA_NamespaceManager_setNodeStore()
-: <a class="el" href="ua__namespace__manager_8h.html#a3392a45af947bd17230c4bf8bbf2b69b">ua_namespace_manager.h</a>
+: <a class="el" href="ua__namespace__manager_8h.html#a7d28e6f48168d909aed91df7c46ce65d">ua_namespace_manager.h</a>
 </li>
 <li>UA_NAMESPACEMETADATATYPE_NAMESPACEFILE
 : <a class="el" href="ua__namespace__0_8h.html#abc9884bf5b5601e9a37bbf955b0dc761">ua_namespace_0.h</a>
@@ -2943,6 +2943,12 @@
 <li>UA_NodeStore_browseNodes
 : <a class="el" href="ua__server_8h.html#a6e65ed6f22c3860e79609366d55167d6">ua_server.h</a>
 </li>
+<li>UA_NodeStore_copy()
+: <a class="el" href="ua__nodestore__interface_8h.html#a9c28cd1d29ae752a4d0f092560c02210">ua_nodestore_interface.h</a>
+</li>
+<li>UA_NodeStore_delete()
+: <a class="el" href="ua__nodestore__interface_8h.html#a30f2ec54aee78ed17e83dff4e1aabcaa">ua_nodestore_interface.h</a>
+</li>
 <li>UA_NodeStore_deleteNodes
 : <a class="el" href="ua__server_8h.html#a96f7fb3aef90346ddf66ca4da48ae177">ua_server.h</a>
 </li>
@@ -2950,12 +2956,15 @@
 : <a class="el" href="ua__server_8h.html#a1bd4399985f31ed9ac5b544c98c23e99">ua_server.h</a>
 </li>
 <li>UA_NODESTORE_INSERT_GETMANAGED
-: <a class="el" href="group__nodestore.html#ga72e8d08a092ae7ba95276f92b53e804b">open62541_nodestore.h</a>
-, <a class="el" href="ua__nodestore__interface_8h.html#a72e8d08a092ae7ba95276f92b53e804b">ua_nodestore_interface.h</a>
+: <a class="el" href="ua__nodestore__interface_8h.html#a72e8d08a092ae7ba95276f92b53e804b">ua_nodestore_interface.h</a>
+, <a class="el" href="group__nodestore.html#ga72e8d08a092ae7ba95276f92b53e804b">open62541_nodestore.h</a>
 </li>
 <li>UA_NODESTORE_INSERT_UNIQUE
-: <a class="el" href="ua__nodestore__interface_8h.html#a12eeea5c76d7be3c6253dd31508501ec">ua_nodestore_interface.h</a>
-, <a class="el" href="group__nodestore.html#ga12eeea5c76d7be3c6253dd31508501ec">open62541_nodestore.h</a>
+: <a class="el" href="group__nodestore.html#ga12eeea5c76d7be3c6253dd31508501ec">open62541_nodestore.h</a>
+, <a class="el" href="ua__nodestore__interface_8h.html#a12eeea5c76d7be3c6253dd31508501ec">ua_nodestore_interface.h</a>
+</li>
+<li>UA_NodeStore_new()
+: <a class="el" href="ua__nodestore__interface_8h.html#a53715e577e4dd418c790a0aab68bdd37">ua_nodestore_interface.h</a>
 </li>
 <li>UA_NodeStore_nodeExists()
 : <a class="el" href="ua__nodestore__interface_8h.html#a6b1843770f6c4a54ca211edb7b601247">ua_nodestore_interface.h</a>
@@ -2966,35 +2975,35 @@
 <li>UA_NodeStore_readNodes
 : <a class="el" href="ua__server_8h.html#a6176a3aadf9f6c1b569bc4f969e46e5c">ua_server.h</a>
 </li>
-<li>UA_NodeStore_registerAddNodesOperation()
-: <a class="el" href="ua__nodestore__interface_8h.html#a7a717cab9e9aaaf82943a0c1fbadfbaf">ua_nodestore_interface.h</a>
-</li>
-<li>UA_NodeStore_registerAddReferenceOperation()
-: <a class="el" href="ua__nodestore__interface_8h.html#a6f2875322f1332e901dc0ef8c16255c6">ua_nodestore_interface.h</a>
-</li>
-<li>UA_NodeStore_registerBrowseNodesOperation()
-: <a class="el" href="ua__nodestore__interface_8h.html#aa59b786bfd424031eaa8f3d0506297a5">ua_nodestore_interface.h</a>
-</li>
-<li>UA_NodeStore_registerDeleteNodesOperation()
-: <a class="el" href="ua__nodestore__interface_8h.html#a6b41c9c64f8f60a4e52d9502ff4a241f">ua_nodestore_interface.h</a>
-</li>
-<li>UA_NodeStore_registerDeleteReferencesOperation()
-: <a class="el" href="ua__nodestore__interface_8h.html#a5f47f9ef1a2024b07e7099f8198439ab">ua_nodestore_interface.h</a>
-</li>
-<li>UA_NodeStore_registerReadNodesOperation()
-: <a class="el" href="ua__nodestore__interface_8h.html#ad222847fdb0ca5d7f2d9ce8be044bcb5">ua_nodestore_interface.h</a>
-</li>
-<li>UA_NodeStore_registerWriteNodesOperation()
-: <a class="el" href="ua__nodestore__interface_8h.html#a60f2365af00669cc663730b78781ec77">ua_nodestore_interface.h</a>
-</li>
 <li>UA_NodeStore_writeNodes
 : <a class="el" href="ua__server_8h.html#aea383f7497fc907495e1611530e2d7b6">ua_server.h</a>
 </li>
-<li>UA_NODETYPEDESCRIPTION
-: <a class="el" href="ua__namespace__0_8h.html#a45240a984bf2bd05bc688ce1bd219a2f">ua_namespace_0.h</a>
+<li>UA_NodeStoreInterface_registerAddNodesOperation()
+: <a class="el" href="ua__nodestore__interface_8h.html#ab0f4065bf5c705684c2c8f1c88ecc9a5">ua_nodestore_interface.h</a>
+</li>
+<li>UA_NodeStoreInterface_registerAddReferenceOperation()
+: <a class="el" href="ua__nodestore__interface_8h.html#aee940b012e3716768d6aba4228ce8e70">ua_nodestore_interface.h</a>
+</li>
+<li>UA_NodeStoreInterface_registerBrowseNodesOperation()
+: <a class="el" href="ua__nodestore__interface_8h.html#aafd1af30241d9ff51c32e1d22a0c6a41">ua_nodestore_interface.h</a>
+</li>
+<li>UA_NodeStoreInterface_registerDeleteNodesOperation()
+: <a class="el" href="ua__nodestore__interface_8h.html#ae8a462a49927fd491b1878dc6a2c15bb">ua_nodestore_interface.h</a>
+</li>
+<li>UA_NodeStoreInterface_registerDeleteReferencesOperation()
+: <a class="el" href="ua__nodestore__interface_8h.html#a348aee7fa6a35676797e5df24efc78df">ua_nodestore_interface.h</a>
+</li>
+<li>UA_NodeStoreInterface_registerReadNodesOperation()
+: <a class="el" href="ua__nodestore__interface_8h.html#a113c8fcc8d825027c6c7f9a7297657fd">ua_nodestore_interface.h</a>
+</li>
+<li>UA_NodeStoreInterface_registerWriteNodesOperation()
+: <a class="el" href="ua__nodestore__interface_8h.html#a01d0d4db9e1226bd66d0ec5d6e65d2a2">ua_nodestore_interface.h</a>
 </li>
 <li>UA_NodeTypeDescription
 : <a class="el" href="group__ua__types__generated.html#ga3532c02f5fb7fd739c7307f44c864c6f">ua_types_generated.h</a>
+</li>
+<li>UA_NODETYPEDESCRIPTION
+: <a class="el" href="ua__namespace__0_8h.html#a45240a984bf2bd05bc688ce1bd219a2f">ua_namespace_0.h</a>
 </li>
 <li>UA_NODETYPEDESCRIPTION_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a99c5d08e653b3a3a63cc922960263553">ua_namespace_0.h</a>
@@ -3035,11 +3044,11 @@
 <li>UA_NULL
 : <a class="el" href="ua__util_8h.html#a81365fba629fc5e5ce70fe03320a5b1e">ua_util.h</a>
 </li>
-<li>UA_ObjectAttributes
-: <a class="el" href="group__ua__types__generated.html#ga61ceb1727a0ab1c2be2c7458690fbf9d">ua_types_generated.h</a>
-</li>
 <li>UA_OBJECTATTRIBUTES
 : <a class="el" href="ua__namespace__0_8h.html#a348b8ad39bae3fab8a4ea792089cf18a">ua_namespace_0.h</a>
+</li>
+<li>UA_ObjectAttributes
+: <a class="el" href="group__ua__types__generated.html#ga61ceb1727a0ab1c2be2c7458690fbf9d">ua_types_generated.h</a>
 </li>
 <li>UA_OBJECTATTRIBUTES_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a37755ac35a8dadabde3292f6dced2177">ua_namespace_0.h</a>
@@ -3083,11 +3092,11 @@
 <li>UA_OPCBINARYSCHEMA_TYPESYSTEM
 : <a class="el" href="ua__namespace__0_8h.html#af557c430a54e600da1366a54c05631d1">ua_namespace_0.h</a>
 </li>
-<li>UA_OpenFileMode
-: <a class="el" href="group__ua__types__generated.html#gad88a38998a3b63f45c80d54720fdce06">ua_types_generated.h</a>
-</li>
 <li>UA_OPENFILEMODE
 : <a class="el" href="ua__namespace__0_8h.html#a68b02a5615eeb59768db4866d521d1fa">ua_namespace_0.h</a>
+</li>
+<li>UA_OpenFileMode
+: <a class="el" href="group__ua__types__generated.html#gad88a38998a3b63f45c80d54720fdce06">ua_types_generated.h</a>
 </li>
 <li>UA_OPENFILEMODE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#ae7515df86cee81af74864b4f258625f5">ua_namespace_0.h</a>
@@ -3101,11 +3110,11 @@
 <li>UA_OPENSECURECHANNELREQUEST_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a4e87e4e919332f4fcc49d0da280c590c">ua_namespace_0.h</a>
 </li>
-<li>UA_OPENSECURECHANNELRESPONSE
-: <a class="el" href="ua__namespace__0_8h.html#a1b8531c1486366e91c81a13ad0ac4a2d">ua_namespace_0.h</a>
-</li>
 <li>UA_OpenSecureChannelResponse
 : <a class="el" href="group__ua__types__generated.html#gab1acc894d821411ceb331c7230d23932">ua_types_generated.h</a>
+</li>
+<li>UA_OPENSECURECHANNELRESPONSE
+: <a class="el" href="ua__namespace__0_8h.html#a1b8531c1486366e91c81a13ad0ac4a2d">ua_namespace_0.h</a>
 </li>
 <li>UA_OPENSECURECHANNELRESPONSE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#ae5895f09b992983903f7c0d0f2ffd5b1">ua_namespace_0.h</a>
@@ -3182,11 +3191,11 @@
 <li>UA_PROGRAMSTATEMACHINETYPE_SUSPENDEDTORUNNING
 : <a class="el" href="ua__namespace__0_8h.html#ae88e1c7dcc36999df5544864c582e961">ua_namespace_0.h</a>
 </li>
-<li>UA_PUBLISHREQUEST
-: <a class="el" href="ua__namespace__0_8h.html#a70d08be4e16fbff3d086dda19288ae38">ua_namespace_0.h</a>
-</li>
 <li>UA_PublishRequest
 : <a class="el" href="group__ua__types__generated.html#ga0b55632d91668eafd8ff571ba4953c38">ua_types_generated.h</a>
+</li>
+<li>UA_PUBLISHREQUEST
+: <a class="el" href="ua__namespace__0_8h.html#a70d08be4e16fbff3d086dda19288ae38">ua_namespace_0.h</a>
 </li>
 <li>UA_PUBLISHREQUEST_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a7ab3ea1ecabffd102ef3168d108468bb">ua_namespace_0.h</a>
@@ -3269,11 +3278,11 @@
 <li>UA_QUERYDATADESCRIPTION_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a64851f2d8a670909e6acc178a376e898">ua_namespace_0.h</a>
 </li>
-<li>UA_QUERYDATASET
-: <a class="el" href="ua__namespace__0_8h.html#a7694e27ee488f9655b951a5d31537c4b">ua_namespace_0.h</a>
-</li>
 <li>UA_QueryDataSet
 : <a class="el" href="group__ua__types__generated.html#gab5d8fe256cfc5b51f4ea4b3a68a134d4">ua_types_generated.h</a>
+</li>
+<li>UA_QUERYDATASET
+: <a class="el" href="ua__namespace__0_8h.html#a7694e27ee488f9655b951a5d31537c4b">ua_namespace_0.h</a>
 </li>
 <li>UA_QUERYDATASET_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a36982dd7c17c69628024c0d93397d5d1">ua_namespace_0.h</a>
@@ -3296,11 +3305,11 @@
 <li>UA_QUERYFIRSTRESPONSE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a3d8a08de96b5143cbde629967f8a3d97">ua_namespace_0.h</a>
 </li>
-<li>UA_QueryNextRequest
-: <a class="el" href="group__ua__types__generated.html#gaed69c12e18fe084d8d0c528886e3df0b">ua_types_generated.h</a>
-</li>
 <li>UA_QUERYNEXTREQUEST
 : <a class="el" href="ua__namespace__0_8h.html#a7c0ad211ec4c8a757fecf196c5260dd5">ua_namespace_0.h</a>
+</li>
+<li>UA_QueryNextRequest
+: <a class="el" href="group__ua__types__generated.html#gaed69c12e18fe084d8d0c528886e3df0b">ua_types_generated.h</a>
 </li>
 <li>UA_QUERYNEXTREQUEST_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a1b59e58819b1a31692145f330584e1dc">ua_namespace_0.h</a>
@@ -3341,20 +3350,20 @@
 <li>UA_READEVENTDETAILS_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a307f66f8b33bf173f830639e5ff155d7">ua_namespace_0.h</a>
 </li>
-<li>UA_ReadProcessedDetails
-: <a class="el" href="group__ua__types__generated.html#ga4652b0525d123401d40cf5f7ed80e805">ua_types_generated.h</a>
-</li>
 <li>UA_READPROCESSEDDETAILS
 : <a class="el" href="ua__namespace__0_8h.html#aa550ab4c119a42fc21cbef0b43671dd3">ua_namespace_0.h</a>
+</li>
+<li>UA_ReadProcessedDetails
+: <a class="el" href="group__ua__types__generated.html#ga4652b0525d123401d40cf5f7ed80e805">ua_types_generated.h</a>
 </li>
 <li>UA_READPROCESSEDDETAILS_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a65edc393aba863be7b6b1f451521b8ff">ua_namespace_0.h</a>
 </li>
-<li>UA_READRAWMODIFIEDDETAILS
-: <a class="el" href="ua__namespace__0_8h.html#af0e6fd2564bda04cc1ae5a33f9a0dd9c">ua_namespace_0.h</a>
-</li>
 <li>UA_ReadRawModifiedDetails
 : <a class="el" href="group__ua__types__generated.html#ga036ac97f9b35d403609e3a99e0f7d302">ua_types_generated.h</a>
+</li>
+<li>UA_READRAWMODIFIEDDETAILS
+: <a class="el" href="ua__namespace__0_8h.html#af0e6fd2564bda04cc1ae5a33f9a0dd9c">ua_namespace_0.h</a>
 </li>
 <li>UA_READRAWMODIFIEDDETAILS_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a0fbf07fa43ad7de3e5ed0a2955454ba5">ua_namespace_0.h</a>
@@ -3368,29 +3377,29 @@
 <li>UA_READREQUEST_NS0
 : <a class="el" href="ua__namespace__0_8h.html#af867b3b1bfee95e76acf6205dbe82ed8">ua_namespace_0.h</a>
 </li>
-<li>UA_ReadResponse
-: <a class="el" href="group__ua__types__generated.html#ga77bb9645b68210059ebcb1f31f0bd324">ua_types_generated.h</a>
-</li>
 <li>UA_READRESPONSE
 : <a class="el" href="ua__namespace__0_8h.html#af1352f22a816556fbf1e122fafa53f26">ua_namespace_0.h</a>
+</li>
+<li>UA_ReadResponse
+: <a class="el" href="group__ua__types__generated.html#ga77bb9645b68210059ebcb1f31f0bd324">ua_types_generated.h</a>
 </li>
 <li>UA_READRESPONSE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a73ab46838c34d0d0faeb8ddfcc284cd2">ua_namespace_0.h</a>
 </li>
-<li>UA_ReadValueId
-: <a class="el" href="group__ua__types__generated.html#ga60ad1ecfc839e23fdc439b331c6fd5ac">ua_types_generated.h</a>
-</li>
 <li>UA_READVALUEID
 : <a class="el" href="ua__namespace__0_8h.html#acbe21fa15576d1de0e06d7d330bc2424">ua_namespace_0.h</a>
+</li>
+<li>UA_ReadValueId
+: <a class="el" href="group__ua__types__generated.html#ga60ad1ecfc839e23fdc439b331c6fd5ac">ua_types_generated.h</a>
 </li>
 <li>UA_READVALUEID_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a3d3e0bc21a22c24b1bccac417a951a1a">ua_namespace_0.h</a>
 </li>
-<li>UA_REDUNDANCYSUPPORT
-: <a class="el" href="ua__namespace__0_8h.html#ab3d53f96a24d424ea18c7f1e92e1daff">ua_namespace_0.h</a>
-</li>
 <li>UA_RedundancySupport
 : <a class="el" href="group__ua__types__generated.html#gaa2c7065d537b3db7e5f2b3e016679de7">ua_types_generated.h</a>
+</li>
+<li>UA_REDUNDANCYSUPPORT
+: <a class="el" href="ua__namespace__0_8h.html#ab3d53f96a24d424ea18c7f1e92e1daff">ua_namespace_0.h</a>
 </li>
 <li>UA_REDUNDANCYSUPPORT_NS0
 : <a class="el" href="ua__namespace__0_8h.html#aa60446a5b8ffc78a7a8cafcd660bc58e">ua_namespace_0.h</a>
@@ -3413,11 +3422,11 @@
 <li>UA_REFERENCEDESCRIPTION_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a8b0f8c4abc996ae391b6542431f57317">ua_namespace_0.h</a>
 </li>
-<li>UA_ReferenceNode
-: <a class="el" href="group__ua__types__generated.html#gaee6c60b0d52dc405ee7f5cc9da09e4e9">ua_types_generated.h</a>
-</li>
 <li>UA_REFERENCENODE
 : <a class="el" href="ua__namespace__0_8h.html#a17fc8a21f037bfe84a02cd2c60ae42ed">ua_namespace_0.h</a>
+</li>
+<li>UA_ReferenceNode
+: <a class="el" href="group__ua__types__generated.html#gaee6c60b0d52dc405ee7f5cc9da09e4e9">ua_types_generated.h</a>
 </li>
 <li>UA_REFERENCENODE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a06e463174594d01e93120c2ec892ff0d">ua_namespace_0.h</a>
@@ -3446,11 +3455,11 @@
 <li>UA_REFERENCETYPESFOLDER
 : <a class="el" href="ua__namespace__0_8h.html#adbee3d5e1af8d47cf390f5b60b0e362c">ua_namespace_0.h</a>
 </li>
-<li>UA_RegisteredServer
-: <a class="el" href="group__ua__types__generated.html#gaa726d1d6e254d63b28e8fae93fbab0df">ua_types_generated.h</a>
-</li>
 <li>UA_REGISTEREDSERVER
 : <a class="el" href="ua__namespace__0_8h.html#a828b56a104326f8f7bf2333271f0ddc8">ua_namespace_0.h</a>
+</li>
+<li>UA_RegisteredServer
+: <a class="el" href="group__ua__types__generated.html#gaa726d1d6e254d63b28e8fae93fbab0df">ua_types_generated.h</a>
 </li>
 <li>UA_REGISTEREDSERVER_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a68858785d7bf8ce8db613bcf767a98aa">ua_namespace_0.h</a>
@@ -3473,11 +3482,11 @@
 <li>UA_REGISTERNODESRESPONSE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#ad4766f9d9420c161677522b207fe8d87">ua_namespace_0.h</a>
 </li>
-<li>UA_REGISTERSERVERREQUEST
-: <a class="el" href="ua__namespace__0_8h.html#a46e67c6e25a3e4f5c1b06ab6b07c8817">ua_namespace_0.h</a>
-</li>
 <li>UA_RegisterServerRequest
 : <a class="el" href="group__ua__types__generated.html#ga0d0c4d92ec1f1bb3153854eac0313842">ua_types_generated.h</a>
+</li>
+<li>UA_REGISTERSERVERREQUEST
+: <a class="el" href="ua__namespace__0_8h.html#a46e67c6e25a3e4f5c1b06ab6b07c8817">ua_namespace_0.h</a>
 </li>
 <li>UA_REGISTERSERVERREQUEST_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a2088367c8b8b62184c90495d7dd4908e">ua_namespace_0.h</a>
@@ -3491,11 +3500,11 @@
 <li>UA_REGISTERSERVERRESPONSE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#adfc49e21d2e0b8dca1bebe37d64fb62d">ua_namespace_0.h</a>
 </li>
-<li>UA_RelativePath
-: <a class="el" href="group__ua__types__generated.html#ga79ed67f1c09004bf42ed296086419f49">ua_types_generated.h</a>
-</li>
 <li>UA_RELATIVEPATH
 : <a class="el" href="ua__namespace__0_8h.html#a30b4d99db5a8c41a16c8c81eb4d2343f">ua_namespace_0.h</a>
+</li>
+<li>UA_RelativePath
+: <a class="el" href="group__ua__types__generated.html#ga79ed67f1c09004bf42ed296086419f49">ua_types_generated.h</a>
 </li>
 <li>UA_RELATIVEPATH_NS0
 : <a class="el" href="ua__namespace__0_8h.html#ad94a9aa004d920601d38e69ddac2862c">ua_namespace_0.h</a>
@@ -3509,11 +3518,11 @@
 <li>UA_RELATIVEPATHELEMENT_NS0
 : <a class="el" href="ua__namespace__0_8h.html#ae996595a93c02d1fe47af8ee22141438">ua_namespace_0.h</a>
 </li>
-<li>UA_RepublishRequest
-: <a class="el" href="group__ua__types__generated.html#ga6b730231826ba026636979a516833d2e">ua_types_generated.h</a>
-</li>
 <li>UA_REPUBLISHREQUEST
 : <a class="el" href="ua__namespace__0_8h.html#afa2133bce1c42454d2cec1923c8be91d">ua_namespace_0.h</a>
+</li>
+<li>UA_RepublishRequest
+: <a class="el" href="group__ua__types__generated.html#ga6b730231826ba026636979a516833d2e">ua_types_generated.h</a>
 </li>
 <li>UA_REPUBLISHREQUEST_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a62b72d67417d1470756d6203f592cd11">ua_namespace_0.h</a>
@@ -3536,11 +3545,11 @@
 <li>UA_REQUESTHEADER_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a0ee76384bb9d3cdf660f4e8460cd2a29">ua_namespace_0.h</a>
 </li>
-<li>UA_RESPONSEHEADER
-: <a class="el" href="ua__namespace__0_8h.html#abbce76c8d668f262c8a97f6132cb8e9d">ua_namespace_0.h</a>
-</li>
 <li>UA_ResponseHeader
 : <a class="el" href="group__ua__types__generated.html#ga9a2a62c20f4e8d4f4865a01656d84a77">ua_types_generated.h</a>
+</li>
+<li>UA_RESPONSEHEADER
+: <a class="el" href="ua__namespace__0_8h.html#abbce76c8d668f262c8a97f6132cb8e9d">ua_namespace_0.h</a>
 </li>
 <li>UA_RESPONSEHEADER_NS0
 : <a class="el" href="ua__namespace__0_8h.html#ad39d83b2f8fbf8da66b3e0a8067f4265">ua_namespace_0.h</a>
@@ -3668,11 +3677,11 @@
 <li>UA_SecureConversationMessageHeader
 : <a class="el" href="group__ua__transport__generated.html#ga80e6451a7cb1aab8f5f8817b023483ca">ua_transport_generated.h</a>
 </li>
-<li>UA_SecurityTokenRequestType
-: <a class="el" href="group__ua__types__generated.html#gaf833fc08fca6f97fd5d576a063ea8761">ua_types_generated.h</a>
-</li>
 <li>UA_SECURITYTOKENREQUESTTYPE
 : <a class="el" href="ua__namespace__0_8h.html#ad60fa3f63c1f0be11be3b0aeb19c9f46">ua_namespace_0.h</a>
+</li>
+<li>UA_SecurityTokenRequestType
+: <a class="el" href="group__ua__types__generated.html#gaf833fc08fca6f97fd5d576a063ea8761">ua_types_generated.h</a>
 </li>
 <li>UA_SECURITYTOKENREQUESTTYPE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a7854dd4bacc2153f4bee95047b8c1b91">ua_namespace_0.h</a>
@@ -3693,7 +3702,7 @@
 : <a class="el" href="ua__namespace__0_8h.html#ab31760165dc0c105d42bb71229da43be">ua_namespace_0.h</a>
 </li>
 <li>UA_Server_addNamespace()
-: <a class="el" href="ua__server_8h.html#ac7a61e4a084be534c3767de7ae09fcaf">ua_server.h</a>
+: <a class="el" href="ua__server_8h.html#a81e6f82697c5b7b289e39aec734da3ff">ua_server.h</a>
 </li>
 <li>UA_Server_addScalarVariableNode()
 : <a class="el" href="ua__server_8h.html#a46ee8afc9a5d6294cc8e2123ed87dbb0">ua_server.h</a>
@@ -3708,7 +3717,7 @@
 : <a class="el" href="ua__namespace__0_8h.html#a90e813b8ba21e9eb72e1c09f10d5fa21">ua_namespace_0.h</a>
 </li>
 <li>UA_Server_new()
-: <a class="el" href="ua__server_8h.html#a15f0bdacffc3428cfc1bb96451788653">ua_server.h</a>
+: <a class="el" href="ua__server_8h.html#aa195f315d4b36534be6a807dc38238d4">ua_server.h</a>
 </li>
 <li>UA_Server_processBinaryMessage()
 : <a class="el" href="ua__server_8h.html#a303c0101d3c2afe48e7c0dca570e8fec">ua_server.h</a>
@@ -3738,7 +3747,7 @@
 : <a class="el" href="ua__namespace__0_8h.html#a0065adb3cab891c91c3bec56f5c74cbd">ua_namespace_0.h</a>
 </li>
 <li>UA_Server_setNodeStore()
-: <a class="el" href="ua__server_8h.html#acb8436ed6349a08836562368aad9414f">ua_server.h</a>
+: <a class="el" href="ua__server_8h.html#a7580d873774a4619c2c04db65f45021a">ua_server.h</a>
 </li>
 <li>UA_SERVER_VENDORSERVERINFO
 : <a class="el" href="ua__namespace__0_8h.html#a4dd0720c090e8e0a05d3219d1a83014c">ua_namespace_0.h</a>
@@ -3752,11 +3761,11 @@
 <li>UA_SERVERCAPABILITIESTYPE_OPERATIONLIMITS
 : <a class="el" href="ua__namespace__0_8h.html#ad069066e4322bd02938cd2e30939eb10">ua_namespace_0.h</a>
 </li>
-<li>UA_ServerDiagnosticsSummaryDataType
-: <a class="el" href="group__ua__types__generated.html#ga98e617587119d69452d317cfc2f83cfd">ua_types_generated.h</a>
-</li>
 <li>UA_SERVERDIAGNOSTICSSUMMARYDATATYPE
 : <a class="el" href="ua__namespace__0_8h.html#a34cb7efcbc71bb31cb8b5906933201a0">ua_namespace_0.h</a>
+</li>
+<li>UA_ServerDiagnosticsSummaryDataType
+: <a class="el" href="group__ua__types__generated.html#ga98e617587119d69452d317cfc2f83cfd">ua_types_generated.h</a>
 </li>
 <li>UA_SERVERDIAGNOSTICSSUMMARYDATATYPE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a45452bfc07689264d3d42611bf1e73b8">ua_namespace_0.h</a>
@@ -3767,20 +3776,20 @@
 <li>UA_SERVERLOCK
 : <a class="el" href="ua__namespace__0_8h.html#ad23a511cb11ece702f761925ee35781d">ua_namespace_0.h</a>
 </li>
-<li>UA_SERVERSTATE
-: <a class="el" href="ua__namespace__0_8h.html#a54466cbca373a8e46ce2eef00f409460">ua_namespace_0.h</a>
-</li>
 <li>UA_ServerState
 : <a class="el" href="group__ua__types__generated.html#gabd79356ff2defb3fa97cf854fb38742c">ua_types_generated.h</a>
+</li>
+<li>UA_SERVERSTATE
+: <a class="el" href="ua__namespace__0_8h.html#a54466cbca373a8e46ce2eef00f409460">ua_namespace_0.h</a>
 </li>
 <li>UA_SERVERSTATE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#adacb460dceed60909490bb7b02bb381e">ua_namespace_0.h</a>
 </li>
-<li>UA_ServerStatusDataType
-: <a class="el" href="group__ua__types__generated.html#ga2c22ae17792bf0ae30827b525f074f6d">ua_types_generated.h</a>
-</li>
 <li>UA_SERVERSTATUSDATATYPE
 : <a class="el" href="ua__namespace__0_8h.html#ae13889e6f67750bc90eaacf22b51d4bf">ua_namespace_0.h</a>
+</li>
+<li>UA_ServerStatusDataType
+: <a class="el" href="group__ua__types__generated.html#ga2c22ae17792bf0ae30827b525f074f6d">ua_types_generated.h</a>
 </li>
 <li>UA_SERVERSTATUSDATATYPE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a43466f264a731005ecc79dda16ade546">ua_namespace_0.h</a>
@@ -3863,11 +3872,11 @@
 <li>UA_SESSIONAUTHENTICATIONTOKEN_NS0
 : <a class="el" href="ua__namespace__0_8h.html#ae767014ee66822b3d70f758f9be6cabf">ua_namespace_0.h</a>
 </li>
-<li>UA_SESSIONDIAGNOSTICSDATATYPE
-: <a class="el" href="ua__namespace__0_8h.html#a2072ce1f64c3459aff88a2558e358f37">ua_namespace_0.h</a>
-</li>
 <li>UA_SessionDiagnosticsDataType
 : <a class="el" href="group__ua__types__generated.html#gaf8eaf60f8f005d50e81a943fc1cb8930">ua_types_generated.h</a>
+</li>
+<li>UA_SESSIONDIAGNOSTICSDATATYPE
+: <a class="el" href="ua__namespace__0_8h.html#a2072ce1f64c3459aff88a2558e358f37">ua_namespace_0.h</a>
 </li>
 <li>UA_SESSIONDIAGNOSTICSDATATYPE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#adb2fd35e31c7ab5e97a91a933c7a86fe">ua_namespace_0.h</a>
@@ -3893,20 +3902,20 @@
 <li>UA_SESSIONSDIAGNOSTICSSUMMARYTYPE_SESSIONPLACEHOLDER
 : <a class="el" href="ua__namespace__0_8h.html#a809032a82c21b82ca0050723bf67c769">ua_namespace_0.h</a>
 </li>
-<li>UA_SessionSecurityDiagnosticsDataType
-: <a class="el" href="group__ua__types__generated.html#ga27ab67ee4a71a0912502920526003444">ua_types_generated.h</a>
-</li>
 <li>UA_SESSIONSECURITYDIAGNOSTICSDATATYPE
 : <a class="el" href="ua__namespace__0_8h.html#a0c4d5f01c9794ee3be8e163247c31d9b">ua_namespace_0.h</a>
+</li>
+<li>UA_SessionSecurityDiagnosticsDataType
+: <a class="el" href="group__ua__types__generated.html#ga27ab67ee4a71a0912502920526003444">ua_types_generated.h</a>
 </li>
 <li>UA_SESSIONSECURITYDIAGNOSTICSDATATYPE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a777931ad3cf7bbf1d144cfa0ca01e603">ua_namespace_0.h</a>
 </li>
-<li>UA_SetMonitoringModeRequest
-: <a class="el" href="group__ua__types__generated.html#gae44b6ed5d208f4aa02230941d5f2bba2">ua_types_generated.h</a>
-</li>
 <li>UA_SETMONITORINGMODEREQUEST
 : <a class="el" href="ua__namespace__0_8h.html#a0b266d8e8c9b5199a5a714ff765be296">ua_namespace_0.h</a>
+</li>
+<li>UA_SetMonitoringModeRequest
+: <a class="el" href="group__ua__types__generated.html#gae44b6ed5d208f4aa02230941d5f2bba2">ua_types_generated.h</a>
 </li>
 <li>UA_SETMONITORINGMODEREQUEST_NS0
 : <a class="el" href="ua__namespace__0_8h.html#af2d62bb6f2f7a681675966b77711ade9">ua_namespace_0.h</a>
@@ -3929,20 +3938,20 @@
 <li>UA_SETPUBLISHINGMODEREQUEST_NS0
 : <a class="el" href="ua__namespace__0_8h.html#afc75f29a7295131b3b62342aaccbbcf8">ua_namespace_0.h</a>
 </li>
-<li>UA_SETPUBLISHINGMODERESPONSE
-: <a class="el" href="ua__namespace__0_8h.html#a7c4a37da04db1e679bcef248a7620777">ua_namespace_0.h</a>
-</li>
 <li>UA_SetPublishingModeResponse
 : <a class="el" href="group__ua__types__generated.html#ga34f8199b4c73d54afba9ecf057a1dff2">ua_types_generated.h</a>
+</li>
+<li>UA_SETPUBLISHINGMODERESPONSE
+: <a class="el" href="ua__namespace__0_8h.html#a7c4a37da04db1e679bcef248a7620777">ua_namespace_0.h</a>
 </li>
 <li>UA_SETPUBLISHINGMODERESPONSE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#adaed27a8d69f7f697dee2a4b308b11ae">ua_namespace_0.h</a>
 </li>
-<li>UA_SETTRIGGERINGREQUEST
-: <a class="el" href="ua__namespace__0_8h.html#a8a839f8198ca56710e8caa9031c9c6f8">ua_namespace_0.h</a>
-</li>
 <li>UA_SetTriggeringRequest
 : <a class="el" href="group__ua__types__generated.html#ga00c869c26adde6ad29f6979d6423efaf">ua_types_generated.h</a>
+</li>
+<li>UA_SETTRIGGERINGREQUEST
+: <a class="el" href="ua__namespace__0_8h.html#a8a839f8198ca56710e8caa9031c9c6f8">ua_namespace_0.h</a>
 </li>
 <li>UA_SETTRIGGERINGREQUEST_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a3b530adf032b8c8c9bfcc5db2d9bfd94">ua_namespace_0.h</a>
@@ -4010,29 +4019,29 @@
 <li>UA_SIMPLEATTRIBUTEOPERAND_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a181bdd87db9b23eb71c5435fea2ec4c1">ua_namespace_0.h</a>
 </li>
-<li>UA_SoftwareCertificate
-: <a class="el" href="group__ua__types__generated.html#gaf8337e043eef8a497dfb4d6fc3de45e5">ua_types_generated.h</a>
-</li>
 <li>UA_SOFTWARECERTIFICATE
 : <a class="el" href="ua__namespace__0_8h.html#a6e577ab0b9e3ff7f36574cad7879088f">ua_namespace_0.h</a>
+</li>
+<li>UA_SoftwareCertificate
+: <a class="el" href="group__ua__types__generated.html#gaf8337e043eef8a497dfb4d6fc3de45e5">ua_types_generated.h</a>
 </li>
 <li>UA_SOFTWARECERTIFICATE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a86cc7493c74939cedd57faa474deb094">ua_namespace_0.h</a>
 </li>
-<li>UA_StatusChangeNotification
-: <a class="el" href="group__ua__types__generated.html#ga2a4d3cf775be038afd5460c9fde2c3ec">ua_types_generated.h</a>
-</li>
 <li>UA_STATUSCHANGENOTIFICATION
 : <a class="el" href="ua__namespace__0_8h.html#a119b1fb11cb9c2c74d93de457f5dfcb5">ua_namespace_0.h</a>
+</li>
+<li>UA_StatusChangeNotification
+: <a class="el" href="group__ua__types__generated.html#ga2a4d3cf775be038afd5460c9fde2c3ec">ua_types_generated.h</a>
 </li>
 <li>UA_STATUSCHANGENOTIFICATION_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a0a71dfa756beacfdcd2e3b23a28aad36">ua_namespace_0.h</a>
 </li>
-<li>UA_STATUSCODE
-: <a class="el" href="ua__namespace__0_8h.html#a91198e7aba72a7c15de19d178d6a8a7a">ua_namespace_0.h</a>
-</li>
 <li>UA_StatusCode
 : <a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">ua_types.h</a>
+</li>
+<li>UA_STATUSCODE
+: <a class="el" href="ua__namespace__0_8h.html#a91198e7aba72a7c15de19d178d6a8a7a">ua_namespace_0.h</a>
 </li>
 <li>UA_StatusCode_calcSizeBinary()
 : <a class="el" href="group__encoding__binary.html#gaeae4b3b7755b89116e59d4f439ce5516">ua_types_encoding_binary.h</a>
@@ -4085,11 +4094,11 @@
 <li>UA_STATUSCODE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a44d90097125e6fa2787c27e55232655b">ua_namespace_0.h</a>
 </li>
-<li>UA_STATUSRESULT
-: <a class="el" href="ua__namespace__0_8h.html#a34191bd4b0f3d5cf1edec1fc40f15926">ua_namespace_0.h</a>
-</li>
 <li>UA_StatusResult
 : <a class="el" href="group__ua__types__generated.html#ga13b01ec4192df5d84b35a2025d8b5111">ua_types_generated.h</a>
+</li>
+<li>UA_STATUSRESULT
+: <a class="el" href="ua__namespace__0_8h.html#a34191bd4b0f3d5cf1edec1fc40f15926">ua_namespace_0.h</a>
 </li>
 <li>UA_STATUSRESULT_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a4dfb449137bc427c11d5821865d58692">ua_namespace_0.h</a>
@@ -4181,11 +4190,11 @@
 <li>UA_SUBSCRIPTIONDIAGNOSTICSDATATYPE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a63f27729c9b75eb31586933eb4b6e576">ua_namespace_0.h</a>
 </li>
-<li>UA_SUPPORTEDPROFILE
-: <a class="el" href="ua__namespace__0_8h.html#a796f1d58b862c73beeafdea900062757">ua_namespace_0.h</a>
-</li>
 <li>UA_SupportedProfile
 : <a class="el" href="group__ua__types__generated.html#ga1969f1c8d7af631df1cbc0548196ca3c">ua_types_generated.h</a>
+</li>
+<li>UA_SUPPORTEDPROFILE
+: <a class="el" href="ua__namespace__0_8h.html#a796f1d58b862c73beeafdea900062757">ua_namespace_0.h</a>
 </li>
 <li>UA_SUPPORTEDPROFILE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#ae501af8206eabdd45d498d1b49fb7690">ua_namespace_0.h</a>
@@ -4205,20 +4214,20 @@
 <li>UA_Text_decodeXmlFromStack()
 : <a class="el" href="ua__xml_8h.html#a7899db88c3951c35f43d27d17d737bc4">ua_xml.h</a>
 </li>
-<li>UA_TIMESTAMPSTORETURN
-: <a class="el" href="ua__namespace__0_8h.html#a56a5f661dfc2328dbd78061028e23ed6">ua_namespace_0.h</a>
-</li>
 <li>UA_TimestampsToReturn
 : <a class="el" href="group__ua__types__generated.html#gab298c4ff5eb700437114d0dc2db97ead">ua_types_generated.h</a>
+</li>
+<li>UA_TIMESTAMPSTORETURN
+: <a class="el" href="ua__namespace__0_8h.html#a56a5f661dfc2328dbd78061028e23ed6">ua_namespace_0.h</a>
 </li>
 <li>UA_TIMESTAMPSTORETURN_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a16dea9469187107bf2fd407af15cfd5e">ua_namespace_0.h</a>
 </li>
-<li>UA_TIMEZONEDATATYPE
-: <a class="el" href="ua__namespace__0_8h.html#a8583bd41c7b506fdc4d085aa269a6919">ua_namespace_0.h</a>
-</li>
 <li>UA_TimeZoneDataType
 : <a class="el" href="group__ua__types__generated.html#gacc8fa087eac2dd9972d4fa12a4bfecd5">ua_types_generated.h</a>
+</li>
+<li>UA_TIMEZONEDATATYPE
+: <a class="el" href="ua__namespace__0_8h.html#a8583bd41c7b506fdc4d085aa269a6919">ua_namespace_0.h</a>
 </li>
 <li>UA_TIMEZONEDATATYPE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a93147c7937ae971ad676b78ab1af582c">ua_namespace_0.h</a>
@@ -4226,38 +4235,38 @@
 <li>UA_TOSTATE
 : <a class="el" href="ua__namespace__0_8h.html#a1b9a9d4d847718c8310293d8114529d4">ua_namespace_0.h</a>
 </li>
-<li>UA_TRANSFERRESULT
-: <a class="el" href="ua__namespace__0_8h.html#a39ed85938b0e6b4c4dc888bfb2ba8fcd">ua_namespace_0.h</a>
-</li>
 <li>UA_TransferResult
 : <a class="el" href="group__ua__types__generated.html#ga75a5c0b99089971d961c27f5ef079e97">ua_types_generated.h</a>
+</li>
+<li>UA_TRANSFERRESULT
+: <a class="el" href="ua__namespace__0_8h.html#a39ed85938b0e6b4c4dc888bfb2ba8fcd">ua_namespace_0.h</a>
 </li>
 <li>UA_TRANSFERRESULT_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a4b3dd3c9d0e043c6e5416b8fb18d7a9c">ua_namespace_0.h</a>
 </li>
-<li>UA_TransferSubscriptionsRequest
-: <a class="el" href="group__ua__types__generated.html#ga5e825a4363848eba012daf4a42542cda">ua_types_generated.h</a>
-</li>
 <li>UA_TRANSFERSUBSCRIPTIONSREQUEST
 : <a class="el" href="ua__namespace__0_8h.html#ac35ce83d312975315b63973e8cb81ca2">ua_namespace_0.h</a>
+</li>
+<li>UA_TransferSubscriptionsRequest
+: <a class="el" href="group__ua__types__generated.html#ga5e825a4363848eba012daf4a42542cda">ua_types_generated.h</a>
 </li>
 <li>UA_TRANSFERSUBSCRIPTIONSREQUEST_NS0
 : <a class="el" href="ua__namespace__0_8h.html#aef689f840ef9c5428f4aadf0e5448054">ua_namespace_0.h</a>
 </li>
-<li>UA_TRANSFERSUBSCRIPTIONSRESPONSE
-: <a class="el" href="ua__namespace__0_8h.html#a10b4916d9f122ea46852610d383fcc64">ua_namespace_0.h</a>
-</li>
 <li>UA_TransferSubscriptionsResponse
 : <a class="el" href="group__ua__types__generated.html#ga1c2309dbf8f534e915e1f8f5b8b3ddce">ua_types_generated.h</a>
+</li>
+<li>UA_TRANSFERSUBSCRIPTIONSRESPONSE
+: <a class="el" href="ua__namespace__0_8h.html#a10b4916d9f122ea46852610d383fcc64">ua_namespace_0.h</a>
 </li>
 <li>UA_TRANSFERSUBSCRIPTIONSRESPONSE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a1b61a068c89d318967acc197fc63f483">ua_namespace_0.h</a>
 </li>
-<li>UA_TRANSLATEBROWSEPATHSTONODEIDSREQUEST
-: <a class="el" href="ua__namespace__0_8h.html#a3b9b4977277a0a21263ccc530a4752b8">ua_namespace_0.h</a>
-</li>
 <li>UA_TranslateBrowsePathsToNodeIdsRequest
 : <a class="el" href="group__ua__types__generated.html#gaea33f99feb289de9fe48a747bd8b9707">ua_types_generated.h</a>
+</li>
+<li>UA_TRANSLATEBROWSEPATHSTONODEIDSREQUEST
+: <a class="el" href="ua__namespace__0_8h.html#a3b9b4977277a0a21263ccc530a4752b8">ua_namespace_0.h</a>
 </li>
 <li>UA_TRANSLATEBROWSEPATHSTONODEIDSREQUEST_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a5e5827c2d819d1b1b2d6297218c7cdde">ua_namespace_0.h</a>
@@ -4356,24 +4365,24 @@
 : <a class="el" href="group__types.html#ga46b12dd910f13c76bd3d6b6cdd72be3d">ua_types.h</a>
 </li>
 <li>UA_TYPE_PROTOTYPES()
-: <a class="el" href="group__ua__types__generated.html#gacceda877c6bb71c0cb11b346d4157da6">ua_types_generated.h</a>
+: <a class="el" href="group__ua__types__generated.html#ga7115d5dd82e0f958ef0f605d321f3ab7">ua_types_generated.h</a>
 , <a class="el" href="group__ua__transport__generated.html#ga40b8633e0dfa3f55adeb362b5b7f23e8">ua_transport_generated.h</a>
-, <a class="el" href="group__ua__types__generated.html#ga47bd628d45f9b607e41f5784a841d8cf">ua_types_generated.h</a>
-, <a class="el" href="group__ua__transport__generated.html#ga933dc1941f2364e2f08e110775f9e6e5">ua_transport_generated.h</a>
-, <a class="el" href="group__ua__types__generated.html#ga24765a5dd9d44c245030608923470105">ua_types_generated.h</a>
-, <a class="el" href="group__ua__transport__generated.html#ga2e72239b18d7527b9db75fc180c564cd">ua_transport_generated.h</a>
-, <a class="el" href="group__ua__types__generated.html#ga03efc8b8975e10bcd4f7fdfd85e19584">ua_types_generated.h</a>
-, <a class="el" href="group__ua__transport__generated.html#gab3373b5914ce87ac14c39ba25597c512">ua_transport_generated.h</a>
-, <a class="el" href="group__ua__types__generated.html#gafc1dc3425ed9fde71d3439f11d1cdbfd">ua_types_generated.h</a>
+, <a class="el" href="group__ua__types__generated.html#gaf3e45ca855d6cbf8d3015feb2b8f057b">ua_types_generated.h</a>
+, <a class="el" href="group__ua__transport__generated.html#ga5cd0cc212eda3f4f2da276a59cd3ffdc">ua_transport_generated.h</a>
+, <a class="el" href="group__ua__types__generated.html#ga4a39fb59cd546dd7298a42c116ac1bfe">ua_types_generated.h</a>
 , <a class="el" href="ua__transport_8h.html#a75be4c8fff4609093feb6b4758ea1021">ua_transport.h</a>
 , <a class="el" href="group__ua__transport__generated.html#ga7649917ac979f242d9564bc25b4d73ba">ua_transport_generated.h</a>
-, <a class="el" href="group__ua__types__generated.html#ga4234525c75bca5e23d0f946a104e6c4c">ua_types_generated.h</a>
-, <a class="el" href="group__ua__transport__generated.html#ga4e407336b9d3dfbb5b477b5fdf3ec7ea">ua_transport_generated.h</a>
-, <a class="el" href="group__ua__types__generated.html#gaf102edea672afe6f94deadc7bd01045f">ua_types_generated.h</a>
+, <a class="el" href="group__ua__types__generated.html#ga92d1318a307b2d2deece548227061873">ua_types_generated.h</a>
+, <a class="el" href="group__ua__transport__generated.html#ga2e72239b18d7527b9db75fc180c564cd">ua_transport_generated.h</a>
+, <a class="el" href="group__ua__types__generated.html#ga8546c1ee21cf32015c6e8150db5d1f12">ua_types_generated.h</a>
+, <a class="el" href="group__ua__transport__generated.html#gab3373b5914ce87ac14c39ba25597c512">ua_transport_generated.h</a>
+, <a class="el" href="group__ua__types__generated.html#ga47bd628d45f9b607e41f5784a841d8cf">ua_types_generated.h</a>
+, <a class="el" href="group__ua__transport__generated.html#ga933dc1941f2364e2f08e110775f9e6e5">ua_transport_generated.h</a>
+, <a class="el" href="group__ua__types__generated.html#ga60f4fcee21e9adc909f73bd41083066b">ua_types_generated.h</a>
 , <a class="el" href="group__types.html#gae8394913a6bc14a1dfee6fe6dccb819e">ua_types.h</a>
-, <a class="el" href="group__ua__types__generated.html#ga2474fad020f7be7f0053e6a82a1da124">ua_types_generated.h</a>
+, <a class="el" href="group__ua__types__generated.html#ga16b98dae137f1265ab2bc112b1e3a89c">ua_types_generated.h</a>
 , <a class="el" href="group__ua__transport__generated.html#gafce5e02a8c0b527d9e781e0c30e48893">ua_transport_generated.h</a>
-, <a class="el" href="group__ua__types__generated.html#gaf7c3f1a712244fb42bdad3ab680e00d7">ua_types_generated.h</a>
+, <a class="el" href="group__ua__types__generated.html#ga623fa47f92c567511e2f6e38ec024de4">ua_types_generated.h</a>
 </li>
 <li>UA_TYPE_PROTOTYPES_NOEXPORT
 : <a class="el" href="group__types.html#gac10537ef3ab9ed7f979b72a5311d2fb3">ua_types.h</a>
@@ -4393,11 +4402,11 @@
 <li>UA_TypedArray_setType()
 : <a class="el" href="ua__xml_8h.html#a3658717bf6134ef6e3efc39d891cf57d">ua_xml.h</a>
 </li>
-<li>UA_TypeNode
-: <a class="el" href="group__ua__types__generated.html#ga4df1f76206bc69301a024ff13d2440d3">ua_types_generated.h</a>
-</li>
 <li>UA_TYPENODE
 : <a class="el" href="ua__namespace__0_8h.html#aec831df06c06ebc938a06756e0aaa626">ua_namespace_0.h</a>
+</li>
+<li>UA_TypeNode
+: <a class="el" href="group__ua__types__generated.html#ga4df1f76206bc69301a024ff13d2440d3">ua_types_generated.h</a>
 </li>
 <li>UA_TYPENODE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a714f58ce39b43f92c04f4980c876dfa2">ua_namespace_0.h</a>
@@ -4408,11 +4417,11 @@
 <li>UA_TYPESFOLDER
 : <a class="el" href="ua__namespace__0_8h.html#a76aab9721db3a962fe1416319821c164">ua_namespace_0.h</a>
 </li>
-<li>UA_UInt16
-: <a class="el" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05">ua_types.h</a>
-</li>
 <li>UA_UINT16
 : <a class="el" href="ua__namespace__0_8h.html#aba66155eb98cb707cc74a96260704b59">ua_namespace_0.h</a>
+</li>
+<li>UA_UInt16
+: <a class="el" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05">ua_types.h</a>
 </li>
 <li>UA_UInt16_calcSizeBinary()
 : <a class="el" href="group__encoding__binary.html#ga3c4433b9076202b1deb088743a7ce9ed">ua_types_encoding_binary.h</a>
@@ -4474,11 +4483,11 @@
 <li>UA_UINT16_NS0
 : <a class="el" href="ua__namespace__0_8h.html#ad9bfeaac1dd327d51baa192b588d2c00">ua_namespace_0.h</a>
 </li>
-<li>UA_UINT32
-: <a class="el" href="ua__namespace__0_8h.html#a3020f76fb118e6c1c9d3378a4c670b0f">ua_namespace_0.h</a>
-</li>
 <li>UA_UInt32
 : <a class="el" href="group__types.html#ga5f0721b034e4c44a7f81589b15ba1baf">ua_types.h</a>
+</li>
+<li>UA_UINT32
+: <a class="el" href="ua__namespace__0_8h.html#a3020f76fb118e6c1c9d3378a4c670b0f">ua_namespace_0.h</a>
 </li>
 <li>UA_UInt32_calcSizeBinary()
 : <a class="el" href="group__encoding__binary.html#ga23e9d3cc78dbeb50a8266dbe3a03a4a5">ua_types_encoding_binary.h</a>
@@ -4537,11 +4546,11 @@
 <li>UA_UINT32_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a3a49942f7182b306649bd396adfe3c12">ua_namespace_0.h</a>
 </li>
-<li>UA_UINT64
-: <a class="el" href="ua__namespace__0_8h.html#a7aef212dd96c3feb196edd9001be3c6c">ua_namespace_0.h</a>
-</li>
 <li>UA_UInt64
 : <a class="el" href="group__types.html#gad0d8e52a357b7fbe50a0b93a2b688b51">ua_types.h</a>
+</li>
+<li>UA_UINT64
+: <a class="el" href="ua__namespace__0_8h.html#a7aef212dd96c3feb196edd9001be3c6c">ua_namespace_0.h</a>
 </li>
 <li>UA_UInt64_calcSizeBinary()
 : <a class="el" href="group__encoding__binary.html#ga822961e68fbf2bcc44a296971ad3f016">ua_types_encoding_binary.h</a>
@@ -4609,29 +4618,29 @@
 <li>UA_UNREGISTERNODESREQUEST_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a54d458fbc896868a784c40a4b7d05c6e">ua_namespace_0.h</a>
 </li>
-<li>UA_UnregisterNodesResponse
-: <a class="el" href="group__ua__types__generated.html#gab816bb13bfa4025b6fba97fce8e51921">ua_types_generated.h</a>
-</li>
 <li>UA_UNREGISTERNODESRESPONSE
 : <a class="el" href="ua__namespace__0_8h.html#abd3e60665544e97f04f508c7e9428457">ua_namespace_0.h</a>
+</li>
+<li>UA_UnregisterNodesResponse
+: <a class="el" href="group__ua__types__generated.html#gab816bb13bfa4025b6fba97fce8e51921">ua_types_generated.h</a>
 </li>
 <li>UA_UNREGISTERNODESRESPONSE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a46970acdfd108bf4d49fb26eebb7f333">ua_namespace_0.h</a>
 </li>
-<li>UA_UPDATEDATADETAILS
-: <a class="el" href="ua__namespace__0_8h.html#ae8a83c38c87ea4245197a14a23f62b3a">ua_namespace_0.h</a>
-</li>
 <li>UA_UpdateDataDetails
 : <a class="el" href="group__ua__types__generated.html#gae756e523b7ace328e1a727fdbe9cd477">ua_types_generated.h</a>
+</li>
+<li>UA_UPDATEDATADETAILS
+: <a class="el" href="ua__namespace__0_8h.html#ae8a83c38c87ea4245197a14a23f62b3a">ua_namespace_0.h</a>
 </li>
 <li>UA_UPDATEDATADETAILS_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a5b96593b4c3bfb1c508d54572dcc09df">ua_namespace_0.h</a>
 </li>
-<li>UA_UpdateEventDetails
-: <a class="el" href="group__ua__types__generated.html#ga16a82a23c7c16a761bf0332d7e0ca08d">ua_types_generated.h</a>
-</li>
 <li>UA_UPDATEEVENTDETAILS
 : <a class="el" href="ua__namespace__0_8h.html#ace5ebc6188e2e5d0d77ad41a98321ca5">ua_namespace_0.h</a>
+</li>
+<li>UA_UpdateEventDetails
+: <a class="el" href="group__ua__types__generated.html#ga16a82a23c7c16a761bf0332d7e0ca08d">ua_types_generated.h</a>
 </li>
 <li>UA_UPDATEEVENTDETAILS_NS0
 : <a class="el" href="ua__namespace__0_8h.html#ada488b6049b817b474064d20c175b6f9">ua_namespace_0.h</a>
@@ -4645,11 +4654,11 @@
 <li>UA_UPDATESTRUCTUREDATADETAILS_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a0daad8776d87d7a9b483d1fdd5bcab2b">ua_namespace_0.h</a>
 </li>
-<li>UA_USERIDENTITYTOKEN
-: <a class="el" href="ua__namespace__0_8h.html#af2f66b51c85d58f75dda9ced8d08a96f">ua_namespace_0.h</a>
-</li>
 <li>UA_UserIdentityToken
 : <a class="el" href="group__ua__types__generated.html#ga16a47e9312b4a30529463f24a5c7eb05">ua_types_generated.h</a>
+</li>
+<li>UA_USERIDENTITYTOKEN
+: <a class="el" href="ua__namespace__0_8h.html#af2f66b51c85d58f75dda9ced8d08a96f">ua_namespace_0.h</a>
 </li>
 <li>UA_USERIDENTITYTOKEN_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a9c31f1138634ce728dd40fdff64e9adc">ua_namespace_0.h</a>
@@ -4663,11 +4672,11 @@
 <li>UA_USERNAMEIDENTITYTOKEN_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a735317ae52f17c258bdc2e93ecf4c616">ua_namespace_0.h</a>
 </li>
-<li>UA_USERTOKENPOLICY
-: <a class="el" href="ua__namespace__0_8h.html#aaef3aeedcb5e5466066857d690586298">ua_namespace_0.h</a>
-</li>
 <li>UA_UserTokenPolicy
 : <a class="el" href="group__ua__types__generated.html#ga0104aa4b6494faccf7a8819eb92630ef">ua_types_generated.h</a>
+</li>
+<li>UA_USERTOKENPOLICY
+: <a class="el" href="ua__namespace__0_8h.html#aaef3aeedcb5e5466066857d690586298">ua_namespace_0.h</a>
 </li>
 <li>UA_USERTOKENPOLICY_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a02277ab38f1ef5f7cc41c340e7a55cf8">ua_namespace_0.h</a>
@@ -4675,11 +4684,11 @@
 <li>UA_UserTokenType
 : <a class="el" href="group__ua__types__generated.html#ga7aa47af8bcfd290335f290d458ed8d2c">ua_types_generated.h</a>
 </li>
-<li>UA_VariableAttributes
-: <a class="el" href="group__ua__types__generated.html#ga7e30eea4ea5bfd00a50c8ce504414c39">ua_types_generated.h</a>
-</li>
 <li>UA_VARIABLEATTRIBUTES
 : <a class="el" href="ua__namespace__0_8h.html#a93c69aae74f64adbf74977ffef79c3b8">ua_namespace_0.h</a>
+</li>
+<li>UA_VariableAttributes
+: <a class="el" href="group__ua__types__generated.html#ga7e30eea4ea5bfd00a50c8ce504414c39">ua_types_generated.h</a>
 </li>
 <li>UA_VARIABLEATTRIBUTES_NS0
 : <a class="el" href="ua__namespace__0_8h.html#afb5ef6720a3ec7c182267e802a004be2">ua_namespace_0.h</a>
@@ -4693,11 +4702,11 @@
 <li>UA_VARIABLENODE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#acc0ad4702fbbd0479924b6d6a2d31914">ua_namespace_0.h</a>
 </li>
-<li>UA_VARIABLETYPEATTRIBUTES
-: <a class="el" href="ua__namespace__0_8h.html#aba296a9a57b81f3e01e028298f852abf">ua_namespace_0.h</a>
-</li>
 <li>UA_VariableTypeAttributes
 : <a class="el" href="group__ua__types__generated.html#ga4c0c2620e35ffdd749b8f896991af4cc">ua_types_generated.h</a>
+</li>
+<li>UA_VARIABLETYPEATTRIBUTES
+: <a class="el" href="ua__namespace__0_8h.html#aba296a9a57b81f3e01e028298f852abf">ua_namespace_0.h</a>
 </li>
 <li>UA_VARIABLETYPEATTRIBUTES_NS0
 : <a class="el" href="ua__namespace__0_8h.html#ab645aab7f2473d0f8f9fd1e75f34d1d0">ua_namespace_0.h</a>
@@ -4783,11 +4792,11 @@
 <li>UA_VIEWATTRIBUTES_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a266732a1110cfc77ac72f1cef412a153">ua_namespace_0.h</a>
 </li>
-<li>UA_VIEWDESCRIPTION
-: <a class="el" href="ua__namespace__0_8h.html#aec1eb1fd8cf51506450aacd1957a2e25">ua_namespace_0.h</a>
-</li>
 <li>UA_ViewDescription
 : <a class="el" href="group__ua__types__generated.html#gac911e9ae45625c378661a03dc16f9947">ua_types_generated.h</a>
+</li>
+<li>UA_VIEWDESCRIPTION
+: <a class="el" href="ua__namespace__0_8h.html#aec1eb1fd8cf51506450aacd1957a2e25">ua_namespace_0.h</a>
 </li>
 <li>UA_VIEWDESCRIPTION_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a48ff1b08d60caa0e7f59158187f3d6e2">ua_namespace_0.h</a>
@@ -4804,11 +4813,11 @@
 <li>UA_VIEWSFOLDER
 : <a class="el" href="ua__namespace__0_8h.html#a70e266a0fdf969a835a19a74bbe8cde0">ua_namespace_0.h</a>
 </li>
-<li>UA_WriteRequest
-: <a class="el" href="group__ua__types__generated.html#ga28a7724351ef213fe3ec70082e69d726">ua_types_generated.h</a>
-</li>
 <li>UA_WRITEREQUEST
 : <a class="el" href="ua__namespace__0_8h.html#a3212646e2dffe51524f563e13cce3715">ua_namespace_0.h</a>
+</li>
+<li>UA_WriteRequest
+: <a class="el" href="group__ua__types__generated.html#ga28a7724351ef213fe3ec70082e69d726">ua_types_generated.h</a>
 </li>
 <li>UA_WRITEREQUEST_NS0
 : <a class="el" href="ua__namespace__0_8h.html#afc385b26216b7c0ab3dc094f442aa88f">ua_namespace_0.h</a>
@@ -4831,11 +4840,11 @@
 <li>UA_WRITEVALUE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#aee3ad294b4df63a45222f12201fe0150">ua_namespace_0.h</a>
 </li>
-<li>UA_X509IDENTITYTOKEN
-: <a class="el" href="ua__namespace__0_8h.html#a69b849b5359d9413cfd83d1938bb4c25">ua_namespace_0.h</a>
-</li>
 <li>UA_X509IdentityToken
 : <a class="el" href="group__ua__types__generated.html#ga3d93810c325bad458807ed3ff78cbf44">ua_types_generated.h</a>
+</li>
+<li>UA_X509IDENTITYTOKEN
+: <a class="el" href="ua__namespace__0_8h.html#a69b849b5359d9413cfd83d1938bb4c25">ua_namespace_0.h</a>
 </li>
 <li>UA_X509IDENTITYTOKEN_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a7a952f4770b8cd627ca5eb371f6b9181">ua_namespace_0.h</a>
@@ -4897,11 +4906,11 @@
 <li>UA_XMLSCHEMA_TYPESYSTEM
 : <a class="el" href="ua__namespace__0_8h.html#a26b507dabace42385633f04def3cbbfb">ua_namespace_0.h</a>
 </li>
-<li>UA_XVTYPE
-: <a class="el" href="ua__namespace__0_8h.html#a453e7cc3becc5f5445a286667f819c0a">ua_namespace_0.h</a>
-</li>
 <li>UA_XVType
 : <a class="el" href="group__ua__types__generated.html#ga2d421b70157f9f5a0b9ba994ddd9268e">ua_types_generated.h</a>
+</li>
+<li>UA_XVTYPE
+: <a class="el" href="ua__namespace__0_8h.html#a453e7cc3becc5f5445a286667f819c0a">ua_namespace_0.h</a>
 </li>
 <li>UA_XVTYPE_NS0
 : <a class="el" href="ua__namespace__0_8h.html#a5451d7e7ade05250aa9b3163b74ef7a5">ua_namespace_0.h</a>
@@ -4912,7 +4921,7 @@
 
 
 <address class="footer"><small>
-Generated on Wed Nov 5 2014 17:57:33 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 6 2014 10:35:58 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

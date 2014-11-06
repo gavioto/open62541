@@ -54,13 +54,13 @@
 <a name="l00013"></a>00013 
 <a name="l00014"></a>00014 <a class="code" href="ua__server_8h.html#a9a4a772d9edc18e5ad54cff05afc3342">UA_NamespaceManager</a>* <a class="code" href="ua__namespace__manager_8h.html#afec8c1d17f3febcc833a95e61b0103c4">UA_NamespaceManager_new</a>();
 <a name="l00015"></a>00015 
-<a name="l00016"></a>00016 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a>  <a class="code" href="ua__namespace__manager_8h.html#af41f2e7767c62c18cb7dea8e1e79c1e2">UA_NamespaceManager_addNamespace</a>(<a class="code" href="ua__server_8h.html#a9a4a772d9edc18e5ad54cff05afc3342">UA_NamespaceManager</a> *namespaceManager, <a class="code" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05" title="An integer value between 0 and 65 535.">UA_UInt16</a> index, <a class="code" href="ua__server_8h.html#structUA__NodeStore">UA_NodeStore</a> *nodeStore);
+<a name="l00016"></a>00016 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a>  <a class="code" href="ua__namespace__manager_8h.html#a8ece98139b8c75cba24102191e990755">UA_NamespaceManager_addNamespace</a>(<a class="code" href="ua__server_8h.html#a9a4a772d9edc18e5ad54cff05afc3342">UA_NamespaceManager</a> *namespaceManager, <a class="code" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05" title="An integer value between 0 and 65 535.">UA_UInt16</a> index, UA_NodeStoreInterface *nodeStore);
 <a name="l00017"></a>00017 
 <a name="l00018"></a>00018 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a>  <a class="code" href="ua__namespace__manager_8h.html#a9fb9c595412fa09bb9e45ff28811ce8c">UA_NamespaceManager_removeNamespace</a>(<a class="code" href="ua__server_8h.html#a9a4a772d9edc18e5ad54cff05afc3342">UA_NamespaceManager</a> *namespaceManager,<a class="code" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05" title="An integer value between 0 and 65 535.">UA_UInt16</a> index);
 <a name="l00019"></a>00019 
 <a name="l00020"></a>00020 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a>  <a class="code" href="ua__namespace__manager_8h.html#ac7a968092f8a80f0011ab874010a6aad">UA_NamespaceManager_getNamespace</a>(<a class="code" href="ua__server_8h.html#a9a4a772d9edc18e5ad54cff05afc3342">UA_NamespaceManager</a> *namespaceManager, <a class="code" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05" title="An integer value between 0 and 65 535.">UA_UInt16</a> index, <a class="code" href="ua__server_8h.html#structUA__Namespace">UA_Namespace</a> **ns);
 <a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a>  <a class="code" href="ua__namespace__manager_8h.html#a3392a45af947bd17230c4bf8bbf2b69b">UA_NamespaceManager_setNodeStore</a>(<a class="code" href="ua__server_8h.html#a9a4a772d9edc18e5ad54cff05afc3342">UA_NamespaceManager</a> *namespaceManager,<a class="code" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05" title="An integer value between 0 and 65 535.">UA_UInt16</a> index, <a class="code" href="ua__server_8h.html#structUA__NodeStore">UA_NodeStore</a> *nodeStore);
+<a name="l00022"></a>00022 <a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a>  <a class="code" href="ua__namespace__manager_8h.html#a7d28e6f48168d909aed91df7c46ce65d">UA_NamespaceManager_setNodeStore</a>(<a class="code" href="ua__server_8h.html#a9a4a772d9edc18e5ad54cff05afc3342">UA_NamespaceManager</a> *namespaceManager,<a class="code" href="group__types.html#ga0a5ff540581b2a3ca4757de792c68f05" title="An integer value between 0 and 65 535.">UA_UInt16</a> index, UA_NodeStoreInterface *nodeStore);
 <a name="l00023"></a>00023 
 <a name="l00024"></a>00024 
 <a name="l00025"></a>00025 
@@ -70,7 +70,7 @@
 
 
 <address class="footer"><small>
-Generated on Wed Nov 5 2014 17:57:33 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 6 2014 10:35:57 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
