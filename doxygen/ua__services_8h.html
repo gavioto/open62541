@@ -35,6 +35,9 @@
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Defines</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">/home/travis/build/acplt/open62541/src/server/ua_services.h File Reference</div>  </div>
 </div><!--header-->
@@ -55,6 +58,42 @@
 </div>
 <p><a href="ua__services_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="define-members"></a>
+Defines</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__services_8h.html#af4932bb2e0f390dc90b2de46f910636e">BUILD_INDEX_ARRAYS</a>(SIZE, REQUEST_ARRAY, NODEID_PROPERTY, DIFFERENT_INDEX_COUNT, ASSOCIATED_INDEX_ARRAY, NUMBER_OF_FOUND_INDICES_ARRAY)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">this macro browses through a request, looking for nodeIds belonging to the same namespace (same namespaceIndex). For each found different namespaceIndex an entry in ASSOCIATED_INDEX_ARRAY is saved. Furthermore for each occurence of the same namespace the corresponding entry of NUMBER_OF_FOUND_INDICES_ARRAY is incremented  <a href="#af4932bb2e0f390dc90b2de46f910636e"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2">UA_AttributeId</a> { <br/>
+&#160;&#160;<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a010f97a4da8e68bf96818c00b26efd49">UA_ATTRIBUTEID_NODEID</a> =  1, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2af235d5bd1b6c5e3525ab99f355d0b7c2">UA_ATTRIBUTEID_NODECLASS</a> =  2, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a7c350a488cbda39a1cebfa0800aa5cde">UA_ATTRIBUTEID_BROWSENAME</a> =  3, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2ac82fa4c8a2d2069937551433e20b82b7">UA_ATTRIBUTEID_DISPLAYNAME</a> =  4, 
+<br/>
+&#160;&#160;<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a3c9c7e4a817b780cf31eef5435f74393">UA_ATTRIBUTEID_DESCRIPTION</a> =  5, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a63d9968c1c1d30e4d3ec22c9a3f40cf2">UA_ATTRIBUTEID_WRITEMASK</a> =  6, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a3a70213d133879a9bad0e61bad772c10">UA_ATTRIBUTEID_USERWRITEMASK</a> =  7, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a20e07e43746725d089cd14178a79c854">UA_ATTRIBUTEID_ISABSTRACT</a> =  8, 
+<br/>
+&#160;&#160;<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a211799bb708d215b4da0e85690111f0a">UA_ATTRIBUTEID_SYMMETRIC</a> =  9, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a8673a4e8dc5748249120d439676d7c0b">UA_ATTRIBUTEID_INVERSENAME</a> =  10, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a2ed187c989c9cbc7e9c8ca08cf827afc">UA_ATTRIBUTEID_CONTAINSNOLOOPS</a> =  11, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2abe1ccbc339ee1befa6f4dd3ca77cefea">UA_ATTRIBUTEID_EVENTNOTIFIER</a> =  12, 
+<br/>
+&#160;&#160;<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a659151d5abe28a5c38051214698aac70">UA_ATTRIBUTEID_VALUE</a> =  13, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a849c5cad2807f039a50f36644327326f">UA_ATTRIBUTEID_DATATYPE</a> =  14, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a039ca1669304b63bbc81214ef69e9d8a">UA_ATTRIBUTEID_VALUERANK</a> =  15, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a6a14c4a2fd8f530469674af905379333">UA_ATTRIBUTEID_ARRAYDIMENSIONS</a> =  16, 
+<br/>
+&#160;&#160;<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a1bb098ba70c2d038733dd0a4c7a26b7d">UA_ATTRIBUTEID_ACCESSLEVEL</a> =  17, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a8ab5259bdbd89082bb8f4737cb758732">UA_ATTRIBUTEID_USERACCESSLEVEL</a> =  18, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a7f82c0c712946d59b409fcb9ae62858c">UA_ATTRIBUTEID_MINIMUMSAMPLINGINTERVAL</a> =  19, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a2192861c89869139ba6bc50763e17c95">UA_ATTRIBUTEID_HISTORIZING</a> =  20, 
+<br/>
+&#160;&#160;<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a116dabcd654aa3a2665a6cf8b5b24838">UA_ATTRIBUTEID_EXECUTABLE</a> =  21, 
+<a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2a302544357ae8af7b96daf5cd984058d3">UA_ATTRIBUTEID_USEREXECUTABLE</a> =  22
+<br/>
+ }</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Discovery Service Set</div></td></tr>
@@ -100,12 +139,153 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__services.html#ga5be44d3595fccfcea6d64785d25c2868">Service_Write</a> (<a class="el" href="ua__server__internal_8h.html#structUA__Server">UA_Server</a> *server, <a class="el" href="ua__session_8h.html#structUA__Session">UA_Session</a> *session, const <a class="el" href="group__ua__types__generated.html#ga28a7724351ef213fe3ec70082e69d726">UA_WriteRequest</a> *request, <a class="el" href="group__ua__types__generated.html#gaaae7ed1d6ca973e02cf18d1a52087c3d">UA_WriteResponse</a> *response)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This Service is used to write one or more Attributes of one or more Nodes. For constructed Attribute values whose elements are indexed, such as an array, this Service allows Clients to write the entire set of indexed values as a composite, to write individual elements or to write ranges of elements of the composite.  <a href="group__services.html#ga5be44d3595fccfcea6d64785d25c2868"></a><br/></td></tr>
 </table>
+<hr/><h2>Define Documentation</h2>
+<a class="anchor" id="af4932bb2e0f390dc90b2de46f910636e"></a><!-- doxytag: member="ua_services.h::BUILD_INDEX_ARRAYS" ref="af4932bb2e0f390dc90b2de46f910636e" args="(SIZE, REQUEST_ARRAY, NODEID_PROPERTY, DIFFERENT_INDEX_COUNT, ASSOCIATED_INDEX_ARRAY, NUMBER_OF_FOUND_INDICES_ARRAY)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define <a class="el" href="ua__services_8h.html#af4932bb2e0f390dc90b2de46f910636e">BUILD_INDEX_ARRAYS</a></td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">SIZE, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">REQUEST_ARRAY, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NODEID_PROPERTY, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">DIFFERENT_INDEX_COUNT, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">ASSOCIATED_INDEX_ARRAY, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">NUMBER_OF_FOUND_INDICES_ARRAY&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Value:</b><div class="fragment"><pre class="fragment"><span class="keywordflow">do</span>{ \
+        DIFFERENT_INDEX_COUNT = 0;\
+        for (<a class="code" href="group__types.html#ga01ce3c3b2fb34ef81c97c313f516004e" title="An integer value between -2 147 483 648 and 2 147 483 647.">UA_Int32</a> i = 0; i &lt; SIZE; i++) { \
+            UA_UInt32 j = 0; \
+            do { \
+                if (ASSOCIATED_INDEX_ARRAY[j] \
+                        == REQUEST_ARRAY[i].NODEID_PROPERTY.namespaceIndex) { \
+                    if (DIFFERENT_INDEX_COUNT == 0) { \
+                        DIFFERENT_INDEX_COUNT++; \
+                    } \
+                    NUMBER_OF_FOUND_INDICES_ARRAY[j]++; \
+                    break; \
+                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (j == (DIFFERENT_INDEX_COUNT - 1)) { \
+                    ASSOCIATED_INDEX_ARRAY[j + 1] = \
+                    REQUEST_ARRAY[i].NODEID_PROPERTY.namespaceIndex; \
+                    NUMBER_OF_FOUND_INDICES_ARRAY[j + 1] = 1; \
+                    DIFFERENT_INDEX_COUNT++; \
+                    break; \
+            } \
+            j++; \
+        } <span class="keywordflow">while</span> (j &lt;= DIFFERENT_INDEX_COUNT); \
+    }\
+}<span class="keywordflow">while</span>(0)
+</pre></div>
+<p>this macro browses through a request, looking for nodeIds belonging to the same namespace (same namespaceIndex). For each found different namespaceIndex an entry in ASSOCIATED_INDEX_ARRAY is saved. Furthermore for each occurence of the same namespace the corresponding entry of NUMBER_OF_FOUND_INDICES_ARRAY is incremented </p>
+<p>a request with 10 nodeIds, with the following namespaceIndices is received 1 1 1 3 4 5 5 5 1 1 After a call of the macro the outputs would look like that: ASSOCIATED_INDEX_ARRAY[0] = 1 ASSOCIATED_INDEX_ARRAY[1] = 3 ASSOCIATED_INDEX_ARRAY[2] = 4 ASSOCIATED_INDEX_ARRAY[3] = 5</p>
+<p>NUMBER_OF_FOUND_INDICES_ARRAY[0] = 5 NUMBER_OF_FOUND_INDICES_ARRAY[1] = 1 NUMBER_OF_FOUND_INDICES_ARRAY[2] = 1 NUMBER_OF_FOUND_INDICES_ARRAY[3] = 3 </p>
+
+</div>
+</div>
+<hr/><h2>Enumeration Type Documentation</h2>
+<a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2"></a><!-- doxytag: member="ua_services.h::UA_AttributeId" ref="a4dc96c31672814d54f24409617bdbbe2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="ua__services_8h.html#a4dc96c31672814d54f24409617bdbbe2">UA_AttributeId</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a010f97a4da8e68bf96818c00b26efd49"></a><!-- doxytag: member="UA_ATTRIBUTEID_NODEID" ref="a4dc96c31672814d54f24409617bdbbe2a010f97a4da8e68bf96818c00b26efd49" args="" -->UA_ATTRIBUTEID_NODEID</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2af235d5bd1b6c5e3525ab99f355d0b7c2"></a><!-- doxytag: member="UA_ATTRIBUTEID_NODECLASS" ref="a4dc96c31672814d54f24409617bdbbe2af235d5bd1b6c5e3525ab99f355d0b7c2" args="" -->UA_ATTRIBUTEID_NODECLASS</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a7c350a488cbda39a1cebfa0800aa5cde"></a><!-- doxytag: member="UA_ATTRIBUTEID_BROWSENAME" ref="a4dc96c31672814d54f24409617bdbbe2a7c350a488cbda39a1cebfa0800aa5cde" args="" -->UA_ATTRIBUTEID_BROWSENAME</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2ac82fa4c8a2d2069937551433e20b82b7"></a><!-- doxytag: member="UA_ATTRIBUTEID_DISPLAYNAME" ref="a4dc96c31672814d54f24409617bdbbe2ac82fa4c8a2d2069937551433e20b82b7" args="" -->UA_ATTRIBUTEID_DISPLAYNAME</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a3c9c7e4a817b780cf31eef5435f74393"></a><!-- doxytag: member="UA_ATTRIBUTEID_DESCRIPTION" ref="a4dc96c31672814d54f24409617bdbbe2a3c9c7e4a817b780cf31eef5435f74393" args="" -->UA_ATTRIBUTEID_DESCRIPTION</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a63d9968c1c1d30e4d3ec22c9a3f40cf2"></a><!-- doxytag: member="UA_ATTRIBUTEID_WRITEMASK" ref="a4dc96c31672814d54f24409617bdbbe2a63d9968c1c1d30e4d3ec22c9a3f40cf2" args="" -->UA_ATTRIBUTEID_WRITEMASK</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a3a70213d133879a9bad0e61bad772c10"></a><!-- doxytag: member="UA_ATTRIBUTEID_USERWRITEMASK" ref="a4dc96c31672814d54f24409617bdbbe2a3a70213d133879a9bad0e61bad772c10" args="" -->UA_ATTRIBUTEID_USERWRITEMASK</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a20e07e43746725d089cd14178a79c854"></a><!-- doxytag: member="UA_ATTRIBUTEID_ISABSTRACT" ref="a4dc96c31672814d54f24409617bdbbe2a20e07e43746725d089cd14178a79c854" args="" -->UA_ATTRIBUTEID_ISABSTRACT</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a211799bb708d215b4da0e85690111f0a"></a><!-- doxytag: member="UA_ATTRIBUTEID_SYMMETRIC" ref="a4dc96c31672814d54f24409617bdbbe2a211799bb708d215b4da0e85690111f0a" args="" -->UA_ATTRIBUTEID_SYMMETRIC</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a8673a4e8dc5748249120d439676d7c0b"></a><!-- doxytag: member="UA_ATTRIBUTEID_INVERSENAME" ref="a4dc96c31672814d54f24409617bdbbe2a8673a4e8dc5748249120d439676d7c0b" args="" -->UA_ATTRIBUTEID_INVERSENAME</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a2ed187c989c9cbc7e9c8ca08cf827afc"></a><!-- doxytag: member="UA_ATTRIBUTEID_CONTAINSNOLOOPS" ref="a4dc96c31672814d54f24409617bdbbe2a2ed187c989c9cbc7e9c8ca08cf827afc" args="" -->UA_ATTRIBUTEID_CONTAINSNOLOOPS</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2abe1ccbc339ee1befa6f4dd3ca77cefea"></a><!-- doxytag: member="UA_ATTRIBUTEID_EVENTNOTIFIER" ref="a4dc96c31672814d54f24409617bdbbe2abe1ccbc339ee1befa6f4dd3ca77cefea" args="" -->UA_ATTRIBUTEID_EVENTNOTIFIER</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a659151d5abe28a5c38051214698aac70"></a><!-- doxytag: member="UA_ATTRIBUTEID_VALUE" ref="a4dc96c31672814d54f24409617bdbbe2a659151d5abe28a5c38051214698aac70" args="" -->UA_ATTRIBUTEID_VALUE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a849c5cad2807f039a50f36644327326f"></a><!-- doxytag: member="UA_ATTRIBUTEID_DATATYPE" ref="a4dc96c31672814d54f24409617bdbbe2a849c5cad2807f039a50f36644327326f" args="" -->UA_ATTRIBUTEID_DATATYPE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a039ca1669304b63bbc81214ef69e9d8a"></a><!-- doxytag: member="UA_ATTRIBUTEID_VALUERANK" ref="a4dc96c31672814d54f24409617bdbbe2a039ca1669304b63bbc81214ef69e9d8a" args="" -->UA_ATTRIBUTEID_VALUERANK</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a6a14c4a2fd8f530469674af905379333"></a><!-- doxytag: member="UA_ATTRIBUTEID_ARRAYDIMENSIONS" ref="a4dc96c31672814d54f24409617bdbbe2a6a14c4a2fd8f530469674af905379333" args="" -->UA_ATTRIBUTEID_ARRAYDIMENSIONS</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a1bb098ba70c2d038733dd0a4c7a26b7d"></a><!-- doxytag: member="UA_ATTRIBUTEID_ACCESSLEVEL" ref="a4dc96c31672814d54f24409617bdbbe2a1bb098ba70c2d038733dd0a4c7a26b7d" args="" -->UA_ATTRIBUTEID_ACCESSLEVEL</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a8ab5259bdbd89082bb8f4737cb758732"></a><!-- doxytag: member="UA_ATTRIBUTEID_USERACCESSLEVEL" ref="a4dc96c31672814d54f24409617bdbbe2a8ab5259bdbd89082bb8f4737cb758732" args="" -->UA_ATTRIBUTEID_USERACCESSLEVEL</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a7f82c0c712946d59b409fcb9ae62858c"></a><!-- doxytag: member="UA_ATTRIBUTEID_MINIMUMSAMPLINGINTERVAL" ref="a4dc96c31672814d54f24409617bdbbe2a7f82c0c712946d59b409fcb9ae62858c" args="" -->UA_ATTRIBUTEID_MINIMUMSAMPLINGINTERVAL</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a2192861c89869139ba6bc50763e17c95"></a><!-- doxytag: member="UA_ATTRIBUTEID_HISTORIZING" ref="a4dc96c31672814d54f24409617bdbbe2a2192861c89869139ba6bc50763e17c95" args="" -->UA_ATTRIBUTEID_HISTORIZING</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a116dabcd654aa3a2665a6cf8b5b24838"></a><!-- doxytag: member="UA_ATTRIBUTEID_EXECUTABLE" ref="a4dc96c31672814d54f24409617bdbbe2a116dabcd654aa3a2665a6cf8b5b24838" args="" -->UA_ATTRIBUTEID_EXECUTABLE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a4dc96c31672814d54f24409617bdbbe2a302544357ae8af7b96daf5cd984058d3"></a><!-- doxytag: member="UA_ATTRIBUTEID_USEREXECUTABLE" ref="a4dc96c31672814d54f24409617bdbbe2a302544357ae8af7b96daf5cd984058d3" args="" -->UA_ATTRIBUTEID_USEREXECUTABLE</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Thu Nov 6 2014 16:04:10 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 7 2014 12:00:28 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

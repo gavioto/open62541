@@ -51,31 +51,33 @@ Typedefs</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that can be evaluated on all entries in a namespace via UA_NodeStore_iterate. Note that the visitor is read-only on the nodes.  <a href="#gaf4a4a284506499e2a78e9a8814a88161"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#ga9a33aa10617785418d87d13c92315ef3">UA_NodeStore_new</a> (<a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> **result)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new namespace.  <a href="#ga9a33aa10617785418d87d13c92315ef3"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#ga754d4517ad53cb4286592713d9981152">UA_NodeStore_delete</a> (<a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> *ns)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete the namespace and all nodes in it.  <a href="#ga754d4517ad53cb4286592713d9981152"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#gab5ac9feeaec00b315a02b802e637c0c6">UA_NodeStore_insert</a> (<a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> *ns, <a class="el" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> **node, <a class="el" href="group__types.html#gac31865e6fcb9a042b5eaf5a5bd4ed30d">UA_Byte</a> flags)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a new node into the namespace.  <a href="#gab5ac9feeaec00b315a02b802e637c0c6"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#ga6f17e438ced10fd4c1f035a930acd23a">UA_NodeStore_remove</a> (<a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> *ns, const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *nodeid)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a node from the namespace. Always succeeds, even if the node was not found.  <a href="#ga6f17e438ced10fd4c1f035a930acd23a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#gad4fb156e62f62fe39c6550b586d801c5">UA_NodeStore_get</a> (const <a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> *ns, const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *nodeid, const <a class="el" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> **managedNode)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a node (read-only) from the namespace. Nodes are immutable. They can only be replaced. After the Node is no longer used, the locked entry needs to be released.  <a href="#gad4fb156e62f62fe39c6550b586d801c5"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#gaafd9cf3d444706dffe43d38ae76fe2b8">UA_NodeStore_release</a> (const <a class="el" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> *managed)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Release a managed node. Do never insert a node that isn't stored in a namespace.  <a href="#gaafd9cf3d444706dffe43d38ae76fe2b8"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#ga3bf247b62795b6a53bb551124a41e4f1">UA_NodeStore_iterate</a> (const <a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> *ns, <a class="el" href="group__nodestore.html#gaf4a4a284506499e2a78e9a8814a88161">UA_NodeStore_nodeVisitor</a> visitor)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterate over all nodes in a namespace.  <a href="#ga3bf247b62795b6a53bb551124a41e4f1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#ga67f9c6dc86304b1d95329cab02b1ef46">open62541NodeStore_setNodeStore</a> (<a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> *nodestore)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#ga1c06d925b47ffb4b783201113fce41da">open62541NodeStore_getNodeStore</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#gaee47ead3b873be19e11eb45a12f09ad6">open62541NodeStore_new</a> (<a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> **result)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new namespace.  <a href="#gaee47ead3b873be19e11eb45a12f09ad6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#ga4109d4c480bb4a22566716a6a243b0d8">open62541NodeStore_delete</a> (<a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> *ns)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete the namespace and all nodes in it.  <a href="#ga4109d4c480bb4a22566716a6a243b0d8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#ga67248de46dc3151814301831d0d7b327">open62541NodeStore_insert</a> (<a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> *ns, <a class="el" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> **node, <a class="el" href="group__types.html#gac31865e6fcb9a042b5eaf5a5bd4ed30d">UA_Byte</a> flags)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a new node into the namespace.  <a href="#ga67248de46dc3151814301831d0d7b327"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#ga15272cfcc23f22f0ed2f7e2b8cdae695">open62541NodeStore_remove</a> (<a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> *ns, const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *nodeid)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a node from the namespace. Always succeeds, even if the node was not found.  <a href="#ga15272cfcc23f22f0ed2f7e2b8cdae695"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#ga38a612ea6580ce2e59902ff5f426c292">open62541NodeStore_get</a> (const <a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> *ns, const <a class="el" href="structUA__NodeId.html">UA_NodeId</a> *nodeid, const <a class="el" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> **managedNode)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a node (read-only) from the namespace. Nodes are immutable. They can only be replaced. After the Node is no longer used, the locked entry needs to be released.  <a href="#ga38a612ea6580ce2e59902ff5f426c292"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#gac9c7d91a095ee046981110084ed81822">open62541NodeStore_release</a> (const <a class="el" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> *managed)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Release a managed node. Do never insert a node that isn't stored in a namespace.  <a href="#gac9c7d91a095ee046981110084ed81822"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nodestore.html#ga8bbfeb555fce2d4f40a8e4c70a9c8418">open62541NodeStore_iterate</a> (const <a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> *ns, <a class="el" href="group__nodestore.html#gaf4a4a284506499e2a78e9a8814a88161">UA_NodeStore_nodeVisitor</a> visitor)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterate over all nodes in a namespace.  <a href="#ga8bbfeb555fce2d4f40a8e4c70a9c8418"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <p>The nodestore is the central storage for nodes in the UA address space. Internally, the nodestore is realised as hash-map where nodes are stored and retrieved with their nodeid. </p>
 <p>The nodes in the nodestore are immutable. To change the content of a node, it needs to be replaced as a whole. When a node is inserted into the namespace, it gets replaced with a pointer to a managed node. Managed nodes shall never be freed by the user. This is done by the namespace when the node is removed and no readers (in other threads) access the node. </p>
 <hr/><h2>Define Documentation</h2>
-<a class="anchor" id="ga72e8d08a092ae7ba95276f92b53e804b"></a><!-- doxytag: member="ua_nodestore.h::UA_NODESTORE_INSERT_GETMANAGED" ref="ga72e8d08a092ae7ba95276f92b53e804b" args="" -->
+<a class="anchor" id="ga72e8d08a092ae7ba95276f92b53e804b"></a><!-- doxytag: member="open62541_nodestore.h::UA_NODESTORE_INSERT_GETMANAGED" ref="ga72e8d08a092ae7ba95276f92b53e804b" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define <a class="el" href="group__nodestore.html#ga72e8d08a092ae7ba95276f92b53e804b">UA_NODESTORE_INSERT_GETMANAGED</a>&#160;&#160;&#160;2</td>
+          <td class="memname">#define <a class="el" href="ua__nodestore__interface_8h.html#a72e8d08a092ae7ba95276f92b53e804b">UA_NODESTORE_INSERT_GETMANAGED</a>&#160;&#160;&#160;2</td>
         </tr>
       </table>
 </div>
@@ -83,12 +85,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga12eeea5c76d7be3c6253dd31508501ec"></a><!-- doxytag: member="ua_nodestore.h::UA_NODESTORE_INSERT_UNIQUE" ref="ga12eeea5c76d7be3c6253dd31508501ec" args="" -->
+<a class="anchor" id="ga12eeea5c76d7be3c6253dd31508501ec"></a><!-- doxytag: member="open62541_nodestore.h::UA_NODESTORE_INSERT_UNIQUE" ref="ga12eeea5c76d7be3c6253dd31508501ec" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define <a class="el" href="group__nodestore.html#ga12eeea5c76d7be3c6253dd31508501ec">UA_NODESTORE_INSERT_UNIQUE</a>&#160;&#160;&#160;1</td>
+          <td class="memname">#define <a class="el" href="ua__nodestore__interface_8h.html#a12eeea5c76d7be3c6253dd31508501ec">UA_NODESTORE_INSERT_UNIQUE</a>&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div>
@@ -97,7 +99,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Typedef Documentation</h2>
-<a class="anchor" id="gaf4a4a284506499e2a78e9a8814a88161"></a><!-- doxytag: member="ua_nodestore.h::UA_NodeStore_nodeVisitor" ref="gaf4a4a284506499e2a78e9a8814a88161" args=")(const UA_Node *node)" -->
+<a class="anchor" id="gaf4a4a284506499e2a78e9a8814a88161"></a><!-- doxytag: member="open62541_nodestore.h::UA_NodeStore_nodeVisitor" ref="gaf4a4a284506499e2a78e9a8814a88161" args=")(const UA_Node *node)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -113,14 +115,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
-<a class="anchor" id="ga754d4517ad53cb4286592713d9981152"></a><!-- doxytag: member="ua_nodestore.h::UA_NodeStore_delete" ref="ga754d4517ad53cb4286592713d9981152" args="(UA_NodeStore *ns)" -->
+<a class="anchor" id="ga4109d4c480bb4a22566716a6a243b0d8"></a><!-- doxytag: member="open62541_nodestore.h::open62541NodeStore_delete" ref="ga4109d4c480bb4a22566716a6a243b0d8" args="(open62541NodeStore *ns)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="group__nodestore.html#ga754d4517ad53cb4286592713d9981152">UA_NodeStore_delete</a> </td>
+          <td class="memname">void <a class="el" href="group__nodestore.html#ga4109d4c480bb4a22566716a6a243b0d8">open62541NodeStore_delete</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> *&#160;</td>
           <td class="paramname"><em>ns</em></td><td>)</td>
           <td></td>
         </tr>
@@ -132,14 +134,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="gad4fb156e62f62fe39c6550b586d801c5"></a><!-- doxytag: member="ua_nodestore.h::UA_NodeStore_get" ref="gad4fb156e62f62fe39c6550b586d801c5" args="(const UA_NodeStore *ns, const UA_NodeId *nodeid, const UA_Node **managedNode)" -->
+<a class="anchor" id="ga38a612ea6580ce2e59902ff5f426c292"></a><!-- doxytag: member="open62541_nodestore.h::open62541NodeStore_get" ref="ga38a612ea6580ce2e59902ff5f426c292" args="(const open62541NodeStore *ns, const UA_NodeId *nodeid, const UA_Node **managedNode)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="group__nodestore.html#gad4fb156e62f62fe39c6550b586d801c5">UA_NodeStore_get</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="group__nodestore.html#ga38a612ea6580ce2e59902ff5f426c292">open62541NodeStore_get</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> *&#160;</td>
           <td class="paramname"><em>ns</em>, </td>
         </tr>
         <tr>
@@ -167,14 +169,30 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="gab5ac9feeaec00b315a02b802e637c0c6"></a><!-- doxytag: member="ua_nodestore.h::UA_NodeStore_insert" ref="gab5ac9feeaec00b315a02b802e637c0c6" args="(UA_NodeStore *ns, UA_Node **node, UA_Byte flags)" -->
+<a class="anchor" id="ga1c06d925b47ffb4b783201113fce41da"></a><!-- doxytag: member="open62541_nodestore.h::open62541NodeStore_getNodeStore" ref="ga1c06d925b47ffb4b783201113fce41da" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="group__nodestore.html#gab5ac9feeaec00b315a02b802e637c0c6">UA_NodeStore_insert</a> </td>
+          <td class="memname"><a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a>* <a class="el" href="group__nodestore.html#ga1c06d925b47ffb4b783201113fce41da">open62541NodeStore_getNodeStore</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ga67248de46dc3151814301831d0d7b327"></a><!-- doxytag: member="open62541_nodestore.h::open62541NodeStore_insert" ref="ga67248de46dc3151814301831d0d7b327" args="(open62541NodeStore *ns, UA_Node **node, UA_Byte flags)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="group__nodestore.html#ga67248de46dc3151814301831d0d7b327">open62541NodeStore_insert</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> *&#160;</td>
           <td class="paramname"><em>ns</em>, </td>
         </tr>
         <tr>
@@ -203,14 +221,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga3bf247b62795b6a53bb551124a41e4f1"></a><!-- doxytag: member="ua_nodestore.h::UA_NodeStore_iterate" ref="ga3bf247b62795b6a53bb551124a41e4f1" args="(const UA_NodeStore *ns, UA_NodeStore_nodeVisitor visitor)" -->
+<a class="anchor" id="ga8bbfeb555fce2d4f40a8e4c70a9c8418"></a><!-- doxytag: member="open62541_nodestore.h::open62541NodeStore_iterate" ref="ga8bbfeb555fce2d4f40a8e4c70a9c8418" args="(const open62541NodeStore *ns, UA_NodeStore_nodeVisitor visitor)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="group__nodestore.html#ga3bf247b62795b6a53bb551124a41e4f1">UA_NodeStore_iterate</a> </td>
+          <td class="memname">void <a class="el" href="group__nodestore.html#ga8bbfeb555fce2d4f40a8e4c70a9c8418">open62541NodeStore_iterate</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> *&#160;</td>
           <td class="paramname"><em>ns</em>, </td>
         </tr>
         <tr>
@@ -232,14 +250,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga9a33aa10617785418d87d13c92315ef3"></a><!-- doxytag: member="ua_nodestore.h::UA_NodeStore_new" ref="ga9a33aa10617785418d87d13c92315ef3" args="(UA_NodeStore **result)" -->
+<a class="anchor" id="gaee47ead3b873be19e11eb45a12f09ad6"></a><!-- doxytag: member="open62541_nodestore.h::open62541NodeStore_new" ref="gaee47ead3b873be19e11eb45a12f09ad6" args="(open62541NodeStore **result)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="group__nodestore.html#ga9a33aa10617785418d87d13c92315ef3">UA_NodeStore_new</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__nodestore.html#gaee47ead3b873be19e11eb45a12f09ad6">open62541NodeStore_new</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> **&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> **&#160;</td>
           <td class="paramname"><em>result</em></td><td>)</td>
           <td></td>
         </tr>
@@ -251,12 +269,12 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="gaafd9cf3d444706dffe43d38ae76fe2b8"></a><!-- doxytag: member="ua_nodestore.h::UA_NodeStore_release" ref="gaafd9cf3d444706dffe43d38ae76fe2b8" args="(const UA_Node *managed)" -->
+<a class="anchor" id="gac9c7d91a095ee046981110084ed81822"></a><!-- doxytag: member="open62541_nodestore.h::open62541NodeStore_release" ref="gac9c7d91a095ee046981110084ed81822" args="(const UA_Node *managed)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="group__nodestore.html#gaafd9cf3d444706dffe43d38ae76fe2b8">UA_NodeStore_release</a> </td>
+          <td class="memname">void <a class="el" href="group__nodestore.html#gac9c7d91a095ee046981110084ed81822">open62541NodeStore_release</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="group__ua__types__generated.html#gacd31311b3bcf93b2fac0750f81e23b9e">UA_Node</a> *&#160;</td>
           <td class="paramname"><em>managed</em></td><td>)</td>
@@ -270,14 +288,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ga6f17e438ced10fd4c1f035a930acd23a"></a><!-- doxytag: member="ua_nodestore.h::UA_NodeStore_remove" ref="ga6f17e438ced10fd4c1f035a930acd23a" args="(UA_NodeStore *ns, const UA_NodeId *nodeid)" -->
+<a class="anchor" id="ga15272cfcc23f22f0ed2f7e2b8cdae695"></a><!-- doxytag: member="open62541_nodestore.h::open62541NodeStore_remove" ref="ga15272cfcc23f22f0ed2f7e2b8cdae695" args="(open62541NodeStore *ns, const UA_NodeId *nodeid)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="group__nodestore.html#ga6f17e438ced10fd4c1f035a930acd23a">UA_NodeStore_remove</a> </td>
+          <td class="memname"><a class="el" href="group__types.html#ga31190895fd16b9bda5a2b80c970875f6">UA_StatusCode</a> <a class="el" href="group__nodestore.html#ga15272cfcc23f22f0ed2f7e2b8cdae695">open62541NodeStore_remove</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="ua__server_8h.html#a6a58ef1e1f4671734067273d69a4dec6">UA_NodeStore</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> *&#160;</td>
           <td class="paramname"><em>ns</em>, </td>
         </tr>
         <tr>
@@ -299,12 +317,29 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ga67f9c6dc86304b1d95329cab02b1ef46"></a><!-- doxytag: member="open62541_nodestore.h::open62541NodeStore_setNodeStore" ref="ga67f9c6dc86304b1d95329cab02b1ef46" args="(open62541NodeStore *nodestore)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="ua__config_8h.html#aba46d236acc7541d0ee0a96f8c7f7907">UA_EXPORT</a> <a class="el" href="group__nodestore.html#ga67f9c6dc86304b1d95329cab02b1ef46">open62541NodeStore_setNodeStore</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ua__server_8h.html#a44159bd5bd6fdd7f142baa62e54e28f4">open62541NodeStore</a> *&#160;</td>
+          <td class="paramname"><em>nodestore</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 
 
 <address class="footer"><small>
-Generated on Thu Nov 6 2014 16:04:10 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 7 2014 12:00:28 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

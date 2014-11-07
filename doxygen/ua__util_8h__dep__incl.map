@@ -1,6 +1,9 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$ua__base64_8h.html" title="/home/travis/build/acplt/open62541/src/ongoing/ua_base64.h" alt="" coords="5,83,379,112"/>
-<area shape="rect" id="node5" href="$ua__securechannel__manager_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_securechannel_manager.h" alt="" coords="403,83,864,112"/>
-<area shape="rect" id="node9" href="$ua__session__manager_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_session_manager.h" alt="" coords="888,83,1312,112"/>
-<area shape="rect" id="node7" href="$ua__server__internal_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_server_internal.h" alt="" coords="664,160,1069,189"/>
+<area shape="rect" id="node3" href="$ua__base64_8h.html" title="/home/travis/build/acplt/open62541/src/ongoing/ua_base64.h" alt="" coords="87,83,460,112"/>
+<area shape="rect" id="node5" href="$ua__namespace_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_namespace.h" alt="" coords="484,83,873,112"/>
+<area shape="rect" id="node9" href="$ua__namespace__manager_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_namespace_manager.h" alt="" coords="456,160,901,189"/>
+<area shape="rect" id="node14" href="$ua__securechannel__manager_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_securechannel_manager.h" alt="" coords="925,160,1387,189"/>
+<area shape="rect" id="node17" href="$ua__session__manager_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_session_manager.h" alt="" coords="1153,83,1577,112"/>
+<area shape="rect" id="node7" href="$ua__namespace__xml_8h.html" title="/home/travis/build/acplt/open62541/src/ongoing/ua_namespace_xml.h" alt="" coords="5,160,432,189"/>
+<area shape="rect" id="node11" href="$ua__server__internal_8h.html" title="/home/travis/build/acplt/open62541/src/server/ua_server_internal.h" alt="" coords="953,237,1359,267"/>
 </map>
