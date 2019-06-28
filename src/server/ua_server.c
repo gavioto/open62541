@@ -1,558 +1,625 @@
-#include "ua_server_internal.h"
-#include "ua_services_internal.h" // AddReferences
-#include "ua_namespace_0.h"
-#include "ua_securechannel_manager.h"
-#include "ua_session_manager.h"
-#include "ua_util.h"
-#include "ua_services.h"
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. 
+ *
+ *    Copyright 2014-2018 (c) Fraunhofer IOSB (Author: Julius Pfrommer)
+ *    Copyright 2014-2017 (c) Florian Palm
+ *    Copyright 2015-2016 (c) Sten Grüner
+ *    Copyright 2015-2016 (c) Chris Iatrou
+ *    Copyright 2015 (c) LEvertz
+ *    Copyright 2015-2016 (c) Oleksiy Vasylyev
+ *    Copyright 2016 (c) Julian Grothoff
+ *    Copyright 2016-2017 (c) Stefan Profanter, fortiss GmbH
+ *    Copyright 2016 (c) Lorenz Haas
+ *    Copyright 2017 (c) frax2222
+ *    Copyright 2017 (c) Mark Giraud, Fraunhofer IOSB
+ *    Copyright 2018 (c) Hilscher Gesellschaft für Systemautomation mbH (Author: Martin Lang)
+ *    Copyright 2019 (c) Kalycito Infotech Private Limited
+ */
 
+#include "ua_server_internal.h"
+
+#ifdef UA_ENABLE_PUBSUB_INFORMATIONMODEL
+#include "ua_pubsub_ns0.h"
+#endif
+
+#ifdef UA_ENABLE_SUBSCRIPTIONS
+#include "ua_subscription.h"
+#endif
+
+#ifdef UA_ENABLE_VALGRIND_INTERACTIVE
+#include <valgrind/memcheck.h>
+#endif
+
+/**********************/
+/* Namespace Handling */
+/**********************/
+
+/*
+ * The NS1 Uri can be changed by the user to some custom string.
+ * This method is called to initialize the NS1 Uri if it is not set before to the default Application URI.
+ *
+ * This is done as soon as the Namespace Array is read or written via node value read / write services,
+ * or UA_Server_addNamespace, UA_Server_getNamespaceByName or UA_Server_run_startup is called.
+ *
+ * Therefore one has to set the custom NS1 URI before one of the previously mentioned steps.
+ */
+void setupNs1Uri(UA_Server *server) {
+    if (!server->namespaces[1].data) {
+        UA_String_copy(&server->config.applicationDescription.applicationUri, &server->namespaces[1]);
+    }
+}
+
+UA_UInt16 addNamespace(UA_Server *server, const UA_String name) {
+    /* ensure that the uri for ns1 is set up from the app description */
+    setupNs1Uri(server);
+
+    /* Check if the namespace already exists in the server's namespace array */
+    for(UA_UInt16 i = 0; i < server->namespacesSize; ++i) {
+        if(UA_String_equal(&name, &server->namespaces[i]))
+            return i;
+    }
+
+    /* Make the array bigger */
+    UA_String *newNS = (UA_String*)UA_realloc(server->namespaces,
+                                              sizeof(UA_String) * (server->namespacesSize + 1));
+    if(!newNS)
+        return 0;
+    server->namespaces = newNS;
+
+    /* Copy the namespace string */
+    UA_StatusCode retval = UA_String_copy(&name, &server->namespaces[server->namespacesSize]);
+    if(retval != UA_STATUSCODE_GOOD)
+        return 0;
+
+    /* Announce the change (otherwise, the array appears unchanged) */
+    ++server->namespacesSize;
+    return (UA_UInt16)(server->namespacesSize - 1);
+}
+
+UA_UInt16 UA_Server_addNamespace(UA_Server *server, const char* name) {
+    /* Override const attribute to get string (dirty hack) */
+    UA_String nameString;
+    nameString.length = strlen(name);
+    nameString.data = (UA_Byte*)(uintptr_t)name;
+    return addNamespace(server, nameString);
+}
+
+UA_ServerConfig*
+UA_Server_getConfig(UA_Server *server)
+{
+  if(!server)
+    return NULL;
+
+  return &server->config;
+}
+
+UA_StatusCode
+UA_Server_getNamespaceByName(UA_Server *server, const UA_String namespaceUri,
+                             size_t* foundIndex) {
+    /* ensure that the uri for ns1 is set up from the app description */
+    setupNs1Uri(server);
+
+    for(size_t idx = 0; idx < server->namespacesSize; idx++) {
+        if(!UA_String_equal(&server->namespaces[idx], &namespaceUri))
+            continue;
+        (*foundIndex) = idx;
+        return UA_STATUSCODE_GOOD;
+    }
+    return UA_STATUSCODE_BADNOTFOUND;
+}
+
+UA_StatusCode
+UA_Server_forEachChildNodeCall(UA_Server *server, UA_NodeId parentNodeId,
+                               UA_NodeIteratorCallback callback, void *handle) {
+    const UA_Node *parent = UA_Nodestore_getNode(server->nsCtx, &parentNodeId);
+    if(!parent)
+        return UA_STATUSCODE_BADNODEIDINVALID;
+
+    /* TODO: We need to do an ugly copy of the references array since users may
+     * delete references from within the callback. In single-threaded mode this
+     * changes the same node we point at here. In multi-threaded mode, this
+     * creates a new copy as nodes are truly immutable.
+     * The callback could remove a node via the regular public API.
+     * This can remove a member of the nodes-array we iterate over...
+     * */
+    UA_Node *parentCopy = UA_Node_copy_alloc(parent);
+    if(!parentCopy) {
+        UA_Nodestore_releaseNode(server->nsCtx, parent);
+        return UA_STATUSCODE_BADUNEXPECTEDERROR;
+    }
+
+    UA_StatusCode retval = UA_STATUSCODE_GOOD;
+    for(size_t i = parentCopy->referencesSize; i > 0; --i) {
+        UA_NodeReferenceKind *ref = &parentCopy->references[i - 1];
+        for(size_t j = 0; j<ref->targetIdsSize; j++) {
+            retval = callback(ref->targetIds[j].nodeId, ref->isInverse,
+                              ref->referenceTypeId, handle);
+            if(retval != UA_STATUSCODE_GOOD)
+                goto cleanup;
+        }
+    }
+
+cleanup:
+    UA_Node_deleteMembers(parentCopy);
+    UA_free(parentCopy);
+
+    UA_Nodestore_releaseNode(server->nsCtx, parent);
+    return retval;
+}
+
+/********************/
+/* Server Lifecycle */
+/********************/
+
+/* The server needs to be stopped before it can be deleted */
 void UA_Server_delete(UA_Server *server) {
-    UA_ApplicationDescription_deleteMembers(&server->description);
+    /* Delete all internal data */
     UA_SecureChannelManager_deleteMembers(&server->secureChannelManager);
     UA_SessionManager_deleteMembers(&server->sessionManager);
-    UA_NodeStore_delete(server->nodestore);
-    UA_ByteString_deleteMembers(&server->serverCertificate);
-    UA_Array_delete(server->endpointDescriptions, server->endpointDescriptionsSize, &UA_TYPES[UA_ENDPOINTDESCRIPTION]);
+    UA_Array_delete(server->namespaces, server->namespacesSize, &UA_TYPES[UA_TYPES_STRING]);
+
+#ifdef UA_ENABLE_SUBSCRIPTIONS
+    UA_MonitoredItem *mon, *mon_tmp;
+    LIST_FOREACH_SAFE(mon, &server->localMonitoredItems, listEntry, mon_tmp) {
+        LIST_REMOVE(mon, listEntry);
+        UA_MonitoredItem_delete(server, mon);
+    }
+#endif
+
+#ifdef UA_ENABLE_PUBSUB
+    UA_PubSubManager_delete(server, &server->pubSubManager);
+#endif
+
+#ifdef UA_ENABLE_DISCOVERY
+    UA_DiscoveryManager_deleteMembers(&server->discoveryManager, server);
+#endif
+
+    /* Clean up the Admin Session */
+    UA_Session_deleteMembersCleanup(&server->adminSession, server);
+
+    /* Clean up the work queue */
+    UA_WorkQueue_cleanup(&server->workQueue);
+
+    /* Delete the timed work */
+    UA_Timer_deleteMembers(&server->timer);
+
+    /* Clean up the nodestore */
+    UA_Nodestore_delete(server->nsCtx);
+
+    /* Clean up the config */
+    UA_ServerConfig_clean(&server->config);
+
+    /* Delete the server itself */
     UA_free(server);
 }
 
-UA_Server * UA_Server_new(UA_String *endpointUrl, UA_ByteString *serverCertificate) {
-    UA_Server *server = UA_alloc(sizeof(UA_Server));
+/* Recurring cleanup. Removing unused and timed-out channels and sessions */
+static void
+UA_Server_cleanup(UA_Server *server, void *_) {
+    UA_DateTime nowMonotonic = UA_DateTime_nowMonotonic();
+    UA_SessionManager_cleanupTimedOut(&server->sessionManager, nowMonotonic);
+    UA_SecureChannelManager_cleanupTimedOut(&server->secureChannelManager, nowMonotonic);
+#ifdef UA_ENABLE_DISCOVERY
+    UA_Discovery_cleanupTimedOut(server, nowMonotonic);
+#endif
+}
+
+/********************/
+/* Server Lifecycle */
+/********************/
+
+UA_Server *
+UA_Server_new() {
+    /* Allocate the server */
+    UA_Server *server = (UA_Server *)UA_calloc(1, sizeof(UA_Server));
     if(!server)
-        return server;
-    
-    // mockup application description
-    UA_ApplicationDescription_init(&server->description);
-    UA_String_copycstring("urn:servername:open62541:application", &server->description.productUri);
-    UA_String_copycstring("http://open62541.info/applications/4711", &server->description.applicationUri);
-    UA_LocalizedText_copycstring("The open62541 application", &server->description.applicationName);
-    server->description.applicationType = UA_APPLICATIONTYPE_SERVER;
+        return NULL;
 
-    UA_ByteString_init(&server->serverCertificate);
-    if(serverCertificate)
-        UA_ByteString_copy(serverCertificate, &server->serverCertificate);
+    /* Init start time to zero, the actual start time will be sampled in
+     * UA_Server_run_startup() */
+    server->startTime = 0;
 
-    // mockup endpoint description
-    server->endpointDescriptionsSize = 1;
-    UA_EndpointDescription *endpoint = UA_alloc(sizeof(UA_EndpointDescription)); // todo: check return code
+    /* Set a seed for non-cyptographic randomness */
+#ifndef UA_ENABLE_DETERMINISTIC_RNG
+    UA_random_seed((UA_UInt64)UA_DateTime_now());
+#endif
 
-    endpoint->securityMode = UA_MESSAGESECURITYMODE_NONE;
-    UA_String_copycstring("http://opcfoundation.org/UA/SecurityPolicy#None", &endpoint->securityPolicyUri);
-    UA_String_copycstring("http://opcfoundation.org/UA-Profile/Transport/uatcp-uasc-uabinary", &endpoint->transportProfileUri);
+    /* Initialize the handling of repeated callbacks */
+    UA_Timer_init(&server->timer);
 
-    endpoint->userIdentityTokensSize = 1;
-    endpoint->userIdentityTokens = UA_alloc(sizeof(UA_UserTokenPolicy));
-    UA_UserTokenPolicy_init(endpoint->userIdentityTokens);
-    UA_String_copycstring("my-anonymous-policy", &endpoint->userIdentityTokens->policyId); // defined per server
-    endpoint->userIdentityTokens->tokenType = UA_USERTOKENTYPE_ANONYMOUS;
+    UA_WorkQueue_init(&server->workQueue);
 
-    UA_String_copy(endpointUrl, &endpoint->endpointUrl);
-    /* The standard says "the HostName specified in the Server Certificate is the
-       same as the HostName contained in the endpointUrl provided in the
-       EndpointDescription */
-    UA_String_copy(&server->serverCertificate, &endpoint->serverCertificate);
-    UA_ApplicationDescription_copy(&server->description, &endpoint->server);
-    server->endpointDescriptions = endpoint;
+    /* Initialize the adminSession */
+    UA_Session_init(&server->adminSession);
+    server->adminSession.sessionId.identifierType = UA_NODEIDTYPE_GUID;
+    server->adminSession.sessionId.identifier.guid.data1 = 1;
+    server->adminSession.validTill = UA_INT64_MAX;
 
-#define MAXCHANNELCOUNT 100
-#define STARTCHANNELID 1
-#define TOKENLIFETIME 10000
-#define STARTTOKENID 1
-    UA_SecureChannelManager_init(&server->secureChannelManager, MAXCHANNELCOUNT,
-                                 TOKENLIFETIME, STARTCHANNELID, STARTTOKENID, endpointUrl);
-
-#define MAXSESSIONCOUNT 1000
-#define SESSIONLIFETIME 10000
-#define STARTSESSIONID 1
-    UA_SessionManager_init(&server->sessionManager, MAXSESSIONCOUNT, SESSIONLIFETIME, STARTSESSIONID);
-
-    UA_NodeStore_new(&server->nodestore);
-
-    /**************/
-    /* References */
-    /**************/
-
-    // ReferenceType Ids
-    UA_ExpandedNodeId RefTypeId_References; NS0EXPANDEDNODEID(RefTypeId_References, 31);
-    UA_ExpandedNodeId RefTypeId_NonHierarchicalReferences; NS0EXPANDEDNODEID(RefTypeId_NonHierarchicalReferences, 32);
-    UA_ExpandedNodeId RefTypeId_HierarchicalReferences; NS0EXPANDEDNODEID(RefTypeId_HierarchicalReferences, 33);
-    UA_ExpandedNodeId RefTypeId_HasChild; NS0EXPANDEDNODEID(RefTypeId_HasChild, 34);
-    UA_ExpandedNodeId RefTypeId_Organizes; NS0EXPANDEDNODEID(RefTypeId_Organizes, 35);
-    UA_ExpandedNodeId RefTypeId_HasEventSource; NS0EXPANDEDNODEID(RefTypeId_HasEventSource, 36);
-    UA_ExpandedNodeId RefTypeId_HasModellingRule; NS0EXPANDEDNODEID(RefTypeId_HasModellingRule, 37);
-    UA_ExpandedNodeId RefTypeId_HasEncoding; NS0EXPANDEDNODEID(RefTypeId_HasEncoding, 38);
-    UA_ExpandedNodeId RefTypeId_HasDescription; NS0EXPANDEDNODEID(RefTypeId_HasDescription, 39);
-    UA_ExpandedNodeId RefTypeId_HasTypeDefinition; NS0EXPANDEDNODEID(RefTypeId_HasTypeDefinition, 40);
-    UA_ExpandedNodeId RefTypeId_GeneratesEvent; NS0EXPANDEDNODEID(RefTypeId_GeneratesEvent, 41);
-    UA_ExpandedNodeId RefTypeId_Aggregates; NS0EXPANDEDNODEID(RefTypeId_Aggregates, 44);
-    UA_ExpandedNodeId RefTypeId_HasSubtype; NS0EXPANDEDNODEID(RefTypeId_HasSubtype, 45);
-    UA_ExpandedNodeId RefTypeId_HasProperty; NS0EXPANDEDNODEID(RefTypeId_HasProperty, 46);
-    UA_ExpandedNodeId RefTypeId_HasComponent; NS0EXPANDEDNODEID(RefTypeId_HasComponent, 47);
-    UA_ExpandedNodeId RefTypeId_HasNotifier; NS0EXPANDEDNODEID(RefTypeId_HasNotifier, 48);
-    UA_ExpandedNodeId RefTypeId_HasOrderedComponent; NS0EXPANDEDNODEID(RefTypeId_HasOrderedComponent, 49);
-    UA_ExpandedNodeId RefTypeId_HasModelParent; NS0EXPANDEDNODEID(RefTypeId_HasModelParent, 50);
-    UA_ExpandedNodeId RefTypeId_FromState; NS0EXPANDEDNODEID(RefTypeId_FromState, 51);
-    UA_ExpandedNodeId RefTypeId_ToState; NS0EXPANDEDNODEID(RefTypeId_ToState, 52);
-    UA_ExpandedNodeId RefTypeId_HasCause; NS0EXPANDEDNODEID(RefTypeId_HasCause, 53);
-    UA_ExpandedNodeId RefTypeId_HasEffect; NS0EXPANDEDNODEID(RefTypeId_HasEffect, 54);
-    UA_ExpandedNodeId RefTypeId_HasHistoricalConfiguration; NS0EXPANDEDNODEID(RefTypeId_HasHistoricalConfiguration, 56);
-
-#define ADDREFERENCE(NODE, REFTYPE, INVERSE, TARGET_NODEID) do { \
-    static struct UA_ReferenceNode NODE##REFTYPE##TARGET_NODEID;    \
-    UA_ReferenceNode_init(&NODE##REFTYPE##TARGET_NODEID);       \
-    NODE##REFTYPE##TARGET_NODEID.referenceTypeId = REFTYPE.nodeId;     \
-    NODE##REFTYPE##TARGET_NODEID.isInverse       = INVERSE; \
-    NODE##REFTYPE##TARGET_NODEID.targetId = TARGET_NODEID; \
-    AddReference(server->nodestore, (UA_Node *)NODE, &NODE##REFTYPE##TARGET_NODEID); \
-    } while(0)
-    
-    UA_ReferenceTypeNode *references = UA_ReferenceTypeNode_new();
-    references->nodeId    = RefTypeId_References.nodeId;
-    references->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("References", &references->browseName);
-    UA_LocalizedText_copycstring("References", &references->displayName);
-    UA_LocalizedText_copycstring("References", &references->description);
-    references->isAbstract = UA_TRUE;
-    references->symmetric  = UA_TRUE;
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&references, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *hierarchicalreferences = UA_ReferenceTypeNode_new();
-    hierarchicalreferences->nodeId    = RefTypeId_HierarchicalReferences.nodeId;
-    hierarchicalreferences->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HierarchicalReferences", &hierarchicalreferences->browseName);
-    UA_LocalizedText_copycstring("HierarchicalReferences", &hierarchicalreferences->displayName);
-    UA_LocalizedText_copycstring("HierarchicalReferences", &hierarchicalreferences->description);
-    hierarchicalreferences->isAbstract = UA_TRUE;
-    hierarchicalreferences->symmetric  = UA_FALSE;
-    ADDREFERENCE(hierarchicalreferences, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_References);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&hierarchicalreferences, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *nonhierarchicalreferences = UA_ReferenceTypeNode_new();
-    nonhierarchicalreferences->nodeId    = RefTypeId_NonHierarchicalReferences.nodeId;
-    nonhierarchicalreferences->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("NonHierarchicalReferences", &nonhierarchicalreferences->browseName);
-    UA_LocalizedText_copycstring("NonHierarchicalReferences", &nonhierarchicalreferences->displayName);
-    UA_LocalizedText_copycstring("NonHierarchicalReferences", &nonhierarchicalreferences->description);
-    nonhierarchicalreferences->isAbstract = UA_TRUE;
-    nonhierarchicalreferences->symmetric  = UA_FALSE;
-    ADDREFERENCE(nonhierarchicalreferences, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_References);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&nonhierarchicalreferences, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *haschild = UA_ReferenceTypeNode_new();
-    haschild->nodeId    = RefTypeId_HasChild.nodeId;
-    haschild->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasChild", &haschild->browseName);
-    UA_LocalizedText_copycstring("HasChild", &haschild->displayName);
-    UA_LocalizedText_copycstring("HasChild", &haschild->description);
-    haschild->isAbstract = UA_TRUE;
-    haschild->symmetric  = UA_FALSE;
-    ADDREFERENCE(haschild, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_HierarchicalReferences);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&haschild, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *organizes = UA_ReferenceTypeNode_new();
-    organizes->nodeId    = RefTypeId_Organizes.nodeId;
-    organizes->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("Organizes", &organizes->browseName);
-    UA_LocalizedText_copycstring("Organizes", &organizes->displayName);
-    UA_LocalizedText_copycstring("Organizes", &organizes->description);
-    organizes->isAbstract = UA_FALSE;
-    organizes->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("OrganizedBy", &organizes->inverseName);
-    ADDREFERENCE(organizes, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_HierarchicalReferences);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&organizes, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *haseventsource = UA_ReferenceTypeNode_new();
-    haseventsource->nodeId    = RefTypeId_HasEventSource.nodeId;
-    haseventsource->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasEventSource", &haseventsource->browseName);
-    UA_LocalizedText_copycstring("HasEventSource", &haseventsource->displayName);
-    UA_LocalizedText_copycstring("HasEventSource", &haseventsource->description);
-    haseventsource->isAbstract = UA_FALSE;
-    haseventsource->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("EventSourceOf", &haseventsource->inverseName);
-    ADDREFERENCE(haseventsource, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_HierarchicalReferences);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&haseventsource, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *hasmodellingrule = UA_ReferenceTypeNode_new();
-    hasmodellingrule->nodeId    = RefTypeId_HasModellingRule.nodeId;
-    hasmodellingrule->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasModellingRule", &hasmodellingrule->browseName);
-    UA_LocalizedText_copycstring("HasModellingRule", &hasmodellingrule->displayName);
-    UA_LocalizedText_copycstring("HasModellingRule", &hasmodellingrule->description);
-    hasmodellingrule->isAbstract = UA_FALSE;
-    hasmodellingrule->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("ModellingRuleOf", &hasmodellingrule->inverseName);
-    ADDREFERENCE(hasmodellingrule, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_NonHierarchicalReferences);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&hasmodellingrule, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *hasencoding = UA_ReferenceTypeNode_new();
-    hasencoding->nodeId    = RefTypeId_HasEncoding.nodeId;
-    hasencoding->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasEncoding", &hasencoding->browseName);
-    UA_LocalizedText_copycstring("HasEncoding", &hasencoding->displayName);
-    UA_LocalizedText_copycstring("HasEncoding", &hasencoding->description);
-    hasencoding->isAbstract = UA_FALSE;
-    hasencoding->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("EncodingOf", &hasencoding->inverseName);
-    ADDREFERENCE(hasencoding, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_NonHierarchicalReferences);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&hasencoding, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *hasdescription = UA_ReferenceTypeNode_new();
-    hasdescription->nodeId    = RefTypeId_HasDescription.nodeId;
-    hasdescription->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasDescription", &hasdescription->browseName);
-    UA_LocalizedText_copycstring("HasDescription", &hasdescription->displayName);
-    UA_LocalizedText_copycstring("HasDescription", &hasdescription->description);
-    hasdescription->isAbstract = UA_FALSE;
-    hasdescription->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("DescriptionOf", &hasdescription->inverseName);
-    ADDREFERENCE(hasdescription, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_NonHierarchicalReferences);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&hasdescription, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *hastypedefinition = UA_ReferenceTypeNode_new();
-    hastypedefinition->nodeId    = RefTypeId_HasTypeDefinition.nodeId;
-    hastypedefinition->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasTypeDefinition", &hastypedefinition->browseName);
-    UA_LocalizedText_copycstring("HasTypeDefinition", &hastypedefinition->displayName);
-    UA_LocalizedText_copycstring("HasTypeDefinition", &hastypedefinition->description);
-    hastypedefinition->isAbstract = UA_FALSE;
-    hastypedefinition->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("TypeDefinitionOf", &hastypedefinition->inverseName);
-    ADDREFERENCE(hastypedefinition, RefTypeId_HasSubtype, UA_TRUE,  RefTypeId_NonHierarchicalReferences);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&hastypedefinition, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *generatesevent = UA_ReferenceTypeNode_new();
-    generatesevent->nodeId    = RefTypeId_GeneratesEvent.nodeId;
-    generatesevent->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("GeneratesEvent", &generatesevent->browseName);
-    UA_LocalizedText_copycstring("GeneratesEvent", &generatesevent->displayName);
-    UA_LocalizedText_copycstring("GeneratesEvent", &generatesevent->description);
-    generatesevent->isAbstract = UA_FALSE;
-    generatesevent->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("GeneratedBy", &generatesevent->inverseName);
-    ADDREFERENCE(generatesevent, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_NonHierarchicalReferences);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&generatesevent, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *aggregates = UA_ReferenceTypeNode_new();
-    aggregates->nodeId    = RefTypeId_Aggregates.nodeId;
-    aggregates->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("Aggregates", &aggregates->browseName);
-    UA_LocalizedText_copycstring("Aggregates", &aggregates->displayName);
-    UA_LocalizedText_copycstring("Aggregates", &aggregates->description);
-    aggregates->isAbstract = UA_TRUE;
-    aggregates->symmetric  = UA_FALSE;
-    ADDREFERENCE(aggregates, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_HasChild);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&aggregates, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *hassubtype = UA_ReferenceTypeNode_new();
-    hassubtype->nodeId    = RefTypeId_HasSubtype.nodeId;
-    hassubtype->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasSubtype", &hassubtype->browseName);
-    UA_LocalizedText_copycstring("HasSubtype", &hassubtype->displayName);
-    UA_LocalizedText_copycstring("HasSubtype", &hassubtype->description);
-    hassubtype->isAbstract = UA_FALSE;
-    hassubtype->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("SubtypeOf", &hassubtype->inverseName);
-    ADDREFERENCE(hassubtype, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_HasChild);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&hassubtype, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *hasproperty = UA_ReferenceTypeNode_new();
-    hasproperty->nodeId    = RefTypeId_HasProperty.nodeId;
-    hasproperty->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasProperty", &hasproperty->browseName);
-    UA_LocalizedText_copycstring("HasProperty", &hasproperty->displayName);
-    UA_LocalizedText_copycstring("HasProperty", &hasproperty->description);
-    hasproperty->isAbstract = UA_FALSE;
-    hasproperty->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("PropertyOf", &hasproperty->inverseName);
-    ADDREFERENCE(hasproperty, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_Aggregates);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&hasproperty, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *hascomponent = UA_ReferenceTypeNode_new();
-    hascomponent->nodeId    = RefTypeId_HasComponent.nodeId;
-    hascomponent->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasComponent", &hascomponent->browseName);
-    UA_LocalizedText_copycstring("HasComponent", &hascomponent->displayName);
-    UA_LocalizedText_copycstring("HasComponent", &hascomponent->description);
-    hascomponent->isAbstract = UA_FALSE;
-    hascomponent->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("ComponentOf", &hascomponent->inverseName);
-    ADDREFERENCE(hascomponent, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_Aggregates);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&hascomponent, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *hasnotifier = UA_ReferenceTypeNode_new();
-    hasnotifier->nodeId    = RefTypeId_HasNotifier.nodeId;
-    hasnotifier->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasNotifier", &hasnotifier->browseName);
-    UA_LocalizedText_copycstring("HasNotifier", &hasnotifier->displayName);
-    UA_LocalizedText_copycstring("HasNotifier", &hasnotifier->description);
-    hasnotifier->isAbstract = UA_FALSE;
-    hasnotifier->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("NotifierOf", &hasnotifier->inverseName);
-    ADDREFERENCE(hasnotifier, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_HasEventSource);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&hasnotifier, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *hasorderedcomponent = UA_ReferenceTypeNode_new();
-    hasorderedcomponent->nodeId    = RefTypeId_HasOrderedComponent.nodeId;
-    hasorderedcomponent->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasOrderedComponent", &hasorderedcomponent->browseName);
-    UA_LocalizedText_copycstring("HasOrderedComponent", &hasorderedcomponent->displayName);
-    UA_LocalizedText_copycstring("HasOrderedComponent", &hasorderedcomponent->description);
-    hasorderedcomponent->isAbstract = UA_FALSE;
-    hasorderedcomponent->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("OrderedComponentOf", &hasorderedcomponent->inverseName);
-    ADDREFERENCE(hasorderedcomponent, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_HasComponent);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&hasorderedcomponent, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *hasmodelparent = UA_ReferenceTypeNode_new();
-    hasmodelparent->nodeId    = RefTypeId_HasModelParent.nodeId;
-    hasmodelparent->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasModelParent", &hasmodelparent->browseName);
-    UA_LocalizedText_copycstring("HasModelParent", &hasmodelparent->displayName);
-    UA_LocalizedText_copycstring("HasModelParent", &hasmodelparent->description);
-    hasmodelparent->isAbstract = UA_FALSE;
-    hasmodelparent->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("ModelParentOf", &hasmodelparent->inverseName);
-    ADDREFERENCE(hasmodelparent, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_NonHierarchicalReferences);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&hasmodelparent, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *fromstate = UA_ReferenceTypeNode_new();
-    fromstate->nodeId    = RefTypeId_FromState.nodeId;
-    fromstate->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("FromState", &fromstate->browseName);
-    UA_LocalizedText_copycstring("FromState", &fromstate->displayName);
-    UA_LocalizedText_copycstring("FromState", &fromstate->description);
-    fromstate->isAbstract = UA_FALSE;
-    fromstate->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("ToTransition", &fromstate->inverseName);
-    ADDREFERENCE(fromstate, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_NonHierarchicalReferences);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&fromstate, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *tostate = UA_ReferenceTypeNode_new();
-    tostate->nodeId    = RefTypeId_ToState.nodeId;
-    tostate->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("ToState", &tostate->browseName);
-    UA_LocalizedText_copycstring("ToState", &tostate->displayName);
-    UA_LocalizedText_copycstring("ToState", &tostate->description);
-    tostate->isAbstract = UA_FALSE;
-    tostate->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("FromTransition", &tostate->inverseName);
-    ADDREFERENCE(tostate, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_NonHierarchicalReferences);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&tostate, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *hascause = UA_ReferenceTypeNode_new();
-    hascause->nodeId    = RefTypeId_HasCause.nodeId;
-    hascause->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasCause", &hascause->browseName);
-    UA_LocalizedText_copycstring("HasCause", &hascause->displayName);
-    UA_LocalizedText_copycstring("HasCause", &hascause->description);
-    hascause->isAbstract = UA_FALSE;
-    hascause->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("MayBeCausedBy", &hascause->inverseName);
-    ADDREFERENCE(hascause, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_NonHierarchicalReferences);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&hascause, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *haseffect = UA_ReferenceTypeNode_new();
-    haseffect->nodeId    = RefTypeId_HasEffect.nodeId;
-    haseffect->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasEffect", &haseffect->browseName);
-    UA_LocalizedText_copycstring("HasEffect", &haseffect->displayName);
-    UA_LocalizedText_copycstring("HasEffect", &haseffect->description);
-    haseffect->isAbstract = UA_FALSE;
-    haseffect->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("MayBeEffectedBy", &haseffect->inverseName);
-    ADDREFERENCE(haseffect, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_NonHierarchicalReferences);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&haseffect, UA_NODESTORE_INSERT_UNIQUE);
-
-    UA_ReferenceTypeNode *hashistoricalconfiguration = UA_ReferenceTypeNode_new();
-    hashistoricalconfiguration->nodeId    = RefTypeId_HasHistoricalConfiguration.nodeId;
-    hashistoricalconfiguration->nodeClass = UA_NODECLASS_REFERENCETYPE;
-    UA_QualifiedName_copycstring("HasHistoricalConfiguration", &hashistoricalconfiguration->browseName);
-    UA_LocalizedText_copycstring("HasHistoricalConfiguration", &hashistoricalconfiguration->displayName);
-    UA_LocalizedText_copycstring("HasHistoricalConfiguration", &hashistoricalconfiguration->description);
-    hashistoricalconfiguration->isAbstract = UA_FALSE;
-    hashistoricalconfiguration->symmetric  = UA_FALSE;
-    UA_LocalizedText_copycstring("HistoricalConfigurationOf", &hashistoricalconfiguration->inverseName);
-    ADDREFERENCE(hashistoricalconfiguration, RefTypeId_HasSubtype, UA_TRUE, RefTypeId_Aggregates);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&hashistoricalconfiguration, UA_NODESTORE_INSERT_UNIQUE);
-
-
-    // ObjectTypes (Ids only)
-    UA_ExpandedNodeId ObjTypeId_FolderType; NS0EXPANDEDNODEID(ObjTypeId_FolderType, 61);
-
-    // Objects (Ids only)
-    UA_ExpandedNodeId ObjId_ObjectsFolder; NS0EXPANDEDNODEID(ObjId_ObjectsFolder, 85);
-    UA_ExpandedNodeId ObjId_TypesFolder; NS0EXPANDEDNODEID(ObjId_TypesFolder, 86);
-    UA_ExpandedNodeId ObjId_ViewsFolder; NS0EXPANDEDNODEID(ObjId_ViewsFolder, 87);
-    UA_ExpandedNodeId ObjId_Server; NS0EXPANDEDNODEID(ObjId_Server, 2253);
-    UA_ExpandedNodeId ObjId_ServerArray; NS0EXPANDEDNODEID(ObjId_ServerArray, 2254);
-    UA_ExpandedNodeId ObjId_NamespaceArray; NS0EXPANDEDNODEID(ObjId_NamespaceArray, 2255);
-    UA_ExpandedNodeId ObjId_ServerStatus; NS0EXPANDEDNODEID(ObjId_ServerStatus, 2256);
-    UA_ExpandedNodeId ObjId_ServerCapabilities; NS0EXPANDEDNODEID(ObjId_ServerCapabilities, 2268);
-    UA_ExpandedNodeId ObjId_State; NS0EXPANDEDNODEID(ObjId_State, 2259);
-
-    // FolderType
-    UA_ObjectNode *folderType = UA_ObjectNode_new();
-    folderType->nodeId    = NS0NODEID(61);
-    folderType->nodeClass = UA_NODECLASS_OBJECTTYPE; // I should not have to set this manually
-    UA_QualifiedName_copycstring("FolderType", &folderType->browseName);
-    UA_LocalizedText_copycstring("FolderType", &folderType->displayName);
-    UA_LocalizedText_copycstring("FolderType", &folderType->description);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&folderType, UA_NODESTORE_INSERT_UNIQUE);
-
-    // Root
-    UA_ObjectNode *root = UA_ObjectNode_new();
-    root->nodeId    = NS0NODEID(84);
-    root->nodeClass = UA_NODECLASS_OBJECT; // I should not have to set this manually
-    UA_QualifiedName_copycstring("Root", &root->browseName);
-    UA_LocalizedText_copycstring("Root", &root->displayName);
-    UA_LocalizedText_copycstring("Root", &root->description);
-    ADDREFERENCE(root, RefTypeId_HasTypeDefinition, UA_FALSE, ObjTypeId_FolderType);
-    ADDREFERENCE(root, RefTypeId_Organizes, UA_FALSE, ObjId_ObjectsFolder);
-    ADDREFERENCE(root, RefTypeId_Organizes, UA_FALSE, ObjId_TypesFolder);
-    ADDREFERENCE(root, RefTypeId_Organizes, UA_FALSE, ObjId_ViewsFolder);
-    /* root becomes a managed node. we need to release it at the end.*/
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&root, UA_NODESTORE_INSERT_UNIQUE | UA_NODESTORE_INSERT_GETMANAGED);
-
-    // Objects
-    UA_ObjectNode *objects = UA_ObjectNode_new();
-    objects->nodeId    = ObjId_ObjectsFolder.nodeId;
-    objects->nodeClass = UA_NODECLASS_OBJECT;
-    UA_QualifiedName_copycstring("Objects", &objects->browseName);
-    UA_LocalizedText_copycstring("Objects", &objects->displayName);
-    UA_LocalizedText_copycstring("Objects", &objects->description);
-    ADDREFERENCE(objects, RefTypeId_HasTypeDefinition, UA_FALSE, ObjTypeId_FolderType);
-    ADDREFERENCE(objects, RefTypeId_Organizes, UA_FALSE, ObjId_Server);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&objects, UA_NODESTORE_INSERT_UNIQUE);
-
-    // Types
-    UA_ObjectNode *types = UA_ObjectNode_new();
-    types->nodeId    = ObjId_TypesFolder.nodeId;
-    types->nodeClass = UA_NODECLASS_OBJECT;
-    UA_QualifiedName_copycstring("Types", &types->browseName);
-    UA_LocalizedText_copycstring("Types", &types->displayName);
-    UA_LocalizedText_copycstring("Types", &types->description);
-    ADDREFERENCE(types, RefTypeId_HasTypeDefinition, UA_FALSE, ObjTypeId_FolderType);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&types, UA_NODESTORE_INSERT_UNIQUE);
-
-    // Views
-    UA_ObjectNode *views = UA_ObjectNode_new();
-    views->nodeId    = ObjId_ViewsFolder.nodeId;
-    views->nodeClass = UA_NODECLASS_OBJECT;
-    UA_QualifiedName_copycstring("Views", &views->browseName);
-    UA_LocalizedText_copycstring("Views", &views->displayName);
-    UA_LocalizedText_copycstring("Views", &views->description);
-    ADDREFERENCE(views, RefTypeId_HasTypeDefinition, UA_FALSE, ObjTypeId_FolderType);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&views, UA_NODESTORE_INSERT_UNIQUE);
-
-    // Server
-    UA_ObjectNode *servernode = UA_ObjectNode_new();
-    servernode->nodeId    = ObjId_Server.nodeId;
-    servernode->nodeClass = UA_NODECLASS_OBJECT;
-    UA_QualifiedName_copycstring("Server", &servernode->browseName);
-    UA_LocalizedText_copycstring("Server", &servernode->displayName);
-    UA_LocalizedText_copycstring("Server", &servernode->description);
-    ADDREFERENCE(servernode, RefTypeId_HasComponent, UA_FALSE, ObjId_ServerCapabilities);
-    ADDREFERENCE(servernode, RefTypeId_HasComponent, UA_FALSE, ObjId_NamespaceArray);
-    ADDREFERENCE(servernode, RefTypeId_HasProperty, UA_FALSE, ObjId_ServerStatus);
-    ADDREFERENCE(servernode, RefTypeId_HasProperty, UA_FALSE, ObjId_ServerArray);
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&servernode, UA_NODESTORE_INSERT_UNIQUE);
-
-    // NamespaceArray
-    UA_VariableNode *namespaceArray = UA_VariableNode_new();
-    namespaceArray->nodeId    = ObjId_NamespaceArray.nodeId;
-    namespaceArray->nodeClass = UA_NODECLASS_VARIABLE; //FIXME: this should go into _new?
-    UA_QualifiedName_copycstring("NodeStoreArray", &namespaceArray->browseName);
-    UA_LocalizedText_copycstring("NodeStoreArray", &namespaceArray->displayName);
-    UA_LocalizedText_copycstring("NodeStoreArray", &namespaceArray->description);
-    UA_Array_new(&namespaceArray->value.storage.data.dataPtr, 2, &UA_TYPES[UA_STRING]);
-    namespaceArray->value.vt = &UA_TYPES[UA_STRING];
-    namespaceArray->value.storage.data.arrayLength = 2;
-    UA_String_copycstring("http://opcfoundation.org/UA/", &((UA_String *)(namespaceArray->value.storage.data.dataPtr))[0]);
-    UA_String_copycstring("http://localhost:16664/open62541/", &((UA_String *)(namespaceArray->value.storage.data.dataPtr))[1]);
-    UA_UInt32 *dimensions = UA_alloc(sizeof(UA_UInt32));
-    if(dimensions) {
-        *dimensions = 2;
-        namespaceArray->arrayDimensions = dimensions;
-        namespaceArray->arrayDimensionsSize = 1;
+    /* Create Namespaces 0 and 1
+     * Ns1 will be filled later with the uri from the app description */
+    server->namespaces = (UA_String *)UA_Array_new(2, &UA_TYPES[UA_TYPES_STRING]);
+    if(!server->namespaces) {
+        UA_Server_delete(server);
+        return NULL;
     }
-    namespaceArray->dataType = NS0NODEID(UA_STRING_NS0);
-    namespaceArray->valueRank       = 1;
-    namespaceArray->minimumSamplingInterval = 1.0;
-    namespaceArray->historizing     = UA_FALSE;
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&namespaceArray, UA_NODESTORE_INSERT_UNIQUE);
+    server->namespaces[0] = UA_STRING_ALLOC("http://opcfoundation.org/UA/");
+    server->namespaces[1] = UA_STRING_NULL;
+    server->namespacesSize = 2;
 
-    // ServerStatus
-    UA_VariableNode *serverstatus = UA_VariableNode_new();
-    serverstatus->nodeId    = ObjId_ServerStatus.nodeId;
-    serverstatus->nodeClass = UA_NODECLASS_VARIABLE;
-    UA_QualifiedName_copycstring("ServerStatus", &serverstatus->browseName);
-    UA_LocalizedText_copycstring("ServerStatus", &serverstatus->displayName);
-    UA_LocalizedText_copycstring("ServerStatus", &serverstatus->description);
-    UA_ServerStatusDataType *status = UA_ServerStatusDataType_new();
-    status->startTime   = UA_DateTime_now();
-    status->currentTime = UA_DateTime_now();
-    status->state       = UA_SERVERSTATE_RUNNING;
-    UA_String_copycstring("open62541.org", &status->buildInfo.productUri);
-    UA_String_copycstring("open62541", &status->buildInfo.manufacturerName);
-    UA_String_copycstring("open62541", &status->buildInfo.productName);
-    UA_String_copycstring("0.0", &status->buildInfo.softwareVersion);
-    UA_String_copycstring("0.0", &status->buildInfo.buildNumber);
-    status->buildInfo.buildDate     = UA_DateTime_now();
-    status->secondsTillShutdown     = 99999999;
-    UA_LocalizedText_copycstring("because", &status->shutdownReason);
-    serverstatus->value.vt          = &UA_TYPES[UA_SERVERSTATUSDATATYPE]; // gets encoded as an extensionobject
-    serverstatus->value.storage.data.arrayLength = 1;
-    serverstatus->value.storage.data.dataPtr        = status;
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&serverstatus, UA_NODESTORE_INSERT_UNIQUE);
+    /* Initialized SecureChannel and Session managers */
+    UA_SecureChannelManager_init(&server->secureChannelManager, server);
+    UA_SessionManager_init(&server->sessionManager, server);
 
-    // State (Component of ServerStatus)
-    UA_VariableNode *state = UA_VariableNode_new();
-    state->nodeId    = ObjId_State.nodeId;
-    state->nodeClass = UA_NODECLASS_VARIABLE;
-    UA_QualifiedName_copycstring("State", &state->browseName);
-    UA_LocalizedText_copycstring("State", &state->displayName);
-    UA_LocalizedText_copycstring("State", &state->description);
-    state->value.vt = &UA_TYPES[UA_SERVERSTATE];
-    state->value.storage.data.arrayDimensionsLength = 1; // added to ensure encoding in readreponse
-    state->value.storage.data.arrayLength = 1;
-    state->value.storage.data.dataPtr = &status->state; // points into the other object.
-    state->value.storageType = UA_VARIANT_DATA_NODELETE;
-    UA_NodeStore_insert(server->nodestore, (UA_Node**)&state, UA_NODESTORE_INSERT_UNIQUE);
+    /* Add a regular callback for cleanup and maintenance. With a 10s interval. */
+    UA_Server_addRepeatedCallback(server, (UA_ServerCallback)UA_Server_cleanup, NULL,
+                                  10000.0, NULL);
 
-    UA_NodeStore_release((const UA_Node *)root);
+    /* Initialize namespace 0*/
+    UA_StatusCode retVal = UA_Nodestore_new(&server->nsCtx);
+    if(retVal != UA_STATUSCODE_GOOD)
+        goto cleanup;
+
+    retVal = UA_Server_initNS0(server);
+    if(retVal != UA_STATUSCODE_GOOD)
+        goto cleanup;
+
+    /* Build PubSub information model */
+#ifdef UA_ENABLE_PUBSUB_INFORMATIONMODEL
+    UA_Server_initPubSubNS0(server);
+#endif
 
     return server;
+
+ cleanup:
+    UA_Server_delete(server);
+    return NULL;
 }
 
-UA_AddNodesResult UA_Server_addNode(UA_Server *server, UA_Node **node, const UA_NodeId *parentNodeId,
-                                    const UA_NodeId *referenceTypeId) {
-    UA_ExpandedNodeId expParentNodeId;
-    UA_ExpandedNodeId_init(&expParentNodeId);
-    UA_NodeId_copy(parentNodeId, &expParentNodeId.nodeId);
-    return AddNode(server, &adminSession, node, &expParentNodeId, referenceTypeId);
+/*******************/
+/* Timed Callbacks */
+/*******************/
+
+UA_StatusCode
+UA_Server_addTimedCallback(UA_Server *server, UA_ServerCallback callback,
+                           void *data, UA_DateTime date, UA_UInt64 *callbackId) {
+    return UA_Timer_addTimedCallback(&server->timer,
+                                     (UA_ApplicationCallback)callback,
+                                     server, data, date, callbackId);
 }
 
-void UA_Server_addReference(UA_Server *server, const UA_AddReferencesRequest *request,
-                            UA_AddReferencesResponse *response) {
-    Service_AddReferences(server, &adminSession, request, response);
+UA_StatusCode
+UA_Server_addRepeatedCallback(UA_Server *server, UA_ServerCallback callback,
+                              void *data, UA_Double interval_ms,
+                              UA_UInt64 *callbackId) {
+    return UA_Timer_addRepeatedCallback(&server->timer,
+                                        (UA_ApplicationCallback)callback,
+                                        server, data, interval_ms, callbackId);
 }
 
-UA_AddNodesResult UA_Server_addScalarVariableNode(UA_Server *server, UA_String *browseName, void *value,
-                                                  const UA_VTable_Entry *vt, const UA_NodeId *parentNodeId,
-                                                  const UA_NodeId *referenceTypeId ) {
-    UA_ExpandedNodeId expParentNodeId;
-    UA_ExpandedNodeId_init(&expParentNodeId);
-    UA_NodeId_copy(parentNodeId, &expParentNodeId.nodeId);
-    UA_VariableNode *tmpNode = UA_VariableNode_new();
-    UA_String_copy(browseName, &tmpNode->browseName.name);
-    UA_String_copy(browseName, &tmpNode->displayName.text);
-    /* UA_LocalizedText_copycstring("integer value", &tmpNode->description); */
-    tmpNode->nodeClass = UA_NODECLASS_VARIABLE;
-    tmpNode->valueRank = -1;
-    tmpNode->value.vt = vt;
-    tmpNode->value.storage.data.dataPtr = value;
-    tmpNode->value.storageType = UA_VARIANT_DATA_NODELETE;
-    tmpNode->value.storage.data.arrayLength = 1;
-    return AddNode(server, &adminSession, (UA_Node**)&tmpNode, &expParentNodeId, referenceTypeId);
+UA_StatusCode
+UA_Server_changeRepeatedCallbackInterval(UA_Server *server, UA_UInt64 callbackId,
+                                         UA_Double interval_ms) {
+    return UA_Timer_changeRepeatedCallbackInterval(&server->timer, callbackId,
+                                                   interval_ms);
 }
+
+void
+UA_Server_removeCallback(UA_Server *server, UA_UInt64 callbackId) {
+    UA_Timer_removeCallback(&server->timer, callbackId);
+}
+
+UA_StatusCode UA_EXPORT
+UA_Server_updateCertificate(UA_Server *server,
+                            const UA_ByteString *oldCertificate,
+                            const UA_ByteString *newCertificate,
+                            const UA_ByteString *newPrivateKey,
+                            UA_Boolean closeSessions,
+                            UA_Boolean closeSecureChannels) {
+
+    if (server == NULL || oldCertificate == NULL
+        || newCertificate == NULL || newPrivateKey == NULL) {
+        return UA_STATUSCODE_BADINTERNALERROR;
+    }
+
+    if (closeSessions) {
+        UA_SessionManager *sm = &server->sessionManager;
+        session_list_entry *current;
+        LIST_FOREACH(current, &sm->sessions, pointers) {
+            if (UA_ByteString_equal(oldCertificate,
+                                    &current->session.header.channel->securityPolicy->localCertificate)) {
+                UA_SessionManager_removeSession(sm, &current->session.header.authenticationToken);
+            }
+        }
+
+    }
+
+    if (closeSecureChannels) {
+        UA_SecureChannelManager *cm = &server->secureChannelManager;
+        channel_entry *entry;
+        TAILQ_FOREACH(entry, &cm->channels, pointers) {
+            if(UA_ByteString_equal(&entry->channel.securityPolicy->localCertificate, oldCertificate)){
+                UA_SecureChannelManager_close(cm, entry->channel.securityToken.channelId);
+            }
+        }
+    }
+
+    size_t i = 0;
+    while (i < server->config.endpointsSize) {
+        UA_EndpointDescription *ed = &server->config.endpoints[i];
+        if (UA_ByteString_equal(&ed->serverCertificate, oldCertificate)) {
+            UA_String_deleteMembers(&ed->serverCertificate);
+            UA_String_copy(newCertificate, &ed->serverCertificate);
+            UA_SecurityPolicy *sp = UA_SecurityPolicy_getSecurityPolicyByUri(server, &server->config.endpoints[i].securityPolicyUri);
+            if(!sp)
+                return UA_STATUSCODE_BADINTERNALERROR;
+            sp->updateCertificateAndPrivateKey(sp, *newCertificate, *newPrivateKey);
+        }
+        i++;
+    }
+
+    return UA_STATUSCODE_GOOD;
+}
+
+/***************************/
+/* Server lookup functions */
+/***************************/
+
+UA_SecurityPolicy *
+UA_SecurityPolicy_getSecurityPolicyByUri(const UA_Server *server,
+                                         const UA_ByteString *securityPolicyUri) {
+    for(size_t i = 0; i < server->config.securityPoliciesSize; i++) {
+        UA_SecurityPolicy *securityPolicyCandidate = &server->config.securityPolicies[i];
+        if(UA_ByteString_equal(securityPolicyUri, &securityPolicyCandidate->policyUri))
+            return securityPolicyCandidate;
+    }
+    return NULL;
+}
+
+#ifdef UA_ENABLE_ENCRYPTION
+/* The local ApplicationURI has to match the certificates of the
+ * SecurityPolicies */
+static void
+verifyServerApplicationURI(const UA_Server *server) {
+#if UA_LOGLEVEL <= 400
+    for(size_t i = 0; i < server->config.securityPoliciesSize; i++) {
+        UA_SecurityPolicy *sp = &server->config.securityPolicies[i];
+        if(!sp->certificateVerification)
+            continue;
+        UA_StatusCode retval =
+            sp->certificateVerification->
+            verifyApplicationURI(sp->certificateVerification->context,
+                                 &sp->localCertificate,
+                                 &server->config.applicationDescription.applicationUri);
+        if(retval != UA_STATUSCODE_GOOD) {
+            UA_LOG_WARNING(&server->config.logger, UA_LOGCATEGORY_SERVER,
+                           "The configured ApplicationURI does not match the URI "
+                           "specified in the certificate for the SecurityPolicy %.*s",
+                           (int)sp->policyUri.length, sp->policyUri.data);
+        }
+    }
+#endif
+}
+#endif
+
+/********************/
+/* Main Server Loop */
+/********************/
+
+#define UA_MAXTIMEOUT 50 /* Max timeout in ms between main-loop iterations */
+
+/* Start: Spin up the workers and the network layer and sample the server's
+ *        start time.
+ * Iterate: Process repeated callbacks and events in the network layer. This
+ *          part can be driven from an external main-loop in an event-driven
+ *          single-threaded architecture.
+ * Stop: Stop workers, finish all callbacks, stop the network layer, clean up */
+
+UA_StatusCode
+UA_Server_run_startup(UA_Server *server) {
+    /* ensure that the uri for ns1 is set up from the app description */
+    setupNs1Uri(server);
+
+    /* write ServerArray with same ApplicationURI value as NamespaceArray */
+    UA_StatusCode retVal = writeNs0VariableArray(server, UA_NS0ID_SERVER_SERVERARRAY,
+                                    &server->config.applicationDescription.applicationUri,
+                                    1, &UA_TYPES[UA_TYPES_STRING]);
+    if(retVal != UA_STATUSCODE_GOOD)
+        return retVal;
+
+    if(server->state > UA_SERVERLIFECYCLE_FRESH)
+        return UA_STATUSCODE_GOOD;
+
+    /* At least one endpoint has to be configured */
+    if(server->config.endpointsSize == 0) {
+        UA_LOG_WARNING(&server->config.logger, UA_LOGCATEGORY_SERVER,
+                       "There has to be at least one endpoint.");
+    }
+
+    /* Initialized discovery */
+#ifdef UA_ENABLE_DISCOVERY
+    UA_DiscoveryManager_init(&server->discoveryManager, server);
+#endif
+
+    /* Does the ApplicationURI match the local certificates? */
+#ifdef UA_ENABLE_ENCRYPTION
+    verifyServerApplicationURI(server);
+#endif
+
+    /* Sample the start time and set it to the Server object */
+    server->startTime = UA_DateTime_now();
+    UA_Variant var;
+    UA_Variant_init(&var);
+    UA_Variant_setScalar(&var, &server->startTime, &UA_TYPES[UA_TYPES_DATETIME]);
+    UA_Server_writeValue(server,
+                         UA_NODEID_NUMERIC(0, UA_NS0ID_SERVER_SERVERSTATUS_STARTTIME),
+                         var);
+
+    /* Start the networklayers */
+    UA_StatusCode result = UA_STATUSCODE_GOOD;
+    for(size_t i = 0; i < server->config.networkLayersSize; ++i) {
+        UA_ServerNetworkLayer *nl = &server->config.networkLayers[i];
+        result |= nl->start(nl, &server->config.customHostname);
+    }
+
+    /* Spin up the worker threads */
+#ifdef UA_ENABLE_MULTITHREADING
+    UA_LOG_INFO(&server->config.logger, UA_LOGCATEGORY_SERVER,
+                "Spinning up %u worker thread(s)", server->config.nThreads);
+    UA_WorkQueue_start(&server->workQueue, server->config.nThreads);
+#endif
+
+    /* Start the multicast discovery server */
+#ifdef UA_ENABLE_DISCOVERY_MULTICAST
+    if(server->config.discovery.mdnsEnable)
+        startMulticastDiscoveryServer(server);
+#endif
+
+    server->state = UA_SERVERLIFECYCLE_FRESH;
+
+    return result;
+}
+
+static void
+serverExecuteRepeatedCallback(UA_Server *server, UA_ApplicationCallback cb,
+                        void *callbackApplication, void *data) {
+#ifndef UA_ENABLE_MULTITHREADING
+    cb(callbackApplication, data);
+#else
+    UA_WorkQueue_enqueue(&server->workQueue, cb, callbackApplication, data);
+#endif
+}
+
+UA_UInt16
+UA_Server_run_iterate(UA_Server *server, UA_Boolean waitInternal) {
+    /* Process repeated work */
+    UA_DateTime now = UA_DateTime_nowMonotonic();
+    UA_DateTime nextRepeated = UA_Timer_process(&server->timer, now,
+                     (UA_TimerExecutionCallback)serverExecuteRepeatedCallback, server);
+    UA_DateTime latest = now + (UA_MAXTIMEOUT * UA_DATETIME_MSEC);
+    if(nextRepeated > latest)
+        nextRepeated = latest;
+
+    UA_UInt16 timeout = 0;
+
+    /* round always to upper value to avoid timeout to be set to 0
+    * if(nextRepeated - now) < (UA_DATETIME_MSEC/2) */
+    if(waitInternal)
+        timeout = (UA_UInt16)(((nextRepeated - now) + (UA_DATETIME_MSEC - 1)) / UA_DATETIME_MSEC);
+
+    /* Listen on the networklayer */
+    for(size_t i = 0; i < server->config.networkLayersSize; ++i) {
+        UA_ServerNetworkLayer *nl = &server->config.networkLayers[i];
+        nl->listen(nl, server, timeout);
+    }
+
+#if defined(UA_ENABLE_DISCOVERY_MULTICAST) && !defined(UA_ENABLE_MULTITHREADING)
+    if(server->config.discovery.mdnsEnable) {
+        // TODO multicastNextRepeat does not consider new input data (requests)
+        // on the socket. It will be handled on the next call. if needed, we
+        // need to use select with timeout on the multicast socket
+        // server->mdnsSocket (see example in mdnsd library) on higher level.
+        UA_DateTime multicastNextRepeat = 0;
+        UA_StatusCode hasNext =
+            iterateMulticastDiscoveryServer(server, &multicastNextRepeat, true);
+        if(hasNext == UA_STATUSCODE_GOOD && multicastNextRepeat < nextRepeated)
+            nextRepeated = multicastNextRepeat;
+    }
+#endif
+
+#ifndef UA_ENABLE_MULTITHREADING
+    UA_WorkQueue_manuallyProcessDelayed(&server->workQueue);
+#endif
+
+    now = UA_DateTime_nowMonotonic();
+    timeout = 0;
+    if(nextRepeated > now)
+        timeout = (UA_UInt16)((nextRepeated - now) / UA_DATETIME_MSEC);
+    return timeout;
+}
+
+UA_StatusCode
+UA_Server_run_shutdown(UA_Server *server) {
+    /* Stop the netowrk layer */
+    for(size_t i = 0; i < server->config.networkLayersSize; ++i) {
+        UA_ServerNetworkLayer *nl = &server->config.networkLayers[i];
+        nl->stop(nl, server);
+    }
+
+#ifdef UA_ENABLE_MULTITHREADING
+    /* Shut down the workers */
+    UA_LOG_INFO(&server->config.logger, UA_LOGCATEGORY_SERVER,
+                "Shutting down %u worker thread(s)",
+                (UA_UInt32)server->workQueue.workersSize);
+    UA_WorkQueue_stop(&server->workQueue);
+#endif
+
+#ifdef UA_ENABLE_DISCOVERY_MULTICAST
+    /* Stop multicast discovery */
+    if(server->config.discovery.mdnsEnable)
+        stopMulticastDiscoveryServer(server);
+#endif
+
+    /* Execute all delayed callbacks */
+    UA_WorkQueue_cleanup(&server->workQueue);
+
+    return UA_STATUSCODE_GOOD;
+}
+
+UA_StatusCode
+UA_Server_run(UA_Server *server, const volatile UA_Boolean *running) {
+    UA_StatusCode retval = UA_Server_run_startup(server);
+    if(retval != UA_STATUSCODE_GOOD)
+        return retval;
+#ifdef UA_ENABLE_VALGRIND_INTERACTIVE
+    size_t loopCount = 0;
+#endif
+    while(*running) {
+#ifdef UA_ENABLE_VALGRIND_INTERACTIVE
+        if(loopCount == 0) {
+            VALGRIND_DO_LEAK_CHECK;
+        }
+        ++loopCount;
+        loopCount %= UA_VALGRIND_INTERACTIVE_INTERVAL;
+#endif
+        UA_Server_run_iterate(server, true);
+    }
+    return UA_Server_run_shutdown(server);
+}
+
+#ifdef UA_ENABLE_HISTORIZING
+/* Allow insert of historical data */
+UA_Boolean
+UA_Server_AccessControl_allowHistoryUpdateUpdateData(UA_Server *server,
+                                                     const UA_NodeId *sessionId, void *sessionContext,
+                                                     const UA_NodeId *nodeId,
+                                                     UA_PerformUpdateType performInsertReplace,
+                                                     const UA_DataValue *value) {
+    if(server->config.accessControl.allowHistoryUpdateUpdateData &&
+            !server->config.accessControl.allowHistoryUpdateUpdateData(server, &server->config.accessControl,
+                                                                       sessionId, sessionContext, nodeId,
+                                                                       performInsertReplace, value)) {
+        return false;
+    }
+    return true;
+}
+
+/* Allow delete of historical data */
+UA_Boolean
+UA_Server_AccessControl_allowHistoryUpdateDeleteRawModified(UA_Server *server,
+                                                            const UA_NodeId *sessionId, void *sessionContext,
+                                                            const UA_NodeId *nodeId,
+                                                            UA_DateTime startTimestamp,
+                                                            UA_DateTime endTimestamp,
+                                                            bool isDeleteModified) {
+    if(server->config.accessControl.allowHistoryUpdateDeleteRawModified &&
+            !server->config.accessControl.allowHistoryUpdateDeleteRawModified(server, &server->config.accessControl,
+                                                                              sessionId, sessionContext, nodeId,
+                                                                              startTimestamp, endTimestamp,
+                                                                              isDeleteModified)) {
+        return false;
+    }
+    return true;
+
+}
+#endif /* UA_ENABLE_HISTORIZING */

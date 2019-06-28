@@ -16,6 +16,7 @@
 *.pyc
 *.gcno
 *.gcda
+*.swp
 .dirstamp
 /bin
 m4
@@ -69,3 +70,17 @@ tests/check_encode
 tests/check_memory
 tests/check_namespace
 tests/coverage
+Makefile
+/CMakeCache.txt
+/CMakeFiles/
+/cmake_install.cmake
+/exampleClient
+/exampleClient_legacy
+/src_generated/
+/build
+/.idea
+/cmake-build*
+/tools/certs/certs/*
+Pipfile
+Pipfile.lock
+.vscode

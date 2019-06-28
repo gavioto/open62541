@@ -1,126 +1,188 @@
-#include "ua_session_manager.h"
-#include "ua_statuscodes.h"
-#include "ua_util.h"
-
-/**
- The functions in this file are not thread-safe. For multi-threaded access, a
- second implementation should be provided. See for example, how a nodestore
- implementation is choosen based on whether multithreading is enabled or not.
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. 
+ *
+ *    Copyright 2014-2017 (c) Fraunhofer IOSB (Author: Julius Pfrommer)
+ *    Copyright 2014, 2017 (c) Florian Palm
+ *    Copyright 2015 (c) Sten Grüner
+ *    Copyright 2015 (c) Oleksiy Vasylyev
+ *    Copyright 2017 (c) Stefan Profanter, fortiss GmbH
  */
 
-struct session_list_entry {
-    UA_Session session;
-    LIST_ENTRY(session_list_entry) pointers;
-};
+#include "ua_session_manager.h"
+#include "ua_server_internal.h"
+#include "ua_subscription.h"
 
-UA_StatusCode UA_SessionManager_init(UA_SessionManager *sessionManager, UA_UInt32 maxSessionCount,
-                                    UA_UInt32 sessionTimeout, UA_UInt32 startSessionId) {
-    LIST_INIT(&sessionManager->sessions);
-    sessionManager->maxSessionCount = maxSessionCount;
-    sessionManager->lastSessionId   = startSessionId;
-    sessionManager->sessionTimeout  = sessionTimeout;
-    sessionManager->currentSessionCount = 0;
+UA_StatusCode
+UA_SessionManager_init(UA_SessionManager *sm, UA_Server *server) {
+    LIST_INIT(&sm->sessions);
+    sm->currentSessionCount = 0;
+    sm->server = server;
     return UA_STATUSCODE_GOOD;
 }
 
-void UA_SessionManager_deleteMembers(UA_SessionManager *sessionManager) {
-    struct session_list_entry *current = LIST_FIRST(&sessionManager->sessions);
-    while(current) {
-        LIST_REMOVE(current, pointers);
-        if(current->session.channel)
-            current->session.channel->session = UA_NULL; // the channel is no longer attached to a session
-        UA_Session_deleteMembers(&current->session);
-        UA_free(current);
-        current = LIST_FIRST(&sessionManager->sessions);
+/* Delayed callback to free the session memory */
+static void
+removeSessionCallback(UA_Server *server, session_list_entry *entry) {
+    UA_Session_deleteMembersCleanup(&entry->session, server);
+}
+
+static void
+removeSession(UA_SessionManager *sm, session_list_entry *sentry) {
+    /* Remove the Subscriptions */
+#ifdef UA_ENABLE_SUBSCRIPTIONS
+    UA_Subscription *sub, *tempsub;
+    LIST_FOREACH_SAFE(sub, &sentry->session.serverSubscriptions, listEntry, tempsub) {
+        UA_Session_deleteSubscription(sm->server, &sentry->session, sub->subscriptionId);
+    }
+
+    UA_PublishResponseEntry *entry;
+    while((entry = UA_Session_dequeuePublishReq(&sentry->session))) {
+        UA_PublishResponse_deleteMembers(&entry->response);
+        UA_free(entry);
+    }
+#endif
+
+    /* Detach the Session from the SecureChannel */
+    UA_Session_detachFromSecureChannel(&sentry->session);
+
+    /* Deactivate the session */
+    sentry->session.activated = false;
+
+    /* Detach the session from the session manager and make the capacity
+     * available */
+    LIST_REMOVE(sentry, pointers);
+    UA_atomic_subUInt32(&sm->currentSessionCount, 1);
+
+    /* Add a delayed callback to remove the session when the currently
+     * scheduled jobs have completed */
+    sentry->cleanupCallback.callback = (UA_ApplicationCallback)removeSessionCallback;
+    sentry->cleanupCallback.application = sm->server;
+    sentry->cleanupCallback.data = sentry;
+    UA_WorkQueue_enqueueDelayed(&sm->server->workQueue, &sentry->cleanupCallback);
+}
+
+void UA_SessionManager_deleteMembers(UA_SessionManager *sm) {
+    session_list_entry *current, *temp;
+    LIST_FOREACH_SAFE(current, &sm->sessions, pointers, temp) {
+        removeSession(sm, current);
     }
 }
 
-UA_StatusCode UA_SessionManager_getSessionById(UA_SessionManager *sessionManager, UA_NodeId *sessionId, UA_Session **session) {
-    if(sessionManager == UA_NULL) {
-        *session = UA_NULL;
-        return UA_STATUSCODE_BADINTERNALERROR;
+void
+UA_SessionManager_cleanupTimedOut(UA_SessionManager *sm,
+                                  UA_DateTime nowMonotonic) {
+    session_list_entry *sentry, *temp;
+    LIST_FOREACH_SAFE(sentry, &sm->sessions, pointers, temp) {
+        /* Session has timed out? */
+        if(sentry->session.validTill >= nowMonotonic)
+            continue;
+        UA_LOG_INFO_SESSION(&sm->server->config.logger, &sentry->session,
+                            "Session has timed out");
+        sm->server->config.accessControl.closeSession(sm->server,
+                                                      &sm->server->config.accessControl,
+                                                      &sentry->session.sessionId,
+                                                      sentry->session.sessionHandle);
+        removeSession(sm, sentry);
     }
-
-    struct session_list_entry *current = UA_NULL;
-    LIST_FOREACH(current, &sessionManager->sessions, pointers) {
-        if(UA_NodeId_equal(&current->session.sessionId, sessionId))
-            break;
-    }
-
-    if(!current) {
-        *session = UA_NULL;
-        return UA_STATUSCODE_BADINTERNALERROR;
-    }
-
-    // Lifetime handling is not done here, but in a regular cleanup by the
-    // server. If the session still exists, then it is valid.
-    *session = &current->session;
-    return UA_STATUSCODE_GOOD;
 }
 
-UA_StatusCode UA_SessionManager_getSessionByToken(UA_SessionManager *sessionManager, UA_NodeId *token, UA_Session **session) {
-    if(sessionManager == UA_NULL) {
-        *session = UA_NULL;
-        return UA_STATUSCODE_BADINTERNALERROR;
+UA_Session *
+UA_SessionManager_getSessionByToken(UA_SessionManager *sm, const UA_NodeId *token) {
+    session_list_entry *current = NULL;
+    LIST_FOREACH(current, &sm->sessions, pointers) {
+        /* Token does not match */
+        if(!UA_NodeId_equal(&current->session.header.authenticationToken, token))
+            continue;
+
+        /* Session has timed out */
+        if(UA_DateTime_nowMonotonic() > current->session.validTill) {
+            UA_LOG_INFO_SESSION(&sm->server->config.logger, &current->session,
+                                "Client tries to use a session that has timed out");
+            return NULL;
+        }
+
+        /* Ok, return */
+        return &current->session;
     }
 
-    struct session_list_entry *current = UA_NULL;
-    LIST_FOREACH(current, &sessionManager->sessions, pointers) {
-        if(UA_NodeId_equal(&current->session.authenticationToken, token))
-            break;
-    }
-
-    if(!current) {
-        *session = UA_NULL;
-        return UA_STATUSCODE_BADINTERNALERROR;
-    }
-
-    // Lifetime handling is not done here, but in a regular cleanup by the
-    // server. If the session still exists, then it is valid.
-    *session = &current->session;
-    return UA_STATUSCODE_GOOD;
+    /* Session not found */
+    UA_String nodeIdStr = UA_STRING_NULL;
+    UA_NodeId_toString(token, &nodeIdStr);
+    UA_LOG_INFO(&sm->server->config.logger, UA_LOGCATEGORY_SESSION,
+                "Try to use Session with token %.*s but is not found",
+                (int)nodeIdStr.length, nodeIdStr.data);
+    UA_String_deleteMembers(&nodeIdStr);
+    return NULL;
 }
 
-/** Creates and adds a session. */
-UA_StatusCode UA_SessionManager_createSession(UA_SessionManager *sessionManager, UA_SecureChannel *channel,
-                                              UA_Session **session) {
-    if(sessionManager->currentSessionCount >= sessionManager->maxSessionCount)
+UA_Session *
+UA_SessionManager_getSessionById(UA_SessionManager *sm, const UA_NodeId *sessionId) {
+    session_list_entry *current = NULL;
+    LIST_FOREACH(current, &sm->sessions, pointers) {
+        /* Token does not match */
+        if(!UA_NodeId_equal(&current->session.sessionId, sessionId))
+            continue;
+
+        /* Session has timed out */
+        if(UA_DateTime_nowMonotonic() > current->session.validTill) {
+            UA_LOG_INFO_SESSION(&sm->server->config.logger, &current->session,
+                                "Client tries to use a session that has timed out");
+            return NULL;
+        }
+
+        /* Ok, return */
+        return &current->session;
+    }
+
+    /* Session not found */
+    UA_String sessionIdStr = UA_STRING_NULL;
+    UA_NodeId_toString(sessionId, &sessionIdStr);
+    UA_LOG_INFO(&sm->server->config.logger, UA_LOGCATEGORY_SESSION,
+                "Try to use Session with identifier %.*s but is not found",
+                (int)sessionIdStr.length, sessionIdStr.data);
+    UA_String_deleteMembers(&sessionIdStr);
+    return NULL;
+}
+
+/* Creates and adds a session. But it is not yet attached to a secure channel. */
+UA_StatusCode
+UA_SessionManager_createSession(UA_SessionManager *sm, UA_SecureChannel *channel,
+                                const UA_CreateSessionRequest *request, UA_Session **session) {
+    if(sm->currentSessionCount >= sm->server->config.maxSessions)
         return UA_STATUSCODE_BADTOOMANYSESSIONS;
 
-    struct session_list_entry *newentry = UA_alloc(sizeof(struct session_list_entry));
+    session_list_entry *newentry = (session_list_entry *)UA_malloc(sizeof(session_list_entry));
     if(!newentry)
         return UA_STATUSCODE_BADOUTOFMEMORY;
 
+    UA_atomic_addUInt32(&sm->currentSessionCount, 1);
     UA_Session_init(&newentry->session);
-    newentry->session.sessionId = (UA_NodeId) {.namespaceIndex = 1, .identifierType = UA_NODEIDTYPE_NUMERIC,
-                                               .identifier.numeric = sessionManager->lastSessionId++ };
-    newentry->session.authenticationToken = (UA_NodeId) {.namespaceIndex = 1,
-                                                         .identifierType = UA_NODEIDTYPE_NUMERIC,
-                                                         .identifier.numeric = sessionManager->lastSessionId };
-    newentry->session.channel = channel;
-    newentry->session.timeout = 3600 * 1000; // 1h
-    UA_Session_setExpirationDate(&newentry->session);
+    newentry->session.sessionId = UA_NODEID_GUID(1, UA_Guid_random());
+    newentry->session.header.authenticationToken = UA_NODEID_GUID(1, UA_Guid_random());
 
-    sessionManager->currentSessionCount++;
-    LIST_INSERT_HEAD(&sessionManager->sessions, newentry, pointers);
+    if(request->requestedSessionTimeout <= sm->server->config.maxSessionTimeout &&
+       request->requestedSessionTimeout > 0)
+        newentry->session.timeout = request->requestedSessionTimeout;
+    else
+        newentry->session.timeout = sm->server->config.maxSessionTimeout;
+
+    UA_Session_updateLifetime(&newentry->session);
+    LIST_INSERT_HEAD(&sm->sessions, newentry, pointers);
     *session = &newentry->session;
     return UA_STATUSCODE_GOOD;
 }
 
-UA_StatusCode UA_SessionManager_removeSession(UA_SessionManager *sessionManager, UA_NodeId  *sessionId) {
-    struct session_list_entry *current = UA_NULL;
-    LIST_FOREACH(current, &sessionManager->sessions, pointers) {
-        if(UA_NodeId_equal(&current->session.sessionId, sessionId))
+UA_StatusCode
+UA_SessionManager_removeSession(UA_SessionManager *sm, const UA_NodeId *token) {
+    session_list_entry *current;
+    LIST_FOREACH(current, &sm->sessions, pointers) {
+        if(UA_NodeId_equal(&current->session.header.authenticationToken, token))
             break;
     }
-
     if(!current)
-        return UA_STATUSCODE_BADINTERNALERROR;
+        return UA_STATUSCODE_BADSESSIONIDINVALID;
 
-    LIST_REMOVE(current, pointers);
-    if(current->session.channel)
-        current->session.channel->session = UA_NULL; // the channel is no longer attached to a session
-    UA_Session_deleteMembers(&current->session);
-    UA_free(current);
+    removeSession(sm, current);
     return UA_STATUSCODE_GOOD;
 }

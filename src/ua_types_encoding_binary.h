@@ -1,109 +1,79 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ *    Copyright 2014-2017 (c) Fraunhofer IOSB (Author: Julius Pfrommer)
+ *    Copyright 2015 (c) Sten Grüner
+ *    Copyright 2014, 2017 (c) Florian Palm
+ *    Copyright 2017 (c) Stefan Profanter, fortiss GmbH
+ *    Copyright 2017 (c) Mark Giraud, Fraunhofer IOSB
+ */
+
 #ifndef UA_TYPES_ENCODING_BINARY_H_
 #define UA_TYPES_ENCODING_BINARY_H_
 
-#include "ua_types.h"
+#include <open62541/types.h>
 
-/**
- * @ingroup types
- * @defgroup encoding Datatype Encoding
+_UA_BEGIN_DECLS
+
+typedef UA_StatusCode (*UA_exchangeEncodeBuffer)(void *handle, UA_Byte **bufPos,
+                                                 const UA_Byte **bufEnd);
+
+/* Encodes the scalar value described by type in the binary encoding. Encoding
+ * is thread-safe if thread-local variables are enabled. Encoding is also
+ * reentrant and can be safely called from signal handlers or interrupts.
  *
- * @brief Datatypes can have several encodings. The methods defined for
- * encodings and their signature are fixed. When supplied with an inappropriate
- * null-pointer, these functions _will crash_. Exceptions are documented for the
- * individual functions.
+ * @param src The value. Must not be NULL.
+ * @param type The value type. Must not be NULL.
+ * @param bufPos Points to a pointer to the current position in the encoding
+ *        buffer. Must not be NULL. The pointer is advanced by the number of
+ *        encoded bytes, or, if the buffer is exchanged, to the position in the
+ *        new buffer.
+ * @param bufEnd Points to a pointer to the end of the encoding buffer (encoding
+ *        always stops before *buf_end). Must not be NULL. The pointer is
+ *        changed when the buffer is exchanged.
+ * @param exchangeCallback Called when the end of the buffer is reached. This is
+          used to send out a message chunk before continuing with the encoding.
+          Is ignored if NULL.
+ * @param exchangeHandle Custom data passed into the exchangeCallback.
+ * @return Returns a statuscode whether encoding succeeded. */
+UA_StatusCode 
+UA_encodeBinary(const void *src, const UA_DataType *type,
+                UA_Byte **bufPos, const UA_Byte **bufEnd,
+                UA_exchangeEncodeBuffer exchangeCallback,
+                void *exchangeHandle) UA_FUNC_ATTR_WARN_UNUSED_RESULT;
+
+/* Decodes a scalar value described by type from binary encoding. Decoding
+ * is thread-safe if thread-local variables are enabled. Decoding is also
+ * reentrant and can be safely called from signal handlers or interrupts.
  *
- * - CalcSize: Returns the size of the (encoded) variable in bytes. This
- *   function is mainly used to allocate the bytestring into which the encoding
- *   is done.
- *
- * - Encode: Encodes a variable into a bytestring. If an error occurs
- *   (indicated by the return value), the bytestring may be left in an
- *   inconsistent state.
- *
- * - Decode: Decodes a variable stored in a bytestring. The destination is
- *   cleaned up (init) before decoding into it. If an error occurs (indicated by
- *   the return value), the destination is cleaned up (deleteMembers, but no
- *   init) before returning.
- */
+ * @param src The buffer with the binary encoded value. Must not be NULL.
+ * @param offset The current position in the buffer. Must not be NULL. The value
+ *        is advanced as decoding progresses.
+ * @param dst The target value. Must not be NULL. The target is assumed to have
+ *        size type->memSize. The value is reset to zero before decoding. If
+ *        decoding fails, members are deleted and the value is reset (zeroed)
+ *        again.
+ * @param type The value type. Must not be NULL.
+ * @param customTypesSize The number of non-standard datatypes contained in the
+ *        customTypes array.
+ * @param customTypes An array of non-standard datatypes (not included in
+ *        UA_TYPES). Can be NULL if customTypesSize is zero.
+ * @return Returns a statuscode whether decoding succeeded. */
+UA_StatusCode
+UA_decodeBinary(const UA_ByteString *src, size_t *offset, void *dst,
+                const UA_DataType *type, const UA_DataTypeArray *customTypes)
+    UA_FUNC_ATTR_WARN_UNUSED_RESULT;
 
-/**
- * @ingroup encoding
- * @defgroup encoding_binary Binary Encoding
- *
- * @brief Functions for binary en- and decoding of built-in datatypes as defined
- * in the standard.
- *
- * @{
- */
+/* Returns the number of bytes the value p takes in binary encoding. Returns
+ * zero if an error occurs. UA_calcSizeBinary is thread-safe and reentrant since
+ * it does not access global (thread-local) variables. */
+size_t
+UA_calcSizeBinary(const void *p, const UA_DataType *type);
 
-#define UA_TYPE_CALCSIZEBINARY_AS(TYPE, TYPE_AS)       \
-    UA_UInt32 TYPE##_calcSizeBinary(TYPE const *p) {    \
-        return TYPE_AS##_calcSizeBinary((TYPE_AS *)p); \
-    }
+const UA_DataType *
+UA_findDataTypeByBinary(const UA_NodeId *typeId);
 
-#define UA_TYPE_ENCODEBINARY_AS(TYPE, TYPE_AS)                          \
-    UA_StatusCode TYPE##_encodeBinary(TYPE const *src, UA_ByteString *dst, UA_UInt32 *offset) { \
-        return TYPE_AS##_encodeBinary((TYPE_AS *)src, dst, offset);     \
-    }
-
-#define UA_TYPE_DECODEBINARY_AS(TYPE, TYPE_AS)                                             \
-    UA_StatusCode TYPE##_decodeBinary(UA_ByteString const *src, UA_UInt32 *offset, TYPE *dst) { \
-        return TYPE_AS##_decodeBinary(src, offset, (TYPE_AS *)dst);                        \
-    }
-#define UA_TYPE_BINARY_ENCODING_AS(TYPE, TYPE_AS) \
-    UA_TYPE_CALCSIZEBINARY_AS(TYPE, TYPE_AS)      \
-    UA_TYPE_ENCODEBINARY_AS(TYPE, TYPE_AS)        \
-    UA_TYPE_DECODEBINARY_AS(TYPE, TYPE_AS)
-
-#define UA_TYPE_BINARY_ENCODING(TYPE)                                                     \
-    UA_UInt32 TYPE##_calcSizeBinary(TYPE const *p);                                        \
-    UA_StatusCode TYPE##_encodeBinary(TYPE const *src, UA_ByteString *dst, UA_UInt32 *offset); \
-    UA_StatusCode TYPE##_decodeBinary(UA_ByteString const *src, UA_UInt32 *offset, TYPE *dst);
-
-UA_TYPE_BINARY_ENCODING(UA_Boolean)
-UA_TYPE_BINARY_ENCODING(UA_SByte)
-UA_TYPE_BINARY_ENCODING(UA_Byte)
-UA_TYPE_BINARY_ENCODING(UA_Int16)
-UA_TYPE_BINARY_ENCODING(UA_UInt16)
-UA_TYPE_BINARY_ENCODING(UA_Int32)
-UA_TYPE_BINARY_ENCODING(UA_UInt32)
-UA_TYPE_BINARY_ENCODING(UA_Int64)
-UA_TYPE_BINARY_ENCODING(UA_UInt64)
-UA_TYPE_BINARY_ENCODING(UA_Float)
-UA_TYPE_BINARY_ENCODING(UA_Double)
-UA_TYPE_BINARY_ENCODING(UA_String)
-UA_TYPE_BINARY_ENCODING(UA_DateTime)
-UA_TYPE_BINARY_ENCODING(UA_Guid)
-UA_TYPE_BINARY_ENCODING(UA_ByteString)
-UA_TYPE_BINARY_ENCODING(UA_XmlElement)
-UA_TYPE_BINARY_ENCODING(UA_NodeId)
-UA_TYPE_BINARY_ENCODING(UA_ExpandedNodeId)
-UA_TYPE_BINARY_ENCODING(UA_StatusCode)
-UA_TYPE_BINARY_ENCODING(UA_QualifiedName)
-UA_TYPE_BINARY_ENCODING(UA_LocalizedText)
-UA_TYPE_BINARY_ENCODING(UA_ExtensionObject)
-UA_TYPE_BINARY_ENCODING(UA_DataValue)
-UA_TYPE_BINARY_ENCODING(UA_Variant)
-UA_TYPE_BINARY_ENCODING(UA_DiagnosticInfo)
-
-/* Not built-in types */
-UA_TYPE_BINARY_ENCODING(UA_InvalidType)
-
-/*********/
-/* Array */
-/*********/
-
-/* Computes the size of an array (incl. length field) in a binary blob. */
-UA_UInt32 UA_Array_calcSizeBinary(UA_Int32 length, const UA_VTable_Entry *vt, const void *data);
-
-/* @brief Encodes an array into a binary blob. The array size is printed as well. */
-UA_StatusCode UA_Array_encodeBinary(const void *src, UA_Int32 length, const UA_VTable_Entry *vt,
-                                    UA_ByteString *dst, UA_UInt32 *offset);
-
-/* @brief Decodes an array from a binary blob. The array is allocated automatically before decoding. */
-UA_StatusCode UA_Array_decodeBinary(const UA_ByteString *src, UA_UInt32 *offset, UA_Int32 length,
-                                    const UA_VTable_Entry *vt, void **dst);
-
-/// @} /* end of group */
+_UA_END_DECLS
 
 #endif /* UA_TYPES_ENCODING_BINARY_H_ */
